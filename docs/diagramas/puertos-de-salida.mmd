@@ -1,0 +1,59 @@
+flowchart LR
+    subgraph PUERTOS["Puertos de salida · los declara el dominio"]
+        direction TB
+        S1["UsuarioRepositorio<br/><i>lo usan: autenticación, registro,<br/>perfil, recuperación, sesiones</i>"]
+        S2["EjercicioRepositorio<br/><i>banco, simulacros, administración</i>"]
+        S3["IntentoRepositorio<br/><i>respuestas, historial,<br/>simulacros, estadísticas</i>"]
+        S4["SimulacroRepositorio<br/><i>simulacros, estadísticas</i>"]
+        S5["TokenRecuperacionRepositorio<br/><i>recuperación de contraseña</i>"]
+        S6["SesionRepositorio<br/><i>cierre y expiración de sesión</i>"]
+        S7["CatalogoRepositorio<br/><i>componentes, competencias,<br/>niveles, tipos de error, duraciones</i>"]
+        S8["AuditoriaRepositorio<br/><i>administración del banco</i>"]
+        S9["ParametrosDelSistema<br/><i>umbrales y límites configurables</i>"]
+        S10["ProveedorDeTokens<br/><i>sesión y registro</i>"]
+        S11["CifradorDeContrasenas<br/><i>registro, ingreso, perfil</i>"]
+        S12["NotificadorDeCorreo<br/><i>enlace de restablecimiento</i>"]
+        S13["VerificadorDeGoogle<br/><i>registro con Google</i>"]
+        S14["AlmacenDeImagenes<br/><i>enunciados y opciones</i>"]
+        S15["Reloj<br/><i>todo lo que depende de la hora</i>"]
+    end
+
+    subgraph ADAPTADORES["Adaptadores de salida · infraestructura"]
+        direction TB
+        A1["UsuarioAdaptador"]
+        A2["EjercicioAdaptador"]
+        A3["IntentoAdaptador"]
+        A4["SimulacroAdaptador"]
+        A5["TokenRecuperacionAdaptador"]
+        A6["SesionAdaptador"]
+        A7["CatalogoAdaptador"]
+        A8["AuditoriaAdaptador"]
+        A9["ParametrosAdaptador"]
+        A10["JwtProveedorDeTokens"]
+        A11["CifradorBCrypt"]
+        A12["CorreoSmtp"]
+        A13["GoogleIdentityServices"]
+        A14["AlmacenEnDisco"]
+        A15["RelojDelSistema"]
+    end
+
+    A1 -. implementa .-> S1
+    A2 -. implementa .-> S2
+    A3 -. implementa .-> S3
+    A4 -. implementa .-> S4
+    A5 -. implementa .-> S5
+    A6 -. implementa .-> S6
+    A7 -. implementa .-> S7
+    A8 -. implementa .-> S8
+    A9 -. implementa .-> S9
+    A10 -. implementa .-> S10
+    A11 -. implementa .-> S11
+    A12 -. implementa .-> S12
+    A13 -. implementa .-> S13
+    A14 -. implementa .-> S14
+    A15 -. implementa .-> S15
+
+    classDef puerto fill:#fef3c7,stroke:#b45309,color:#1f2937
+    classDef adaptador fill:#f3f4f6,stroke:#6b7280,color:#1f2937
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,S14,S15 puerto
+    class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15 adaptador

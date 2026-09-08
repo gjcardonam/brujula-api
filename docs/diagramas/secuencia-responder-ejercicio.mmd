@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    actor E as Estudiante
+    participant C as IntentoControlador<br/>adaptador de entrada
+    participant P as ResponderEjercicio<br/>puerto de entrada
+    participant U as RegistroDeIntentos<br/>caso de uso
+    participant M as ClasificadorDeError<br/>servicio de dominio
+    participant R as IntentoRepositorio<br/>puerto de salida
+    participant A as IntentoAdaptador<br/>JPA
+
+    E->>C: POST /api/intentos<br/>opción, confianza, token
+    C->>P: responder(idEstudiante, respuesta)
+    P->>U: (implementación)
+
+    U->>U: valida opción y nivel de confianza
+    U->>R: porToken(tokenIdempotencia)
+    R->>A: consulta
+    A-->>U: vacío, no es un reenvío
+
+    Note over U: si la respuesta es incorrecta,<br/>se clasifica el error una sola vez
+    U->>R: ultimosResultados(ventana)
+    R->>A: consulta
+    A-->>U: resultados previos del área
+    U->>M: clasificar(confianza, opción, ventana)
+    M-->>U: Error cognitivo, de hábito o de ansiedad
+
+    U->>R: guardar(intento)
+    R->>A: insert
+    A-->>U: intento con id
+    U-->>C: ResultadoDeIntento
+    C-->>E: 201 con la retroalimentación de su opción
+
+    Note over C,E: el tipo de error no viaja en la respuesta,<br/>solo se ve agregado en las estadísticas

@@ -1,0 +1,35 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant C as AutenticacionControlador
+    participant P as AutenticarUsuario<br/>puerto de entrada
+    participant S as AutenticacionDeUsuarios<br/>caso de uso
+    participant E as Usuario<br/>entidad de dominio
+    participant R as UsuarioRepositorio<br/>puerto de salida
+    participant T as ProveedorDeTokens<br/>puerto de salida
+
+    U->>C: POST /api/auth/login
+    C->>P: autenticar(correo, contraseña)
+    P->>S: (implementación)
+    S->>R: porEmail(correo)
+    R-->>S: usuario
+
+    alt cuenta bloqueada y el castigo sigue vigente
+        S->>E: estaBloqueado(ahora, minutos)
+        E-->>S: sí
+        S-->>C: CuentaBloqueada
+        C-->>U: 423 con los minutos que faltan
+    else contraseña incorrecta
+        S->>E: registrarIngresoFallido(ahora, máximo)
+        E-->>S: quedó bloqueada o no
+        S->>R: guardar(usuario)
+        S-->>C: CredencialesInvalidas
+        C-->>U: 401 con el mismo mensaje de siempre
+    else credenciales correctas
+        S->>E: registrarIngresoExitoso(ahora)
+        S->>R: guardar(usuario)
+        S->>T: emitirSesion(usuario)
+        T-->>S: token, jti y vencimiento
+        S-->>C: SesionIniciada
+        C-->>U: 200 con el token y su rol
+    end

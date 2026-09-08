@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="930" viewBox="0 0 1500 930">
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1e3a5f"/></marker>
+<marker id="flechaGris" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#4b5563"/></marker>
+</defs>
+<rect width="1500" height="930" fill="#ffffff"/>
+<text x="750.0" y="38.0" font-size="22" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Brújula · arquitectura hexagonal</text>
+<text x="750.0" y="60.0" font-size="13" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">las dependencias siempre apuntan hacia el dominio</text>
+<polygon points="1050.0,470.0 900.0,729.8 600.0,729.8 450.0,470.0 600.0,210.2 900.0,210.2" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2.5"/>
+<polygon points="940.0,470.0 845.0,634.5 655.0,634.5 560.0,470.0 655.0,305.5 845.0,305.5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="750.0" y="248.0" font-size="15" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">APLICACIÓN</text>
+<text x="750.0" y="266.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">casos de uso</text>
+<text x="750.0" y="408.0" font-size="18" fill="#92400e" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">DOMINIO</text>
+<text x="750.0" y="438.0" font-size="13" fill="#78350f" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">modelo</text>
+<text x="750.0" y="460.0" font-size="13" fill="#78350f" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">servicios de dominio</text>
+<text x="750.0" y="482.0" font-size="13" fill="#78350f" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">puertos de entrada y salida</text>
+<text x="750.0" y="504.0" font-size="13" fill="#78350f" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">errores de negocio</text>
+<text x="750.0" y="542.0" font-size="11" fill="#92400e" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">sin Spring, sin JPA, sin HTTP</text>
+<rect x="558.7" y="664.1" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="552.7" y="676.1" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">RegistrarEstudiante</text>
+<rect x="525.3" y="606.3" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="519.3" y="618.3" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">AutenticarUsuario</text>
+<rect x="492.0" y="548.6" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="486.0" y="560.6" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">ValidarSesion</text>
+<rect x="458.7" y="490.9" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="452.7" y="502.9" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">ConsultarBanco</text>
+<rect x="458.7" y="433.1" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="452.7" y="445.1" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">ResponderEjercicio</text>
+<rect x="492.0" y="375.4" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="486.0" y="387.4" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">GestionarSimulacro</text>
+<rect x="525.3" y="317.7" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="519.3" y="329.7" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">ConsultarEstadisticas</text>
+<rect x="558.7" y="259.9" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="552.7" y="271.9" font-size="11" fill="#1e3a5f" text-anchor="end" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">AdministrarEjercicios</text>
+<rect x="925.3" y="259.9" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="947.3" y="271.9" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">UsuarioRepositorio</text>
+<rect x="958.7" y="317.7" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="980.7" y="329.7" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">EjercicioRepositorio</text>
+<rect x="992.0" y="375.4" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1014.0" y="387.4" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">IntentoRepositorio</text>
+<rect x="1025.3" y="433.1" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1047.3" y="445.1" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">SimulacroRepositorio</text>
+<rect x="1025.3" y="490.9" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1047.3" y="502.9" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">ProveedorDeTokens</text>
+<rect x="992.0" y="548.6" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1014.0" y="560.6" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">CifradorDeContrasenas</text>
+<rect x="958.7" y="606.3" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="980.7" y="618.3" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">NotificadorDeCorreo</text>
+<rect x="925.3" y="664.1" width="16" height="16" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="947.3" y="676.1" font-size="11" fill="#1e3a5f" text-anchor="start" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">VerificadorDeGoogle</text>
+<text x="410.0" y="208.0" font-size="12" fill="#1e3a5f" text-anchor="end" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">puertos de entrada</text>
+<text x="1090.0" y="208.0" font-size="12" fill="#1e3a5f" text-anchor="start" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">puertos de salida</text>
+<text x="155.0" y="297.0" font-size="13" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">ADAPTADORES DE ENTRADA</text>
+<text x="155.0" y="315.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">manejan la aplicación</text>
+<rect x="30" y="343.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="155.0" y="365.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Controladores REST</text>
+<text x="155.0" y="385.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">autenticación, ejercicios, intentos,</text>
+<text x="155.0" y="400.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">simulacros, estadísticas, perfil</text>
+<path d="M286,380.0 L424.0,470.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="30" y="433.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="155.0" y="455.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Filtro de autenticación</text>
+<text x="155.0" y="475.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">valida el token en cada petición</text>
+<path d="M286,470.0 L424.0,470.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="30" y="523.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="155.0" y="545.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Carga al arrancar</text>
+<text x="155.0" y="565.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">administrador inicial</text>
+<text x="155.0" y="580.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">y datos de ejemplo</text>
+<path d="M286,560.0 L424.0,470.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<text x="1345.0" y="207.0" font-size="13" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">ADAPTADORES DE SALIDA</text>
+<text x="1345.0" y="225.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">los conduce la aplicación</text>
+<rect x="1220" y="253.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="1345.0" y="275.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">PostgreSQL con JPA</text>
+<text x="1345.0" y="295.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">entidades, Spring Data</text>
+<text x="1345.0" y="310.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">y adaptadores de repositorio</text>
+<path d="M1076.0,470.0 L1214,290.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="1220" y="343.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="1345.0" y="365.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">JWT y BCrypt</text>
+<text x="1345.0" y="385.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">tokens de sesión y de registro,</text>
+<text x="1345.0" y="400.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">cifrado de contraseñas</text>
+<path d="M1076.0,470.0 L1214,380.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="1220" y="433.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="1345.0" y="455.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Correo SMTP</text>
+<text x="1345.0" y="475.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">enlace de restablecimiento</text>
+<path d="M1076.0,470.0 L1214,470.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="1220" y="523.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="1345.0" y="545.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Google Identity Services</text>
+<text x="1345.0" y="565.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">verificación del ID token</text>
+<path d="M1076.0,470.0 L1214,560.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="1220" y="613.0" width="250" height="74" rx="8" fill="#ffffff" stroke="#9ca3af"/>
+<text x="1345.0" y="635.0" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold" font-family="Liberation Sans, Arial, sans-serif">Disco y reloj</text>
+<text x="1345.0" y="655.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">imágenes de ejercicios</text>
+<text x="1345.0" y="670.0" font-size="11" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">y hora del servidor</text>
+<path d="M1076.0,470.0 L1214,650.0" stroke="#1e3a5f" stroke-width="1.6" fill="none" marker-end="url(#flecha)" opacity="0.55"/>
+<rect x="30" y="846" width="1440" height="66" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="750.0" y="868.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">Los cuadros sobre el borde son los puertos: interfaces declaradas en el dominio.</text>
+<text x="750.0" y="888.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">Los adaptadores de entrada llaman a los puertos de entrada; los de salida implementan los puertos de salida.</text>
+<text x="750.0" y="906.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="Liberation Sans, Arial, sans-serif">Cambiar de base de datos o de framework web es escribir otro adaptador, sin tocar el dominio.</text>
+</svg>

@@ -1,0 +1,35 @@
+flowchart TB
+    subgraph INFRA["INFRAESTRUCTURA · adaptadores"]
+        direction LR
+        REST["Controladores REST<br/>y DTO"]
+        ARRANQUE["Carga inicial<br/>administrador y datos de ejemplo"]
+        JPA["Persistencia JPA<br/>PostgreSQL"]
+        SEG["Seguridad<br/>JWT y BCrypt"]
+        EXT["Correo SMTP · Google<br/>Imágenes en disco · Reloj"]
+    end
+
+    subgraph APP["APLICACIÓN · casos de uso"]
+        CASOS["Implementan los puertos de entrada<br/>y orquestan los de salida"]
+    end
+
+    subgraph DOM["DOMINIO · el centro"]
+        MODELO["Modelo<br/>Usuario, Ejercicio, Intento, Simulacro"]
+        SERV["Servicios de dominio<br/>clasificación de errores, recomendaciones,<br/>estadísticas, política de contraseñas"]
+        PUERTOS["Puertos<br/>entrada y salida"]
+    end
+
+    REST --> CASOS
+    ARRANQUE --> CASOS
+    CASOS --> MODELO
+    CASOS --> SERV
+    CASOS --> PUERTOS
+    JPA -.implementa.-> PUERTOS
+    SEG -.implementa.-> PUERTOS
+    EXT -.implementa.-> PUERTOS
+
+    classDef dominio fill:#fef3c7,stroke:#b45309,stroke-width:2px,color:#1f2937
+    classDef aplicacion fill:#dbeafe,stroke:#1e3a5f,stroke-width:2px,color:#1f2937
+    classDef infra fill:#f3f4f6,stroke:#6b7280,stroke-width:1px,color:#1f2937
+    class MODELO,SERV,PUERTOS dominio
+    class CASOS aplicacion
+    class REST,ARRANQUE,JPA,SEG,EXT infra

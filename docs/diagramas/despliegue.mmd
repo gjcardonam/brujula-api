@@ -1,0 +1,25 @@
+flowchart LR
+    NAV["Navegador<br/>del estudiante"]
+
+    subgraph HOST["Docker Compose"]
+        direction TB
+        WEB["brujula-web<br/>nginx + React compilado<br/>puerto 3000"]
+        API["brujula-api<br/>Spring Boot<br/>puerto 8080"]
+        DB[("brujula-db<br/>PostgreSQL 16")]
+        MAIL["brujula-mail<br/>Mailpit, correo de prueba<br/>puerto 8025"]
+        VOL[("volumen<br/>imágenes de ejercicios")]
+    end
+
+    GOOGLE["Google Identity Services<br/>verificación del ID token"]
+
+    NAV -->|HTTP| WEB
+    WEB -->|proxy /api| API
+    API -->|JDBC| DB
+    API -->|SMTP| MAIL
+    API --> VOL
+    API -->|HTTPS, llaves públicas| GOOGLE
+
+    classDef contenedor fill:#dbeafe,stroke:#1e3a5f,color:#1f2937
+    classDef externo fill:#f3f4f6,stroke:#6b7280,color:#1f2937
+    class WEB,API,DB,MAIL,VOL contenedor
+    class NAV,GOOGLE externo

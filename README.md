@@ -22,6 +22,12 @@ La API está organizada en **arquitectura hexagonal** (puertos y adaptadores). L
 reglas del negocio no dependan de Spring, de JPA ni de HTTP, sino al revés: la infraestructura se
 enchufa al dominio a través de interfaces.
 
+> Los diagramas están en **[`docs/arquitectura.md`](docs/arquitectura.md)**: la vista hexagonal, las
+> capas con su regla de dependencias, el mapa de puertos y adaptadores, el recorrido de una petición
+> y el despliegue.
+
+![Arquitectura hexagonal de Brújula](docs/imagenes/hexagono.png)
+
 ```
 co.edu.udea.brujula
 ├── dominio/                  no importa nada de Spring ni de JPA
