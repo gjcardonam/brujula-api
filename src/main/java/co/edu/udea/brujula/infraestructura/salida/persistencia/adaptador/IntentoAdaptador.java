@@ -2,6 +2,7 @@ package co.edu.udea.brujula.infraestructura.salida.persistencia.adaptador;
 
 import co.edu.udea.brujula.dominio.excepcion.Conflicto;
 import co.edu.udea.brujula.dominio.modelo.Intento;
+import co.edu.udea.brujula.dominio.modelo.Opcion;
 import co.edu.udea.brujula.dominio.modelo.Pagina;
 import co.edu.udea.brujula.dominio.modelo.consulta.*;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
@@ -148,7 +149,7 @@ public class IntentoAdaptador implements IntentoRepositorio {
                         o.getId().equals(elegida.getId()), o.isCorrecta()))
                 .toList();
         String retroalimentacion = elegida.getRetroalimentacion() == null || elegida.getRetroalimentacion().isBlank()
-                ? co.edu.udea.brujula.dominio.modelo.Opcion.SIN_RETROALIMENTACION
+                ? Opcion.SIN_RETROALIMENTACION
                 : elegida.getRetroalimentacion();
         return new DetalleDeIntento(intento.getId(), ejercicio.getId(), ejercicio.getNumero(), ejercicio.getEnunciado(),
                 imagenes.urlDe(ejercicio.getImagen()), ejercicio.getComponente().getNombre(),

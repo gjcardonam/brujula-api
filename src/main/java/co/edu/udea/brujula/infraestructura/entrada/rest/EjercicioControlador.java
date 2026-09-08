@@ -7,6 +7,7 @@ import co.edu.udea.brujula.dominio.puerto.entrada.*;
 import co.edu.udea.brujula.dominio.puerto.entrada.comando.DatosDeEjercicio;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
 import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.CambioEstadoRequest;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.OpcionRequest;
 import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.EjercicioRequest;
 import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.EjercicioAdminDto;
 import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.EjercicioEstudianteDto;
@@ -97,7 +98,7 @@ public class EjercicioControlador {
     }
 
     private DatosDeEjercicio aComando(EjercicioRequest peticion) {
-        List<DatosDeEjercicio.DatosDeOpcion> opciones = (peticion.opciones() == null ? List.<co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.OpcionRequest>of() : peticion.opciones())
+        List<DatosDeEjercicio.DatosDeOpcion> opciones = (peticion.opciones() == null ? List.<OpcionRequest>of() : peticion.opciones())
                 .stream()
                 .map(o -> new DatosDeEjercicio.DatosDeOpcion(o.id(), o.descripcion(), o.imagen(),
                         Boolean.TRUE.equals(o.esCorrecta()), o.retroalimentacion(), o.idTipoError()))

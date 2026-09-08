@@ -2,6 +2,7 @@ package co.edu.udea.brujula.aplicacion;
 
 import co.edu.udea.brujula.dominio.excepcion.CredencialesInvalidas;
 import co.edu.udea.brujula.dominio.excepcion.CuentaBloqueada;
+import co.edu.udea.brujula.dominio.excepcion.ErrorDeNegocio;
 import co.edu.udea.brujula.dominio.excepcion.DatosInvalidos;
 import co.edu.udea.brujula.dominio.modelo.SesionIniciada;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
@@ -37,7 +38,7 @@ public class AutenticacionDeUsuarios implements AutenticarUsuario {
      * error, por eso no se hace rollback cuando sale una excepción de negocio.
      */
     @Override
-    @Transactional(noRollbackFor = co.edu.udea.brujula.dominio.excepcion.ErrorDeNegocio.class)
+    @Transactional(noRollbackFor = ErrorDeNegocio.class)
     public SesionIniciada autenticar(String email, String password) {
         List<String> faltantes = new ArrayList<>();
         if (email == null || email.isBlank()) faltantes.add("El correo electrónico es obligatorio.");

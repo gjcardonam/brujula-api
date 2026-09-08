@@ -1,13 +1,17 @@
 package co.edu.udea.brujula.infraestructura.entrada.rest.dto;
 
 import co.edu.udea.brujula.dominio.modelo.*;
+import co.edu.udea.brujula.dominio.modelo.consulta.DesempenoPorArea;
 import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeEjercicio;
+import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeIntento;
+import co.edu.udea.brujula.dominio.modelo.consulta.EstadoDelSimulacro;
 import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeSimulacro;
 import co.edu.udea.brujula.dominio.modelo.consulta.SiguienteDelSimulacro;
 import co.edu.udea.brujula.dominio.modelo.consulta.UsoDelEjercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarCatalogos;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.Set;
@@ -108,7 +112,7 @@ public final class Respuestas {
     }
 
     public record RecomendacionDto(int orden, String area, String tipo, Long idComponente, Long idCompetencia,
-                                   java.math.BigDecimal porcentaje, String mensaje) {
+                                   BigDecimal porcentaje, String mensaje) {
 
         public static RecomendacionDto de(Recomendacion r) {
             return new RecomendacionDto(r.orden(), r.area(), r.tipoDeArea(), r.idComponente(), r.idCompetencia(),
@@ -118,11 +122,9 @@ public final class Respuestas {
 
     public record ResultadoSimulacroDto(Long id, Instant fechaInicio, Instant fechaFin, int duracionMinutos,
                                         Integer tiempoUtilizadoSeg, long respondidos, long correctas, long incorrectas,
-                                        java.math.BigDecimal porcentajeAciertos,
-                                        List<co.edu.udea.brujula.dominio.modelo.consulta.DesempenoPorArea> porComponente,
-                                        List<co.edu.udea.brujula.dominio.modelo.consulta.DesempenoPorArea> porCompetencia,
-                                        List<RecomendacionDto> recomendaciones, String mensajeRecomendacion,
-                                        List<co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeIntento> detalle) {
+                                        BigDecimal porcentajeAciertos, List<DesempenoPorArea> porComponente,
+                                        List<DesempenoPorArea> porCompetencia, List<RecomendacionDto> recomendaciones,
+                                        String mensajeRecomendacion, List<DetalleDeIntento> detalle) {
 
         public static ResultadoSimulacroDto de(ResultadoDeSimulacro r) {
             return new ResultadoSimulacroDto(r.id(), r.fechaInicio(), r.fechaFin(), r.duracionMinutos(),
@@ -134,7 +136,7 @@ public final class Respuestas {
     }
 
     public record SiguienteSimulacroDto(boolean finalizado, String motivo, EjercicioEstudianteDto ejercicio,
-                                        co.edu.udea.brujula.dominio.modelo.consulta.EstadoDelSimulacro estado) {
+                                        EstadoDelSimulacro estado) {
 
         public static SiguienteSimulacroDto de(SiguienteDelSimulacro siguiente, AlmacenDeImagenes imagenes) {
             EjercicioEstudianteDto ejercicio = siguiente.ejercicio() == null ? null
