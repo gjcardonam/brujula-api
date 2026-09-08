@@ -72,8 +72,12 @@ bloqueo tras cinco intentos fallidos se verifica adelantando un reloj falso, sin
 minutos reales ni tocar la base de datos.
 
 ```
-mvn test    # 33 pruebas: dominio y casos de uso, sin base de datos
+mvn test    # 36 pruebas: dominio, casos de uso y reglas de arquitectura, sin base de datos
 ```
+
+`ArquitecturaTest` revisa los imports y falla si el dominio empieza a depender del framework o si un
+caso de uso llama directamente a un adaptador. Es la forma de que la arquitectura no se degrade sola
+con el tiempo.
 
 Dos decisiones que conviene explicar en la sustentación:
 
