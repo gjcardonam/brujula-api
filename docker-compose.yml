@@ -1,0 +1,69 @@
+# Brújula · entorno completo con Docker (requiere brujula-api y brujula-web clonados en la misma carpeta)
+#   cd brujula-api && docker compose up --build
+# Front: http://localhost:3000 · API: http://localhost:8080/api · Correo de prueba (Mailpit): http://localhost:8025
+name: brujula
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: brujula-db
+    environment:
+      POSTGRES_DB: brujula
+      POSTGRES_USER: brujula
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-brujula}
+    volumes:
+      - brujula-db:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brujula -d brujula"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: brujula-mail
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  api:
+    build: .
+    container_name: brujula-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/brujula
+      DB_USER: brujula
+      DB_PASSWORD: ${DB_PASSWORD:-brujula}
+      JWT_SECRET: ${JWT_SECRET:-brujula-desarrollo-cambia-este-secreto-2026-udea}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:${WEB_PORT:-3000}}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      MODO_DESARROLLO: ${MODO_DESARROLLO:-true}
+      DATOS_EJEMPLO: ${DATOS_EJEMPLO:-true}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@brujula.local}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin.2026}
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+      MAIL_FROM: no-reply@brujula.local
+    volumes:
+      - brujula-uploads:/app/uploads
+    ports:
+      - "${API_PORT:-8080}:8080"
+
+  web:
+    build:
+      context: ../brujula-web
+      args:
+        VITE_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    container_name: brujula-web
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-3000}:80"
+
+volumes:
+  brujula-db:
+  brujula-uploads:
