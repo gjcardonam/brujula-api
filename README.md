@@ -16,6 +16,74 @@ y roles) son alcance de PI II: sus tablas existen en la base de datos pero no ti
 | Front | React 18 · TypeScript · Vite · React Router | repo `brujula-web` |
 | Despliegue | Docker Compose (db + api + web + Mailpit) | `docker-compose.yml` (este repo) |
 
+## Arquitectura
+
+La API está organizada en **arquitectura hexagonal** (puertos y adaptadores). La idea es que las
+reglas del negocio no dependan de Spring, de JPA ni de HTTP, sino al revés: la infraestructura se
+enchufa al dominio a través de interfaces.
+
+```
+co.edu.udea.brujula
+├── dominio/                  no importa nada de Spring ni de JPA
+│   ├── modelo/               Usuario, Ejercicio, Intento, Simulacro… y los modelos de consulta
+│   ├── servicio/             reglas puras: motor de clasificación, recomendaciones, estadísticas
+│   ├── excepcion/            errores de negocio con código propio (no con estados HTTP)
+│   └── puerto/
+│       ├── entrada/          un caso de uso por historia de usuario
+│       └── salida/           lo que el dominio necesita del mundo: repositorios, correo, reloj…
+├── aplicacion/               implementa los puertos de entrada orquestando los de salida
+└── infraestructura/
+    ├── entrada/rest/         controladores y DTO (adaptadores que manejan la aplicación)
+    ├── entrada/arranque/     carga del administrador inicial y de los datos de ejemplo
+    ├── salida/persistencia/  entidades JPA, repositorios de Spring Data y adaptadores
+    ├── salida/seguridad/     JWT y cifrado de contraseñas
+    ├── salida/correo/        envío por SMTP
+    ├── salida/google/        verificación del ID token de Google
+    └── salida/archivo/       imágenes en disco
+```
+
+Las dependencias apuntan siempre hacia adentro: `infraestructura → aplicacion → dominio`. El dominio
+no conoce a nadie. Un cambio de base de datos o de framework web se resuelve escribiendo otro
+adaptador, sin tocar las reglas.
+
+### Puertos de entrada y las historias que atienden
+
+| Puerto | Historias |
+| :-- | :-- |
+| `RegistrarEstudiante` | HU-001 |
+| `AutenticarUsuario` | HU-002 |
+| `RecuperarContrasena` | HU-003 |
+| `GestionarSesion`, `ValidarSesion` | HU-004 |
+| `GestionarPerfil` | HU-005 |
+| `ConsultarBanco` | HU-006, HU-007, HU-008 |
+| `ConsultarEjercicio`, `BuscarSiguienteEjercicio` | HU-009, HU-010 |
+| `ResponderEjercicio` | HU-010 a HU-012, HU-014, HU-016, HU-027, HU-028 |
+| `ConsultarHistorialDeIntentos` | HU-025 |
+| `GestionarSimulacro` | HU-013 a HU-018, HU-026 |
+| `ConsultarEstadisticas` | HU-019, HU-029 |
+| `AdministrarEjercicios`, `GuardarImagen` | HU-020 a HU-024 |
+| `ConsultarCatalogos` | catálogos de apoyo |
+
+### Por qué esto facilita las pruebas
+
+Como los casos de uso solo hablan con interfaces, se prueban con implementaciones en memoria
+(`src/test/java/.../apoyo/dobles/`) en lugar de levantar la aplicación completa. Por ejemplo, el
+bloqueo tras cinco intentos fallidos se verifica adelantando un reloj falso, sin esperar diez
+minutos reales ni tocar la base de datos.
+
+```
+mvn test    # 33 pruebas: dominio y casos de uso, sin base de datos
+```
+
+Dos decisiones que conviene explicar en la sustentación:
+
+- Las clases de `aplicacion` sí usan `@Service` y `@Transactional`. Son las dos únicas anotaciones de
+  Spring fuera de `infraestructura`, y están ahí porque la transacción es un límite natural del caso
+  de uso. El dominio sigue completamente limpio.
+- Los modelos de consulta (`dominio/modelo/consulta`) son de solo lectura y existen para que las
+  consultas no tengan que armar agregados completos que nadie va a usar.
+
+
 ## Arranque rápido con Docker
 
 ```bash
@@ -59,7 +127,8 @@ npm install
 npm run dev                      # API_TARGET=http://localhost:8081 npm run dev si la API está en otro puerto
 ```
 
-Pruebas unitarias de la API: `mvn test` (política de contraseñas y motor de clasificación).
+Pruebas de la API: `mvn test`. Cubren el dominio (política de contraseñas, motor de clasificación,
+recomendaciones) y dos casos de uso completos con adaptadores en memoria.
 
 ## Variables de entorno de la API
 
@@ -111,6 +180,9 @@ ejercicio desactivado), `SIMULACRO_EN_CURSO`, `SIMULACRO_FINALIZADO`, `EJERCICIO
 
 ## Decisiones de implementación que conviene conocer
 
+- **Cada regla vive en su capa.** Las validaciones de contraseña, el bloqueo por intentos fallidos y
+  el cierre del simulacro por tiempo están en el dominio, no en los controladores ni en la base de
+  datos. El controlador solo traduce HTTP y el adaptador solo traduce SQL.
 - **Reglas configurables en `parametros_sistema`** (HU-028 y otras): ventana de intentos, umbrales,
   intentos de login, minutos de bloqueo, horas de sesión, vigencia del enlace, tamaño de página. Se leen
   de la base en cada uso; cambiarlos con SQL aplica de inmediato.
