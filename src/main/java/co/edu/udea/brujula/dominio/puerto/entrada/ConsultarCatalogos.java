@@ -1,17 +1,15 @@
 package co.edu.udea.brujula.dominio.puerto.entrada;
 
-import co.edu.udea.brujula.dominio.modelo.*;
+import co.edu.udea.brujula.dominio.modelo.Competencia;
+import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 
 import java.util.List;
 
-/** Listas que llenan los desplegables del front. */
 public interface ConsultarCatalogos {
 
-    record Catalogos(List<Componente> componentes, List<Competencia> competencias, List<NivelDificultad> niveles,
-                     List<TipoError> tiposDeError, List<DuracionSimulacro> duraciones) {
+    record Catalogos(List<Componente> componentes, List<Competencia> competencias, List<NivelDificultad> niveles) {
     }
 
     Catalogos todos();
-
-    List<Componente> componentesActivos();
 }

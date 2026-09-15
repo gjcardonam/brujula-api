@@ -36,10 +36,8 @@ server:
   forward-headers-strategy: framework
 
 brujula:
-  # Mínimo 32 caracteres. En producción se debe definir JWT_SECRET.
   jwt-secret: ${JWT_SECRET:brujula-desarrollo-cambia-este-secreto-2026-udea}
   frontend-url: ${FRONTEND_URL:http://localhost:5173}
-  # Client ID de Google Identity Services. Vacío = inicio con Google simulado (solo en modo desarrollo).
   google-client-id: ${GOOGLE_CLIENT_ID:}
   modo-desarrollo: ${MODO_DESARROLLO:true}
   uploads-dir: ${UPLOADS_DIR:./uploads}

@@ -3,6 +3,7 @@ package co.edu.udea.brujula.infraestructura.salida.seguridad;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
 import co.edu.udea.brujula.dominio.puerto.salida.ParametrosDelSistema;
 import co.edu.udea.brujula.dominio.puerto.salida.ProveedorDeTokens;
+import co.edu.udea.brujula.dominio.puerto.salida.Reloj;
 import co.edu.udea.brujula.infraestructura.configuracion.BrujulaProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -18,11 +19,6 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Tokens firmados con HMAC. Hay dos tipos y el campo "proposito" impide usar uno donde va el otro:
- * el de sesión, que dura lo que diga el parámetro de horas de inactividad, y el de registro, que
- * solo acredita que Google ya verificó el correo mientras el usuario llena el formulario.
- */
 @Component
 public class JwtProveedorDeTokens implements ProveedorDeTokens {
 
@@ -32,20 +28,22 @@ public class JwtProveedorDeTokens implements ProveedorDeTokens {
 
     private final SecretKey clave;
     private final ParametrosDelSistema parametros;
+    private final Reloj reloj;
 
-    public JwtProveedorDeTokens(BrujulaProperties propiedades, ParametrosDelSistema parametros) {
+    public JwtProveedorDeTokens(BrujulaProperties propiedades, ParametrosDelSistema parametros, Reloj reloj) {
         String secreto = propiedades.jwtSecret();
         if (secreto == null || secreto.getBytes(StandardCharsets.UTF_8).length < 32) {
             throw new IllegalStateException("brujula.jwt-secret debe tener al menos 32 caracteres");
         }
         this.clave = Keys.hmacShaKeyFor(secreto.getBytes(StandardCharsets.UTF_8));
         this.parametros = parametros;
+        this.reloj = reloj;
     }
 
     @Override
     public Sesion emitirSesion(Usuario usuario) {
         int horas = parametros.entero(ParametrosDelSistema.HORAS_EXPIRACION_SESION, 2);
-        Instant ahora = Instant.now();
+        Instant ahora = reloj.ahora();
         Instant expira = ahora.plus(Duration.ofHours(horas));
         String jti = UUID.randomUUID().toString();
         String token = Jwts.builder()
@@ -69,7 +67,7 @@ public class JwtProveedorDeTokens implements ProveedorDeTokens {
 
     @Override
     public String emitirRegistro(RegistroPendiente registro) {
-        Instant ahora = Instant.now();
+        Instant ahora = reloj.ahora();
         return Jwts.builder()
                 .subject(registro.googleSub())
                 .claim("email", registro.email())

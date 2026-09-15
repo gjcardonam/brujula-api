@@ -19,13 +19,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Verifica el ID token que entrega el botón "Continuar con Google" del front. Solo se lee el token:
- * la contraseña de Google nunca pasa por aquí (HU-001 CA-12).
- *
- * Sin GOOGLE_CLIENT_ID y en modo desarrollo acepta credenciales de la forma
- * "dev:correo@dominio:Nombre:Apellido", para poder probar el registro sin crear credenciales reales.
- */
 @Component
 public class GoogleIdentityServices implements VerificadorDeGoogle {
 
@@ -96,7 +89,6 @@ public class GoogleIdentityServices implements VerificadorDeGoogle {
         }
     }
 
-    /** Se arma la primera vez que se necesita, para no golpear a Google al arrancar. */
     private NimbusJwtDecoder decodificador() {
         if (decodificador == null) {
             synchronized (this) {

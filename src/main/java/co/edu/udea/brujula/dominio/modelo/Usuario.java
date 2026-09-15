@@ -3,10 +3,6 @@ package co.edu.udea.brujula.dominio.modelo;
 import java.time.Duration;
 import java.time.Instant;
 
-/**
- * Cuenta de la plataforma. Aquí vive la regla de los intentos fallidos de HU-002 CA-08, para no
- * repartirla entre el caso de uso y la base de datos.
- */
 public class Usuario {
 
     public static final String ACTIVO = "Activo";
@@ -17,34 +13,57 @@ public class Usuario {
     private String email;
     private String googleSub;
     private String passwordHash;
+    private Instant passwordActualizadoEn;
     private boolean aceptoTerminos;
-    private Instant fechaAceptacionTerminos;
+    private Instant terminosAceptadosEn;
     private Instant creadoEn;
     private int intentosFallidos;
-    private Instant ultimoLogin;
-    private Instant fechaBloqueo;
+    private Instant bloqueadoHasta;
+    private Instant ultimoLoginEn;
     private String estado;
     private Rol rol;
-    private Instant passwordActualizadoEn;
 
-    public Usuario() {
+    private Usuario() {
     }
 
-    /** Cuenta nueva. En el registro normal el rol es Estudiante (HU-001 CA-08). */
     public static Usuario crear(String nombre, String apellido, String email, String googleSub,
                                 String passwordHash, Rol rol, Instant ahora) {
-        Usuario u = new Usuario();
-        u.nombre = nombre.trim();
-        u.apellido = apellido.trim();
-        u.email = email.toLowerCase();
-        u.googleSub = googleSub;
-        u.passwordHash = passwordHash;
-        u.aceptoTerminos = true;
-        u.fechaAceptacionTerminos = ahora;
-        u.creadoEn = ahora;
-        u.estado = ACTIVO;
-        u.rol = rol;
-        return u;
+        Usuario usuario = new Usuario();
+        usuario.nombre = nombre.trim();
+        usuario.apellido = apellido.trim();
+        usuario.email = email.trim().toLowerCase();
+        usuario.googleSub = googleSub;
+        usuario.passwordHash = passwordHash;
+        usuario.passwordActualizadoEn = ahora;
+        usuario.aceptoTerminos = true;
+        usuario.terminosAceptadosEn = ahora;
+        usuario.creadoEn = ahora;
+        usuario.estado = ACTIVO;
+        usuario.rol = rol;
+        return usuario;
+    }
+
+    public static Usuario reconstruir(Long id, String nombre, String apellido, String email, String googleSub,
+                                      String passwordHash, Instant passwordActualizadoEn, boolean aceptoTerminos,
+                                      Instant terminosAceptadosEn, Instant creadoEn, int intentosFallidos,
+                                      Instant bloqueadoHasta, Instant ultimoLoginEn, String estado, Rol rol) {
+        Usuario usuario = new Usuario();
+        usuario.id = id;
+        usuario.nombre = nombre;
+        usuario.apellido = apellido;
+        usuario.email = email;
+        usuario.googleSub = googleSub;
+        usuario.passwordHash = passwordHash;
+        usuario.passwordActualizadoEn = passwordActualizadoEn;
+        usuario.aceptoTerminos = aceptoTerminos;
+        usuario.terminosAceptadosEn = terminosAceptadosEn;
+        usuario.creadoEn = creadoEn;
+        usuario.intentosFallidos = intentosFallidos;
+        usuario.bloqueadoHasta = bloqueadoHasta;
+        usuario.ultimoLoginEn = ultimoLoginEn;
+        usuario.estado = estado;
+        usuario.rol = rol;
+        return usuario;
     }
 
     public boolean estaActivo() {
@@ -55,50 +74,50 @@ public class Usuario {
         return rol != null && rol.esAdministrador();
     }
 
-    public boolean estaBloqueado(Instant ahora, int minutosDeBloqueo) {
-        return fechaBloqueo != null && ahora.isBefore(fechaBloqueo.plus(Duration.ofMinutes(minutosDeBloqueo)));
+    public boolean estaBloqueado(Instant ahora) {
+        return bloqueadoHasta != null && ahora.isBefore(bloqueadoHasta);
     }
 
-    public long minutosDeBloqueoRestantes(Instant ahora, int minutosDeBloqueo) {
-        if (fechaBloqueo == null) return 0;
-        Duration falta = Duration.between(ahora, fechaBloqueo.plus(Duration.ofMinutes(minutosDeBloqueo)));
-        return Math.max(1, falta.toMinutes() + 1);
+    public boolean tieneBloqueoVencido(Instant ahora) {
+        return bloqueadoHasta != null && !ahora.isBefore(bloqueadoHasta);
     }
 
-    /** Se llama cuando ya pasó el bloqueo: vuelve a arrancar el contador (HU-002 CA-08). */
+    public long minutosDeBloqueoRestantes(Instant ahora) {
+        if (!estaBloqueado(ahora)) return 0;
+        long segundos = Duration.between(ahora, bloqueadoHasta).getSeconds();
+        return Math.max(1, (segundos + 59) / 60);
+    }
+
     public void levantarBloqueo() {
-        fechaBloqueo = null;
+        bloqueadoHasta = null;
         intentosFallidos = 0;
     }
 
-    /** Suma un intento fallido y bloquea la cuenta si llegó al máximo. Devuelve true si quedó bloqueada. */
-    public boolean registrarIngresoFallido(Instant ahora, int maximoDeIntentos) {
+    public boolean registrarIngresoFallido(Instant ahora, int maximoDeIntentos, int minutosDeBloqueo) {
         intentosFallidos++;
-        if (intentosFallidos >= maximoDeIntentos) {
-            fechaBloqueo = ahora;
-            return true;
-        }
-        return false;
+        if (intentosFallidos < maximoDeIntentos) return false;
+        bloqueadoHasta = ahora.plus(Duration.ofMinutes(minutosDeBloqueo));
+        return true;
     }
 
     public void registrarIngresoExitoso(Instant ahora) {
         intentosFallidos = 0;
-        fechaBloqueo = null;
-        ultimoLogin = ahora;
+        bloqueadoHasta = null;
+        ultimoLoginEn = ahora;
     }
 
-    public void cambiarPassword(String nuevoHash) {
-        this.passwordHash = nuevoHash;
+    public void cambiarPassword(String nuevoHash, Instant ahora) {
+        passwordHash = nuevoHash;
+        passwordActualizadoEn = ahora;
     }
 
-    /**
-     * Restablecer la contraseña deja sin efecto las sesiones abiertas (HU-003 CA-07): se marca el
-     * momento del cambio y los tokens emitidos antes dejan de valer.
-     */
     public void restablecerPassword(String nuevoHash, Instant ahora) {
-        this.passwordHash = nuevoHash;
-        this.passwordActualizadoEn = ahora;
+        cambiarPassword(nuevoHash, ahora);
         levantarBloqueo();
+    }
+
+    public boolean sesionAnteriorAlUltimoCambioDePassword(Instant sesionEmitidaEn) {
+        return sesionEmitidaEn.plusSeconds(1).isBefore(passwordActualizadoEn);
     }
 
     public void actualizarDatosPersonales(String nombre, String apellido) {
@@ -117,37 +136,13 @@ public class Usuario {
     public String email() { return email; }
     public String googleSub() { return googleSub; }
     public String passwordHash() { return passwordHash; }
+    public Instant passwordActualizadoEn() { return passwordActualizadoEn; }
     public boolean aceptoTerminos() { return aceptoTerminos; }
-    public Instant fechaAceptacionTerminos() { return fechaAceptacionTerminos; }
+    public Instant terminosAceptadosEn() { return terminosAceptadosEn; }
     public Instant creadoEn() { return creadoEn; }
     public int intentosFallidos() { return intentosFallidos; }
-    public Instant ultimoLogin() { return ultimoLogin; }
-    public Instant fechaBloqueo() { return fechaBloqueo; }
+    public Instant bloqueadoHasta() { return bloqueadoHasta; }
+    public Instant ultimoLoginEn() { return ultimoLoginEn; }
     public String estado() { return estado; }
     public Rol rol() { return rol; }
-    public Instant passwordActualizadoEn() { return passwordActualizadoEn; }
-
-    /** Solo lo usa el adaptador de persistencia para reconstruir el usuario que viene de la base. */
-    public static Usuario reconstruir(Long id, String nombre, String apellido, String email, String googleSub,
-                                      String passwordHash, boolean aceptoTerminos, Instant fechaAceptacionTerminos,
-                                      Instant creadoEn, int intentosFallidos, Instant ultimoLogin, Instant fechaBloqueo,
-                                      String estado, Rol rol, Instant passwordActualizadoEn) {
-        Usuario u = new Usuario();
-        u.id = id;
-        u.nombre = nombre;
-        u.apellido = apellido;
-        u.email = email;
-        u.googleSub = googleSub;
-        u.passwordHash = passwordHash;
-        u.aceptoTerminos = aceptoTerminos;
-        u.fechaAceptacionTerminos = fechaAceptacionTerminos;
-        u.creadoEn = creadoEn;
-        u.intentosFallidos = intentosFallidos;
-        u.ultimoLogin = ultimoLogin;
-        u.fechaBloqueo = fechaBloqueo;
-        u.estado = estado;
-        u.rol = rol;
-        u.passwordActualizadoEn = passwordActualizadoEn;
-        return u;
-    }
 }

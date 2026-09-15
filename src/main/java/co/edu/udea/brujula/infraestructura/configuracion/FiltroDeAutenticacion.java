@@ -15,10 +15,6 @@ import java.io.IOException;
 import java.text.Normalizer;
 import java.util.List;
 
-/**
- * Adaptador de entrada de la seguridad: saca el token de la cabecera y le pregunta al caso de uso
- * si la sesión sirve. Las reglas no están aquí.
- */
 @Component
 public class FiltroDeAutenticacion extends OncePerRequestFilter {
 
@@ -44,7 +40,6 @@ public class FiltroDeAutenticacion extends OncePerRequestFilter {
         cadena.doFilter(peticion, respuesta);
     }
 
-    /** "Administrador" queda como ADMINISTRADOR y "Estudiante" como ESTUDIANTE, sin tildes. */
     static String comoAutoridad(String rol) {
         return Normalizer.normalize(rol, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toUpperCase();
     }

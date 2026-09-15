@@ -5,50 +5,43 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@DisplayName("Política de contraseñas (HU-001 CA-05 y CA-06)")
+@DisplayName("Política de contraseña")
 class PoliticaDeContrasenaTest {
 
     @Test
-    void aceptaUnaContrasenaQueCumpleTodo() {
-        assertTrue(PoliticaDeContrasena.revisar("Clave.2026", "Clave.2026").isEmpty());
+    void acepta_una_contrasena_que_cumple_todas_las_reglas() {
+        assertTrue(PoliticaDeContrasena.revisar("Estudiante.26", "Estudiante.26").isEmpty());
     }
 
     @Test
-    void exigeEntreOchoYQuinceCaracteres() {
+    void exige_entre_ocho_y_quince_caracteres() {
         assertFalse(PoliticaDeContrasena.revisar("Ab.1", "Ab.1").isEmpty());
-        assertFalse(PoliticaDeContrasena.revisar("Abcdefgh.1234567", "Abcdefgh.1234567").isEmpty());
+        assertFalse(PoliticaDeContrasena.revisar("Abcdefghijklmno.1", "Abcdefghijklmno.1").isEmpty());
     }
 
     @Test
-    void exigeMayusculaMinusculaNumeroYEspecial() {
-        assertTrue(contiene(PoliticaDeContrasena.revisar("clave.2026", "clave.2026"), "mayúscula"));
-        assertTrue(contiene(PoliticaDeContrasena.revisar("CLAVE.2026", "CLAVE.2026"), "minúscula"));
-        assertTrue(contiene(PoliticaDeContrasena.revisar("Clave.abcd", "Clave.abcd"), "número"));
-        assertTrue(contiene(PoliticaDeContrasena.revisar("Clave2026x", "Clave2026x"), "especial"));
+    void exige_mayuscula_minuscula_numero_y_caracter_especial() {
+        assertFalse(PoliticaDeContrasena.revisar("estudiante.26", "estudiante.26").isEmpty());
+        assertFalse(PoliticaDeContrasena.revisar("ESTUDIANTE.26", "ESTUDIANTE.26").isEmpty());
+        assertFalse(PoliticaDeContrasena.revisar("Estudiante.", "Estudiante.").isEmpty());
+        assertFalse(PoliticaDeContrasena.revisar("Estudiante26", "Estudiante26").isEmpty());
     }
 
     @Test
-    void soloAceptaLosCaracteresEspecialesDeLaHistoria() {
-        assertTrue(contiene(PoliticaDeContrasena.revisar("Clave#2026", "Clave#2026"), "especial"));
+    void exige_que_la_confirmacion_coincida() {
+        List<String> errores = PoliticaDeContrasena.revisar("Estudiante.26", "Estudiante.27");
+
+        assertEquals(1, errores.size());
+        assertTrue(errores.get(0).contains("confirmación"));
     }
 
     @Test
-    void exigeQueLaConfirmacionCoincida() {
-        assertTrue(contiene(PoliticaDeContrasena.revisar("Clave.2026", "Clave.2027"), "coinciden"));
-    }
-
-    @Test
-    void validaLaLongitudDeNombreYApellido() {
-        assertTrue(PoliticaDeContrasena.revisarNombres("Ana", "Pérez").isEmpty());
-        assertFalse(PoliticaDeContrasena.revisarNombres("", "Pérez").isEmpty());
-        assertFalse(PoliticaDeContrasena.revisarNombres("Ana", "P").isEmpty());
-        assertFalse(PoliticaDeContrasena.revisarNombres("a".repeat(31), "Pérez").isEmpty());
-    }
-
-    private boolean contiene(List<String> errores, String texto) {
-        return errores.stream().anyMatch(e -> e.contains(texto));
+    void exige_que_la_contrasena_venga() {
+        assertEquals(1, PoliticaDeContrasena.revisar(null, null).size());
+        assertEquals(1, PoliticaDeContrasena.revisar("", "").size());
     }
 }

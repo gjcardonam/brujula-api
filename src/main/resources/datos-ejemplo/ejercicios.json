@@ -3,50 +3,50 @@
     "enunciado": "Una tienda vende camisetas a $25.000 cada una. Por la compra de 3 o más unidades aplica un descuento del 20 % sobre el total. ¿Cuánto paga una persona que compra 4 camisetas?",
     "componente": "Álgebra y cálculo", "competencia": "Formulación y ejecución", "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "$100.000", "esCorrecta": false, "retroalimentacion": "Ese es el total sin descuento. Como compró 4 camisetas (3 o más), sí aplica el 20 % de descuento.", "tipoError": "Error cognitivo"},
-      {"descripcion": "$95.000", "esCorrecta": false, "retroalimentacion": "Restaste $5.000, que es el 20 % de una sola camiseta. El descuento se aplica sobre el total de la compra ($100.000), no sobre una unidad.", "tipoError": "Error de hábito"},
+      {"descripcion": "$100.000", "esCorrecta": false, "retroalimentacion": "Ese es el total sin descuento. Como compró 4 camisetas (3 o más), sí aplica el 20 % de descuento."},
+      {"descripcion": "$95.000", "esCorrecta": false, "retroalimentacion": "Restaste $5.000, que es el 20 % de una sola camiseta. El descuento se aplica sobre el total de la compra ($100.000), no sobre una unidad."},
       {"descripcion": "$80.000", "esCorrecta": true, "retroalimentacion": "Correcto: 4 × $25.000 = $100.000 y el 20 % de $100.000 es $20.000, así que paga $100.000 − $20.000 = $80.000."},
-      {"descripcion": "$20.000", "esCorrecta": false, "retroalimentacion": "Calculaste el valor del descuento, no el precio final. Falta restarlo del total: $100.000 − $20.000.", "tipoError": "Error de hábito"}
+      {"descripcion": "$20.000", "esCorrecta": false, "retroalimentacion": "Calculaste el valor del descuento, no el precio final. Falta restarlo del total: $100.000 − $20.000."}
     ]
   },
   {
     "enunciado": "Un plan de telefonía cobra un cargo fijo de $10.000 al mes más $200 por cada minuto de llamada. ¿Cuál expresión representa el costo mensual C, en pesos, por hablar m minutos?",
     "componente": "Álgebra y cálculo", "competencia": "Interpretación y representación", "nivel": "Básico",
     "opciones": [
-      {"descripcion": "C = 10.000m + 200", "esCorrecta": false, "retroalimentacion": "Intercambiaste los papeles: el cargo fijo no se multiplica por los minutos; lo que depende de m es el valor por minuto ($200).", "tipoError": "Error cognitivo"},
+      {"descripcion": "C = 10.000m + 200", "esCorrecta": false, "retroalimentacion": "Intercambiaste los papeles: el cargo fijo no se multiplica por los minutos; lo que depende de m es el valor por minuto ($200)."},
       {"descripcion": "C = 10.000 + 200m", "esCorrecta": true, "retroalimentacion": "Correcto: el cargo fijo ($10.000) se paga una vez y a eso se suma $200 por cada uno de los m minutos."},
-      {"descripcion": "C = 200(10.000 + m)", "esCorrecta": false, "retroalimentacion": "Esta expresión multiplica también el cargo fijo por 200. El cargo fijo es constante y no depende de los minutos.", "tipoError": "Error cognitivo"},
-      {"descripcion": "C = 10.200m", "esCorrecta": false, "retroalimentacion": "Sumaste el cargo fijo al valor por minuto como si ambos se cobraran por cada minuto. El cargo fijo se paga una sola vez.", "tipoError": "Error de hábito"}
+      {"descripcion": "C = 200(10.000 + m)", "esCorrecta": false, "retroalimentacion": "Esta expresión multiplica también el cargo fijo por 200. El cargo fijo es constante y no depende de los minutos."},
+      {"descripcion": "C = 10.200m", "esCorrecta": false, "retroalimentacion": "Sumaste el cargo fijo al valor por minuto como si ambos se cobraran por cada minuto. El cargo fijo se paga una sola vez."}
     ]
   },
   {
     "enunciado": "Se afirma que para todo número real x se cumple que x² ≥ x. ¿Cuál de los siguientes valores muestra que la afirmación es falsa?",
     "componente": "Álgebra y cálculo", "competencia": "Argumentación", "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "x = 2", "esCorrecta": false, "retroalimentacion": "Con x = 2 se obtiene 4 ≥ 2, que es verdadero; ese valor cumple la afirmación y por eso no sirve como contraejemplo.", "tipoError": "Error cognitivo"},
+      {"descripcion": "x = 2", "esCorrecta": false, "retroalimentacion": "Con x = 2 se obtiene 4 ≥ 2, que es verdadero; ese valor cumple la afirmación y por eso no sirve como contraejemplo."},
       {"descripcion": "x = 0,5", "esCorrecta": true, "retroalimentacion": "Correcto: (0,5)² = 0,25 y 0,25 < 0,5, así que la afirmación falla. Los números entre 0 y 1 se hacen más pequeños al elevarlos al cuadrado."},
-      {"descripcion": "x = −1", "esCorrecta": false, "retroalimentacion": "Con x = −1 se obtiene 1 ≥ −1, que es verdadero. Un número negativo al cuadrado siempre es positivo y supera al original.", "tipoError": "Error cognitivo"},
-      {"descripcion": "x = 0", "esCorrecta": false, "retroalimentacion": "Con x = 0 se obtiene 0 ≥ 0, que es verdadero porque la desigualdad admite la igualdad. Revisa el símbolo ≥ con calma.", "tipoError": "Error de hábito"}
+      {"descripcion": "x = −1", "esCorrecta": false, "retroalimentacion": "Con x = −1 se obtiene 1 ≥ −1, que es verdadero. Un número negativo al cuadrado siempre es positivo y supera al original."},
+      {"descripcion": "x = 0", "esCorrecta": false, "retroalimentacion": "Con x = 0 se obtiene 0 ≥ 0, que es verdadero porque la desigualdad admite la igualdad. Revisa el símbolo ≥ con calma."}
     ]
   },
   {
     "enunciado": "Un rectángulo mide 12 cm de largo y 5 cm de ancho y está dividido por una de sus diagonales. ¿Cuál es la longitud de la diagonal?",
     "componente": "Geometría", "competencia": "Interpretación y representación", "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "17 cm", "esCorrecta": false, "retroalimentacion": "Sumaste los dos lados. La diagonal es la hipotenusa de un triángulo rectángulo, y se calcula con el teorema de Pitágoras: √(12² + 5²).", "tipoError": "Error cognitivo"},
+      {"descripcion": "17 cm", "esCorrecta": false, "retroalimentacion": "Sumaste los dos lados. La diagonal es la hipotenusa de un triángulo rectángulo, y se calcula con el teorema de Pitágoras: √(12² + 5²)."},
       {"descripcion": "13 cm", "esCorrecta": true, "retroalimentacion": "Correcto: la diagonal forma un triángulo rectángulo con los lados, así que d = √(12² + 5²) = √(144 + 25) = √169 = 13 cm."},
-      {"descripcion": "60 cm", "esCorrecta": false, "retroalimentacion": "Multiplicaste los lados, que es el área (60 cm²), no una longitud. La diagonal se obtiene con el teorema de Pitágoras.", "tipoError": "Error de hábito"},
-      {"descripcion": "7 cm", "esCorrecta": false, "retroalimentacion": "Restaste los lados. La diagonal siempre es más larga que cualquiera de los lados del rectángulo.", "tipoError": "Error cognitivo"}
+      {"descripcion": "60 cm", "esCorrecta": false, "retroalimentacion": "Multiplicaste los lados, que es el área (60 cm²), no una longitud. La diagonal se obtiene con el teorema de Pitágoras."},
+      {"descripcion": "7 cm", "esCorrecta": false, "retroalimentacion": "Restaste los lados. La diagonal siempre es más larga que cualquiera de los lados del rectángulo."}
     ]
   },
   {
     "enunciado": "Un terreno rectangular mide 20 m de largo y 15 m de ancho. ¿Cuántos metros de cerca se necesitan para rodearlo completamente?",
     "componente": "Geometría", "competencia": "Formulación y ejecución", "nivel": "Básico",
     "opciones": [
-      {"descripcion": "35 m", "esCorrecta": false, "retroalimentacion": "Sumaste un largo y un ancho, pero el terreno tiene dos largos y dos anchos. El perímetro es 2 × (20 + 15).", "tipoError": "Error de hábito"},
+      {"descripcion": "35 m", "esCorrecta": false, "retroalimentacion": "Sumaste un largo y un ancho, pero el terreno tiene dos largos y dos anchos. El perímetro es 2 × (20 + 15)."},
       {"descripcion": "70 m", "esCorrecta": true, "retroalimentacion": "Correcto: la cerca rodea el terreno, así que se necesita el perímetro: 2 × (20 + 15) = 70 m."},
-      {"descripcion": "300 m", "esCorrecta": false, "retroalimentacion": "Calculaste el área (20 × 15 = 300 m²), que mide la superficie. Para rodear el terreno se necesita el perímetro.", "tipoError": "Error cognitivo"},
-      {"descripcion": "150 m", "esCorrecta": false, "retroalimentacion": "Ese valor no corresponde ni al perímetro ni al área. Recuerda que el perímetro suma todos los lados: 20 + 15 + 20 + 15.", "tipoError": "Error cognitivo"}
+      {"descripcion": "300 m", "esCorrecta": false, "retroalimentacion": "Calculaste el área (20 × 15 = 300 m²), que mide la superficie. Para rodear el terreno se necesita el perímetro."},
+      {"descripcion": "150 m", "esCorrecta": false, "retroalimentacion": "Ese valor no corresponde ni al perímetro ni al área. Recuerda que el perímetro suma todos los lados: 20 + 15 + 20 + 15."}
     ]
   },
   {
@@ -54,9 +54,9 @@
     "componente": "Geometría", "competencia": "Argumentación", "nivel": "Intermedio",
     "opciones": [
       {"descripcion": "Es rectángulo, porque 3² + 4² = 5².", "esCorrecta": true, "retroalimentacion": "Correcto: 9 + 16 = 25 cumple el teorema de Pitágoras, y su recíproco garantiza que el triángulo es rectángulo."},
-      {"descripcion": "Es equilátero, porque tiene tres lados.", "esCorrecta": false, "retroalimentacion": "Todo triángulo tiene tres lados. Un triángulo es equilátero solo si sus tres lados miden lo mismo, y aquí son distintos.", "tipoError": "Error cognitivo"},
-      {"descripcion": "Es rectángulo, porque 3 + 4 > 5.", "esCorrecta": false, "retroalimentacion": "La conclusión es cierta, pero la razón no: 3 + 4 > 5 solo garantiza que el triángulo puede construirse (desigualdad triangular), no que tenga un ángulo recto.", "tipoError": "Error cognitivo"},
-      {"descripcion": "No puede construirse, porque 3 + 4 = 7 y 7 ≠ 5.", "esCorrecta": false, "retroalimentacion": "Para que un triángulo exista, la suma de dos lados debe ser mayor que el tercero, no igual. Como 7 > 5, sí puede construirse.", "tipoError": "Error cognitivo"}
+      {"descripcion": "Es equilátero, porque tiene tres lados.", "esCorrecta": false, "retroalimentacion": "Todo triángulo tiene tres lados. Un triángulo es equilátero solo si sus tres lados miden lo mismo, y aquí son distintos."},
+      {"descripcion": "Es rectángulo, porque 3 + 4 > 5.", "esCorrecta": false, "retroalimentacion": "La conclusión es cierta, pero la razón no: 3 + 4 > 5 solo garantiza que el triángulo puede construirse (desigualdad triangular), no que tenga un ángulo recto."},
+      {"descripcion": "No puede construirse, porque 3 + 4 = 7 y 7 ≠ 5.", "esCorrecta": false, "retroalimentacion": "Para que un triángulo exista, la suma de dos lados debe ser mayor que el tercero, no igual. Como 7 > 5, sí puede construirse."}
     ]
   },
   {
@@ -64,9 +64,9 @@
     "componente": "Estadística", "competencia": "Interpretación y representación", "nivel": "Básico",
     "opciones": [
       {"descripcion": "4,0", "esCorrecta": true, "retroalimentacion": "Correcto: la moda es el valor que más se repite, y 4,0 aparece tres veces."},
-      {"descripcion": "5,0", "esCorrecta": false, "retroalimentacion": "5,0 es la nota máxima, no la moda. La moda es el valor que aparece con mayor frecuencia.", "tipoError": "Error cognitivo"},
-      {"descripcion": "3,0", "esCorrecta": false, "retroalimentacion": "3,0 es la nota mínima. La moda es el valor más frecuente, y 3,0 aparece una sola vez.", "tipoError": "Error cognitivo"},
-      {"descripcion": "20,0", "esCorrecta": false, "retroalimentacion": "Sumaste todas las notas. La suma no es una medida de tendencia central; la moda es el valor que más se repite.", "tipoError": "Error de hábito"}
+      {"descripcion": "5,0", "esCorrecta": false, "retroalimentacion": "5,0 es la nota máxima, no la moda. La moda es el valor que aparece con mayor frecuencia."},
+      {"descripcion": "3,0", "esCorrecta": false, "retroalimentacion": "3,0 es la nota mínima. La moda es el valor más frecuente, y 3,0 aparece una sola vez."},
+      {"descripcion": "20,0", "esCorrecta": false, "retroalimentacion": "Sumaste todas las notas. La suma no es una medida de tendencia central; la moda es el valor que más se repite."}
     ]
   },
   {
@@ -74,9 +74,9 @@
     "componente": "Estadística", "competencia": "Formulación y ejecución", "nivel": "Intermedio",
     "opciones": [
       {"descripcion": "1/2", "esCorrecta": true, "retroalimentacion": "Correcto: hay 5 balotas azules entre 10 en total, así que P(azul) = 5/10 = 1/2."},
-      {"descripcion": "1/3", "esCorrecta": false, "retroalimentacion": "Contaste los colores (3) como si fueran igualmente probables. La probabilidad depende de cuántas balotas hay de cada color: 5 azules entre 10.", "tipoError": "Error cognitivo"},
-      {"descripcion": "1/5", "esCorrecta": false, "retroalimentacion": "1/5 = 2/10 es la probabilidad de sacar una balota verde. Revisa qué color pregunta el enunciado.", "tipoError": "Error de hábito"},
-      {"descripcion": "5", "esCorrecta": false, "retroalimentacion": "5 es la cantidad de balotas azules, no una probabilidad. Una probabilidad es un número entre 0 y 1: casos favorables sobre casos posibles.", "tipoError": "Error cognitivo"}
+      {"descripcion": "1/3", "esCorrecta": false, "retroalimentacion": "Contaste los colores (3) como si fueran igualmente probables. La probabilidad depende de cuántas balotas hay de cada color: 5 azules entre 10."},
+      {"descripcion": "1/5", "esCorrecta": false, "retroalimentacion": "1/5 = 2/10 es la probabilidad de sacar una balota verde. Revisa qué color pregunta el enunciado."},
+      {"descripcion": "5", "esCorrecta": false, "retroalimentacion": "5 es la cantidad de balotas azules, no una probabilidad. Una probabilidad es un número entre 0 y 1: casos favorables sobre casos posibles."}
     ]
   },
   {
@@ -84,9 +84,9 @@
     "componente": "Estadística", "competencia": "Argumentación", "nivel": "Avanzado",
     "opciones": [
       {"descripcion": "El promedio está distorsionado por el salario de 21 millones; la mediana, que es 2 millones, representa mejor el salario típico.", "esCorrecta": true, "retroalimentacion": "Correcto: el promedio sí es 6, pero un valor extremo lo arrastra hacia arriba. Cuando hay datos atípicos, la mediana describe mejor el valor típico."},
-      {"descripcion": "El promedio está mal calculado; debería ser 3 millones.", "esCorrecta": false, "retroalimentacion": "El promedio sí es 6: (2 + 2 + 2 + 3 + 21) ÷ 5 = 30 ÷ 5 = 6. El problema no es el cálculo sino que el promedio no representa bien datos con valores extremos.", "tipoError": "Error cognitivo"},
-      {"descripcion": "No hay objeción posible: el promedio siempre es la mejor medida de tendencia central.", "esCorrecta": false, "retroalimentacion": "El promedio es sensible a los valores extremos. Con un dato muy alejado, como 21, deja de representar a la mayoría; por eso existen la mediana y la moda.", "tipoError": "Error cognitivo"},
-      {"descripcion": "La moda es 21 millones porque es el valor más alto.", "esCorrecta": false, "retroalimentacion": "La moda es el valor más frecuente, no el más alto. Aquí la moda es 2 millones, que aparece tres veces.", "tipoError": "Error cognitivo"}
+      {"descripcion": "El promedio está mal calculado; debería ser 3 millones.", "esCorrecta": false, "retroalimentacion": "El promedio sí es 6: (2 + 2 + 2 + 3 + 21) ÷ 5 = 30 ÷ 5 = 6. El problema no es el cálculo sino que el promedio no representa bien datos con valores extremos."},
+      {"descripcion": "No hay objeción posible: el promedio siempre es la mejor medida de tendencia central.", "esCorrecta": false, "retroalimentacion": "El promedio es sensible a los valores extremos. Con un dato muy alejado, como 21, deja de representar a la mayoría; por eso existen la mediana y la moda."},
+      {"descripcion": "La moda es 21 millones porque es el valor más alto.", "esCorrecta": false, "retroalimentacion": "La moda es el valor más frecuente, no el más alto. Aquí la moda es 2 millones, que aparece tres veces."}
     ]
   },
   {
@@ -94,9 +94,9 @@
     "componente": "Álgebra y cálculo", "competencia": "Formulación y ejecución", "nivel": "Básico",
     "opciones": [
       {"descripcion": "x = 6", "esCorrecta": true, "retroalimentacion": "Correcto: 3x = 11 + 7 = 18, y x = 18 ÷ 3 = 6. Comprobación: 3(6) − 7 = 11."},
-      {"descripcion": "x = 4/3", "esCorrecta": false, "retroalimentacion": "Restaste 7 en lugar de sumarlo: al pasar −7 al otro lado cambia de signo, así que 3x = 11 + 7 = 18.", "tipoError": "Error de hábito"},
-      {"descripcion": "x = 18", "esCorrecta": false, "retroalimentacion": "Llegaste a 3x = 18 pero olvidaste dividir entre 3. Comprueba: 3(18) − 7 = 47, no 11.", "tipoError": "Error de hábito"},
-      {"descripcion": "x = −6", "esCorrecta": false, "retroalimentacion": "El signo está invertido. Comprueba: 3(−6) − 7 = −25, no 11. Revisa el signo al despejar.", "tipoError": "Error de hábito"}
+      {"descripcion": "x = 4/3", "esCorrecta": false, "retroalimentacion": "Restaste 7 en lugar de sumarlo: al pasar −7 al otro lado cambia de signo, así que 3x = 11 + 7 = 18."},
+      {"descripcion": "x = 18", "esCorrecta": false, "retroalimentacion": "Llegaste a 3x = 18 pero olvidaste dividir entre 3. Comprueba: 3(18) − 7 = 47, no 11."},
+      {"descripcion": "x = −6", "esCorrecta": false, "retroalimentacion": "El signo está invertido. Comprueba: 3(−6) − 7 = −25, no 11. Revisa el signo al despejar."}
     ]
   },
   {
@@ -104,19 +104,19 @@
     "componente": "Álgebra y cálculo", "competencia": "Interpretación y representación", "nivel": "Intermedio",
     "opciones": [
       {"descripcion": "2", "esCorrecta": true, "retroalimentacion": "Correcto: la pendiente es el cambio en y sobre el cambio en x: (6 − 2) ÷ (2 − 0) = 4 ÷ 2 = 2."},
-      {"descripcion": "4", "esCorrecta": false, "retroalimentacion": "4 es solo el cambio en y (6 − 2). Falta dividirlo entre el cambio en x (2 − 0).", "tipoError": "Error de hábito"},
-      {"descripcion": "1/2", "esCorrecta": false, "retroalimentacion": "Invertiste el cociente: dividiste el cambio en x entre el cambio en y. La pendiente es Δy/Δx, no Δx/Δy.", "tipoError": "Error cognitivo"},
-      {"descripcion": "3", "esCorrecta": false, "retroalimentacion": "Dividiste 6 entre 2 usando solo las coordenadas del segundo punto. La pendiente usa las diferencias entre los dos puntos.", "tipoError": "Error cognitivo"}
+      {"descripcion": "4", "esCorrecta": false, "retroalimentacion": "4 es solo el cambio en y (6 − 2). Falta dividirlo entre el cambio en x (2 − 0)."},
+      {"descripcion": "1/2", "esCorrecta": false, "retroalimentacion": "Invertiste el cociente: dividiste el cambio en x entre el cambio en y. La pendiente es Δy/Δx, no Δx/Δy."},
+      {"descripcion": "3", "esCorrecta": false, "retroalimentacion": "Dividiste 6 entre 2 usando solo las coordenadas del segundo punto. La pendiente usa las diferencias entre los dos puntos."}
     ]
   },
   {
     "enunciado": "Un cilindro tiene 3 cm de radio y 10 cm de altura. Usando π ≈ 3, ¿cuál es el volumen aproximado del cilindro?",
     "componente": "Geometría", "competencia": "Formulación y ejecución", "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "90 cm³", "esCorrecta": false, "retroalimentacion": "Usaste el radio sin elevarlo al cuadrado: π × 3 × 10 = 90. El volumen del cilindro es π × r² × h.", "tipoError": "Error de hábito"},
+      {"descripcion": "90 cm³", "esCorrecta": false, "retroalimentacion": "Usaste el radio sin elevarlo al cuadrado: π × 3 × 10 = 90. El volumen del cilindro es π × r² × h."},
       {"descripcion": "270 cm³", "esCorrecta": true, "retroalimentacion": "Correcto: V = π × r² × h ≈ 3 × 3² × 10 = 3 × 9 × 10 = 270 cm³."},
-      {"descripcion": "180 cm³", "esCorrecta": false, "retroalimentacion": "180 corresponde al área lateral (2 × π × r × h = 2 × 3 × 3 × 10), que se mide en cm², no al volumen.", "tipoError": "Error cognitivo"},
-      {"descripcion": "30 cm³", "esCorrecta": false, "retroalimentacion": "Multiplicaste solo el radio por la altura. Falta el área de la base: π × r².", "tipoError": "Error cognitivo"}
+      {"descripcion": "180 cm³", "esCorrecta": false, "retroalimentacion": "180 corresponde al área lateral (2 × π × r × h = 2 × 3 × 3 × 10), que se mide en cm², no al volumen."},
+      {"descripcion": "30 cm³", "esCorrecta": false, "retroalimentacion": "Multiplicaste solo el radio por la altura. Falta el área de la base: π × r²."}
     ]
   },
   {
@@ -124,9 +124,9 @@
     "componente": "Geometría", "competencia": "Interpretación y representación", "nivel": "Básico",
     "opciones": [
       {"descripcion": "55°", "esCorrecta": true, "retroalimentacion": "Correcto: dos ángulos son complementarios cuando suman 90°, así que 90° − 35° = 55°."},
-      {"descripcion": "145°", "esCorrecta": false, "retroalimentacion": "145° es el suplementario (180° − 35°). Los ángulos complementarios suman 90°.", "tipoError": "Error cognitivo"},
-      {"descripcion": "325°", "esCorrecta": false, "retroalimentacion": "Restaste de 360°. Los ángulos complementarios suman 90°, no una vuelta completa.", "tipoError": "Error cognitivo"},
-      {"descripcion": "35°", "esCorrecta": false, "retroalimentacion": "Repetiste el mismo ángulo. Complementario significa el que falta para completar 90°.", "tipoError": "Error de hábito"}
+      {"descripcion": "145°", "esCorrecta": false, "retroalimentacion": "145° es el suplementario (180° − 35°). Los ángulos complementarios suman 90°."},
+      {"descripcion": "325°", "esCorrecta": false, "retroalimentacion": "Restaste de 360°. Los ángulos complementarios suman 90°, no una vuelta completa."},
+      {"descripcion": "35°", "esCorrecta": false, "retroalimentacion": "Repetiste el mismo ángulo. Complementario significa el que falta para completar 90°."}
     ]
   },
   {
@@ -134,9 +134,9 @@
     "componente": "Estadística", "competencia": "Interpretación y representación", "nivel": "Intermedio",
     "opciones": [
       {"descripcion": "20 %", "esCorrecta": true, "retroalimentacion": "Correcto: 40 ÷ 200 = 0,2, y 0,2 × 100 = 20 %."},
-      {"descripcion": "40 %", "esCorrecta": false, "retroalimentacion": "Tomaste la cantidad (40 estudiantes) como si fuera el porcentaje. El porcentaje se calcula sobre el total: 40 de 200.", "tipoError": "Error de hábito"},
-      {"descripcion": "5 %", "esCorrecta": false, "retroalimentacion": "Dividiste 200 entre 40. El porcentaje es la parte sobre el total (40 ÷ 200), no al revés.", "tipoError": "Error cognitivo"},
-      {"descripcion": "0,2 %", "esCorrecta": false, "retroalimentacion": "0,2 es la fracción decimal; para expresarla como porcentaje hay que multiplicarla por 100.", "tipoError": "Error cognitivo"}
+      {"descripcion": "40 %", "esCorrecta": false, "retroalimentacion": "Tomaste la cantidad (40 estudiantes) como si fuera el porcentaje. El porcentaje se calcula sobre el total: 40 de 200."},
+      {"descripcion": "5 %", "esCorrecta": false, "retroalimentacion": "Dividiste 200 entre 40. El porcentaje es la parte sobre el total (40 ÷ 200), no al revés."},
+      {"descripcion": "0,2 %", "esCorrecta": false, "retroalimentacion": "0,2 es la fracción decimal; para expresarla como porcentaje hay que multiplicarla por 100."}
     ]
   },
   {
@@ -144,9 +144,9 @@
     "componente": "Estadística", "competencia": "Formulación y ejecución", "nivel": "Básico",
     "opciones": [
       {"descripcion": "12", "esCorrecta": true, "retroalimentacion": "Correcto: si el promedio de 4 números es 10, su suma es 40. Como 8 + 9 + 11 = 28, el cuarto es 40 − 28 = 12."},
-      {"descripcion": "10", "esCorrecta": false, "retroalimentacion": "Supusiste que el número faltante es igual al promedio. Eso solo ocurriría si los otros tres también promediaran 10, y 8 + 9 + 11 = 28 ≠ 30.", "tipoError": "Error cognitivo"},
-      {"descripcion": "28", "esCorrecta": false, "retroalimentacion": "28 es la suma de los tres números conocidos. Falta restarla de la suma total (40) para hallar el cuarto.", "tipoError": "Error de hábito"},
-      {"descripcion": "2", "esCorrecta": false, "retroalimentacion": "Parece que restaste 28 de 30. La suma total de cuatro números con promedio 10 es 4 × 10 = 40.", "tipoError": "Error cognitivo"}
+      {"descripcion": "10", "esCorrecta": false, "retroalimentacion": "Supusiste que el número faltante es igual al promedio. Eso solo ocurriría si los otros tres también promediaran 10, y 8 + 9 + 11 = 28 ≠ 30."},
+      {"descripcion": "28", "esCorrecta": false, "retroalimentacion": "28 es la suma de los tres números conocidos. Falta restarla de la suma total (40) para hallar el cuarto."},
+      {"descripcion": "2", "esCorrecta": false, "retroalimentacion": "Parece que restaste 28 de 30. La suma total de cuatro números con promedio 10 es 4 × 10 = 40."}
     ]
   },
   {
@@ -154,9 +154,9 @@
     "componente": "Álgebra y cálculo", "competencia": "Argumentación", "nivel": "Intermedio",
     "opciones": [
       {"descripcion": "a = 1 y b = 1", "esCorrecta": true, "retroalimentacion": "Correcto: (1 + 1)² = 4, pero 1² + 1² = 2. Como 4 ≠ 2, la igualdad no se cumple. En general (a + b)² = a² + 2ab + b²."},
-      {"descripcion": "a = 0 y b = 5", "esCorrecta": false, "retroalimentacion": "Con a = 0 ambos lados valen 25, así que la igualdad se cumple y no sirve como contraejemplo. El término 2ab se anula cuando uno de los dos es cero.", "tipoError": "Error cognitivo"},
-      {"descripcion": "a = 3 y b = 0", "esCorrecta": false, "retroalimentacion": "Con b = 0 ambos lados valen 9; la igualdad se cumple. Necesitas valores donde 2ab sea distinto de cero.", "tipoError": "Error cognitivo"},
-      {"descripcion": "a = 0 y b = 0", "esCorrecta": false, "retroalimentacion": "Con ambos en cero los dos lados valen 0. Un contraejemplo debe hacer que los dos lados sean diferentes.", "tipoError": "Error de hábito"}
+      {"descripcion": "a = 0 y b = 5", "esCorrecta": false, "retroalimentacion": "Con a = 0 ambos lados valen 25, así que la igualdad se cumple y no sirve como contraejemplo. El término 2ab se anula cuando uno de los dos es cero."},
+      {"descripcion": "a = 3 y b = 0", "esCorrecta": false, "retroalimentacion": "Con b = 0 ambos lados valen 9; la igualdad se cumple. Necesitas valores donde 2ab sea distinto de cero."},
+      {"descripcion": "a = 0 y b = 0", "esCorrecta": false, "retroalimentacion": "Con ambos en cero los dos lados valen 0. Un contraejemplo debe hacer que los dos lados sean diferentes."}
     ]
   }
 ]

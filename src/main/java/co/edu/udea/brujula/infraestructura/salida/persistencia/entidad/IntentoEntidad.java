@@ -1,6 +1,14 @@
 package co.edu.udea.brujula.infraestructura.salida.persistencia.entidad;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -14,19 +22,6 @@ public class IntentoEntidad {
     @Column(name = "id_intento")
     private Long id;
 
-    @Column(name = "fecha_hora", nullable = false)
-    private Instant fechaHora;
-
-    @Column(name = "es_correcto", nullable = false)
-    private boolean correcto;
-
-    @Column(name = "nivel_confianza", nullable = false)
-    private int nivelConfianza;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_tipo_error")
-    private TipoErrorEntidad tipoError;
-
     @Column(name = "id_usuario", nullable = false)
     private Long idUsuario;
 
@@ -38,30 +33,32 @@ public class IntentoEntidad {
     @JoinColumn(name = "id_opcion_seleccionada", nullable = false)
     private OpcionEntidad opcionSeleccionada;
 
-    @Column(name = "id_simulacro")
-    private Long idSimulacro;
+    @Column(name = "es_correcto", nullable = false)
+    private boolean correcto;
 
-    @Column(name = "token_idempotencia")
+    @Column(name = "nivel_confianza", nullable = false)
+    private short nivelConfianza;
+
+    @Column(name = "token_idempotencia", nullable = false)
     private UUID tokenIdempotencia;
+
+    @Column(name = "respondido_en", nullable = false)
+    private Instant respondidoEn;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public Instant getFechaHora() { return fechaHora; }
-    public void setFechaHora(Instant fechaHora) { this.fechaHora = fechaHora; }
-    public boolean isCorrecto() { return correcto; }
-    public void setCorrecto(boolean correcto) { this.correcto = correcto; }
-    public int getNivelConfianza() { return nivelConfianza; }
-    public void setNivelConfianza(int nivelConfianza) { this.nivelConfianza = nivelConfianza; }
-    public TipoErrorEntidad getTipoError() { return tipoError; }
-    public void setTipoError(TipoErrorEntidad tipoError) { this.tipoError = tipoError; }
     public Long getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
     public EjercicioEntidad getEjercicio() { return ejercicio; }
     public void setEjercicio(EjercicioEntidad ejercicio) { this.ejercicio = ejercicio; }
     public OpcionEntidad getOpcionSeleccionada() { return opcionSeleccionada; }
-    public void setOpcionSeleccionada(OpcionEntidad o) { this.opcionSeleccionada = o; }
-    public Long getIdSimulacro() { return idSimulacro; }
-    public void setIdSimulacro(Long idSimulacro) { this.idSimulacro = idSimulacro; }
+    public void setOpcionSeleccionada(OpcionEntidad opcionSeleccionada) { this.opcionSeleccionada = opcionSeleccionada; }
+    public boolean isCorrecto() { return correcto; }
+    public void setCorrecto(boolean correcto) { this.correcto = correcto; }
+    public short getNivelConfianza() { return nivelConfianza; }
+    public void setNivelConfianza(short nivelConfianza) { this.nivelConfianza = nivelConfianza; }
     public UUID getTokenIdempotencia() { return tokenIdempotencia; }
-    public void setTokenIdempotencia(UUID token) { this.tokenIdempotencia = token; }
+    public void setTokenIdempotencia(UUID tokenIdempotencia) { this.tokenIdempotencia = tokenIdempotencia; }
+    public Instant getRespondidoEn() { return respondidoEn; }
+    public void setRespondidoEn(Instant respondidoEn) { this.respondidoEn = respondidoEn; }
 }

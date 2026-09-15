@@ -11,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
@@ -18,10 +19,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Traduce los errores del dominio a respuestas HTTP. Es el único punto donde se decide qué código
- * corresponde a cada situación, para que el dominio no tenga que saber de HTTP.
- */
 @RestControllerAdvice
 public class ManejadorDeErrores {
 
@@ -73,6 +70,13 @@ public class ManejadorDeErrores {
     public ResponseEntity<Map<String, Object>> permisos(AccessDeniedException e) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(cuerpo(HttpStatus.FORBIDDEN, "ACCESO_DENEGADO",
                 "No tienes permisos para realizar esta acción.", List.of()));
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<Map<String, Object>> metodoNoPermitido(HttpRequestMethodNotSupportedException e) {
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED)
+                .body(cuerpo(HttpStatus.METHOD_NOT_ALLOWED, "METODO_NO_PERMITIDO",
+                        "La operación no está disponible para este recurso.", List.of()));
     }
 
     @ExceptionHandler(NoResourceFoundException.class)

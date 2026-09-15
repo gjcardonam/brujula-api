@@ -1,6 +1,14 @@
 package co.edu.udea.brujula.infraestructura.salida.persistencia.entidad;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 import java.time.Instant;
 
@@ -28,33 +36,33 @@ public class UsuarioEntidad {
     @Column(name = "password_hash", nullable = false, length = 255)
     private String passwordHash;
 
+    @Column(name = "password_actualizado_en", nullable = false)
+    private Instant passwordActualizadoEn;
+
     @Column(name = "acepto_terminos", nullable = false)
     private boolean aceptoTerminos;
 
-    @Column(name = "fecha_aceptacion_terminos")
-    private Instant fechaAceptacionTerminos;
-
-    @Column(name = "creado_en", nullable = false)
-    private Instant creadoEn;
+    @Column(name = "terminos_aceptados_en", nullable = false)
+    private Instant terminosAceptadosEn;
 
     @Column(name = "intentos_fallidos_login", nullable = false)
-    private int intentosFallidos;
+    private short intentosFallidos;
 
-    @Column(name = "ultimo_login")
-    private Instant ultimoLogin;
+    @Column(name = "bloqueado_hasta")
+    private Instant bloqueadoHasta;
 
-    @Column(name = "fecha_bloqueo")
-    private Instant fechaBloqueo;
+    @Column(name = "ultimo_login_en")
+    private Instant ultimoLoginEn;
 
     @Column(nullable = false, length = 10)
     private String estado;
 
+    @Column(name = "creado_en", nullable = false)
+    private Instant creadoEn;
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_rol", nullable = false)
     private RolEntidad rol;
-
-    @Column(name = "password_actualizado_en")
-    private Instant passwordActualizadoEn;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -68,22 +76,22 @@ public class UsuarioEntidad {
     public void setGoogleSub(String googleSub) { this.googleSub = googleSub; }
     public String getPasswordHash() { return passwordHash; }
     public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+    public Instant getPasswordActualizadoEn() { return passwordActualizadoEn; }
+    public void setPasswordActualizadoEn(Instant passwordActualizadoEn) { this.passwordActualizadoEn = passwordActualizadoEn; }
     public boolean isAceptoTerminos() { return aceptoTerminos; }
     public void setAceptoTerminos(boolean aceptoTerminos) { this.aceptoTerminos = aceptoTerminos; }
-    public Instant getFechaAceptacionTerminos() { return fechaAceptacionTerminos; }
-    public void setFechaAceptacionTerminos(Instant f) { this.fechaAceptacionTerminos = f; }
-    public Instant getCreadoEn() { return creadoEn; }
-    public void setCreadoEn(Instant creadoEn) { this.creadoEn = creadoEn; }
-    public int getIntentosFallidos() { return intentosFallidos; }
-    public void setIntentosFallidos(int intentosFallidos) { this.intentosFallidos = intentosFallidos; }
-    public Instant getUltimoLogin() { return ultimoLogin; }
-    public void setUltimoLogin(Instant ultimoLogin) { this.ultimoLogin = ultimoLogin; }
-    public Instant getFechaBloqueo() { return fechaBloqueo; }
-    public void setFechaBloqueo(Instant fechaBloqueo) { this.fechaBloqueo = fechaBloqueo; }
+    public Instant getTerminosAceptadosEn() { return terminosAceptadosEn; }
+    public void setTerminosAceptadosEn(Instant terminosAceptadosEn) { this.terminosAceptadosEn = terminosAceptadosEn; }
+    public short getIntentosFallidos() { return intentosFallidos; }
+    public void setIntentosFallidos(short intentosFallidos) { this.intentosFallidos = intentosFallidos; }
+    public Instant getBloqueadoHasta() { return bloqueadoHasta; }
+    public void setBloqueadoHasta(Instant bloqueadoHasta) { this.bloqueadoHasta = bloqueadoHasta; }
+    public Instant getUltimoLoginEn() { return ultimoLoginEn; }
+    public void setUltimoLoginEn(Instant ultimoLoginEn) { this.ultimoLoginEn = ultimoLoginEn; }
     public String getEstado() { return estado; }
     public void setEstado(String estado) { this.estado = estado; }
+    public Instant getCreadoEn() { return creadoEn; }
+    public void setCreadoEn(Instant creadoEn) { this.creadoEn = creadoEn; }
     public RolEntidad getRol() { return rol; }
     public void setRol(RolEntidad rol) { this.rol = rol; }
-    public Instant getPasswordActualizadoEn() { return passwordActualizadoEn; }
-    public void setPasswordActualizadoEn(Instant p) { this.passwordActualizadoEn = p; }
 }

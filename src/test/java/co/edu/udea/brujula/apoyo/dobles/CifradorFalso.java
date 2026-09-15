@@ -2,7 +2,6 @@ package co.edu.udea.brujula.apoyo.dobles;
 
 import co.edu.udea.brujula.dominio.puerto.salida.CifradorDeContrasenas;
 
-/** Cifrado de mentiras: en las pruebas no interesa bcrypt, solo que compare bien. */
 public class CifradorFalso implements CifradorDeContrasenas {
 
     @Override

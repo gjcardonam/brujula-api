@@ -1,205 +1,256 @@
--- Brújula · Esquema inicial
--- Corresponde al Modelo Entidad-Relación final del Sprint 0 (18 tablas, 24 relaciones).
--- Convenciones: nombres de tablas y columnas en snake_case, tal como en el modelo.
--- Nota: los timestamps se guardan con zona horaria (TIMESTAMPTZ) para evitar ambigüedades;
--- la API los expone en ISO-8601 y el front los muestra en hora local.
+CREATE FUNCTION fn_marcar_actualizado_en() RETURNS trigger
+    LANGUAGE plpgsql AS
+$$
+BEGIN
+    NEW.actualizado_en := now();
+    RETURN NEW;
+END;
+$$;
 
--- =========================
--- Tablas de catálogo
--- =========================
 CREATE TABLE roles (
-    id_rol      BIGSERIAL PRIMARY KEY,
-    nombre_rol  VARCHAR(30) NOT NULL UNIQUE
+    id_rol     BIGSERIAL,
+    nombre_rol VARCHAR(30) NOT NULL,
+    CONSTRAINT pk_roles PRIMARY KEY (id_rol),
+    CONSTRAINT ux_roles_nombre UNIQUE (nombre_rol),
+    CONSTRAINT ck_roles_nombre_no_vacio CHECK (btrim(nombre_rol) <> '')
 );
 
 CREATE TABLE componentes (
-    id_componente       BIGSERIAL PRIMARY KEY,
-    nombre_componente   VARCHAR(100) NOT NULL UNIQUE,
-    estado              VARCHAR(15) NOT NULL DEFAULT 'Activo'
-                        CHECK (estado IN ('Activo', 'Desactivado'))
+    id_componente     BIGSERIAL,
+    nombre_componente VARCHAR(100) NOT NULL,
+    estado            VARCHAR(15) NOT NULL DEFAULT 'Activo',
+    CONSTRAINT pk_componentes PRIMARY KEY (id_componente),
+    CONSTRAINT ux_componentes_nombre UNIQUE (nombre_componente),
+    CONSTRAINT ck_componentes_nombre_no_vacio CHECK (btrim(nombre_componente) <> ''),
+    CONSTRAINT ck_componentes_estado CHECK (estado IN ('Activo', 'Desactivado'))
 );
 
 CREATE TABLE competencias (
-    id_competencia      BIGSERIAL PRIMARY KEY,
-    nombre_competencia  VARCHAR(100) NOT NULL UNIQUE,
-    estado              VARCHAR(15) NOT NULL DEFAULT 'Activo'
-                        CHECK (estado IN ('Activo', 'Desactivado'))
+    id_competencia     BIGSERIAL,
+    nombre_competencia VARCHAR(100) NOT NULL,
+    estado             VARCHAR(15) NOT NULL DEFAULT 'Activo',
+    CONSTRAINT pk_competencias PRIMARY KEY (id_competencia),
+    CONSTRAINT ux_competencias_nombre UNIQUE (nombre_competencia),
+    CONSTRAINT ck_competencias_nombre_no_vacio CHECK (btrim(nombre_competencia) <> ''),
+    CONSTRAINT ck_competencias_estado CHECK (estado IN ('Activo', 'Desactivado'))
 );
 
 CREATE TABLE niveles_dificultad (
-    id_nivel_dificultad BIGSERIAL PRIMARY KEY,
-    nivel               VARCHAR(15) NOT NULL UNIQUE
+    id_nivel_dificultad BIGSERIAL,
+    nivel               VARCHAR(15) NOT NULL,
+    CONSTRAINT pk_niveles_dificultad PRIMARY KEY (id_nivel_dificultad),
+    CONSTRAINT ux_niveles_dificultad_nivel UNIQUE (nivel),
+    CONSTRAINT ck_niveles_dificultad_nivel_no_vacio CHECK (btrim(nivel) <> '')
 );
 
-CREATE TABLE tipos_error (
-    id_tipo_error       BIGSERIAL PRIMARY KEY,
-    nombre_tipo_error   VARCHAR(30) NOT NULL UNIQUE
-);
-
-CREATE TABLE duraciones_simulacro (
-    id_duracion         BIGSERIAL PRIMARY KEY,
-    duracion_minutos    INT NOT NULL UNIQUE CHECK (duracion_minutos > 0)
-);
-
--- =========================
--- Usuarios y seguridad
--- =========================
 CREATE TABLE usuarios (
-    id_usuario                  BIGSERIAL PRIMARY KEY,
-    nombre                      VARCHAR(30) NOT NULL,
-    apellido                    VARCHAR(50) NOT NULL,
-    email                       VARCHAR(150) NOT NULL UNIQUE,                 -- HU-001 CA-03
-    google_sub                  VARCHAR(255) UNIQUE,                          -- HU-001 CA-02/CA-12
-    password_hash               VARCHAR(255) NOT NULL,                        -- HU-001 CA-13
-    acepto_terminos             BOOLEAN NOT NULL DEFAULT FALSE,               -- HU-001 CA-07
-    fecha_aceptacion_terminos   TIMESTAMPTZ,
-    creado_en                   TIMESTAMPTZ NOT NULL DEFAULT now(),
-    intentos_fallidos_login     INT NOT NULL DEFAULT 0,                       -- HU-002 CA-08
-    ultimo_login                TIMESTAMPTZ,                                  -- HU-002 CA-06
-    fecha_bloqueo               TIMESTAMPTZ,                                  -- HU-002 CA-08
-    estado                      VARCHAR(10) NOT NULL DEFAULT 'Activo'
-                                CHECK (estado IN ('Activo', 'Inactivo')),
-    id_rol                      BIGINT NOT NULL REFERENCES roles (id_rol),
-    -- Complemento al modelo: marca desde cuándo dejan de valer las sesiones emitidas
-    -- antes de un restablecimiento de contraseña (HU-003 CA-07).
-    password_actualizado_en     TIMESTAMPTZ
+    id_usuario              BIGSERIAL,
+    id_rol                  BIGINT       NOT NULL,
+    nombre                  VARCHAR(30)  NOT NULL,
+    apellido                VARCHAR(50)  NOT NULL,
+    email                   VARCHAR(150) NOT NULL,
+    google_sub              VARCHAR(255),
+    password_hash           VARCHAR(255) NOT NULL,
+    password_actualizado_en TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    acepto_terminos         BOOLEAN      NOT NULL,
+    terminos_aceptados_en   TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    intentos_fallidos_login SMALLINT     NOT NULL DEFAULT 0,
+    bloqueado_hasta         TIMESTAMPTZ,
+    ultimo_login_en         TIMESTAMPTZ,
+    estado                  VARCHAR(10)  NOT NULL DEFAULT 'Activo',
+    creado_en               TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    actualizado_en          TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    CONSTRAINT pk_usuarios PRIMARY KEY (id_usuario),
+    CONSTRAINT fk_usuarios_rol FOREIGN KEY (id_rol)
+        REFERENCES roles (id_rol) ON DELETE RESTRICT,
+    CONSTRAINT ux_usuarios_google_sub UNIQUE (google_sub),
+    CONSTRAINT ck_usuarios_nombre_longitud CHECK (char_length(btrim(nombre)) BETWEEN 1 AND 30),
+    CONSTRAINT ck_usuarios_apellido_longitud CHECK (char_length(btrim(apellido)) BETWEEN 2 AND 50),
+    CONSTRAINT ck_usuarios_email_formato CHECK (email ~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
+    CONSTRAINT ck_usuarios_password_hash_no_vacio CHECK (btrim(password_hash) <> ''),
+    CONSTRAINT ck_usuarios_terminos_aceptados CHECK (acepto_terminos),
+    CONSTRAINT ck_usuarios_intentos_fallidos_login CHECK (intentos_fallidos_login >= 0),
+    CONSTRAINT ck_usuarios_estado CHECK (estado IN ('Activo', 'Inactivo'))
 );
 
-CREATE TABLE tokens_recuperacion (                                            -- HU-003
-    id_token    BIGSERIAL PRIMARY KEY,
-    id_usuario  BIGINT NOT NULL REFERENCES usuarios (id_usuario),
-    token_hash  VARCHAR(255) NOT NULL UNIQUE,
-    creado_en   TIMESTAMPTZ NOT NULL DEFAULT now(),
-    expira_en   TIMESTAMPTZ NOT NULL,                                         -- HU-003 CA-02 (30 min)
-    usado_en    TIMESTAMPTZ                                                   -- HU-003 CA-05/CA-06
-);
-CREATE INDEX ix_tokens_recuperacion_usuario ON tokens_recuperacion (id_usuario, creado_en);
+CREATE UNIQUE INDEX ux_usuarios_email ON usuarios (lower(email));
 
-CREATE TABLE tokens_sesion_revocados (                                        -- HU-004 CA-06
-    jti         VARCHAR(64) PRIMARY KEY,
-    id_usuario  BIGINT NOT NULL REFERENCES usuarios (id_usuario),
+CREATE TRIGGER tg_usuarios_actualizado_en
+    BEFORE UPDATE ON usuarios
+    FOR EACH ROW EXECUTE FUNCTION fn_marcar_actualizado_en();
+
+CREATE TABLE tokens_recuperacion (
+    id_token   BIGSERIAL,
+    id_usuario BIGINT       NOT NULL,
+    token_hash VARCHAR(255) NOT NULL,
+    creado_en  TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    expira_en  TIMESTAMPTZ  NOT NULL,
+    usado_en   TIMESTAMPTZ,
+    CONSTRAINT pk_tokens_recuperacion PRIMARY KEY (id_token),
+    CONSTRAINT fk_tokens_recuperacion_usuario FOREIGN KEY (id_usuario)
+        REFERENCES usuarios (id_usuario) ON DELETE RESTRICT,
+    CONSTRAINT ux_tokens_recuperacion_hash UNIQUE (token_hash),
+    CONSTRAINT ck_tokens_recuperacion_hash_no_vacio CHECK (btrim(token_hash) <> ''),
+    CONSTRAINT ck_tokens_recuperacion_vigencia CHECK (expira_en > creado_en),
+    CONSTRAINT ck_tokens_recuperacion_usado_despues_de_creado CHECK (usado_en IS NULL OR usado_en >= creado_en)
+);
+
+CREATE INDEX ix_tokens_recuperacion_usuario_creado ON tokens_recuperacion (id_usuario, creado_en DESC);
+
+CREATE TABLE tokens_sesion_revocados (
+    jti         VARCHAR(64),
+    id_usuario  BIGINT      NOT NULL,
     revocado_en TIMESTAMPTZ NOT NULL DEFAULT now(),
-    expira_en   TIMESTAMPTZ NOT NULL
+    expira_en   TIMESTAMPTZ NOT NULL,
+    CONSTRAINT pk_tokens_sesion_revocados PRIMARY KEY (jti),
+    CONSTRAINT fk_tokens_sesion_revocados_usuario FOREIGN KEY (id_usuario)
+        REFERENCES usuarios (id_usuario) ON DELETE RESTRICT,
+    CONSTRAINT ck_tokens_sesion_revocados_jti_no_vacio CHECK (btrim(jti) <> '')
 );
+
 CREATE INDEX ix_tokens_sesion_revocados_expira ON tokens_sesion_revocados (expira_en);
 
--- =========================
--- Banco de ejercicios
--- =========================
-CREATE SEQUENCE ejercicios_numero_seq START WITH 1;                           -- HU-020 CA-11
+CREATE SEQUENCE ejercicios_numero_seq AS INTEGER START WITH 1;
 
 CREATE TABLE ejercicios (
-    id_ejercicio        BIGSERIAL PRIMARY KEY,
-    numero              INT NOT NULL UNIQUE DEFAULT nextval('ejercicios_numero_seq'),  -- HU-020 CA-13
-    enunciado           TEXT NOT NULL,
+    id_ejercicio        BIGSERIAL,
+    numero              INTEGER      NOT NULL DEFAULT nextval('ejercicios_numero_seq'),
+    enunciado           TEXT         NOT NULL,
     imagen_enunciado    VARCHAR(255),
-    id_nivel_dificultad BIGINT NOT NULL REFERENCES niveles_dificultad (id_nivel_dificultad),
-    estado              VARCHAR(15) NOT NULL DEFAULT 'Activo'
-                        CHECK (estado IN ('Activo', 'Desactivado')),
-    creado_en           TIMESTAMPTZ NOT NULL DEFAULT now(),
-    id_competencia      BIGINT NOT NULL REFERENCES competencias (id_competencia),
-    id_componente       BIGINT NOT NULL REFERENCES componentes (id_componente),
-    id_usuario_creador  BIGINT NOT NULL REFERENCES usuarios (id_usuario)
+    id_componente       BIGINT       NOT NULL,
+    id_competencia      BIGINT       NOT NULL,
+    id_nivel_dificultad BIGINT       NOT NULL,
+    id_usuario_creador  BIGINT       NOT NULL,
+    estado              VARCHAR(15)  NOT NULL DEFAULT 'Activo',
+    creado_en           TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    actualizado_en      TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    CONSTRAINT pk_ejercicios PRIMARY KEY (id_ejercicio),
+    CONSTRAINT fk_ejercicios_componente FOREIGN KEY (id_componente)
+        REFERENCES componentes (id_componente) ON DELETE RESTRICT,
+    CONSTRAINT fk_ejercicios_competencia FOREIGN KEY (id_competencia)
+        REFERENCES competencias (id_competencia) ON DELETE RESTRICT,
+    CONSTRAINT fk_ejercicios_nivel_dificultad FOREIGN KEY (id_nivel_dificultad)
+        REFERENCES niveles_dificultad (id_nivel_dificultad) ON DELETE RESTRICT,
+    CONSTRAINT fk_ejercicios_usuario_creador FOREIGN KEY (id_usuario_creador)
+        REFERENCES usuarios (id_usuario) ON DELETE RESTRICT,
+    CONSTRAINT ux_ejercicios_numero UNIQUE (numero),
+    CONSTRAINT ck_ejercicios_numero_positivo CHECK (numero > 0),
+    CONSTRAINT ck_ejercicios_enunciado_no_vacio CHECK (btrim(enunciado) <> ''),
+    CONSTRAINT ck_ejercicios_imagen_enunciado_no_vacia CHECK (imagen_enunciado IS NULL OR btrim(imagen_enunciado) <> ''),
+    CONSTRAINT ck_ejercicios_estado CHECK (estado IN ('Activo', 'Desactivado'))
 );
--- Enunciado único (HU-020 CA-16): se indexa el hash normalizado para tolerar textos largos.
+
+ALTER SEQUENCE ejercicios_numero_seq OWNED BY ejercicios.numero;
+
 CREATE UNIQUE INDEX ux_ejercicios_enunciado ON ejercicios (md5(lower(btrim(enunciado))));
-CREATE INDEX ix_ejercicios_componente ON ejercicios (id_componente, estado);
-CREATE INDEX ix_ejercicios_competencia ON ejercicios (id_competencia, estado);
+CREATE INDEX ix_ejercicios_estado_numero ON ejercicios (estado, numero);
+CREATE INDEX ix_ejercicios_componente_estado_numero ON ejercicios (id_componente, estado, numero);
+
+CREATE TRIGGER tg_ejercicios_actualizado_en
+    BEFORE UPDATE ON ejercicios
+    FOR EACH ROW EXECUTE FUNCTION fn_marcar_actualizado_en();
 
 CREATE TABLE opciones_respuesta (
-    id_opcion           BIGSERIAL PRIMARY KEY,
-    descripcion_opcion  TEXT,
-    imagen_opcion       VARCHAR(255),
-    es_correcta         BOOLEAN NOT NULL DEFAULT FALSE,
-    retroalimentacion   TEXT NOT NULL,
-    id_tipo_error       BIGINT REFERENCES tipos_error (id_tipo_error),        -- distractores clasificados (objetivo 1, HU-027)
-    orden_opcion        INT NOT NULL,
-    id_ejercicio        BIGINT NOT NULL REFERENCES ejercicios (id_ejercicio),
-    CONSTRAINT ck_opcion_con_contenido CHECK (descripcion_opcion IS NOT NULL OR imagen_opcion IS NOT NULL),
-    -- Diferibles: al editar un ejercicio se reordenan opciones y se cambia la correcta dentro de una misma transacción.
-    CONSTRAINT uq_opcion_orden UNIQUE (id_ejercicio, orden_opcion) DEFERRABLE INITIALLY DEFERRED,
-    -- Exactamente una opción correcta por ejercicio (HU-020 CA-07): a lo sumo una en BD, el mínimo lo valida la API.
-    CONSTRAINT ux_opcion_correcta_por_ejercicio EXCLUDE USING btree (id_ejercicio WITH =) WHERE (es_correcta) DEFERRABLE INITIALLY DEFERRED
+    id_opcion          BIGSERIAL,
+    id_ejercicio       BIGINT      NOT NULL,
+    orden_opcion       SMALLINT    NOT NULL,
+    descripcion_opcion TEXT,
+    imagen_opcion      VARCHAR(255),
+    es_correcta        BOOLEAN     NOT NULL DEFAULT FALSE,
+    retroalimentacion  TEXT        NOT NULL,
+    creado_en          TIMESTAMPTZ NOT NULL DEFAULT now(),
+    actualizado_en     TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT pk_opciones_respuesta PRIMARY KEY (id_opcion),
+    CONSTRAINT fk_opciones_respuesta_ejercicio FOREIGN KEY (id_ejercicio)
+        REFERENCES ejercicios (id_ejercicio) ON DELETE CASCADE,
+    CONSTRAINT ux_opciones_respuesta_opcion_ejercicio UNIQUE (id_opcion, id_ejercicio),
+    CONSTRAINT ux_opciones_respuesta_orden UNIQUE (id_ejercicio, orden_opcion),
+    CONSTRAINT ck_opciones_respuesta_orden CHECK (orden_opcion BETWEEN 1 AND 6),
+    CONSTRAINT ck_opciones_respuesta_con_contenido CHECK (
+        btrim(coalesce(descripcion_opcion, '')) <> '' OR btrim(coalesce(imagen_opcion, '')) <> ''),
+    CONSTRAINT ck_opciones_respuesta_retroalimentacion_no_vacia CHECK (btrim(retroalimentacion) <> '')
 );
 
--- =========================
--- Práctica y simulacros
--- =========================
-CREATE TABLE simulacros (
-    id_simulacro        BIGSERIAL PRIMARY KEY,
-    id_usuario          BIGINT NOT NULL REFERENCES usuarios (id_usuario),
-    id_duracion         BIGINT NOT NULL REFERENCES duraciones_simulacro (id_duracion),
-    fecha_inicio        TIMESTAMPTZ NOT NULL DEFAULT now(),
-    fecha_fin           TIMESTAMPTZ,
-    estado              VARCHAR(15) NOT NULL DEFAULT 'En curso'
-                        CHECK (estado IN ('En curso', 'Finalizado')),         -- HU-015
-    tiempo_utilizado_seg INT                                                  -- HU-017 CA-02
-);
-CREATE INDEX ix_simulacros_usuario ON simulacros (id_usuario, fecha_inicio DESC);
+CREATE UNIQUE INDEX ux_opciones_respuesta_correcta ON opciones_respuesta (id_ejercicio) WHERE es_correcta;
+CREATE UNIQUE INDEX ux_opciones_respuesta_descripcion ON opciones_respuesta (id_ejercicio, md5(lower(btrim(descripcion_opcion))))
+    WHERE descripcion_opcion IS NOT NULL;
+
+CREATE TRIGGER tg_opciones_respuesta_actualizado_en
+    BEFORE UPDATE ON opciones_respuesta
+    FOR EACH ROW EXECUTE FUNCTION fn_marcar_actualizado_en();
+
+CREATE FUNCTION fn_verificar_unica_opcion_correcta() RETURNS trigger
+    LANGUAGE plpgsql AS
+$$
+DECLARE
+    v_id_ejercicio BIGINT;
+    v_correctas    INTEGER;
+BEGIN
+    IF TG_OP = 'DELETE' THEN
+        v_id_ejercicio := OLD.id_ejercicio;
+    ELSE
+        v_id_ejercicio := NEW.id_ejercicio;
+    END IF;
+
+    IF NOT EXISTS (SELECT 1 FROM ejercicios WHERE id_ejercicio = v_id_ejercicio) THEN
+        RETURN NULL;
+    END IF;
+
+    SELECT count(*) INTO v_correctas
+    FROM opciones_respuesta
+    WHERE id_ejercicio = v_id_ejercicio AND es_correcta;
+
+    IF v_correctas <> 1 THEN
+        RAISE EXCEPTION 'ck_ejercicios_una_opcion_correcta: el ejercicio % tiene % opciones correctas', v_id_ejercicio, v_correctas
+            USING ERRCODE = 'check_violation';
+    END IF;
+
+    RETURN NULL;
+END;
+$$;
+
+CREATE CONSTRAINT TRIGGER tg_ejercicios_una_opcion_correcta
+    AFTER INSERT ON ejercicios
+    DEFERRABLE INITIALLY DEFERRED
+    FOR EACH ROW EXECUTE FUNCTION fn_verificar_unica_opcion_correcta();
+
+CREATE CONSTRAINT TRIGGER tg_opciones_respuesta_una_opcion_correcta
+    AFTER INSERT OR UPDATE OR DELETE ON opciones_respuesta
+    DEFERRABLE INITIALLY DEFERRED
+    FOR EACH ROW EXECUTE FUNCTION fn_verificar_unica_opcion_correcta();
 
 CREATE TABLE intentos (
-    id_intento              BIGSERIAL PRIMARY KEY,
-    fecha_hora              TIMESTAMPTZ NOT NULL DEFAULT now(),
-    es_correcto             BOOLEAN NOT NULL,
-    nivel_confianza         INT NOT NULL CHECK (nivel_confianza BETWEEN 1 AND 5),   -- HU-012
-    id_tipo_error           BIGINT REFERENCES tipos_error (id_tipo_error),    -- HU-027 (nulo si es correcto)
-    id_usuario              BIGINT NOT NULL REFERENCES usuarios (id_usuario),
-    id_ejercicio            BIGINT NOT NULL REFERENCES ejercicios (id_ejercicio),
-    id_opcion_seleccionada  BIGINT NOT NULL REFERENCES opciones_respuesta (id_opcion),
-    id_simulacro            BIGINT REFERENCES simulacros (id_simulacro),      -- nulo en práctica libre
-    token_idempotencia      UUID UNIQUE                                       -- HU-016
-);
-CREATE INDEX ix_intentos_usuario_fecha ON intentos (id_usuario, fecha_hora DESC);
-CREATE INDEX ix_intentos_simulacro ON intentos (id_simulacro);
-CREATE INDEX ix_intentos_ejercicio ON intentos (id_ejercicio);
--- Dentro de un mismo simulacro no se repite un ejercicio (HU-014 CA-07/CA-08).
-CREATE UNIQUE INDEX ux_intento_simulacro_ejercicio ON intentos (id_simulacro, id_ejercicio) WHERE id_simulacro IS NOT NULL;
-
-CREATE TABLE recomendaciones_estudio (                                        -- HU-018
-    id_recomendacion        BIGSERIAL PRIMARY KEY,
-    mensaje_recomendacion   TEXT NOT NULL,
-    porcentaje_aciertos     NUMERIC(5,2) NOT NULL,
-    orden_prioridad         INT NOT NULL,
-    id_simulacro            BIGINT NOT NULL REFERENCES simulacros (id_simulacro),
-    id_competencia          BIGINT REFERENCES competencias (id_competencia),
-    id_componente           BIGINT REFERENCES componentes (id_componente)
-);
-CREATE INDEX ix_recomendaciones_simulacro ON recomendaciones_estudio (id_simulacro, orden_prioridad);
-
--- =========================
--- Auditoría y configuración
--- =========================
-CREATE TABLE auditoria_ejercicios (
-    id_auditoria        BIGSERIAL PRIMARY KEY,
-    tipo_accion         VARCHAR(15) NOT NULL
-                        CHECK (tipo_accion IN ('Creación', 'Edición', 'Activación', 'Desactivación')),
-    fecha_accion        TIMESTAMPTZ NOT NULL DEFAULT now(),
-    id_ejercicio        BIGINT NOT NULL REFERENCES ejercicios (id_ejercicio),
-    id_usuario_actor    BIGINT NOT NULL REFERENCES usuarios (id_usuario)
+    id_intento             BIGSERIAL,
+    id_usuario             BIGINT      NOT NULL,
+    id_ejercicio           BIGINT      NOT NULL,
+    id_opcion_seleccionada BIGINT      NOT NULL,
+    es_correcto            BOOLEAN     NOT NULL,
+    nivel_confianza        SMALLINT    NOT NULL,
+    token_idempotencia     UUID        NOT NULL,
+    respondido_en          TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT pk_intentos PRIMARY KEY (id_intento),
+    CONSTRAINT fk_intentos_usuario FOREIGN KEY (id_usuario)
+        REFERENCES usuarios (id_usuario) ON DELETE RESTRICT,
+    CONSTRAINT fk_intentos_opcion_del_ejercicio FOREIGN KEY (id_opcion_seleccionada, id_ejercicio)
+        REFERENCES opciones_respuesta (id_opcion, id_ejercicio) ON DELETE RESTRICT,
+    CONSTRAINT ux_intentos_token_idempotencia UNIQUE (token_idempotencia),
+    CONSTRAINT ck_intentos_nivel_confianza CHECK (nivel_confianza BETWEEN 1 AND 5)
 );
 
--- Preparada para PI II (HU-030 a HU-035). En PI1 no se escribe.
-CREATE TABLE auditoria_catalogos (
-    id_auditoria        BIGSERIAL PRIMARY KEY,
-    tipo_catalogo       VARCHAR(15) NOT NULL CHECK (tipo_catalogo IN ('Componente', 'Competencia')),
-    id_elemento         BIGINT NOT NULL,
-    tipo_accion         VARCHAR(15) NOT NULL CHECK (tipo_accion IN ('Creación', 'Activación', 'Desactivación')),
-    fecha_accion        TIMESTAMPTZ NOT NULL DEFAULT now(),
-    id_usuario_actor    BIGINT NOT NULL REFERENCES usuarios (id_usuario)
+CREATE INDEX ix_intentos_usuario_respondido ON intentos (id_usuario, respondido_en DESC);
+
+CREATE TABLE parametros_sistema (
+    clave          VARCHAR(50),
+    valor          VARCHAR(50)  NOT NULL,
+    descripcion    VARCHAR(255) NOT NULL,
+    creado_en      TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    actualizado_en TIMESTAMPTZ  NOT NULL DEFAULT now(),
+    CONSTRAINT pk_parametros_sistema PRIMARY KEY (clave),
+    CONSTRAINT ck_parametros_sistema_clave_formato CHECK (clave ~ '^[a-z][a-z0-9_]*$'),
+    CONSTRAINT ck_parametros_sistema_valor_no_vacio CHECK (btrim(valor) <> ''),
+    CONSTRAINT ck_parametros_sistema_descripcion_no_vacia CHECK (btrim(descripcion) <> '')
 );
 
--- Preparada para PI II (HU-036). En PI1 no se escribe.
-CREATE TABLE auditoria_roles (
-    id_auditoria        BIGSERIAL PRIMARY KEY,
-    id_usuario_afectado BIGINT NOT NULL REFERENCES usuarios (id_usuario),
-    id_usuario_actor    BIGINT NOT NULL REFERENCES usuarios (id_usuario),
-    rol_anterior        VARCHAR(30) NOT NULL,
-    rol_nuevo           VARCHAR(30) NOT NULL,
-    fecha_accion        TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-CREATE TABLE parametros_sistema (                                             -- HU-028 y otros
-    clave       VARCHAR(50) PRIMARY KEY,
-    valor       VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(255)
-);
+CREATE TRIGGER tg_parametros_sistema_actualizado_en
+    BEFORE UPDATE ON parametros_sistema
+    FOR EACH ROW EXECUTE FUNCTION fn_marcar_actualizado_en();

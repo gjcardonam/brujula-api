@@ -1,15 +1,29 @@
 package co.edu.udea.brujula.infraestructura.entrada.rest;
 
 import co.edu.udea.brujula.dominio.modelo.Usuario;
-import co.edu.udea.brujula.dominio.puerto.entrada.*;
+import co.edu.udea.brujula.dominio.puerto.entrada.CerrarSesion;
+import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarPerfil;
+import co.edu.udea.brujula.dominio.puerto.entrada.IniciarSesion;
+import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarConGoogle;
+import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarEstudiante;
+import co.edu.udea.brujula.dominio.puerto.entrada.RenovarSesion;
+import co.edu.udea.brujula.dominio.puerto.entrada.ValidarSesion;
 import co.edu.udea.brujula.dominio.puerto.salida.VerificadorDeGoogle;
-import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.*;
-import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.*;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.GoogleRequest;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.LoginRequest;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.RegistroRequest;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.SesionDto;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.UsuarioDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -17,31 +31,32 @@ import java.util.Map;
 @RequestMapping("/api/auth")
 public class AutenticacionControlador {
 
+    private final RegistrarConGoogle registroConGoogle;
     private final RegistrarEstudiante registro;
-    private final AutenticarUsuario autenticacion;
-    private final GestionarSesion sesiones;
-    private final RecuperarContrasena recuperacion;
-    private final GestionarPerfil perfil;
+    private final IniciarSesion inicioDeSesion;
+    private final CerrarSesion cierreDeSesion;
+    private final RenovarSesion renovacionDeSesion;
+    private final ConsultarPerfil perfil;
     private final VerificadorDeGoogle google;
 
-    public AutenticacionControlador(RegistrarEstudiante registro, AutenticarUsuario autenticacion,
-                                    GestionarSesion sesiones, RecuperarContrasena recuperacion,
-                                    GestionarPerfil perfil, VerificadorDeGoogle google) {
+    public AutenticacionControlador(RegistrarConGoogle registroConGoogle, RegistrarEstudiante registro,
+                                    IniciarSesion inicioDeSesion, CerrarSesion cierreDeSesion,
+                                    RenovarSesion renovacionDeSesion, ConsultarPerfil perfil,
+                                    VerificadorDeGoogle google) {
+        this.registroConGoogle = registroConGoogle;
         this.registro = registro;
-        this.autenticacion = autenticacion;
-        this.sesiones = sesiones;
-        this.recuperacion = recuperacion;
+        this.inicioDeSesion = inicioDeSesion;
+        this.cierreDeSesion = cierreDeSesion;
+        this.renovacionDeSesion = renovacionDeSesion;
         this.perfil = perfil;
         this.google = google;
     }
 
-    /** Paso 1 del registro: Google verifica el correo y la API dice si falta crear la cuenta. */
     @PostMapping("/google")
-    public RegistrarEstudiante.RegistroPendiente conGoogle(@Valid @RequestBody GoogleRequest peticion) {
-        return registro.iniciarConGoogle(peticion.credential());
+    public RegistrarConGoogle.RegistroPendiente conGoogle(@Valid @RequestBody GoogleRequest peticion) {
+        return registroConGoogle.iniciar(peticion.credential());
     }
 
-    /** Paso 2: nombres, apellidos, contraseña y aceptación de términos. */
     @PostMapping("/registro")
     @ResponseStatus(HttpStatus.CREATED)
     public Map<String, Object> registrar(@Valid @RequestBody RegistroRequest peticion) {
@@ -53,19 +68,18 @@ public class AutenticacionControlador {
 
     @PostMapping("/login")
     public SesionDto iniciarSesion(@RequestBody LoginRequest peticion) {
-        return SesionDto.de(autenticacion.autenticar(peticion.email(), peticion.password()));
+        return SesionDto.de(inicioDeSesion.iniciar(peticion.email(), peticion.password()));
     }
 
     @PostMapping("/logout")
     public ResponseEntity<Void> cerrarSesion(@AuthenticationPrincipal ValidarSesion.Autenticado usuario) {
-        sesiones.cerrar(usuario.id(), usuario.jti(), usuario.expiraEn());
+        cierreDeSesion.cerrar(usuario.id(), usuario.jti(), usuario.expiraEn());
         return ResponseEntity.noContent().build();
     }
 
-    /** El front renueva el token mientras el usuario siga trabajando (HU-004 CA-05). */
     @PostMapping("/refresh")
     public SesionDto renovar(@AuthenticationPrincipal ValidarSesion.Autenticado usuario) {
-        return SesionDto.de(sesiones.renovar(usuario.id(), usuario.jti(), usuario.expiraEn()));
+        return SesionDto.de(renovacionDeSesion.renovar(usuario.id(), usuario.jti(), usuario.expiraEn()));
     }
 
     @GetMapping("/me")
@@ -73,24 +87,6 @@ public class AutenticacionControlador {
         return UsuarioDto.de(perfil.consultar(usuario.id()));
     }
 
-    @PostMapping("/recuperar")
-    public MensajeDto recuperar(@RequestBody RecuperarRequest peticion) {
-        return new MensajeDto(recuperacion.solicitarEnlace(peticion.email()));
-    }
-
-    @GetMapping("/restablecer/validar")
-    public Map<String, Object> validarEnlace(@RequestParam String token) {
-        recuperacion.verificarEnlace(token);
-        return Map.of("valido", true);
-    }
-
-    @PostMapping("/restablecer")
-    public MensajeDto restablecer(@Valid @RequestBody RestablecerRequest peticion) {
-        return new MensajeDto(recuperacion.restablecer(peticion.token(), peticion.password(),
-                peticion.confirmacionPassword()));
-    }
-
-    /** El front necesita saber si el botón de Google es el real o el simulado de desarrollo. */
     @GetMapping("/google/config")
     public Map<String, Object> configuracionDeGoogle() {
         return Map.of("simulado", google.estaSimulado());

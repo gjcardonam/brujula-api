@@ -13,12 +13,17 @@ public class TokensFalsos implements ProveedorDeTokens {
 
     private final Map<String, SesionLeida> sesiones = new HashMap<>();
     private final Map<String, RegistroPendiente> registros = new HashMap<>();
-    private int contador = 0;
+    private final RelojFijo reloj;
+    private int contador;
+
+    public TokensFalsos(RelojFijo reloj) {
+        this.reloj = reloj;
+    }
 
     @Override
     public Sesion emitirSesion(Usuario usuario) {
         String jti = "jti-" + (++contador);
-        Instant ahora = Instant.now();
+        Instant ahora = reloj.ahora();
         Instant expira = ahora.plus(Duration.ofHours(2));
         sesiones.put("token-" + jti, new SesionLeida(jti, usuario.id(), ahora, expira));
         return new Sesion("token-" + jti, jti, expira);

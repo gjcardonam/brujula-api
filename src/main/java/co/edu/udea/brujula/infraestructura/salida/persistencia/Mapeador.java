@@ -1,92 +1,86 @@
 package co.edu.udea.brujula.infraestructura.salida.persistencia;
 
-import co.edu.udea.brujula.dominio.modelo.*;
-import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.*;
+import co.edu.udea.brujula.dominio.modelo.Competencia;
+import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.Ejercicio;
+import co.edu.udea.brujula.dominio.modelo.Intento;
+import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
+import co.edu.udea.brujula.dominio.modelo.Opcion;
+import co.edu.udea.brujula.dominio.modelo.Rol;
+import co.edu.udea.brujula.dominio.modelo.TokenRecuperacion;
+import co.edu.udea.brujula.dominio.modelo.Usuario;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.CompetenciaEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.ComponenteEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.EjercicioEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.IntentoEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.NivelDificultadEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.OpcionEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.RolEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.TokenRecuperacionEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.UsuarioEntidad;
 
 import java.util.List;
 
-/** Traduce entre las entidades de JPA y los modelos del dominio. */
 public final class Mapeador {
 
     private Mapeador() {
     }
 
-    public static Rol aDominio(RolEntidad e) {
-        return e == null ? null : new Rol(e.getId(), e.getNombre());
+    public static Rol aDominio(RolEntidad entidad) {
+        return entidad == null ? null : new Rol(entidad.getId(), entidad.getNombre());
     }
 
-    public static Componente aDominio(ComponenteEntidad e) {
-        return e == null ? null : new Componente(e.getId(), e.getNombre(), e.getEstado());
+    public static Componente aDominio(ComponenteEntidad entidad) {
+        return entidad == null ? null : new Componente(entidad.getId(), entidad.getNombre(), entidad.getEstado());
     }
 
-    public static Competencia aDominio(CompetenciaEntidad e) {
-        return e == null ? null : new Competencia(e.getId(), e.getNombre(), e.getEstado());
+    public static Competencia aDominio(CompetenciaEntidad entidad) {
+        return entidad == null ? null : new Competencia(entidad.getId(), entidad.getNombre(), entidad.getEstado());
     }
 
-    public static NivelDificultad aDominio(NivelDificultadEntidad e) {
-        return e == null ? null : new NivelDificultad(e.getId(), e.getNivel());
+    public static NivelDificultad aDominio(NivelDificultadEntidad entidad) {
+        return entidad == null ? null : new NivelDificultad(entidad.getId(), entidad.getNivel());
     }
 
-    public static TipoError aDominio(TipoErrorEntidad e) {
-        return e == null ? null : new TipoError(e.getId(), e.getNombre());
+    public static Usuario aDominio(UsuarioEntidad entidad) {
+        if (entidad == null) return null;
+        return Usuario.reconstruir(entidad.getId(), entidad.getNombre(), entidad.getApellido(), entidad.getEmail(),
+                entidad.getGoogleSub(), entidad.getPasswordHash(), entidad.getPasswordActualizadoEn(),
+                entidad.isAceptoTerminos(), entidad.getTerminosAceptadosEn(), entidad.getCreadoEn(),
+                entidad.getIntentosFallidos(), entidad.getBloqueadoHasta(), entidad.getUltimoLoginEn(),
+                entidad.getEstado(), aDominio(entidad.getRol()));
     }
 
-    public static DuracionSimulacro aDominio(DuracionSimulacroEntidad e) {
-        return e == null ? null : new DuracionSimulacro(e.getId(), e.getMinutos());
+    public static Opcion aDominio(OpcionEntidad entidad) {
+        return new Opcion(entidad.getId(), entidad.getTexto(), entidad.getImagen(), entidad.isCorrecta(),
+                entidad.getRetroalimentacion(), entidad.getOrden());
     }
 
-    public static Usuario aDominio(UsuarioEntidad e) {
-        return e == null ? null : Usuario.reconstruir(e.getId(), e.getNombre(), e.getApellido(), e.getEmail(),
-                e.getGoogleSub(), e.getPasswordHash(), e.isAceptoTerminos(), e.getFechaAceptacionTerminos(),
-                e.getCreadoEn(), e.getIntentosFallidos(), e.getUltimoLogin(), e.getFechaBloqueo(), e.getEstado(),
-                aDominio(e.getRol()), e.getPasswordActualizadoEn());
+    public static Ejercicio aDominioSinOpciones(EjercicioEntidad entidad) {
+        return new Ejercicio(entidad.getId(), entidad.getNumero(), entidad.getEnunciado(), entidad.getImagen(),
+                aDominio(entidad.getNivel()), aDominio(entidad.getComponente()), aDominio(entidad.getCompetencia()),
+                entidad.getEstado(), entidad.getCreadoEn(), null, null, List.of());
     }
 
-    public static Opcion aDominio(OpcionEntidad e) {
-        return new Opcion(e.getId(), e.getTexto(), e.getImagen(), e.isCorrecta(), e.getRetroalimentacion(),
-                aDominio(e.getTipoError()), e.getOrden());
-    }
-
-    /** Sin opciones: sirve para el banco y para el historial, donde no hace falta el detalle. */
-    public static Ejercicio aDominioSinOpciones(EjercicioEntidad e) {
-        return new Ejercicio(e.getId(), e.getNumero(), e.getEnunciado(), e.getImagen(), aDominio(e.getNivel()),
-                aDominio(e.getComponente()), aDominio(e.getCompetencia()), e.getEstado(), e.getCreadoEn(),
-                null, null, List.of());
-    }
-
-    public static Ejercicio aDominio(EjercicioEntidad e) {
-        List<Opcion> opciones = e.getOpciones().stream().map(Mapeador::aDominio).toList();
-        UsuarioEntidad creador = e.getCreador();
-        return new Ejercicio(e.getId(), e.getNumero(), e.getEnunciado(), e.getImagen(), aDominio(e.getNivel()),
-                aDominio(e.getComponente()), aDominio(e.getCompetencia()), e.getEstado(), e.getCreadoEn(),
+    public static Ejercicio aDominio(EjercicioEntidad entidad) {
+        List<Opcion> opciones = entidad.getOpciones().stream().map(Mapeador::aDominio).toList();
+        UsuarioEntidad creador = entidad.getCreador();
+        return new Ejercicio(entidad.getId(), entidad.getNumero(), entidad.getEnunciado(), entidad.getImagen(),
+                aDominio(entidad.getNivel()), aDominio(entidad.getComponente()), aDominio(entidad.getCompetencia()),
+                entidad.getEstado(), entidad.getCreadoEn(),
                 creador == null ? null : creador.getId(),
                 creador == null ? null : creador.getNombre() + " " + creador.getApellido(),
                 opciones);
     }
 
-    public static Intento aDominio(IntentoEntidad e) {
-        return new Intento(e.getId(), e.getFechaHora(), e.isCorrecto(), e.getNivelConfianza(),
-                aDominio(e.getTipoError()), e.getIdUsuario(), aDominioSinOpciones(e.getEjercicio()),
-                aDominio(e.getOpcionSeleccionada()), e.getIdSimulacro(), e.getTokenIdempotencia());
+    public static Intento aDominio(IntentoEntidad entidad) {
+        return new Intento(entidad.getId(), entidad.getRespondidoEn(), entidad.isCorrecto(),
+                entidad.getNivelConfianza(), entidad.getIdUsuario(), aDominioSinOpciones(entidad.getEjercicio()),
+                aDominio(entidad.getOpcionSeleccionada()), entidad.getTokenIdempotencia());
     }
 
-    public static Simulacro aDominio(SimulacroEntidad e) {
-        return new Simulacro(e.getId(), e.getIdUsuario(), aDominio(e.getDuracion()), e.getInicio(), e.getFin(),
-                e.getEstado(), e.getTiempoUtilizadoSeg());
-    }
-
-    public static Recomendacion aDominio(RecomendacionEntidad e) {
-        boolean esComponente = e.getComponente() != null;
-        return new Recomendacion(e.getId(), e.getOrden(),
-                esComponente ? e.getComponente().getNombre() : e.getCompetencia().getNombre(),
-                esComponente ? Recomendacion.COMPONENTE : Recomendacion.COMPETENCIA,
-                esComponente ? e.getComponente().getId() : null,
-                esComponente ? null : e.getCompetencia().getId(),
-                e.getPorcentaje(), e.getMensaje());
-    }
-
-    public static TokenRecuperacion aDominio(TokenRecuperacionEntidad e) {
-        return new TokenRecuperacion(e.getId(), e.getIdUsuario(), e.getTokenHash(), e.getCreadoEn(),
-                e.getExpiraEn(), e.getUsadoEn());
+    public static TokenRecuperacion aDominio(TokenRecuperacionEntidad entidad) {
+        return new TokenRecuperacion(entidad.getId(), entidad.getIdUsuario(), entidad.getTokenHash(),
+                entidad.getCreadoEn(), entidad.getExpiraEn(), entidad.getUsadoEn());
     }
 }

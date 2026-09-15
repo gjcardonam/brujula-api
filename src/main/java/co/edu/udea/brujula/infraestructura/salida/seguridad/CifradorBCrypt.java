@@ -25,10 +25,6 @@ public class CifradorBCrypt implements CifradorDeContrasenas {
         return codificador.matches(contrasenaPlana, hash);
     }
 
-    /**
-     * Para el token de recuperación no sirve bcrypt: hay que buscarlo en la base por su valor, así
-     * que se guarda un SHA-256 del token, que sí es determinista.
-     */
     @Override
     public String resumen(String valor) {
         try {

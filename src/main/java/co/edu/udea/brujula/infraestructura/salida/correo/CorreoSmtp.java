@@ -10,7 +10,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-/** Si no hay servidor de correo configurado, el enlace queda en el log para poder probar en local. */
 @Component
 public class CorreoSmtp implements NotificadorDeCorreo {
 
@@ -54,7 +53,7 @@ public class CorreoSmtp implements NotificadorDeCorreo {
             mensaje.setText(cuerpo);
             envio.send(mensaje);
         } catch (RuntimeException e) {
-            // No se propaga: al usuario se le responde siempre lo mismo (HU-003 CA-03).
+
             log.error("No fue posible enviar el correo de restablecimiento a {}: {}", correo, e.getMessage());
         }
     }

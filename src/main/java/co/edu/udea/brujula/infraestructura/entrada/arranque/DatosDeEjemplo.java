@@ -1,10 +1,13 @@
 package co.edu.udea.brujula.infraestructura.entrada.arranque;
 
+import co.edu.udea.brujula.dominio.modelo.Competencia;
+import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
-import co.edu.udea.brujula.dominio.puerto.entrada.AdministrarEjercicios;
-import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarBanco;
 import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarCatalogos;
+import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarComponentesDelBanco;
+import co.edu.udea.brujula.dominio.puerto.entrada.CrearEjercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.comando.DatosDeEjercicio;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.CifradorDeContrasenas;
@@ -26,10 +29,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * Carga un banco de prueba y un estudiante de ejemplo cuando el banco está vacío. Sirve para
- * demostrar la plataforma sin tener que crear ejercicios a mano.
- */
 @Component
 @Order(2)
 public class DatosDeEjemplo implements ApplicationRunner {
@@ -37,33 +36,33 @@ public class DatosDeEjemplo implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(DatosDeEjemplo.class);
     private static final String CORREO_DE_PRUEBA = "estudiante@brujula.local";
     private static final String CLAVE_DE_PRUEBA = "Estudiante.2026";
+    private static final String ARCHIVO = "datos-ejemplo/ejercicios.json";
 
-    /** Estructura del archivo datos-ejemplo/ejercicios.json. */
     public record EjercicioJson(String enunciado, String componente, String competencia, String nivel,
                                 List<OpcionJson> opciones) {
     }
 
-    public record OpcionJson(String descripcion, boolean esCorrecta, String retroalimentacion, String tipoError) {
+    public record OpcionJson(String descripcion, boolean esCorrecta, String retroalimentacion) {
     }
 
     private final BrujulaProperties propiedades;
-    private final ConsultarBanco banco;
+    private final ConsultarComponentesDelBanco banco;
     private final ConsultarCatalogos catalogos;
-    private final AdministrarEjercicios administracion;
+    private final CrearEjercicio creacion;
     private final UsuarioRepositorio usuarios;
     private final CatalogoRepositorio catalogoRepositorio;
     private final CifradorDeContrasenas cifrador;
     private final Reloj reloj;
     private final ObjectMapper json;
 
-    public DatosDeEjemplo(BrujulaProperties propiedades, ConsultarBanco banco, ConsultarCatalogos catalogos,
-                          AdministrarEjercicios administracion, UsuarioRepositorio usuarios,
-                          CatalogoRepositorio catalogoRepositorio, CifradorDeContrasenas cifrador,
-                          Reloj reloj, ObjectMapper json) {
+    public DatosDeEjemplo(BrujulaProperties propiedades, ConsultarComponentesDelBanco banco,
+                          ConsultarCatalogos catalogos, CrearEjercicio creacion, UsuarioRepositorio usuarios,
+                          CatalogoRepositorio catalogoRepositorio, CifradorDeContrasenas cifrador, Reloj reloj,
+                          ObjectMapper json) {
         this.propiedades = propiedades;
         this.banco = banco;
         this.catalogos = catalogos;
-        this.administracion = administracion;
+        this.creacion = creacion;
         this.usuarios = usuarios;
         this.catalogoRepositorio = catalogoRepositorio;
         this.cifrador = cifrador;
@@ -95,33 +94,35 @@ public class DatosDeEjemplo implements ApplicationRunner {
     }
 
     private void cargarEjercicios(Long idAdministrador) throws Exception {
-        var listas = catalogos.todos();
-        Map<String, Long> componentes = listas.componentes().stream()
-                .collect(Collectors.toMap(c -> c.nombre(), c -> c.id()));
-        Map<String, Long> competencias = listas.competencias().stream()
-                .collect(Collectors.toMap(c -> c.nombre(), c -> c.id()));
-        Map<String, Long> niveles = listas.niveles().stream()
-                .collect(Collectors.toMap(n -> n.nombre(), n -> n.id()));
-        Map<String, Long> tiposDeError = listas.tiposDeError().stream()
-                .collect(Collectors.toMap(t -> t.nombre(), t -> t.id()));
+        ConsultarCatalogos.Catalogos listas = catalogos.todos();
+        Map<String, Long> componentes = indexar(listas.componentes(), Componente::nombre, Componente::id);
+        Map<String, Long> competencias = indexar(listas.competencias(), Competencia::nombre, Competencia::id);
+        Map<String, Long> niveles = indexar(listas.niveles(), NivelDificultad::nombre, NivelDificultad::id);
 
-        List<EjercicioJson> ejercicios;
-        try (InputStream archivo = new ClassPathResource("datos-ejemplo/ejercicios.json").getInputStream()) {
-            ejercicios = json.readValue(archivo,
-                    json.getTypeFactory().constructCollectionType(List.class, EjercicioJson.class));
-        }
+        List<EjercicioJson> ejercicios = leerArchivo();
         for (EjercicioJson ejercicio : ejercicios) {
             List<DatosDeEjercicio.DatosDeOpcion> opciones = ejercicio.opciones().stream()
-                    .map(o -> new DatosDeEjercicio.DatosDeOpcion(null, o.descripcion(), null, o.esCorrecta(),
-                            o.retroalimentacion(),
-                            o.esCorrecta() || o.tipoError() == null ? null : requerir(tiposDeError, o.tipoError(), "tipo de error")))
+                    .map(opcion -> new DatosDeEjercicio.DatosDeOpcion(opcion.descripcion(), null,
+                            opcion.esCorrecta(), opcion.retroalimentacion()))
                     .toList();
-            administracion.crear(idAdministrador, new DatosDeEjercicio(ejercicio.enunciado(), null,
+            creacion.crear(idAdministrador, new DatosDeEjercicio(ejercicio.enunciado(), null,
                     requerir(componentes, ejercicio.componente(), "componente"),
                     requerir(competencias, ejercicio.competencia(), "competencia"),
                     requerir(niveles, ejercicio.nivel(), "nivel"), opciones));
         }
         log.info("Se cargaron {} ejercicios de ejemplo", ejercicios.size());
+    }
+
+    private List<EjercicioJson> leerArchivo() throws Exception {
+        try (InputStream archivo = new ClassPathResource(ARCHIVO).getInputStream()) {
+            return json.readValue(archivo,
+                    json.getTypeFactory().constructCollectionType(List.class, EjercicioJson.class));
+        }
+    }
+
+    private static <T> Map<String, Long> indexar(List<T> elementos, Function<T, String> nombre,
+                                                 Function<T, Long> id) {
+        return elementos.stream().collect(Collectors.toMap(nombre, id));
     }
 
     private static Long requerir(Map<String, Long> catalogo, String nombre, String queEs) {

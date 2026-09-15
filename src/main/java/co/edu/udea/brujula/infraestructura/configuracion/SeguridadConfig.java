@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,7 +31,6 @@ public class SeguridadConfig {
             "/api/auth/login",
             "/api/auth/recuperar",
             "/api/auth/restablecer/**",
-            "/api/archivos/**",
             "/api/catalogos/publicos"
     };
 
@@ -46,11 +46,12 @@ public class SeguridadConfig {
 
     @Bean
     public SecurityFilterChain cadenaDeFiltros(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())                 // la API no usa cookies de sesión
+        http.csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(configuracionCors()))
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(rutas -> rutas
                     .requestMatchers(RUTAS_PUBLICAS).permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/archivos/**").permitAll()
                     .requestMatchers("/api/**").authenticated()
                     .anyRequest().permitAll())
             .exceptionHandling(errores -> errores
@@ -72,8 +73,9 @@ public class SeguridadConfig {
     @Bean
     public CorsConfigurationSource configuracionCors() {
         CorsConfiguration configuracion = new CorsConfiguration();
-        // En producción el front se sirve por el mismo nginx; los patrones cubren el desarrollo local.
-        configuracion.setAllowedOriginPatterns(List.of(propiedades.frontendUrl(), "http://localhost:*", "http://127.0.0.1:*"));
+
+        configuracion.setAllowedOriginPatterns(List.of(propiedades.frontendUrl(), "http://localhost:*",
+                "http://127.0.0.1:*"));
         configuracion.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuracion.setAllowedHeaders(List.of("*"));
         configuracion.setAllowCredentials(false);

@@ -12,10 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.UUID;
 
-/**
- * Guarda las imágenes en una carpeta del servidor. El formato se decide leyendo los primeros bytes
- * y no la extensión, que el navegador puede mandar equivocada o falsificada.
- */
 @Component
 public class AlmacenEnDisco implements AlmacenDeImagenes {
 
@@ -69,7 +65,6 @@ public class AlmacenEnDisco implements AlmacenDeImagenes {
         return null;
     }
 
-    /** Devuelve la ruta en disco solo si el nombre es de los que genera esta clase. */
     public Path rutaDe(String nombre) {
         if (nombre == null || !nombre.matches("[A-Za-z0-9]+\\.(jpg|png|webp)")) return null;
         Path ruta = carpeta.resolve(nombre).normalize();

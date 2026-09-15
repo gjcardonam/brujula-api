@@ -14,10 +14,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-/**
- * Crea el primer administrador si todavía no hay ninguno. En PI1 no existe la pantalla para asignar
- * el rol (eso es HU-036, de PI II), así que tiene que salir de la configuración.
- */
 @Component
 @Order(1)
 public class AdministradorInicial implements ApplicationRunner {

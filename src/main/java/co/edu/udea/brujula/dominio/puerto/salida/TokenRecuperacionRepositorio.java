@@ -11,6 +11,5 @@ public interface TokenRecuperacionRepositorio {
 
     Optional<TokenRecuperacion> porHash(String hash);
 
-    /** Para limitar cuántos enlaces se piden por hora (HU-003 CA-09). */
     long solicitudesDesde(Long idUsuario, Instant desde);
 }

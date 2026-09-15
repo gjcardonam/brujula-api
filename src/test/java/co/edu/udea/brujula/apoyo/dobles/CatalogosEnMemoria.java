@@ -1,6 +1,10 @@
 package co.edu.udea.brujula.apoyo.dobles;
 
-import co.edu.udea.brujula.dominio.modelo.*;
+import co.edu.udea.brujula.apoyo.Datos;
+import co.edu.udea.brujula.dominio.modelo.Competencia;
+import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
+import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 
 import java.util.List;
@@ -8,71 +12,44 @@ import java.util.Optional;
 
 public class CatalogosEnMemoria implements CatalogoRepositorio {
 
-    private static final List<TipoError> TIPOS = List.of(
-            new TipoError(1L, TipoError.COGNITIVO),
-            new TipoError(2L, TipoError.HABITO),
-            new TipoError(3L, TipoError.ANSIEDAD));
-
-    private final List<DuracionSimulacro> duraciones = List.of(
-            new DuracionSimulacro(1L, 30), new DuracionSimulacro(3L, 60));
-
-    @Override
-    public TipoError tipoDeError(String nombre) {
-        return TIPOS.stream().filter(t -> t.nombre().equals(nombre)).findFirst().orElseThrow();
-    }
-
-    @Override
-    public Optional<TipoError> tipoDeError(Long id) {
-        return TIPOS.stream().filter(t -> t.id().equals(id)).findFirst();
-    }
-
-    @Override
-    public List<TipoError> tiposDeError() {
-        return TIPOS;
-    }
-
-    @Override
-    public Optional<DuracionSimulacro> duracion(Long id) {
-        return duraciones.stream().filter(d -> d.id().equals(id)).findFirst();
-    }
-
-    @Override
-    public List<DuracionSimulacro> duraciones() {
-        return duraciones;
-    }
+    private final List<Componente> componentes = List.of(Datos.ALGEBRA, Datos.GEOMETRIA,
+            new Componente(9L, "Componente retirado", "Desactivado"));
+    private final List<Competencia> competencias = List.of(Datos.INTERPRETACION, Datos.ARGUMENTACION,
+            new Competencia(9L, "Competencia retirada", "Desactivado"));
+    private final List<NivelDificultad> niveles = List.of(Datos.BASICO, new NivelDificultad(2L, "Intermedio"));
 
     @Override
     public Optional<Rol> rol(String nombre) {
-        return Optional.of(Rol.ESTUDIANTE.equals(nombre) ? new Rol(2L, Rol.ESTUDIANTE) : new Rol(1L, Rol.ADMINISTRADOR));
+        return Rol.ESTUDIANTE.equals(nombre) ? Optional.of(Datos.ESTUDIANTE) : Optional.of(Datos.ADMINISTRADOR);
     }
 
     @Override
     public List<Componente> componentes(boolean soloActivos) {
-        return List.of();
+        return soloActivos ? componentes.stream().filter(Componente::estaActivo).toList() : componentes;
     }
 
     @Override
     public Optional<Componente> componente(Long id) {
-        return Optional.empty();
+        return componentes.stream().filter(c -> c.id().equals(id)).findFirst();
     }
 
     @Override
     public List<Competencia> competencias(boolean soloActivas) {
-        return List.of();
+        return soloActivas ? competencias.stream().filter(Competencia::estaActiva).toList() : competencias;
     }
 
     @Override
     public Optional<Competencia> competencia(Long id) {
-        return Optional.empty();
+        return competencias.stream().filter(c -> c.id().equals(id)).findFirst();
     }
 
     @Override
     public List<NivelDificultad> niveles() {
-        return List.of();
+        return niveles;
     }
 
     @Override
     public Optional<NivelDificultad> nivel(Long id) {
-        return Optional.empty();
+        return niveles.stream().filter(n -> n.id().equals(id)).findFirst();
     }
 }

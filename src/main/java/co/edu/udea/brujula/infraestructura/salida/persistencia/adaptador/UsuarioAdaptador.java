@@ -53,16 +53,14 @@ public class UsuarioAdaptador implements UsuarioRepositorio {
         entidad.setEmail(usuario.email());
         entidad.setGoogleSub(usuario.googleSub());
         entidad.setPasswordHash(usuario.passwordHash());
-        entidad.setAceptoTerminos(usuario.aceptoTerminos());
-        entidad.setFechaAceptacionTerminos(usuario.fechaAceptacionTerminos());
-        entidad.setCreadoEn(usuario.creadoEn());
-        entidad.setIntentosFallidos(usuario.intentosFallidos());
-        entidad.setUltimoLogin(usuario.ultimoLogin());
-        entidad.setFechaBloqueo(usuario.fechaBloqueo());
-        entidad.setEstado(usuario.estado());
         entidad.setPasswordActualizadoEn(usuario.passwordActualizadoEn());
-        // Se carga el rol de verdad y no una referencia perezosa: guardar() se llama también desde
-        // el arranque, fuera de una transacción, y allí un proxy sin sesión falla al leerse.
+        entidad.setAceptoTerminos(usuario.aceptoTerminos());
+        entidad.setTerminosAceptadosEn(usuario.terminosAceptadosEn());
+        entidad.setCreadoEn(usuario.creadoEn());
+        entidad.setIntentosFallidos((short) usuario.intentosFallidos());
+        entidad.setBloqueadoHasta(usuario.bloqueadoHasta());
+        entidad.setUltimoLoginEn(usuario.ultimoLoginEn());
+        entidad.setEstado(usuario.estado());
         entidad.setRol(roles.findById(usuario.rol().id()).orElseThrow());
 
         UsuarioEntidad guardado = usuarios.save(entidad);

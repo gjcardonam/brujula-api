@@ -6,10 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-/**
- * Se consulta la tabla en cada uso: son diez filas y así un cambio hecho con SQL aplica de una vez,
- * sin reiniciar la aplicación.
- */
 @Component
 public class ParametrosAdaptador implements ParametrosDelSistema {
 

@@ -26,7 +26,7 @@ public class UsuariosEnMemoria implements UsuarioRepositorio {
 
     @Override
     public Optional<Usuario> porEmail(String email) {
-        return porId.values().stream().filter(u -> u.email().equalsIgnoreCase(email)).findFirst();
+        return porId.values().stream().filter(usuario -> usuario.email().equalsIgnoreCase(email)).findFirst();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class UsuariosEnMemoria implements UsuarioRepositorio {
 
     @Override
     public boolean existeAlgunAdministrador() {
-        return porId.values().stream().anyMatch(u -> Rol.ADMINISTRADOR.equals(u.rol().nombre()));
+        return porId.values().stream().anyMatch(usuario -> Rol.ADMINISTRADOR.equals(usuario.rol().nombre()));
     }
 
     @Override

@@ -31,37 +31,19 @@ public interface EjercicioJpa extends JpaRepository<EjercicioEntidad, Long> {
     @Query("select count(e) from EjercicioEntidad e where (:soloActivos = false or e.estado = 'Activo')")
     long contarTotal(@Param("soloActivos") boolean soloActivos);
 
-    @Query("select e.id from EjercicioEntidad e where lower(trim(e.enunciado)) = lower(trim(:enunciado))")
-    List<Long> idsConEnunciado(@Param("enunciado") String enunciado);
+    @Query("select count(e) from EjercicioEntidad e where lower(trim(e.enunciado)) = lower(trim(:enunciado))")
+    long contarConEnunciado(@Param("enunciado") String enunciado);
 
-    long countByEstado(String estado);
-
-    /**
-     * Otro ejercicio activo para seguir practicando. Se ordenan primero los que el estudiante no ha
-     * intentado y entre ellos se elige uno al azar.
-     */
     @Query(value = """
             select e.id_ejercicio from ejercicios e
             where e.estado = 'Activo' and e.id_ejercicio <> :idActual
               and (cast(:idComponente as bigint) is null or e.id_componente = cast(:idComponente as bigint))
-            order by (exists (select 1 from intentos i where i.id_ejercicio = e.id_ejercicio and i.id_usuario = :idUsuario)) asc,
+            order by (exists (select 1 from intentos i
+                              where i.id_ejercicio = e.id_ejercicio and i.id_usuario = :idUsuario)) asc,
                      random()
             limit 1
             """, nativeQuery = true)
     Optional<Long> siguienteParaPractica(@Param("idActual") Long idActual,
                                          @Param("idComponente") Long idComponente,
                                          @Param("idUsuario") Long idUsuario);
-
-    /**
-     * Siguiente ejercicio del simulacro. El orden es aleatorio pero estable para cada simulacro, de
-     * modo que recargar la página no cambia la pregunta.
-     */
-    @Query(value = """
-            select e.id_ejercicio from ejercicios e
-            where e.estado = 'Activo'
-              and not exists (select 1 from intentos i where i.id_simulacro = :idSimulacro and i.id_ejercicio = e.id_ejercicio)
-            order by md5(cast(:idSimulacro as text) || '-' || cast(e.id_ejercicio as text))
-            limit 1
-            """, nativeQuery = true)
-    Optional<Long> siguienteParaSimulacro(@Param("idSimulacro") Long idSimulacro);
 }

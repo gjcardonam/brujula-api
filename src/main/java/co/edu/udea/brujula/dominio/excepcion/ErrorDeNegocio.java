@@ -3,10 +3,6 @@ package co.edu.udea.brujula.dominio.excepcion;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Error de negocio. El dominio no sabe de HTTP: se identifica con un código y el adaptador REST
- * decide qué estado devolver.
- */
 public class ErrorDeNegocio extends RuntimeException {
 
     private final String codigo;
