@@ -28,28 +28,28 @@ FONDO_CAJA = "#ffffff"
 
 PUERTOS_ENTRADA = [
     "RegistrarEstudiante",
-    "AutenticarUsuario",
+    "IniciarSesion",
     "ValidarSesion",
-    "ConsultarBanco",
-    "ResponderEjercicio",
-    "GestionarSimulacro",
-    "ConsultarEstadisticas",
-    "AdministrarEjercicios",
+    "ActualizarPerfil",
+    "ListarEjercicios",
+    "AbrirEjercicio",
+    "RegistrarIntento",
+    "CrearEjercicio",
 ]
 
 PUERTOS_SALIDA = [
     "UsuarioRepositorio",
     "EjercicioRepositorio",
     "IntentoRepositorio",
-    "SimulacroRepositorio",
+    "SesionRepositorio",
     "ProveedorDeTokens",
     "CifradorDeContrasenas",
     "NotificadorDeCorreo",
-    "VerificadorDeGoogle",
+    "Reloj",
 ]
 
 ADAPTADORES_ENTRADA = [
-    ("Controladores REST", "autenticación, ejercicios, intentos,\nsimulacros, estadísticas, perfil"),
+    ("Controladores REST", "autenticación, recuperación, perfil,\nejercicios, intentos, catálogos, archivos"),
     ("Filtro de autenticación", "valida el token en cada petición"),
     ("Carga al arrancar", "administrador inicial\ny datos de ejemplo"),
 ]

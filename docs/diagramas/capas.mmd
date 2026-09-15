@@ -8,14 +8,14 @@ flowchart TB
         EXT["Correo SMTP · Google<br/>Imágenes en disco · Reloj"]
     end
 
-    subgraph APP["APLICACIÓN · casos de uso"]
-        CASOS["Implementan los puertos de entrada<br/>y orquestan los de salida"]
+    subgraph APP["APLICACIÓN · 21 casos de uso"]
+        CASOS["acceso · perfil · banco<br/>practica · administracion · catalogo"]
     end
 
     subgraph DOM["DOMINIO · el centro"]
-        MODELO["Modelo<br/>Usuario, Ejercicio, Intento, Simulacro"]
-        SERV["Servicios de dominio<br/>clasificación de errores, recomendaciones,<br/>estadísticas, política de contraseñas"]
-        PUERTOS["Puertos<br/>entrada y salida"]
+        MODELO["Modelo<br/>Usuario, Ejercicio, Opcion, Intento"]
+        SERV["Servicios de dominio<br/>política de contraseña,<br/>política de nombres,<br/>política del ejercicio"]
+        PUERTOS["Puertos<br/>21 de entrada · 13 de salida"]
     end
 
     REST --> CASOS

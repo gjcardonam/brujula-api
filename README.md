@@ -1,219 +1,127 @@
-# Brújula · API y despliegue
+# Brújula · API
 
-Repositorios: [`brujula-api`](https://github.com/gjcardonam/brujula-api) (este, con la base de datos y el `docker-compose.yml`) y [`brujula-web`](https://github.com/gjcardonam/brujula-web) (front). Deben clonarse **uno al lado del otro** para que Compose construya el front desde `../brujula-web`.
+Plataforma de preparación para la prueba Saber 11 en el área de matemáticas. El estudiante
+practica ejercicios, declara qué tan seguro está de su respuesta y recibe una explicación
+**de la opción que eligió**, no una explicación genérica.
 
-Plataforma web gratuita para preparar la prueba Saber 11 en matemáticas, con retroalimentación por
-tipo de error mediante un motor de reglas. Proyecto Integrador I · Ingeniería de Sistemas · UdeA · 2026-2.
+Proyecto Integrador I · Universidad de Antioquia · 2026-2.
 
-Implementa las **29 historias de usuario del alcance de PI1 (HU-001 a HU-029)** y las **14 pantallas
-M-01 a M-14** de los mockups del Sprint 0. Las historias HU-030 a HU-036 (administración de catálogos
-y roles) son alcance de PI II: sus tablas existen en la base de datos pero no tienen API ni pantallas.
+Este repositorio tiene la API, la base de datos y el despliegue. El front está en
+[brujula-web](https://github.com/gjcardonam/brujula-web).
 
-| Capa | Tecnología | Carpeta |
-| :-- | :-- | :-- |
-| Base de datos | PostgreSQL 16 · migraciones Flyway (18 tablas del modelo ER) | `src/main/resources/db/migration/` (este repo) |
-| API REST | Java 21 · Spring Boot 3.3 · Spring Security (JWT) · JPA/Hibernate | este repo |
-| Front | React 18 · TypeScript · Vite · React Router | repo `brujula-web` |
-| Despliegue | Docker Compose (db + api + web + Mailpit) | `docker-compose.yml` (este repo) |
+## Qué hay en esta rama
 
-## Arquitectura
+`main` contiene el **Sprint 1**:
 
-La API está organizada en **arquitectura hexagonal** (puertos y adaptadores). La idea es que las
-reglas del negocio no dependan de Spring, de JPA ni de HTTP, sino al revés: la infraestructura se
-enchufa al dominio a través de interfaces.
-
-> Los diagramas están en **[`docs/arquitectura.md`](docs/arquitectura.md)**: la vista hexagonal, las
-> capas con su regla de dependencias, el mapa de puertos y adaptadores, el recorrido de una petición
-> y el despliegue.
-
-![Arquitectura hexagonal de Brújula](docs/imagenes/hexagono.png)
-
-```
-co.edu.udea.brujula
-├── dominio/                  no importa nada de Spring ni de JPA
-│   ├── modelo/               Usuario, Ejercicio, Intento, Simulacro… y los modelos de consulta
-│   ├── servicio/             reglas puras: motor de clasificación, recomendaciones, estadísticas
-│   ├── excepcion/            errores de negocio con código propio (no con estados HTTP)
-│   └── puerto/
-│       ├── entrada/          un caso de uso por historia de usuario
-│       └── salida/           lo que el dominio necesita del mundo: repositorios, correo, reloj…
-├── aplicacion/               implementa los puertos de entrada orquestando los de salida
-└── infraestructura/
-    ├── entrada/rest/         controladores y DTO (adaptadores que manejan la aplicación)
-    ├── entrada/arranque/     carga del administrador inicial y de los datos de ejemplo
-    ├── salida/persistencia/  entidades JPA, repositorios de Spring Data y adaptadores
-    ├── salida/seguridad/     JWT y cifrado de contraseñas
-    ├── salida/correo/        envío por SMTP
-    ├── salida/google/        verificación del ID token de Google
-    └── salida/archivo/       imágenes en disco
-```
-
-Las dependencias apuntan siempre hacia adentro: `infraestructura → aplicacion → dominio`. El dominio
-no conoce a nadie. Un cambio de base de datos o de framework web se resuelve escribiendo otro
-adaptador, sin tocar las reglas.
-
-### Puertos de entrada y las historias que atienden
-
-| Puerto | Historias |
+| | |
 | :-- | :-- |
-| `RegistrarEstudiante` | HU-001 |
-| `AutenticarUsuario` | HU-002 |
-| `RecuperarContrasena` | HU-003 |
-| `GestionarSesion`, `ValidarSesion` | HU-004 |
-| `GestionarPerfil` | HU-005 |
-| `ConsultarBanco` | HU-006, HU-007, HU-008 |
-| `ConsultarEjercicio`, `BuscarSiguienteEjercicio` | HU-009, HU-010 |
-| `ResponderEjercicio` | HU-010 a HU-012, HU-014, HU-016, HU-027, HU-028 |
-| `ConsultarHistorialDeIntentos` | HU-025 |
-| `GestionarSimulacro` | HU-013 a HU-018, HU-026 |
-| `ConsultarEstadisticas` | HU-019, HU-029 |
-| `AdministrarEjercicios`, `GuardarImagen` | HU-020 a HU-024 |
-| `ConsultarCatalogos` | catálogos de apoyo |
+| Acceso y cuenta | Registro con Google y contraseña, inicio de sesión con bloqueo temporal, recuperación por correo, cierre y expiración de sesión, edición del perfil y cambio de contraseña |
+| Banco de ejercicios | Consulta, filtro por componente, paginación y apertura de un ejercicio |
+| Práctica | Responder registrando el nivel de confianza y recibir la retroalimentación de la opción elegida |
+| Administración | Crear ejercicios con sus opciones, su retroalimentación y sus imágenes |
 
-### Por qué esto facilita las pruebas
+Los simulacros, las estadísticas, el historial, la edición del banco y la clasificación del
+tipo de error están construidos y esperan en la rama
+[`sprint-2`](https://github.com/gjcardonam/brujula-api/tree/sprint-2). Entran a `main`
+cuando llegue su sprint, con su propia migración de base de datos.
 
-Como los casos de uso solo hablan con interfaces, se prueban con implementaciones en memoria
-(`src/test/java/.../apoyo/dobles/`) en lugar de levantar la aplicación completa. Por ejemplo, el
-bloqueo tras cinco intentos fallidos se verifica adelantando un reloj falso, sin esperar diez
-minutos reales ni tocar la base de datos.
+## Arrancar todo
 
-```
-mvn test    # 36 pruebas: dominio, casos de uso y reglas de arquitectura, sin base de datos
-```
-
-`ArquitecturaTest` revisa los imports y falla si el dominio empieza a depender del framework o si un
-caso de uso llama directamente a un adaptador. Es la forma de que la arquitectura no se degrade sola
-con el tiempo.
-
-Dos decisiones que conviene explicar en la sustentación:
-
-- Las clases de `aplicacion` sí usan `@Service` y `@Transactional`. Son las dos únicas anotaciones de
-  Spring fuera de `infraestructura`, y están ahí porque la transacción es un límite natural del caso
-  de uso. El dominio sigue completamente limpio.
-- Los modelos de consulta (`dominio/modelo/consulta`) son de solo lectura y existen para que las
-  consultas no tengan que armar agregados completos que nadie va a usar.
-
-
-## Arranque rápido con Docker
+Los dos repositorios se clonan **uno al lado del otro**, porque Compose construye el front
+desde `../brujula-web`.
 
 ```bash
 git clone https://github.com/gjcardonam/brujula-api.git
 git clone https://github.com/gjcardonam/brujula-web.git
 cd brujula-api
-cp .env.example .env        # opcional: ajustar contraseñas, client id de Google, etc.
+cp .env.example .env
 docker compose up --build
 ```
 
-| Servicio | URL |
+| | |
 | :-- | :-- |
-| Aplicación web | http://localhost:3000 |
-| API | http://localhost:8080/api (salud: `/api/salud`) |
-| Mailpit (bandeja de correo de prueba, para los enlaces de recuperación) | http://localhost:8025 |
-| PostgreSQL | `localhost:5432`, base `brujula`, usuario `brujula` |
+| Aplicación | http://localhost:3000 |
+| API | http://localhost:8080/api |
+| Correo de prueba | http://localhost:8025 |
 
-Si algún puerto está ocupado: `API_PORT=8081 WEB_PORT=3001 DB_PORT=5433 docker compose up --build`.
+Los puertos se cambian en el `.env` con `WEB_PORT`, `API_PORT` y `DB_PORT`.
 
-**Usuarios de prueba** (se crean al arrancar con `DATOS_EJEMPLO=true`, valor por defecto):
+Con `DATOS_EJEMPLO=true` arranca con dieciséis ejercicios de matemáticas y estas dos
+cuentas:
 
 | Rol | Correo | Contraseña |
 | :-- | :-- | :-- |
-| Administrador | `admin@brujula.local` (configurable con `ADMIN_EMAIL`) | `Admin.2026` (`ADMIN_PASSWORD`) |
-| Estudiante | `estudiante@brujula.local` | `Estudiante.2026` |
+| Estudiante | estudiante@brujula.local | Estudiante.2026 |
+| Administrador | admin@brujula.local | Admin.2026 |
 
-También se cargan **16 ejercicios de ejemplo** (`src/main/resources/datos-ejemplo/ejercicios.json`)
-que cubren los tres componentes y las tres competencias, con retroalimentación por opción y tipo de error
-en cada distractor. Se pueden editar o ampliar en ese archivo; solo se cargan si el banco está vacío.
+## Desarrollar sin Docker
 
-## Desarrollo sin Docker para la API y el front
-
-Requisitos: JDK 21, Maven 3.9, Node 20+, y una base PostgreSQL (`docker compose up db mailpit` sirve).
+Hace falta Java 21 y un PostgreSQL 16 escuchando en el 5432. Maven no: lo baja el wrapper.
 
 ```bash
-# API en http://localhost:8080 (desde brujula-api)
-MAIL_HOST=localhost mvn spring-boot:run
-
-# Front en http://localhost:5173 (desde brujula-web; proxy /api → API)
-npm install
-npm run dev                      # API_TARGET=http://localhost:8081 npm run dev si la API está en otro puerto
+docker compose up -d db mailpit
+./mvnw spring-boot:run
 ```
 
-Pruebas de la API: `mvn test`. Cubren el dominio (política de contraseñas, motor de clasificación,
-recomendaciones) y dos casos de uso completos con adaptadores en memoria.
+```bash
+./mvnw test
+```
 
-## Variables de entorno de la API
+Las 110 pruebas corren sin base de datos y sin levantar Spring: tardan segundos.
 
-| Variable | Por defecto | Uso |
-| :-- | :-- | :-- |
-| `DB_URL`, `DB_USER`, `DB_PASSWORD` | `jdbc:postgresql://localhost:5432/brujula`, `brujula`, `brujula` | Conexión |
-| `JWT_SECRET` | secreto de desarrollo | Firma de los tokens de sesión (mínimo 32 caracteres) |
-| `FRONTEND_URL` | `http://localhost:5173` | CORS y enlace del correo de recuperación |
-| `GOOGLE_CLIENT_ID` | vacío | Client ID de Google Identity Services. Vacío = Google **simulado** (ver abajo) |
-| `MODO_DESARROLLO` | `true` | Habilita el Google simulado. **Poner en `false` en producción** |
-| `MAIL_HOST`, `MAIL_PORT`, `MAIL_USER`, `MAIL_PASSWORD`, `MAIL_FROM` | sin SMTP | Envío del enlace de recuperación. Sin SMTP el enlace se escribe en el log |
-| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | `admin@brujula.local` / `Admin.2026` | Primer administrador (solo si no existe ninguno) |
-| `DATOS_EJEMPLO` | `true` | Carga estudiante de prueba y ejercicios de ejemplo si el banco está vacío |
-| `UPLOADS_DIR` | `./uploads` | Carpeta de imágenes de enunciados y opciones |
-| `PORT` | `8080` | Puerto HTTP |
+## Configuración
 
-### Inicio con Google (HU-001)
+Todo entra por variables de entorno y `.env.example` las lista con sus valores de
+desarrollo. Las que importan en producción:
 
-Con `GOOGLE_CLIENT_ID` definido (y `VITE_GOOGLE_CLIENT_ID` en el front, que Compose toma de la misma
-variable), el botón "Continuar con Google" usa Google Identity Services y la API verifica el ID token
-contra las llaves públicas de Google (emisor y audiencia). Nunca se pide ni se guarda la contraseña de Google.
-
-Sin client id y con `MODO_DESARROLLO=true`, el botón abre un formulario simulado donde se escribe el
-correo que "verificaría" Google. Sirve para probar el flujo completo de registro sin crear credenciales.
-Para obtener un client id real: Google Cloud Console → APIs y servicios → Credenciales → Crear ID de
-cliente OAuth → Aplicación web → orígenes autorizados `http://localhost:3000` y `http://localhost:5173`.
-
-## Endpoints principales
-
-| Método y ruta | Historia |
+| Variable | Para qué |
 | :-- | :-- |
-| `POST /api/auth/google`, `POST /api/auth/registro` | HU-001 |
-| `POST /api/auth/login` (bloqueo tras 5 fallos), `POST /api/auth/logout`, `POST /api/auth/refresh`, `GET /api/auth/me` | HU-002, HU-004 |
-| `POST /api/auth/recuperar`, `GET /api/auth/restablecer/validar`, `POST /api/auth/restablecer` | HU-003 |
-| `GET/PUT /api/perfil`, `PUT /api/perfil/password` | HU-005 |
-| `GET /api/ejercicios?componente=&pagina=`, `GET /api/ejercicios/componentes` | HU-006, HU-007, HU-008 |
-| `GET /api/ejercicios/{id}` (vista por rol), `GET /api/ejercicios/{id}/siguiente` | HU-009, HU-010, HU-022 |
-| `POST /api/ejercicios`, `PUT /api/ejercicios/{id}`, `PATCH /api/ejercicios/{id}/estado`, `POST /api/archivos` | HU-020 a HU-024 |
-| `POST /api/intentos` (con `tokenIdempotencia` y `idSimulacro` opcionales) | HU-010 a HU-012, HU-014, HU-016, HU-027, HU-028 |
-| `GET /api/intentos/mios`, `GET /api/intentos/{id}` | HU-025 |
-| `POST /api/simulacros`, `GET /api/simulacros/en-curso`, `GET /api/simulacros/{id}`, `GET /api/simulacros/{id}/siguiente-ejercicio`, `POST /api/simulacros/{id}/finalizar`, `GET /api/simulacros/{id}/resultado`, `GET /api/simulacros/mios` | HU-013 a HU-018, HU-026 |
-| `GET /api/estadisticas/mias?componente=` | HU-019, HU-029 |
-| `GET /api/catalogos` | catálogos (componentes, competencias, niveles, tipos de error, duraciones) |
+| `JWT_SECRET` | Firma de los tokens de sesión. Mínimo 32 caracteres, y hay que cambiarla |
+| `DB_URL`, `DB_USER`, `DB_PASSWORD` | Conexión a PostgreSQL |
+| `FRONTEND_URL` | Base del enlace que viaja en el correo de recuperación |
+| `GOOGLE_CLIENT_ID` | ID de cliente OAuth. Si está vacío, "Continuar con Google" queda simulado |
+| `MODO_DESARROLLO` | En `false` desaparece el acceso simulado con Google |
+| `MAIL_HOST`, `MAIL_PORT`, `MAIL_FROM` | Servidor de correo real |
+| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | Administrador que se crea en el primer arranque |
+| `DATOS_EJEMPLO` | En `false` no carga los ejercicios de ejemplo |
 
-Los errores responden `{ estado, codigo, mensaje, detalles[] }`. Códigos útiles para el front:
-`CREDENCIALES_INVALIDAS`, `CUENTA_BLOQUEADA`, `CUENTA_EXISTENTE`, `ENLACE_INVALIDO`, `NO_DISPONIBLE` (410,
-ejercicio desactivado), `SIMULACRO_EN_CURSO`, `SIMULACRO_FINALIZADO`, `EJERCICIO_YA_RESPONDIDO`,
-`ENUNCIADO_DUPLICADO`, `OPCION_CON_INTENTOS`.
+Los umbrales del negocio no son variables de entorno: viven en la tabla
+`parametros_sistema` y se cambian con un `UPDATE`, sin reiniciar.
 
-## Decisiones de implementación que conviene conocer
+## Cómo está hecho
 
-- **Cada regla vive en su capa.** Las validaciones de contraseña, el bloqueo por intentos fallidos y
-  el cierre del simulacro por tiempo están en el dominio, no en los controladores ni en la base de
-  datos. El controlador solo traduce HTTP y el adaptador solo traduce SQL.
-- **Reglas configurables en `parametros_sistema`** (HU-028 y otras): ventana de intentos, umbrales,
-  intentos de login, minutos de bloqueo, horas de sesión, vigencia del enlace, tamaño de página. Se leen
-  de la base en cada uso; cambiarlos con SQL aplica de inmediato.
-- **Motor de clasificación (HU-027/HU-028)**, en `ClasificadorErrorService`: 1) confianza 4-5 → ansiedad;
-  2) dominio previo (≥ 70 % en los últimos 5 intentos de la misma competencia o componente, mínimo 3) → hábito;
-  3) si no, el tipo de error registrado en el distractor elegido, y si no tiene, cognitivo.
-- **Expiración por inactividad (HU-004)**: el token dura 2 horas; el front lo renueva cada 15 minutos
-  mientras el usuario haga peticiones. Cerrar sesión revoca el `jti` (tabla `tokens_sesion_revocados`).
-- **Restablecer contraseña invalida sesiones (HU-003 CA-07)**: se agregó la columna
-  `usuarios.password_actualizado_en`; los tokens emitidos antes de esa fecha se rechazan. Es el único
-  agregado frente al modelo ER del Sprint 0 (los FK se crearon como BIGINT para coincidir con los PK).
-- **Simulacro sin repetir ejercicios (HU-014 CA-07)**: el orden de los ejercicios es pseudoaleatorio
-  pero fijo por simulacro (hash de `id_simulacro` + `id_ejercicio`), y se sirve el primero sin intento;
-  una recarga de página muestra el mismo ejercicio y no hace falta una tabla adicional.
-- **Finalización automática (HU-015/HU-016)**: la comprueba el servidor en cada petición del simulacro
-  usando `fecha_inicio + duración`; el front calcula el temporizador con la hora del servidor, así que
-  una desconexión no regala tiempo.
-- **Idempotencia (HU-016)**: cada intento lleva un UUID; si se reenvía, la API devuelve el intento ya
-  registrado con `repetido: true`.
-- **Estudiantes nunca reciben `esCorrecta` ni `retroalimentacion` antes de responder (HU-020 CA-15)**:
-  hay DTO separados para estudiante y administrador.
-- **Edición con intentos (HU-021 CA-09)**: las opciones ya usadas no pueden eliminarse ni cambiar de
-  texto, imagen o corrección; sí su retroalimentación y tipo de error.
-- **Imágenes (HU-020 CA-09)**: se validan por los bytes iniciales (JPG/PNG/WEBP) y por tamaño (5 MB).
+Spring Boot 3 y Java 21 sobre PostgreSQL 16, en arquitectura hexagonal: 21 casos de uso,
+uno por acción del usuario, y un dominio que no importa ni una clase de Spring.
+
+```
+src/main/java/co/edu/udea/brujula/
+├── dominio/          modelo, reglas puras, puertos y errores de negocio
+├── aplicacion/       los casos de uso, agrupados por contexto
+└── infraestructura/  controladores, JPA, seguridad, correo, Google, disco y reloj
+
+src/main/resources/db/migration/   el esquema, en dos migraciones de Flyway
+src/test/java/                     110 pruebas, ninguna necesita base de datos
+docs/                              el documento de arquitectura y sus diagramas
+```
+
+El detalle, con diagramas y las decisiones que hay detrás, está en
+**[docs/arquitectura.md](docs/arquitectura.md)**.
+
+## La API
+
+Veintitrés rutas bajo `/api`. Todas responden JSON y los errores llevan siempre la misma
+forma: `{ estado, codigo, mensaje }`, con un código estable que el front usa para decidir
+qué mostrar.
+
+| Área | Rutas |
+| :-- | :-- |
+| Acceso | `POST /auth/google` · `/auth/registro` · `/auth/login` · `/auth/logout` · `/auth/refresh` · `GET /auth/me` · `GET /auth/google/config` |
+| Recuperación | `POST /auth/recuperar` · `GET /auth/restablecer/validar` · `POST /auth/restablecer` |
+| Perfil | `PUT /perfil` · `PUT /perfil/password` |
+| Banco | `GET /ejercicios` · `/ejercicios/componentes` · `/ejercicios/{id}` · `/ejercicios/{id}/siguiente` |
+| Práctica | `POST /intentos` |
+| Administración | `POST /ejercicios` · `POST /archivos` · `GET /catalogos` |
+| Público | `GET /catalogos/publicos` · `GET /archivos/{nombre}` · `GET /salud` |
+
+La sesión viaja en `Authorization: Bearer`. Un token deja de valer al cerrar sesión, al
+expirar y al cambiar la contraseña.

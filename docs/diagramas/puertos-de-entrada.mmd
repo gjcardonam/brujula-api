@@ -2,78 +2,58 @@ flowchart LR
     subgraph ADAPTADORES["Adaptadores de entrada · infraestructura"]
         direction TB
         C1["AutenticacionControlador"]
-        C2["PerfilControlador"]
-        C3["EjercicioControlador"]
-        C4["IntentoControlador"]
-        C5["SimulacroControlador"]
-        C6["EstadisticaControlador"]
-        C7["FiltroDeAutenticacion"]
-        C8["Carga al arrancar"]
+        C2["RecuperacionControlador"]
+        C3["PerfilControlador"]
+        C4["EjercicioControlador"]
+        C5["IntentoControlador"]
+        C6["CatalogoControlador"]
+        C7["ArchivoControlador"]
+        C8["FiltroDeAutenticacion"]
+        C9["TareasProgramadas"]
     end
 
     subgraph PUERTOS["Puertos de entrada · dominio"]
         direction TB
-        P1["RegistrarEstudiante<br/>HU-001"]
-        P2["AutenticarUsuario<br/>HU-002"]
-        P3["RecuperarContrasena<br/>HU-003"]
-        P4["GestionarSesion<br/>HU-004"]
-        P5["ValidarSesion<br/>HU-004"]
-        P6["GestionarPerfil<br/>HU-005"]
-        P7["ConsultarBanco<br/>HU-006 a HU-008"]
-        P8["ConsultarEjercicio<br/>BuscarSiguienteEjercicio<br/>HU-009, HU-010"]
-        P9["ResponderEjercicio<br/>HU-010 a HU-012, HU-014,<br/>HU-016, HU-027, HU-028"]
-        P10["ConsultarHistorialDeIntentos<br/>HU-025"]
-        P11["GestionarSimulacro<br/>HU-013 a HU-018, HU-026"]
-        P12["ConsultarEstadisticas<br/>HU-019, HU-029"]
-        P13["AdministrarEjercicios<br/>GuardarImagen<br/>HU-020 a HU-024"]
+        ACCESO["<b>acceso</b> · HU-001 a HU-004<br/>RegistrarConGoogle · RegistrarEstudiante<br/>IniciarSesion · CerrarSesion · RenovarSesion<br/>ValidarSesion · DepurarSesionesRevocadas<br/>SolicitarRecuperacion<br/>VerificarEnlaceDeRecuperacion<br/>RestablecerContrasena"]
+        PERFIL["<b>perfil</b> · HU-005<br/>ConsultarPerfil · ActualizarPerfil<br/>CambiarContrasena"]
+        BANCO["<b>banco</b> · HU-006 a HU-009<br/>ListarEjercicios<br/>ConsultarComponentesDelBanco<br/>AbrirEjercicio · BuscarSiguienteEjercicio"]
+        PRACTICA["<b>practica</b> · HU-010 a HU-012<br/>RegistrarIntento"]
+        ADMIN["<b>administracion</b> · HU-020<br/>CrearEjercicio · GuardarImagen"]
+        CATALOGO["<b>catalogo</b><br/>ConsultarCatalogos"]
     end
 
     subgraph CASOS["Casos de uso · aplicación"]
         direction TB
-        U1["RegistroDeEstudiantes"]
-        U2["AutenticacionDeUsuarios"]
-        U3["RecuperacionDeContrasena"]
-        U4["SesionesDeUsuario"]
-        U5["PerfilDeUsuario"]
-        U6["BancoDeEjercicios"]
-        U7["RegistroDeIntentos"]
-        U8["Simulacros"]
-        U9["EstadisticasDelEstudiante"]
-        U10["AdministracionDeEjercicios"]
+        U1["10 clases en aplicacion/acceso"]
+        U2["3 clases en aplicacion/perfil"]
+        U3["4 clases en aplicacion/banco"]
+        U4["RegistroDeIntento"]
+        U5["2 clases en aplicacion/administracion"]
+        U6["ConsultaDeCatalogos"]
     end
 
-    C1 --> P1
-    C1 --> P2
-    C1 --> P3
-    C1 --> P4
-    C2 --> P6
-    C3 --> P7
-    C3 --> P8
-    C3 --> P13
-    C4 --> P9
-    C4 --> P10
-    C5 --> P11
-    C6 --> P12
-    C7 --> P5
-    C8 --> P13
+    C1 --> ACCESO
+    C2 --> ACCESO
+    C8 --> ACCESO
+    C9 --> ACCESO
+    C3 --> PERFIL
+    C1 --> PERFIL
+    C4 --> BANCO
+    C5 --> PRACTICA
+    C4 --> ADMIN
+    C7 --> ADMIN
+    C6 --> CATALOGO
 
-    P1 --> U1
-    P2 --> U2
-    P3 --> U3
-    P4 --> U4
-    P5 --> U4
-    P6 --> U5
-    P7 --> U6
-    P8 --> U6
-    P9 --> U7
-    P10 --> U7
-    P11 --> U8
-    P12 --> U9
-    P13 --> U10
+    ACCESO --> U1
+    PERFIL --> U2
+    BANCO --> U3
+    PRACTICA --> U4
+    ADMIN --> U5
+    CATALOGO --> U6
 
-    classDef puerto fill:#fef3c7,stroke:#b45309,color:#1f2937
-    classDef caso fill:#dbeafe,stroke:#1e3a5f,color:#1f2937
     classDef adaptador fill:#f3f4f6,stroke:#6b7280,color:#1f2937
-    class P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13 puerto
-    class U1,U2,U3,U4,U5,U6,U7,U8,U9,U10 caso
-    class C1,C2,C3,C4,C5,C6,C7,C8 adaptador
+    classDef puerto fill:#fef3c7,stroke:#b45309,stroke-width:2px,color:#1f2937
+    classDef caso fill:#dbeafe,stroke:#1e3a5f,stroke-width:2px,color:#1f2937
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9 adaptador
+    class ACCESO,PERFIL,BANCO,PRACTICA,ADMIN,CATALOGO puerto
+    class U1,U2,U3,U4,U5,U6 caso

@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
-# Regenera los diagramas de docs/imagenes a partir de docs/diagramas.
-#
-#   ./docs/generar-diagramas.sh
-#
-# Necesita Node (para mermaid-cli, que se baja con npx) y Python 3 para el hexágono.
-# Si el Chromium que trae Puppeteer no funciona en esta máquina, se puede apuntar al del sistema:
-#   PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium ./docs/generar-diagramas.sh
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 mkdir -p docs/imagenes
 
+CHROMIUM="${CHROMIUM:-/usr/bin/chromium}"
+
 echo "Hexágono de puertos y adaptadores"
 python3 docs/generar_hexagono.py
+"$CHROMIUM" --headless=new --no-sandbox --disable-gpu --hide-scrollbars \
+    --force-device-scale-factor=2 --window-size=1500,930 \
+    --default-background-color=ffffff \
+    --screenshot="$PWD/docs/imagenes/hexagono.png" \
+    "file://$PWD/docs/imagenes/hexagono.svg" 2> /dev/null
 
 for fuente in docs/diagramas/*.mmd; do
     nombre=$(basename "$fuente" .mmd)
     echo "Diagrama $nombre"
     for formato in svg png; do
-        npx -y @mermaid-js/mermaid-cli \
+        PUPPETEER_EXECUTABLE_PATH="$CHROMIUM" npx -y @mermaid-js/mermaid-cli \
             -i "$fuente" \
             -o "docs/imagenes/$nombre.$formato" \
             -c docs/mermaid.json \
