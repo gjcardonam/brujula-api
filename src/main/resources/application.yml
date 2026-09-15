@@ -2,7 +2,7 @@ spring:
   application:
     name: brujula-api
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/brujula}
+    url: ${DB_URL:jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:brujula}}
     username: ${DB_USER:brujula}
     password: ${DB_PASSWORD:brujula}
   jpa:

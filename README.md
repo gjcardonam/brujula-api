@@ -77,7 +77,7 @@ desarrollo. Las que importan en producción:
 | Variable | Para qué |
 | :-- | :-- |
 | `JWT_SECRET` | Firma de los tokens de sesión. Mínimo 32 caracteres, y hay que cambiarla |
-| `DB_URL`, `DB_USER`, `DB_PASSWORD` | Conexión a PostgreSQL |
+| `DB_URL`, `DB_USER`, `DB_PASSWORD` | Conexión a PostgreSQL. En lugar de `DB_URL` se pueden dar `DB_HOST`, `DB_PORT` y `DB_NAME` por separado, que es como las entregan los proveedores administrados |
 | `FRONTEND_URL` | Base del enlace que viaja en el correo de recuperación |
 | `GOOGLE_CLIENT_ID` | ID de cliente OAuth. Si está vacío, "Continuar con Google" queda simulado |
 | `MODO_DESARROLLO` | En `false` desaparece el acceso simulado con Google |
