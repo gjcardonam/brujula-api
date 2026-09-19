@@ -7,6 +7,7 @@ import co.edu.udea.brujula.infraestructura.configuracion.BrujulaProperties;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -49,6 +50,22 @@ public class AlmacenEnDisco implements AlmacenDeImagenes {
             throw new ServicioNoDisponible("ARCHIVO_ERROR", "No fue posible guardar la imagen.");
         }
         return new Imagen(nombre, urlDe(nombre));
+    }
+
+    @Override
+    public void copiarSiFalta(String nombre, byte[] contenido) {
+        if (nombre == null || !nombre.matches("[A-Za-z0-9]+\\.(jpg|png|webp)")) {
+            throw new IllegalArgumentException("Nombre de imagen inválido: " + nombre);
+        }
+        Path destino = carpeta.resolve(nombre);
+        if (Files.isRegularFile(destino)) return;
+        try {
+            Files.write(destino, contenido, StandardOpenOption.CREATE_NEW);
+        } catch (FileAlreadyExistsException yaCopiadaPorOtroProceso) {
+            return;
+        } catch (IOException e) {
+            throw new ServicioNoDisponible("ARCHIVO_ERROR", "No fue posible copiar la imagen de ejemplo " + nombre + ".");
+        }
     }
 
     private String extensionSegunContenido(byte[] bytes) {

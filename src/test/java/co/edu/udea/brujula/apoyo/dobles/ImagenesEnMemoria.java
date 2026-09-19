@@ -8,6 +8,7 @@ import java.util.Set;
 public class ImagenesEnMemoria implements AlmacenDeImagenes {
 
     private final Set<String> archivos = new LinkedHashSet<>();
+    private final Set<String> copiadas = new LinkedHashSet<>();
     private int secuencia;
 
     public String precargar(String nombre) {
@@ -15,11 +16,22 @@ public class ImagenesEnMemoria implements AlmacenDeImagenes {
         return nombre;
     }
 
+    public Set<String> copiadas() {
+        return copiadas;
+    }
+
     @Override
     public Imagen guardar(byte[] contenido) {
         String nombre = "imagen" + (++secuencia) + ".png";
         archivos.add(nombre);
         return new Imagen(nombre, urlDe(nombre));
+    }
+
+    @Override
+    public void copiarSiFalta(String nombre, byte[] contenido) {
+        if (archivos.contains(nombre)) return;
+        archivos.add(nombre);
+        copiadas.add(nombre);
     }
 
     @Override

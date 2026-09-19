@@ -1,162 +1,1454 @@
 [
   {
-    "enunciado": "Una tienda vende camisetas a $25.000 cada una. Por la compra de 3 o más unidades aplica un descuento del 20 % sobre el total. ¿Cuánto paga una persona que compra 4 camisetas?",
-    "componente": "Álgebra y cálculo", "competencia": "Formulación y ejecución", "nivel": "Intermedio",
+    "enunciado": "La figura muestra el registro semanal que lleva una persona de los gastos relacionados con su carro.\n\nSi la persona quiere realizar una comparación entre los gastos totales por semana, ¿cuál de las siguientes gráficas le permite hacer esto directamente?",
+    "imagen": "s1p01e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "$100.000", "esCorrecta": false, "retroalimentacion": "Ese es el total sin descuento. Como compró 4 camisetas (3 o más), sí aplica el 20 % de descuento."},
-      {"descripcion": "$95.000", "esCorrecta": false, "retroalimentacion": "Restaste $5.000, que es el 20 % de una sola camiseta. El descuento se aplica sobre el total de la compra ($100.000), no sobre una unidad."},
-      {"descripcion": "$80.000", "esCorrecta": true, "retroalimentacion": "Correcto: 4 × $25.000 = $100.000 y el 20 % de $100.000 es $20.000, así que paga $100.000 − $20.000 = $80.000."},
-      {"descripcion": "$20.000", "esCorrecta": false, "retroalimentacion": "Calculaste el valor del descuento, no el precio final. Falta restarlo del total: $100.000 − $20.000."}
+      {
+        "descripcion": null,
+        "imagen": "s1p01a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Es un diagrama circular que muestra la distribución porcentual de las categorías de gasto (gasolina, parqueadero, peajes) sumando las cuatro semanas; no desagrega la información por semana, por lo que no permite comparar totales entre semanas."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p01b.png",
+        "esCorrecta": true,
+        "retroalimentacion": "La gráfica de barras apiladas muestra, para cada semana, la suma visual de las tres categorías de gasto (la altura total de la barra), permitiendo comparar directamente el gasto total de cada semana con solo observar la altura de cada barra."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p01c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Es un diagrama circular que sí distribuye el gasto por semana, pero en términos de porcentaje del total general, no en valores absolutos; leer proporciones en un círculo es menos directo que comparar alturas de barras."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p01d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Es una gráfica de barras agrupadas por categoría, útil para comparar una categoría entre semanas, pero no permite ver el total semanal de un vistazo, pues habría que sumar mentalmente tres barras separadas."
+      }
     ]
   },
   {
-    "enunciado": "Un plan de telefonía cobra un cargo fijo de $10.000 al mes más $200 por cada minuto de llamada. ¿Cuál expresión representa el costo mensual C, en pesos, por hablar m minutos?",
-    "componente": "Álgebra y cálculo", "competencia": "Interpretación y representación", "nivel": "Básico",
+    "enunciado": "Un comerciante desea conocer el valor de las ganancias que obtiene por la venta de pantalones.\n\nEn este sentido, si el comerciante compra cada pantalón a $100.000, ¿cuál de los siguientes procedimientos le permite determinar el monto de sus ganancias?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "C = 10.000m + 200", "esCorrecta": false, "retroalimentacion": "Intercambiaste los papeles: el cargo fijo no se multiplica por los minutos; lo que depende de m es el valor por minuto ($200)."},
-      {"descripcion": "C = 10.000 + 200m", "esCorrecta": true, "retroalimentacion": "Correcto: el cargo fijo ($10.000) se paga una vez y a eso se suma $200 por cada uno de los m minutos."},
-      {"descripcion": "C = 200(10.000 + m)", "esCorrecta": false, "retroalimentacion": "Esta expresión multiplica también el cargo fijo por 200. El cargo fijo es constante y no depende de los minutos."},
-      {"descripcion": "C = 10.200m", "esCorrecta": false, "retroalimentacion": "Sumaste el cargo fijo al valor por minuto como si ambos se cobraran por cada minuto. El cargo fijo se paga una sola vez."}
+      {
+        "descripcion": "Restar $100.000, al precio de venta de cada pantalón y multiplicar dicho valor por el número de unidades vendidas.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Aplica exactamente la definición de ganancia: (precio de venta − $100.000) × unidades vendidas."
+      },
+      {
+        "descripcion": "A $100.000 restarle el precio de venta de cada pantalón y multiplicar dicho valor por el número de unidades vendidas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Invierte el orden de la resta ($100.000 − precio de venta), lo que produce un valor negativo en lugar de la ganancia; confunde el orden de los términos."
+      },
+      {
+        "descripcion": "Restar el resultado de la multiplicación entre $100.000 y el número de unidades vendidas, al precio de venta de cada pantalón.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Resta una cantidad total (costo×unidades) de un valor unitario (precio de venta), mezclando magnitudes de distinta naturaleza sin sentido dimensional."
+      },
+      {
+        "descripcion": "Restar el resultado de la multiplicación entre el precio de venta de cada pantalón y el número de unidades vendidas, a $100.000.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Resta el ingreso total (precio de venta × unidades) del costo unitario ($100.000), lo cual tampoco corresponde al concepto de ganancia."
+      }
     ]
   },
   {
-    "enunciado": "Se afirma que para todo número real x se cumple que x² ≥ x. ¿Cuál de los siguientes valores muestra que la afirmación es falsa?",
-    "componente": "Álgebra y cálculo", "competencia": "Argumentación", "nivel": "Avanzado",
+    "enunciado": "En una finca se usan cuatro carretillas de diferente tamaño para transportar bultos de abono. La capacidad de carga de cada carretilla se muestra en la tabla:\n\nPara evitar lesiones en los trabajadores, el dueño de la finca definió que cada trabajador no debe cargar más de cinco bultos en cada carretilla.\n\n¿Cuál carretilla tiene la capacidad de carga más cercana al máximo permitido sin superarla?",
+    "imagen": "s1p03e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
     "opciones": [
-      {"descripcion": "x = 2", "esCorrecta": false, "retroalimentacion": "Con x = 2 se obtiene 4 ≥ 2, que es verdadero; ese valor cumple la afirmación y por eso no sirve como contraejemplo."},
-      {"descripcion": "x = 0,5", "esCorrecta": true, "retroalimentacion": "Correcto: (0,5)² = 0,25 y 0,25 < 0,5, así que la afirmación falla. Los números entre 0 y 1 se hacen más pequeños al elevarlos al cuadrado."},
-      {"descripcion": "x = −1", "esCorrecta": false, "retroalimentacion": "Con x = −1 se obtiene 1 ≥ −1, que es verdadero. Un número negativo al cuadrado siempre es positivo y supera al original."},
-      {"descripcion": "x = 0", "esCorrecta": false, "retroalimentacion": "Con x = 0 se obtiene 0 ≥ 0, que es verdadero porque la desigualdad admite la igualdad. Revisa el símbolo ≥ con calma."}
+      {
+        "descripcion": "Carretilla 1.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La carretilla 1 tiene capacidad de 3 bultos, la más cercana a 5 sin excederlo (las opciones con capacidad ≤5 no incluyen otra más cercana)."
+      },
+      {
+        "descripcion": "Carretilla 2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La carretilla 2 tiene capacidad de 6 bultos, que supera el máximo permitido."
+      },
+      {
+        "descripcion": "Carretilla 3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La carretilla 3 tiene capacidad de 7 bultos, muy por encima del límite."
+      },
+      {
+        "descripcion": "Carretilla 4.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La carretilla 4 tiene capacidad de solo 2 bultos; cumple el límite pero está más lejos de 5 que la carretilla 1."
+      }
     ]
   },
   {
-    "enunciado": "Un rectángulo mide 12 cm de largo y 5 cm de ancho y está dividido por una de sus diagonales. ¿Cuál es la longitud de la diagonal?",
-    "componente": "Geometría", "competencia": "Interpretación y representación", "nivel": "Intermedio",
+    "enunciado": "Una empresa registra en la gráfica el promedio de las ventas, durante los primeros meses del año, de cuatro de sus productos: agua, gaseosa, cerveza y jugos.\n\nTeniendo en cuenta esto, ¿cuál producto obtuvo la mayor venta acumulada durante los meses reportados?",
+    "imagen": "s1p04e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "17 cm", "esCorrecta": false, "retroalimentacion": "Sumaste los dos lados. La diagonal es la hipotenusa de un triángulo rectángulo, y se calcula con el teorema de Pitágoras: √(12² + 5²)."},
-      {"descripcion": "13 cm", "esCorrecta": true, "retroalimentacion": "Correcto: la diagonal forma un triángulo rectángulo con los lados, así que d = √(12² + 5²) = √(144 + 25) = √169 = 13 cm."},
-      {"descripcion": "60 cm", "esCorrecta": false, "retroalimentacion": "Multiplicaste los lados, que es el área (60 cm²), no una longitud. La diagonal se obtiene con el teorema de Pitágoras."},
-      {"descripcion": "7 cm", "esCorrecta": false, "retroalimentacion": "Restaste los lados. La diagonal siempre es más larga que cualquiera de los lados del rectángulo."}
+      {
+        "descripcion": "Gaseosa.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La gaseosa acumula la mayor venta total (~31.500 unidades), superando a los demás productos."
+      },
+      {
+        "descripcion": "Agua.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El agua mantiene un valor constante (~5.000 cada mes, total 20.000), inferior a la gaseosa."
+      },
+      {
+        "descripcion": "Cerveza.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La cerveza acumula un valor intermedio (~23.500), menor al de la gaseosa."
+      },
+      {
+        "descripcion": "Jugos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los jugos presentan el acumulado más bajo (~20.000)."
+      }
     ]
   },
   {
-    "enunciado": "Un terreno rectangular mide 20 m de largo y 15 m de ancho. ¿Cuántos metros de cerca se necesitan para rodearlo completamente?",
-    "componente": "Geometría", "competencia": "Formulación y ejecución", "nivel": "Básico",
+    "enunciado": "Margarita debe calcular el área del cuadrado que se muestra en la figura.\n\nPara esto, efectúa correctamente el siguiente procedimiento:\n\nPaso 1. Calcula la hipotenusa √(x²+1²) y obtiene √2.\n\nPaso 2. El resultado del paso 1 lo eleva al cuadrado y obtiene como resultado el número 2.\n\n¿Cuál es el valor del cateto x?",
+    "imagen": "s1p05e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
     "opciones": [
-      {"descripcion": "35 m", "esCorrecta": false, "retroalimentacion": "Sumaste un largo y un ancho, pero el terreno tiene dos largos y dos anchos. El perímetro es 2 × (20 + 15)."},
-      {"descripcion": "70 m", "esCorrecta": true, "retroalimentacion": "Correcto: la cerca rodea el terreno, así que se necesita el perímetro: 2 × (20 + 15) = 70 m."},
-      {"descripcion": "300 m", "esCorrecta": false, "retroalimentacion": "Calculaste el área (20 × 15 = 300 m²), que mide la superficie. Para rodear el terreno se necesita el perímetro."},
-      {"descripcion": "150 m", "esCorrecta": false, "retroalimentacion": "Ese valor no corresponde ni al perímetro ni al área. Recuerda que el perímetro suma todos los lados: 20 + 15 + 20 + 15."}
+      {
+        "descripcion": "x = 1",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Aplicando Pitágoras: x²+1²=(√2)² → x²+1=2 → x²=1 → x=1."
+      },
+      {
+        "descripcion": "x=2",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "x=2 no satisface la ecuación (4+1=5≠2)."
+      },
+      {
+        "descripcion": "x= √2-1",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Corresponde a una manipulación algebraica incorrecta del teorema de Pitágoras."
+      },
+      {
+        "descripcion": "x= √(√2²+1²)",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Es una expresión que no se deriva del planteamiento correcto de la ecuación."
+      }
     ]
   },
   {
-    "enunciado": "Un triángulo tiene lados de 3 cm, 4 cm y 5 cm. ¿Cuál afirmación sobre este triángulo es correcta y está bien justificada?",
-    "componente": "Geometría", "competencia": "Argumentación", "nivel": "Intermedio",
+    "enunciado": "Samuel debe calcular el área correspondiente a la región sombreada en la figura. Para ello, efectúa el procedimiento que se muestra en el diagrama.\n\nTeniendo en cuenta la información anterior, ¿cuál es el área de la región sombreada?",
+    "imagen": "s1p06e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "Es rectángulo, porque 3² + 4² = 5².", "esCorrecta": true, "retroalimentacion": "Correcto: 9 + 16 = 25 cumple el teorema de Pitágoras, y su recíproco garantiza que el triángulo es rectángulo."},
-      {"descripcion": "Es equilátero, porque tiene tres lados.", "esCorrecta": false, "retroalimentacion": "Todo triángulo tiene tres lados. Un triángulo es equilátero solo si sus tres lados miden lo mismo, y aquí son distintos."},
-      {"descripcion": "Es rectángulo, porque 3 + 4 > 5.", "esCorrecta": false, "retroalimentacion": "La conclusión es cierta, pero la razón no: 3 + 4 > 5 solo garantiza que el triángulo puede construirse (desigualdad triangular), no que tenga un ángulo recto."},
-      {"descripcion": "No puede construirse, porque 3 + 4 = 7 y 7 ≠ 5.", "esCorrecta": false, "retroalimentacion": "Para que un triángulo exista, la suma de dos lados debe ser mayor que el tercero, no igual. Como 7 > 5, sí puede construirse."}
+      {
+        "descripcion": "14cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "14 cm² no corresponde a ningún cálculo válido del área descrita."
+      },
+      {
+        "descripcion": "50cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "50 cm² duplicaría el área real, posiblemente por confundir el área del cuadrado externo sin ajustar correctamente."
+      },
+      {
+        "descripcion": "49cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "49 cm² corresponde al área del cuadrado grande completo (7×7), no a la región sombreada."
+      },
+      {
+        "descripcion": "25cm²",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La hipotenusa h=5 (Pitágoras con catetos 3 y 4). Como la región sombreada es un cuadrado de lado h, su área es h²=25 cm², que coincide con el área real (49−4×6=25)."
+      }
     ]
   },
   {
-    "enunciado": "Las notas de cinco estudiantes en una evaluación fueron 3,0; 4,0; 4,0; 5,0 y 4,0. ¿Cuál es la moda de las notas?",
-    "componente": "Estadística", "competencia": "Interpretación y representación", "nivel": "Básico",
+    "enunciado": "Sofía quiere pintar las paredes de su apartamento y, según las instrucciones de la pintura que compró, se deben aplicar dos capas de pintura, la segunda 6 horas y 50 minutos después de haber aplicado la primera.\n\nEn esa medida, ¿cuántos minutos debe esperar Sofía después de aplicar la primera capa de pintura para poder aplicar la segunda?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
     "opciones": [
-      {"descripcion": "4,0", "esCorrecta": true, "retroalimentacion": "Correcto: la moda es el valor que más se repite, y 4,0 aparece tres veces."},
-      {"descripcion": "5,0", "esCorrecta": false, "retroalimentacion": "5,0 es la nota máxima, no la moda. La moda es el valor que aparece con mayor frecuencia."},
-      {"descripcion": "3,0", "esCorrecta": false, "retroalimentacion": "3,0 es la nota mínima. La moda es el valor más frecuente, y 3,0 aparece una sola vez."},
-      {"descripcion": "20,0", "esCorrecta": false, "retroalimentacion": "Sumaste todas las notas. La suma no es una medida de tendencia central; la moda es el valor que más se repite."}
+      {
+        "descripcion": "450 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "450 min equivalen a 7h30min, mayor al valor real; posible error al sumar mal horas y minutos."
+      },
+      {
+        "descripcion": "410 min.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "6h × 60 + 50min = 360 + 50 = 410 minutos."
+      },
+      {
+        "descripcion": "390 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "390 min = 6h30min; ignora 20 minutos de la conversión correcta."
+      },
+      {
+        "descripcion": "360 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "360 min = 6h exactas; ignora por completo los 50 minutos adicionales."
+      }
     ]
   },
   {
-    "enunciado": "En una bolsa hay 3 balotas rojas, 5 azules y 2 verdes, todas del mismo tamaño. Si se saca una balota al azar, ¿cuál es la probabilidad de que sea azul?",
-    "componente": "Estadística", "competencia": "Formulación y ejecución", "nivel": "Intermedio",
+    "enunciado": "La gráfica muestra la información correspondiente a la temperatura máxima y mínima alcanzada en una ciudad durante los tres primeros meses del año.\n\nA partir de la gráfica, Leonardo afirmó que en enero se presentó la mayor diferencia entre la temperatura máxima y la temperatura mínima. ¿Es correcta la afirmación de Leonardo?",
+    "imagen": "s1p08e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "1/2", "esCorrecta": true, "retroalimentacion": "Correcto: hay 5 balotas azules entre 10 en total, así que P(azul) = 5/10 = 1/2."},
-      {"descripcion": "1/3", "esCorrecta": false, "retroalimentacion": "Contaste los colores (3) como si fueran igualmente probables. La probabilidad depende de cuántas balotas hay de cada color: 5 azules entre 10."},
-      {"descripcion": "1/5", "esCorrecta": false, "retroalimentacion": "1/5 = 2/10 es la probabilidad de sacar una balota verde. Revisa qué color pregunta el enunciado."},
-      {"descripcion": "5", "esCorrecta": false, "retroalimentacion": "5 es la cantidad de balotas azules, no una probabilidad. Una probabilidad es un número entre 0 y 1: casos favorables sobre casos posibles."}
+      {
+        "descripcion": "Sí, porque en enero se registró la temperatura mínima menor que 0 °C.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Que la mínima de enero sea negativa no implica que tenga la mayor diferencia; en marzo la diferencia es mayor."
+      },
+      {
+        "descripcion": "No, porque en marzo se registró la temperatura máxima más alejada de la temperatura mínima.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "En marzo la diferencia entre máxima y mínima (≈15°C) es la mayor de los tres meses, por lo que la afirmación de Leonardo es falsa."
+      },
+      {
+        "descripcion": "Sí, porque en enero se registró la temperatura máxima mensual más baja de los tres periodos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Que enero tenga la máxima mensual más baja no determina que tenga la mayor diferencia entre máxima y mínima."
+      },
+      {
+        "descripcion": "No, porque en marzo se registró la temperatura mínima más cercana a 0 °C.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Es cierto que en marzo la mínima está cerca de 0°C, pero esa no es la razón de que la afirmación sea falsa (la razón es la diferencia entre extremos)."
+      }
     ]
   },
   {
-    "enunciado": "Los salarios mensuales, en millones de pesos, de cinco empleados de una empresa son 2, 2, 2, 3 y 21. El gerente afirma que el salario típico de la empresa es 6 millones porque ese es el promedio. ¿Cuál es la mejor objeción a esa afirmación?",
-    "componente": "Estadística", "competencia": "Argumentación", "nivel": "Avanzado",
+    "enunciado": "Una empresa paga a cada uno de los vendedores $900.000 como salario básico mensual, más el 2% de comisión por sus ventas reportadas en el mes. Si un vendedor registra en un mes ventas por un valor de $30.000.000, ¿cuál de los siguientes procedimientos permite calcular correctamente el valor de la comisión por ventas que la empresa debe pagar a este vendedor?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "El promedio está distorsionado por el salario de 21 millones; la mediana, que es 2 millones, representa mejor el salario típico.", "esCorrecta": true, "retroalimentacion": "Correcto: el promedio sí es 6, pero un valor extremo lo arrastra hacia arriba. Cuando hay datos atípicos, la mediana describe mejor el valor típico."},
-      {"descripcion": "El promedio está mal calculado; debería ser 3 millones.", "esCorrecta": false, "retroalimentacion": "El promedio sí es 6: (2 + 2 + 2 + 3 + 21) ÷ 5 = 30 ÷ 5 = 6. El problema no es el cálculo sino que el promedio no representa bien datos con valores extremos."},
-      {"descripcion": "No hay objeción posible: el promedio siempre es la mejor medida de tendencia central.", "esCorrecta": false, "retroalimentacion": "El promedio es sensible a los valores extremos. Con un dato muy alejado, como 21, deja de representar a la mayoría; por eso existen la mediana y la moda."},
-      {"descripcion": "La moda es 21 millones porque es el valor más alto.", "esCorrecta": false, "retroalimentacion": "La moda es el valor más frecuente, no el más alto. Aquí la moda es 2 millones, que aparece tres veces."}
+      {
+        "descripcion": "Paso1. Multiplicar $30.000.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 10.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Multiplicar por 2 y dividir entre 10 equivale a calcular el 20%, no el 2%."
+      },
+      {
+        "descripcion": "Paso1. Multiplicar $900.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 100.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Usa como base el salario básico ($900.000) en lugar de las ventas."
+      },
+      {
+        "descripcion": "Paso1. Multiplicar $900.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 10.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Usa la base incorrecta (salario) y además divide entre 10 (10%) en lugar de 100."
+      },
+      {
+        "descripcion": "Paso1. Multiplicar $30.000.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 100.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Multiplicar $30.000.000 por 2 y dividir entre 100 equivale exactamente al 2% de las ventas."
+      }
     ]
   },
   {
-    "enunciado": "¿Cuál es el valor de x que satisface la ecuación 3x − 7 = 11?",
-    "componente": "Álgebra y cálculo", "competencia": "Formulación y ejecución", "nivel": "Básico",
+    "enunciado": "En la gráfica se muestra la probabilidad de que la variable aleatoria x tome valores en cada uno de tres intervalos en que se ha dividido la curva.\n\n¿Cuál de las siguientes tablas representa la probabilidad de que la variable aleatoria x tome los valores en el intervalo indicado?",
+    "imagen": "s1p10e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "x = 6", "esCorrecta": true, "retroalimentacion": "Correcto: 3x = 11 + 7 = 18, y x = 18 ÷ 3 = 6. Comprobación: 3(6) − 7 = 11."},
-      {"descripcion": "x = 4/3", "esCorrecta": false, "retroalimentacion": "Restaste 7 en lugar de sumarlo: al pasar −7 al otro lado cambia de signo, así que 3x = 11 + 7 = 18."},
-      {"descripcion": "x = 18", "esCorrecta": false, "retroalimentacion": "Llegaste a 3x = 18 pero olvidaste dividir entre 3. Comprueba: 3(18) − 7 = 47, no 11."},
-      {"descripcion": "x = −6", "esCorrecta": false, "retroalimentacion": "El signo está invertido. Comprueba: 3(−6) − 7 = −25, no 11. Revisa el signo al despejar."}
+      {
+        "descripcion": "Tabla A",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los valores (0,73 y 1) no corresponden a los mostrados en la gráfica, y los intervalos no están delimitados como disjuntos."
+      },
+      {
+        "descripcion": "Tabla B",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los intervalos se solapan (todos inician en 0) y no corresponden a la partición mostrada en la gráfica."
+      },
+      {
+        "descripcion": "Tabla C",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Reproduce exactamente los tres intervalos disjuntos de la gráfica con sus probabilidades correspondientes."
+      },
+      {
+        "descripcion": "Tabla D",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los intervalos no son disjuntos (todos comienzan en 0) y las probabilidades no coinciden con los datos de la gráfica."
+      }
     ]
   },
   {
-    "enunciado": "La gráfica de una función lineal pasa por los puntos (0, 2) y (2, 6). ¿Cuál es la pendiente de la recta?",
-    "componente": "Álgebra y cálculo", "competencia": "Interpretación y representación", "nivel": "Intermedio",
+    "enunciado": "Las tablas 1 y 2 contienen la información que los empleados de una vidriería tienen en cuenta al momento de realizar una cotización para un cliente.\n\nUn empleado de la vidriería recibe cuatro mensajes de clientes solicitando cotizaciones. ¿Cuál de los mensajes contiene la información suficiente para poder realizar una cotización?",
+    "imagen": "s1p11e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "2", "esCorrecta": true, "retroalimentacion": "Correcto: la pendiente es el cambio en y sobre el cambio en x: (6 − 2) ÷ (2 − 0) = 4 ÷ 2 = 2."},
-      {"descripcion": "4", "esCorrecta": false, "retroalimentacion": "4 es solo el cambio en y (6 − 2). Falta dividirlo entre el cambio en x (2 − 0)."},
-      {"descripcion": "1/2", "esCorrecta": false, "retroalimentacion": "Invertiste el cociente: dividiste el cambio en x entre el cambio en y. La pendiente es Δy/Δx, no Δx/Δy."},
-      {"descripcion": "3", "esCorrecta": false, "retroalimentacion": "Dividiste 6 entre 2 usando solo las coordenadas del segundo punto. La pendiente usa las diferencias entre los dos puntos."}
+      {
+        "descripcion": null,
+        "imagen": "s1p11a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "El mensaje no indica el espesor del vidrio, dato indispensable para consultar el precio por m²."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p11b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Menciona el espesor, pero solo da una dimensión (ancho); falta la otra para calcular el área."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p11c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "No especifica el espesor del espejo, por lo que no se puede determinar el precio por m²."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s1p11d.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Incluye material (espejo), ambas dimensiones (1,3 m × 1 m) y el espesor (4 mm): suficiente para calcular el área y consultar el precio."
+      }
     ]
   },
   {
-    "enunciado": "Un cilindro tiene 3 cm de radio y 10 cm de altura. Usando π ≈ 3, ¿cuál es el volumen aproximado del cilindro?",
-    "componente": "Geometría", "competencia": "Formulación y ejecución", "nivel": "Avanzado",
+    "enunciado": "Un candidato a la gobernación de un departamento quiere estimar el porcentaje de la población que votará por él. Para ello, contrata una firma encuestadora que realizará 1.000 llamadas telefónicas, en las que se pregunta por la preferencia de las personas a la hora de votar en las elecciones para gobernador. Para realizar la encuesta, la firma escoge aleatoriamente un municipio del departamento y llama a 1.000 personas de este lugar.\n\n¿Por qué el resultado de la encuesta puede diferir mucho de la realidad?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "90 cm³", "esCorrecta": false, "retroalimentacion": "Usaste el radio sin elevarlo al cuadrado: π × 3 × 10 = 90. El volumen del cilindro es π × r² × h."},
-      {"descripcion": "270 cm³", "esCorrecta": true, "retroalimentacion": "Correcto: V = π × r² × h ≈ 3 × 3² × 10 = 3 × 9 × 10 = 270 cm³."},
-      {"descripcion": "180 cm³", "esCorrecta": false, "retroalimentacion": "180 corresponde al área lateral (2 × π × r × h = 2 × 3 × 3 × 10), que se mide en cm², no al volumen."},
-      {"descripcion": "30 cm³", "esCorrecta": false, "retroalimentacion": "Multiplicaste solo el radio por la altura. Falta el área de la base: π × r²."}
+      {
+        "descripcion": "Porque la única manera de obtener resultados precisos es encuestar a toda la población del departamento.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No es cierto que la única manera de tener precisión sea encuestar a toda la población; el problema es la representatividad, no el tamaño total."
+      },
+      {
+        "descripcion": "Porque la encuesta solo representará la opinión de las personas del departamento, si el municipio escogido es el más grande.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Escoger el municipio más grande no resuelve el sesgo: seguiría representando solo a un municipio."
+      },
+      {
+        "descripcion": "Porque de esta manera solo están tomándose en cuenta las opiniones de la población de un municipio del departamento.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Al encuestar solo un municipio, se excluye la opinión del resto del departamento, generando un resultado no representativo (sesgo de muestreo)."
+      },
+      {
+        "descripcion": "Porque la muestra es muy grande, lo cual permite que existan grandes diferencias entre las respuestas de las personas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Una muestra de 1.000 personas no es \"muy grande\" como para producir grandes diferencias entre respuestas; el problema es la falta de representatividad geográfica, no el tamaño."
+      }
     ]
   },
   {
-    "enunciado": "Un ángulo mide 35°. ¿Cuánto mide su ángulo complementario?",
-    "componente": "Geometría", "competencia": "Interpretación y representación", "nivel": "Básico",
+    "enunciado": "Una torta con forma rectangular, que tiene 60 cm de base por 20 cm de altura, fue repartida entre 8 personas por medio de los siguientes cortes rectos:\n\nConsiderando la información anterior, ¿cuál es el área del trozo de torta numero 1?",
+    "imagen": "s1p13e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "55°", "esCorrecta": true, "retroalimentacion": "Correcto: dos ángulos son complementarios cuando suman 90°, así que 90° − 35° = 55°."},
-      {"descripcion": "145°", "esCorrecta": false, "retroalimentacion": "145° es el suplementario (180° − 35°). Los ángulos complementarios suman 90°."},
-      {"descripcion": "325°", "esCorrecta": false, "retroalimentacion": "Restaste de 360°. Los ángulos complementarios suman 90°, no una vuelta completa."},
-      {"descripcion": "35°", "esCorrecta": false, "retroalimentacion": "Repetiste el mismo ángulo. Complementario significa el que falta para completar 90°."}
+      {
+        "descripcion": "225cm²",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El área del trozo 1 es 300 cm² (30 cm × 10 cm), a la que se resta el área del cuadrado recortado en su interior, 75 cm² (15 cm × 5 cm): 300 cm² − 75 cm² = 225 cm²."
+      },
+      {
+        "descripcion": "150cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "150 cm² correspondería a multiplicar solo 15 cm × 10 cm, sin considerar que el trozo 1 completo mide 30 cm de base (no 15 cm) y sin restar el cuadrado recortado en su interior."
+      },
+      {
+        "descripcion": "75cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "75 cm² corresponde únicamente al área del cuadrado recortado en el interior del trozo (15 cm × 5 cm), no al área total del trozo 1 después de restar dicho recorte."
+      },
+      {
+        "descripcion": "40cm²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "40 cm² no corresponde a ningún cálculo coherente con las medidas de la figura."
+      }
     ]
   },
   {
-    "enunciado": "En una encuesta a 200 estudiantes, 40 respondieron que su deporte favorito es el fútbol. ¿Qué porcentaje de los encuestados prefiere el fútbol?",
-    "componente": "Estadística", "competencia": "Interpretación y representación", "nivel": "Intermedio",
+    "enunciado": "Un pintor tiene un lienzo rectangular que quiere dividir en tres regiones: la región 1, que es triangular; la región 2, con forma de un cuarto de círculo; y la región 3, que ocupa el resto del lienzo, como se muestra en la figura.\n\nPara calcular el área de la región 3, el pintor realizó el siguiente procedimiento:\n\nPaso 1. Calculó el área del lienzo, multiplicando 8m X 5m\n\nPaso 2. Calculó el área de región 1, multiplicando 4m X 3m\n\nPaso 3. Calculó el área de la región 2, multiplicando π×16m² y dividiendo el resultado entre 4.\n\nPaso 4. Al resultado del paso 1, le restó los resultados del paso 2 y del paso 3.\n\n¿En cuál paso hay un error y cómo se puede corregir?",
+    "imagen": "s1p14e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "20 %", "esCorrecta": true, "retroalimentacion": "Correcto: 40 ÷ 200 = 0,2, y 0,2 × 100 = 20 %."},
-      {"descripcion": "40 %", "esCorrecta": false, "retroalimentacion": "Tomaste la cantidad (40 estudiantes) como si fuera el porcentaje. El porcentaje se calcula sobre el total: 40 de 200."},
-      {"descripcion": "5 %", "esCorrecta": false, "retroalimentacion": "Dividiste 200 entre 40. El porcentaje es la parte sobre el total (40 ÷ 200), no al revés."},
-      {"descripcion": "0,2 %", "esCorrecta": false, "retroalimentacion": "0,2 es la fracción decimal; para expresarla como porcentaje hay que multiplicarla por 100."}
+      {
+        "descripcion": "En el paso 2, porque se debe multiplicar 3m x 4m x 5m",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El paso 2 sí tiene el error, pero la corrección propuesta (multiplicar 3×4×5) no corresponde a la fórmula del área de un triángulo."
+      },
+      {
+        "descripcion": "En el paso 3, porque se debe multiplicar 2π×4m y luego dividir entre 4.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El paso 3 (cuarto de círculo) está correctamente planteado (π×16 ÷ 4); no contiene el error."
+      },
+      {
+        "descripcion": "En el paso 2, porque se debe multiplicar 4m x 3m y luego dividir entre 2.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El error está en el paso 2: el área de un triángulo es base×altura÷2, no solo base×altura; la corrección correcta es 4×3÷2=6."
+      },
+      {
+        "descripcion": "En el paso 3, porque se debe multiplicar πx 4m y luego dividir entre 4.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El paso 3 no tiene error, y la fórmula propuesta (π×4÷4) tampoco corresponde correctamente al área de un cuarto de círculo de radio 4."
+      }
     ]
   },
   {
-    "enunciado": "El promedio de cuatro números es 10. Si tres de ellos son 8, 9 y 11, ¿cuál es el cuarto número?",
-    "componente": "Estadística", "competencia": "Formulación y ejecución", "nivel": "Básico",
+    "enunciado": "Un grupo de cuatro amigos, Laura, Diego, Sofía y Andrés, sueñan con comprar un dron profesional para grabar sus aventuras al aire libre. Después de investigar diferentes modelos, encuentran uno que cumple con todas sus expectativas y tiene un costo de $600.000. Como ninguno de ellos puede pagarlo solo, deciden hacer un plan de ahorro en equipo.\n\nPara hacerlo de manera justa y eficiente, acuerdan la siguiente estrategia:\n\nPrimer mes: todos aportan dinero hasta reunir $300.000.\n\nSegundo mes: en lugar de dividir el monto restante en partes iguales, deciden ahorrar entre todos la mitad de lo que les falta para completar el valor del dron.\n\nTercer mes: finalmente, reúnen el dinero restante para poder comprarlo.\n\nDespués de tres meses de esfuerzo, logran alcanzar su objetivo y compran el dron.\n\nTeniendo en cuenta su plan de ahorro, ¿cuánto lograron juntar en el segundo y tercer mes?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
     "opciones": [
-      {"descripcion": "12", "esCorrecta": true, "retroalimentacion": "Correcto: si el promedio de 4 números es 10, su suma es 40. Como 8 + 9 + 11 = 28, el cuarto es 40 − 28 = 12."},
-      {"descripcion": "10", "esCorrecta": false, "retroalimentacion": "Supusiste que el número faltante es igual al promedio. Eso solo ocurriría si los otros tres también promediaran 10, y 8 + 9 + 11 = 28 ≠ 30."},
-      {"descripcion": "28", "esCorrecta": false, "retroalimentacion": "28 es la suma de los tres números conocidos. Falta restarla de la suma total (40) para hallar el cuarto."},
-      {"descripcion": "2", "esCorrecta": false, "retroalimentacion": "Parece que restaste 28 de 30. La suma total de cuatro números con promedio 10 es 4 × 10 = 40."}
+      {
+        "descripcion": "$250.000 y $50.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde a \"la mitad de lo que falta\" en el mes 2."
+      },
+      {
+        "descripcion": "$200.000 y $100.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Tampoco corresponde a la mitad del monto faltante."
+      },
+      {
+        "descripcion": "$100.000 y $200.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Invierte los valores correctos de los meses 2 y 3."
+      },
+      {
+        "descripcion": "$150.000 y $150.000",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "En el mes 2 ahorran la mitad de los $300.000 que faltaban ($150.000), y en el mes 3 el resto ($150.000)."
+      }
     ]
   },
   {
-    "enunciado": "Un estudiante afirma que (a + b)² = a² + b² para todos los números reales a y b. ¿Cuál par de valores demuestra que la afirmación es falsa?",
-    "componente": "Álgebra y cálculo", "competencia": "Argumentación", "nivel": "Intermedio",
+    "enunciado": "En la figura se muestran dos triángulos con sus medidas.\n\nDe acuerdo con la información anterior, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": "s1p16e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
     "opciones": [
-      {"descripcion": "a = 1 y b = 1", "esCorrecta": true, "retroalimentacion": "Correcto: (1 + 1)² = 4, pero 1² + 1² = 2. Como 4 ≠ 2, la igualdad no se cumple. En general (a + b)² = a² + 2ab + b²."},
-      {"descripcion": "a = 0 y b = 5", "esCorrecta": false, "retroalimentacion": "Con a = 0 ambos lados valen 25, así que la igualdad se cumple y no sirve como contraejemplo. El término 2ab se anula cuando uno de los dos es cero."},
-      {"descripcion": "a = 3 y b = 0", "esCorrecta": false, "retroalimentacion": "Con b = 0 ambos lados valen 9; la igualdad se cumple. Necesitas valores donde 2ab sea distinto de cero."},
-      {"descripcion": "a = 0 y b = 0", "esCorrecta": false, "retroalimentacion": "Con ambos en cero los dos lados valen 0. Un contraejemplo debe hacer que los dos lados sean diferentes."}
+      {
+        "descripcion": "w < z",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Como 8>6, w=8sen80°>z=6sen80°, por lo que \"w<z\" es falso."
+      },
+      {
+        "descripcion": "w = z",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Por la misma razón, w≠z (w>z)."
+      },
+      {
+        "descripcion": "x > y",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "x=8sen70° y y=6sen70°; como 8>6 y sen70° es positivo, x>y."
+      },
+      {
+        "descripcion": "x = y",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "x≠y, ya que x=8sen70° es mayor que y=6sen70°."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una clase de inglés hay 6 estudiantes: 4 son mujeres y 2 son hombres. Para una exposición, el profesor quiere conformar grupos de 3 estudiantes.\n\nEn la tabla, X, Y, Z, y W representan la cantidad de formas que tiene el profesor para escoger cada grupo de 3 estudiantes.\n\nGrupo | Grupo 1 | Grupo 2 | Grupo 3 | Grupo 4\nCaracterística | Tres hombres | Una mujer y dos hombres | Dos mujeres y un hombre | Tres mujeres\nCantidad de formas del escoger el grupo | X | Y | Z | W\n\nDe acuerdo con los datos de la tabla, ¿cuáles valores se deben conocer para determinar la cantidad total de formas que hay para escoger un grupo de 3 estudiantes en donde, al menos, uno de ellos sea hombre?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Solamente Z.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Conocer solo Z no permite calcular Y+Z, pues falta el valor de Y."
+      },
+      {
+        "descripcion": "Solamente Z y W.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "W corresponde al grupo sin hombres (tres mujeres) y no aporta a la suma de grupos con al menos un hombre."
+      },
+      {
+        "descripcion": "Solamente X.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "X ya se sabe que es 0 (imposible con solo 2 hombres); conocerlo no aporta información adicional."
+      },
+      {
+        "descripcion": "Solamente Y y Z.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Como X=0 es deducible sin la tabla, basta con conocer Y y Z para sumar los grupos que sí contienen al menos un hombre."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una encuesta sobre la intención de voto para la elección de presidente en un país, se registraron los resultados que se observan en tabla y en la gráfica.\n\nDe acuerdo con lo anterior, ¿cuál de las siguientes afirmaciones es falsa?",
+    "imagen": "s1p18e.png",
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Con la información de la tabla se obtienen los datos de la gráfica.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: de los valores absolutos de la tabla sí se pueden derivar los porcentajes de la gráfica."
+      },
+      {
+        "descripcion": "Con la información de la gráfica se obtiene cuál es el candidato con mayor intención de voto.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: el candidato con mayor porcentaje en la gráfica es visualmente identificable."
+      },
+      {
+        "descripcion": "Con la información de la gráfica se obtienen los datos de la tabla.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Es la afirmación falsa que pide la pregunta. A partir de la gráfica (porcentajes) no es posible reconstruir los valores absolutos exactos de votos sin conocer el total de votantes."
+      },
+      {
+        "descripcion": "Con la información de la tabla se obtiene la proporción entre los votos por un candidato y el total.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: la tabla permite calcular directamente la proporción de votos de un candidato sobre el total."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una tienda de tecnología, se realizó una venta especial de computadoras portátiles. Se registró que 1/6 de las computadoras vendidas eran de gama baja, mientras que el 50% de las restantes eran de gama media, y el resto correspondían a computadoras de gama alta.\n\nUn analista de ventas propuso el siguiente procedimiento para calcular la cantidad de computadoras de gama alta vendidas:\n\nPaso 1: Calcular la cantidad de computadoras de gama baja multiplicando el total de computadoras vendidas por 1/6.\nPaso 2: Restar la cantidad obtenida en el paso 1 al total de computadoras vendidas.\nPaso 3: Multiplicar la cantidad obtenida en el paso 2 por 50%.\nPaso 4: Restar la cantidad obtenida en el paso 3 a la cantidad obtenida en el paso 2.\n\nSi se vendieron 120 computadoras, ¿cuántas fueron de gama alta?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "20",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "20 corresponde a la cantidad de gama baja, no de gama alta."
+      },
+      {
+        "descripcion": "30",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde a ningún resultado del procedimiento descrito."
+      },
+      {
+        "descripcion": "40",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Podría surgir de calcular el 50% sobre el total (120) en lugar de sobre el resto (100)."
+      },
+      {
+        "descripcion": "50",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Siguiendo los cuatro pasos del procedimiento, se obtienen 50 computadoras de gama alta."
+      }
+    ]
+  },
+  {
+    "enunciado": "Andrés quiere comprar una bicicleta y ha decidido ahorrar un porcentaje de su salario cada mes. Su sueldo es $1.500.000 y ha decidido ahorrar el 8% de su sueldo cada mes. Para estimar cuánto ahorrará, realiza el siguiente procedimiento:\n\nDivide su salario entre 100 para obtener el 1% del sueldo:\n\n1.500.000÷100=15.000\n\nMultiplica el resultado por 8 para hallar el 8%:\n\n15.000×8=120.000\n\nEsto significa que Andrés ahorra $120.000 cada mes.\n\nMariana también quiere comprar una bicicleta y usará la misma estrategia de cálculo. Su sueldo es de $1.800.000 y quiere ahorrar 6% de su sueldo cada mes.\n\nSi Mariana ahorra durante 5 meses consecutivos, ¿cuánto dinero habrá ahorrado en total?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "$480.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde al cálculo correcto del 6% mensual por 5 meses."
+      },
+      {
+        "descripcion": "$540.000",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "$108.000 × 5 meses = $540.000."
+      },
+      {
+        "descripcion": "$600.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Podría surgir de aplicar un porcentaje distinto al 6% real."
+      },
+      {
+        "descripcion": "$620.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde a ningún cálculo coherente con los datos dados."
+      }
+    ]
+  },
+  {
+    "enunciado": "La gráfica muestra el comportamiento de los últimos años de la tasa de deserción estudiantil en los colegios de una región de Colombia. Además, muestra las horas semanales que los estudiantes destinan para estudiar en casa, y las horas semanales que los estudiantes destinan para el ocio en casa.\n\nAl observar la gráfica, un estudiante realizó las siguientes afirmaciones:\n\nAfirmación I. La deserción disminuyó y las horas de estudio en casa aumentaron.\n\nAfirmación II. La deserción estudiantil disminuyó a causa de las horas empleadas para el ocio en casa.\n\nDe acuerdo con la información mostrada en la gráfica, ¿cuál o cuáles de las afirmaciones del estudiante son verdaderas?",
+    "imagen": "s1p21e.png",
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "La I y la II.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La afirmación II no es verdadera."
+      },
+      {
+        "descripcion": "Ni la I ni la II.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La afirmación I sí es verdadera según la gráfica."
+      },
+      {
+        "descripcion": "Solamente la I.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Solo la afirmación I es verdadera."
+      },
+      {
+        "descripcion": "Solamente la II.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La afirmación II no es verdadera, y la I sí lo es."
+      }
+    ]
+  },
+  {
+    "enunciado": "En clase de Física se está aprendiendo sobre el movimiento uniformemente acelerado (MUA). El profesor menciona que la posición de un cuerpo que sigue este movimiento puede modelarse por medio de la siguiente función cuadrática:\n\nf(x) = 5x²+1.\n\ndonde x representa el tiempo transcurrido en segundos, y f(x) la posición en dicho tiempo.\n\nPara conocer la posición del cuerpo en x = 3 segundos, un estudiante propone el siguiente procedimiento:\n\nPaso 1. En la función, cambiar la x por el valor del tiempo dado.\n\nPaso 2. Multiplicar el valor del tiempo por 2.\n\nPaso 3. Multiplicar por 5 el resultado del paso 2.\n\nPaso 4. Sumar 1 al resultado del paso 3.\n\nEl docente le comunica al estudiante que hay un error en los pasos propuesto. ¿Cuál de los pasos propuestos contiene el error?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "El paso 1, porque la variable tiempo se debe reemplazar en los dos términos de la función.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El paso 1 (sustituir x en ambos términos) está bien planteado."
+      },
+      {
+        "descripcion": "El paso 2, porque el tiempo dado se debe multiplicar por sí mismo.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El error está en el paso 2: para elevar al cuadrado se multiplica x por sí mismo (x×x), no por 2."
+      },
+      {
+        "descripcion": "El paso 3, porque primero se debe sumar uno, y luego se debe multiplicar por cinco.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El orden de las operaciones en el paso 3 (multiplicar por 5 después de elevar al cuadrado) es correcto según la jerarquía de operaciones."
+      },
+      {
+        "descripcion": "El paso 4, porque los términos de la función no son semejantes, y, por tanto, no se pueden sumar.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El paso 4 (sumar 1 al final) es correcto; se trata de evaluar la función, no de simplificar una expresión algebraica con términos semejantes."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para construir un ángulo de 45°, un estudiante procede de la siguiente manera:\n\nPaso 1. Construye el triángulo PQR que se muestra en la gráfica.\nPaso 2. Traza el segmento PS, que divide el ángulo QPR en dos ángulos iguales.\n\nDe este modo, el ∡QPS mide 45°. Ahora bien, otro estudiante asegura que no es necesario el paso 2 para construir un ángulo de 45°. ¿Es verdadera esta afirmación?",
+    "imagen": "s1p23e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque los ∡PQR y ∡PRQ obtenidos en el paso 1 miden 45°. __",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Los ángulos ∡PQR y ∡PRQ ya miden 45° desde el paso 1, por lo que no es necesario bisecar el ángulo en P (paso 2) para obtener un ángulo de 45°."
+      },
+      {
+        "descripcion": "No, porque el segmento PS divide el ángulo recto en dos ángulos de 45°.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Aunque PS sí biseca el ángulo recto, esto no contradice que ya existían ángulos de 45° sin necesidad del paso 2."
+      },
+      {
+        "descripcion": "Sí, porque el ∡QPR construido en el paso 1 mide 45°.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ángulo QPR mide 90°, no 45°."
+      },
+      {
+        "descripcion": "No, porque se desconoce la medida de todos los ángulos del triángulo PQR.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si se conocen dos ángulos del triángulo, el tercero se deduce por suma de ángulos internos (180°); sí se conocen todos los ángulos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Juan, Lucas y Mateo realizaron una competencia de atletismo que consistió en ir desde el colegio hasta el restaurante. La figura muestra la ruta que cada uno eligió.\n\nSobre las rutas escogidas, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": "s1p24e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La ruta de Mateo es más corta que la ruta de Lucas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No basta con comparar Mateo y Lucas; hay que comparar las tres rutas. Al calcularlas, Lucas (2√5 ≈ 4,47) resulta ser la más corta de las tres, no Juan ni Mateo."
+      },
+      {
+        "descripcion": "La ruta de Lucas es la más corta de las tres rutas.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La ruta de Lucas está formada por dos tramos diagonales iguales, cada uno de longitud √5 (obtenida con Pitágoras a partir de un desplazamiento de 2 cuadros horizontales y 1 vertical: d²=2²+1²=5). Su longitud total es 2√5 ≈ 4,47 unidades, menor que la de Mateo (5,24) y la de Juan (6), por lo que su ruta es la más corta de las tres."
+      },
+      {
+        "descripcion": "La ruta de Lucas es la más larga de las tres rutas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ruta de Lucas no es la más larga."
+      },
+      {
+        "descripcion": "La ruta de Mateo es igual de larga a la ruta de Lucas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Las rutas de Mateo y Lucas no son iguales: Mateo recorre 5,24 unidades y Lucas 4,47 unidades, siendo la de Lucas más corta."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una clase de Biología, la profesora llevó a sus estudiantes al laboratorio para analizar dos organismos microscópicos. El organismo X tiene un diámetro de 2×10⁻⁷ centímetros y el organismo Z tiene un diámetro de 2×10⁻⁶ centímetros. A partir de esta información, un estudiante afirmó que el organismo X es el que tiene menor diámetro. ¿Es correcta la afirmación hecha por el estudiante?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "No, porque, al ser -7 mayor que -6, 10⁻⁷ es mayor que 10⁻⁶.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Afirma lo contrario de la relación correcta entre exponentes negativos."
+      },
+      {
+        "descripcion": "Sí, porque, al ser -7 menor que -6, 10⁻⁷ es menor que 10⁻⁶.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Como −7<−6, entonces 10⁻⁷<10⁻⁶, y la afirmación del estudiante (X es menor) es correcta."
+      },
+      {
+        "descripcion": "No, porque, al ser -7 menor que -6, 10⁻⁷ es mayor que 10⁻⁶.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La conclusión \"No\" contradice el resultado correcto (la afirmación del estudiante sí es correcta)."
+      },
+      {
+        "descripcion": "Sí, porque, al ser -7 mayor que -6, 10⁻⁷ es menor que 10⁻⁶.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Aunque concluye \"Sí\" correctamente, la justificación (−7 mayor que −6) es matemáticamente falsa."
+      }
+    ]
+  },
+  {
+    "enunciado": "La gerente de una empresa hace uso del siguiente procedimiento para pagarles a sus empleados una bonificación salarial:\n\nPaso 1. Promedia el número de horas que trabajó el empleado en los dos primeros días.\nPaso 2. Promedia el resultado del paso 1 con el número de horas que trabajó el empleado en el tercer día.\nPaso 3. Promedia el resultado del paso 2 con el número de horas que trabajó en el cuarto día.\nPaso 4. El resultado del paso 3 lo multiplica por 10.000.\nPaso 5. El resultado del paso 4 es el valor de la bonificación en pesos.\n\nSi un empleado registró las horas trabajadas durante cuatro días, como se muestra en la tabla, ¿cuánto es la bonificación que recibe el empleado?\n\nDía 1 | Día 2 | Día 3 | Día 4\n8 horas | 12 horas | 4 horas | 11 horas",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "70.000 pesos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde al resultado de aplicar correctamente los promedios sucesivos."
+      },
+      {
+        "descripcion": "80.000 pesos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Tampoco corresponde al resultado correcto."
+      },
+      {
+        "descripcion": "90.000 pesos.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Siguiendo los cinco pasos exactamente, el resultado es $90.000."
+      },
+      {
+        "descripcion": "100.000 pesos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde al resultado del procedimiento descrito."
+      }
+    ]
+  },
+  {
+    "enunciado": "Pedro y Ana asistieron a un curso de inglés. Al final de este, se realizó un examen de lectura y escritura para evaluar los avances realizados. La tabla muestra el número de respuestas correctas obtenidas en cada uno de ellos.\n\n | Lectura | Escritura\nPedro | 5 | 5\nAna | 1 | 8\nN.º de preguntas del examen | 5 | 10\n\nDe acuerdo con la tabla, ¿qué porcentaje del examen de escritura respondieron correctamente?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Pedro, el 50 %, y Ana, el 80 %.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Corresponde exactamente al cálculo del porcentaje de respuestas correctas en la sección de escritura."
+      },
+      {
+        "descripcion": "Pedro, el 5 %, y Ana, el 8 %.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Confunde el número de respuestas correctas con el porcentaje (no realiza la conversión)."
+      },
+      {
+        "descripcion": "Pedro, el 50 %, y Ana, el 10 %.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El porcentaje de Ana está mal calculado."
+      },
+      {
+        "descripcion": "Pedro, el 5 %, y Ana, el 1 %.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Nuevamente confunde cantidades absolutas con porcentajes."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra la cantidad vendida de un tipo de tubérculo en tres tiendas, el tamaño de los tubérculos y el precio de venta por cada kilogramo, durante tres meses.\n\nMes | Tienda | Cantidad vendida | Tamaño | Precio por kilogramo\nEnero | 1 | 40 kg | Entre 20 cm y 25 cm | $1.200\nFebrero | 2 | 30 kg | Entre 23 cm y 26 cm | $1.500\nMarzo | 3 | 20 kg | Entre 19 cm y 24 cm | $1.700\n\nPara conocer qué tan dispersos es un conjunto de datos, se puede calcular su varianza mediante el siguiente procedimiento:\n\nPaso 1. Calcular el promedio usando la ecuación:\n\nPaso 2. Calcular la varianza usando la ecuación:\n\n¿A cuál conjunto de datos de la tabla se le puede calcular la varianza por medio de este procedimiento?",
+    "imagen": "s1p28e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "A los datos de la columna Precio por kilogramo.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El precio por kilogramo es un dato cuantitativo que puede ponderarse por la cantidad vendida (frecuencia), encajando con la estructura de la fórmula dada."
+      },
+      {
+        "descripcion": "A los datos de la columna Tamaño.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "\"Tamaño\" se expresa como un rango (p. ej. \"entre 20 y 25 cm\"), no como un valor numérico único."
+      },
+      {
+        "descripcion": "A los datos de la columna Tienda.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "\"Tienda\" es una variable categórica/nominal (identificador), no cuantitativa."
+      },
+      {
+        "descripcion": "A los datos de la columna Mes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "\"Mes\" también es una variable categórica (nombres de meses), no numérica."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una región circular va a ser cercada para crear una reserva forestal. Si se sabe que el perímetro de dicha área es de 18 km, ¿cuántos metros de alambre son necesarios para cercarla?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "1.800 metros.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "1.800 metros corresponde a una conversión incorrecta (dividir por 10 en lugar de multiplicar por 1.000)."
+      },
+      {
+        "descripcion": "1.800 π metros.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Multiplicar por π no es necesario, ya que el perímetro ya fue dado; confunde con el caso en que se da el radio o diámetro."
+      },
+      {
+        "descripcion": "18.000 metros.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "18 km equivalen a 18.000 metros (conversión directa de unidades)."
+      },
+      {
+        "descripcion": "18.000 π metros.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Igual que B, agrega π innecesariamente sobre una conversión que ya es directa."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una empresa textil confecciona camisas. En cada una de las 2 mangas de las camisas se utilizan 3 botones y en la parte delantera se utilizan 4 botones. Para calcular el número total de botones que se necesita para la producción de camisas en un mes, se realiza el siguiente procedimiento:\n\nPaso 1. Multiplicar el número de botones que se utiliza en cada manga por el número de mangas de una camisa.\n\nPaso 2. Sumar el resultado del paso 1 con el número de botones que se utiliza en la parte delantera de la camisa.\n\nPaso 3. Multiplicar el resultado del paso 2 por el número de camisas que se produce en un mes.\n\nRespecto al número total de botones que se necesita para la producción de camisas en un mes, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "El número debe ser múltiplo de 3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 3 (depende de N)."
+      },
+      {
+        "descripcion": "El número debe ser múltiplo de 5.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Todo múltiplo de 10 es también múltiplo de 5, sin importar el número de camisas producidas."
+      },
+      {
+        "descripcion": "El número debe ser múltiplo de 11.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 11."
+      },
+      {
+        "descripcion": "El número debe ser múltiplo de 14.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 14."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra algunos datos sobre el tipo de luz que se puede utilizar para iluminar un cuadro ubicado en la pared de una galería.\n\nLuz | Área del cuadro iluminada | Área de la pared iluminada alrededor del cuadro\n1 | 90 % | 8 %\n2 | 95 % | 2 %\n3 | 100 % | 20 %\n4 | 100 % | 3 %\n\nEn un día de exposición se necesita iluminar totalmente el cuadro y la menor área de pared alrededor de este, por lo que un empleado de la galería escoge el tipo de luz 2.\n\n¿Es correcta la elección del empleado?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque el porcentaje del área de la pared iluminada alrededor del cuadro es el menor de todas las opciones consideradas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Aunque el porcentaje de pared iluminada sea el menor, esto no compensa que el cuadro no quede completamente iluminado."
+      },
+      {
+        "descripcion": "No, porque, aunque el área de la pared iluminada alrededor del cuadro es pequeña, queda una parte del cuadro sin iluminar.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La luz 2 no ilumina el 100% del cuadro (solo 95%), por lo que no cumple la condición de iluminarlo totalmente, sin importar el área de pared afectada."
+      },
+      {
+        "descripcion": "Sí, porque la suma de los porcentajes de las áreas del cuadro y de la pared es la menor de todas las opciones consideradas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Sumar los porcentajes no es un criterio relevante; además, sigue sin cumplirse el requisito de iluminación total del cuadro."
+      },
+      {
+        "descripcion": "No, porque, aunque se cubre la mayor parte del cuadro, aun así, se ilumina una parte de la pared alrededor de este.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Que se ilumine parte de la pared no es el problema principal; el problema es que el cuadro no queda completamente iluminado."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una casa, se quiere decorar una caja rectangular, pegando un hilo brillante en todas sus aristas. La caja se usará para poner en su interior los regalos de fin de año y tiene las siguientes dimensiones:\n\nEl hijo menor de la familia plantea la siguiente operación para calcular la cantidad de hilo brillante que se necesita para decorar la caja:\n\n50 cm × 3 + 30,5 cm × 2 + 25 cm × 2 =\n\n150 cm + 61 cm + 50 cm\n\n= 261 cm\n\nUno de sus hermanos identifica que este procedimiento es incorrecto. ¿Cuál es el error en el cálculo de dicha cantidad?",
+    "imagen": "s1p32e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Que los términos de la suma no están planteados en el orden correcto; debe ser primero largo, luego ancho y, finalmente, alto.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El orden de los términos en una suma no afecta el resultado; no es una razón matemáticamente válida."
+      },
+      {
+        "descripcion": "Que las unidades de medida deben ser unidades cúbicas, ya que estamos hablando de una figura en tres dimensiones.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Las unidades correctas para una longitud de hilo son lineales (cm), no cúbicas; confunde longitud con volumen."
+      },
+      {
+        "descripcion": "Que la cantidad de aristas de cada medida debe ser mayor, ya que la longitud de cada arista debe ser multiplicada por cuatro.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Cada una de las tres medidas de la caja corresponde a 4 aristas (no 3, 2 y 2 como en el cálculo original); cada término debe multiplicarse por 4."
+      },
+      {
+        "descripcion": "Que solo se conoce la medida de tres de las aristas y, por tanto, la cantidad de hilo brillante no se puede calcular.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Sí se conocen las tres medidas de las aristas de la caja; el problema no es la falta de datos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un estudiante debe ordenar los números x, x², x³, pero lo único que sabe acerca de x es que es un número real diferente de 0, de 1 y de −1. Con esta información, el estudiante propone las siguientes soluciones:\n\nUna persona analiza las dos soluciones y afirma que ninguna de las dos resuelve el problema. ¿Es verdadera la afirmación de esta persona?",
+    "imagen": "s1p33e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque la solución I no tiene en cuenta que x² siempre es positivo y la solución II no tiene en cuenta que x nunca puede ser el mayor de los 3 números.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La razón dada no corresponde a las verdaderas fallas de cada solución."
+      },
+      {
+        "descripcion": "Sí, porque la solución I no tiene en cuenta si el valor absoluto de x es menor que 1 y la segunda no tiene en cuenta el signo de x.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La solución I ignora si |x| es menor o mayor que 1, y la solución II ignora si x es positivo o negativo; ambas omisiones producen conclusiones erróneas en ciertos casos."
+      },
+      {
+        "descripcion": "No, porque, a pesar de que la solución II es incorrecta, la solución I es correcta pues tiene en cuenta el signo de x.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La solución I tampoco es completamente correcta (falla, por ejemplo, para 0<x<1)."
+      },
+      {
+        "descripcion": "No, porque, a pesar de que la solución I es incorrecta, la solución II es correcta pues tiene en cuenta si el valor absoluto de x es menor que 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La solución II tampoco es completamente correcta (falla para valores negativos de x)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona quiere crear un grupo de estudio y para esto envía invitaciones a todos los estudiantes de un colegio, y aquellos que respondan afirmativamente, harán parte del grupo. En el momento de tener 13 respuestas afirmativas, ¿cuál de los siguientes datos es posible calcular?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "La cantidad de personas que no aceptaron la invitación.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Requiere conocer el total de invitados, que no se ha dado."
+      },
+      {
+        "descripcion": "La cantidad de invitaciones enviadas hasta ese momento.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El número total de invitaciones enviadas no es un dato proporcionado."
+      },
+      {
+        "descripcion": "La cantidad de personas que hay en el grupo en ese momento.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El número de personas en el grupo en ese momento es directamente 13, el único dato conocido con certeza."
+      },
+      {
+        "descripcion": "La cantidad de invitaciones que los estudiantes aún no responden.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "También requiere conocer el total de invitaciones enviadas."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una empresa, se diseñan y venden agendas artesanales. Se proyecta que las ganancias de este mes estén dadas por la expresión G(x) = 25.000x + 5.000.000, donde x corresponde al número de unidades vendidas.\n\nEl gerente desea saber cuál debe ser el número de unidades a vender este mes para que las ganancias sean de al menos $10.000.000, por lo que propone la expresión:\n\n25.000x + 5.000.000 ≥ 10.000.000\n\n¿Qué característica tiene dicho valor mínimo que toma x para cumplir la condición?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Múltiplo de 100",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "200 es múltiplo de 100 (200=2×100)."
+      },
+      {
+        "descripcion": "Múltiplo de 1.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "200 no es múltiplo de 1.000."
+      },
+      {
+        "descripcion": "Divisor de 100",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "200 no es divisor de 100."
+      },
+      {
+        "descripcion": "Divisor de 500",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "200 no es divisor de 500."
+      }
+    ]
+  },
+  {
+    "enunciado": "El piso de una habitación tiene medidas 2 m por 3 m y debe ser cubierto con baldosas cuadradas de lado 30 cm. Se proponen 2 soluciones para determinar la cantidad de baldosas que deben ser usadas.\n\nProcedimiento 1\n\nPaso 1. Aproximar cada medida del piso al múltiplo de 30 cm más cercano (por encima).\n\nPaso 2. Dividir cada uno de los números obtenidos en el paso 1 entre 30 cm.\n\nPaso 3. Multiplicar los dos números obtenidos en el paso anterior.\n\nProcedimiento 2\n\nPaso 1. Calcular el área del piso.\n\nPaso 2. Calcular el área de una baldosa.\n\nPaso 3. Dividir el resultado del paso 1 entre el del paso 2 y aproximar al entero más cercano (por encima).\n\n¿Cuál de las siguientes afirmaciones es verdadera acerca de los procedimientos?",
+    "imagen": "s1p36e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Con el procedimiento 1 se obtienen menos baldosas que con el procedimiento 2, pero no son suficientes para cubrir todo el piso.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento 1 da más baldosas, no menos, que el procedimiento 2."
+      },
+      {
+        "descripcion": "Con el procedimiento 1 se obtienen menos baldosas que con el procedimiento 2, y son suficientes para cubrir todo el piso.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento 1 sí da más baldosas; no es \"menos\" como plantea esta opción."
+      },
+      {
+        "descripcion": "Con el procedimiento 2 se obtienen menos baldosas que con el procedimiento 1, pero no son suficientes para cubrir todo el piso.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No es necesario cubrir el piso con 70 baldosas completas en una cuadrícula de 10×7: el sobrante de cada fila puede recortarse y reutilizarse para completar los bordes, por lo que 70 baldosas sobreestiman la cantidad realmente necesaria."
+      },
+      {
+        "descripcion": "Con el procedimiento 2 se obtienen menos baldosas que con el procedimiento 1, y son suficientes para cubrir todo el piso.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El área total requerida (60.000 cm²) se cubre con 66,66 baldosas \"puras\" (60.000÷900); por lo tanto, 67 baldosas —usando los recortes sobrantes de unas para completar los bordes de otras— son suficientes para cubrir la totalidad del piso."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona cuenta con $5.000 para comprar la mayor cantidad posible de papas fritas. En el supermercado 1 venden un paquete de papas fritas en $1.000, y ofrecen la promoción \"lleve 5 paquetes por el precio de 4\".\n\nPara saber cuántos paquetes puede comprar, efectúa el siguiente procedimiento:\n\nPaso 1. Dividir la cantidad de dinero de la persona entre $1.000 y aproximar al entero menor más próximo.\nPaso 2. Dividir el número obtenido en el paso 1 entre 4 y aproximar al entero menor más próximo.\nPaso 3. Sumar los resultados de los pasos 1 y 2.\n\nEn el supermercado 2 venden cada paquete a $850. Para saber cuántos paquetes puede comprar, efectúa el siguiente procedimiento:\n\nPaso 1. Dividir la cantidad de dinero de la persona entre $850 y aproximar al entero menor más próximo.\n\nCon los $5.000, ¿en cuál de los dos supermercados puede comprar una mayor cantidad de paquetes de papas fritas?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "En el supermercado 1, pues puede comprar 5 paquetes de papas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el supermercado 1 se pueden comprar 6 paquetes, no 5."
+      },
+      {
+        "descripcion": "En el supermercado 2, pues puede comprar 5 paquetes de papas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El supermercado 2 permite comprar solo 5 paquetes, no más que el supermercado 1."
+      },
+      {
+        "descripcion": "En el supermercado 1, pues puede comprar 6 paquetes de papas.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Con el procedimiento dado, el supermercado 1 permite comprar 6 paquetes, más que los 5 del supermercado 2."
+      },
+      {
+        "descripcion": "En el supermercado 2, pues puede comprar 6 paquetes de papas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El supermercado 2 no permite comprar 6 paquetes según el procedimiento (resulta en 5)."
+      }
+    ]
+  },
+  {
+    "enunciado": "En un show de circo se presenta un mago, quien ha preparado dos juegos de adivinanzas:\n\nEl primero consiste en adivinar 1 carta entre 3 opciones y, si se acierta, otra carta entre otras 3 opciones.\n\nEl segundo consiste en adivinar 1 carta entre 9 opciones.\n\nEl mago le dice a la audiencia que en el primer juego hay menor probabilidad de ganar. ¿Por qué la afirmación del mago es falsa?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Porque es más probable adivinar dos cartas entre seis que una entre nueve.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No se trata de comparar \"dos entre seis\" contra \"una entre nueve\"; el cálculo correcto muestra igualdad de probabilidades."
+      },
+      {
+        "descripcion": "Porque es imposible hallar las dos probabilidades consecutivas en el primer juego.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Sí es posible calcular ambas probabilidades de forma independiente y compararlas."
+      },
+      {
+        "descripcion": "Porque la probabilidad de acertar es exactamente la misma en los dos juegos.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Al multiplicar las probabilidades del primer juego (1/3 × 1/3 = 1/9) se obtiene el mismo valor que la probabilidad del segundo juego (1/9); la afirmación del mago es falsa porque las probabilidades son iguales."
+      },
+      {
+        "descripcion": "Porque no dice si las seis cartas del primer juego están entre las nueve del segundo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No es relevante si las cartas del primer juego están entre las del segundo; lo que importa es el cálculo de probabilidad, que resulta igual en ambos casos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un tanque se llenó con una solución de agua y cloro, en una concentración de 15 mg de cloro por cada litro de agua. Además, la cantidad de agua que entró al tanque fue de 30 litros por cada minuto. Con esta información, ¿cuál de las siguientes cantidades se puede calcular?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "La cantidad de cloro que entró cada minuto al tanque.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Se puede multiplicar directamente la concentración por el caudal (15×30=450 mg/min) para obtener el cloro que entra cada minuto."
+      },
+      {
+        "descripcion": "La cantidad total de agua que hay en el tanque.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No se conoce el tiempo total de llenado ni la capacidad del tanque."
+      },
+      {
+        "descripcion": "La cantidad total de cloro que hay en el tanque.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Requiere conocer el tiempo total, que no se ha dado."
+      },
+      {
+        "descripcion": "La cantidad de minutos que se demoró en llenar el tanque.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Falta el dato de la capacidad total del tanque para calcular el tiempo de llenado."
+      }
+    ]
+  },
+  {
+    "enunciado": "En un centro de reciclaje se recibieron en el último mes 50 toneladas de aluminio, de las cuales, el 40 % fue utilizado para la fabricación de señales de tránsito.\n\n¿Cuántas toneladas de aluminio fueron utilizadas por el centro de reciclaje para la fabricación de señales de tránsito?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "20.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Corresponde exactamente al 40% de 50 toneladas."
+      },
+      {
+        "descripcion": "50.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Corresponde al total de aluminio recibido, no a la parte usada."
+      },
+      {
+        "descripcion": "10.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde a ningún cálculo coherente con los datos."
+      },
+      {
+        "descripcion": "40.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Confunde el porcentaje (40) con el resultado en toneladas."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona quiere comprar un teléfono celular de alta tecnología. Para ello, elabora la siguiente tabla con siete opciones, en la que se indica la marca, modelo y precio para cada una de estas:\n\nMarca | Modelo | Precio en pesos\nRingring | X1 | 1.400.000\nSoiBeep | Enos | 1.200.000\nRingring | X2 | 1.400.000\nSoiBeep | Gow1 | 1.500.000\nTelebene | Gaia | 1.600.000\nUthil | Hul | 1.250.000\nUthil | Paxx | 1.350.000\n\nSi la persona decide comprar el teléfono celular de menor precio, ¿cuál debe ser su elección?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Ringring.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los modelos Ringring cuestan $1.400.000, más que el más barato disponible."
+      },
+      {
+        "descripcion": "Telebene.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Telebene es el más costoso ($1.600.000)."
+      },
+      {
+        "descripcion": "SoiBeep.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El modelo SoiBeep \"Enos\" tiene el precio más bajo de toda la tabla ($1.200.000)."
+      },
+      {
+        "descripcion": "Uthil.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Uthil tiene modelos desde $1.250.000, más caro que el SoiBeep Enos."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra algunos datos sobre la cantidad de lípidos y proteínas en una especie de pescado.\n\nLípido | Proteína\nValor mínimo 70 g | Valor mínimo\nValor máximo | Valor máximo 270 g\nValor promedio 150 g | Valor promedio 200 g\n\nLos valores promedio en la tabla se hallaron dividiendo entre 2 el resultado de la suma entre el valor mínimo y el máximo.\n\n¿Cuál es el valor máximo de lípidos en esta especie de pescado?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "270 g",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "270 corresponde al valor máximo de proteína, no de lípidos."
+      },
+      {
+        "descripcion": "230 g",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Despejando la fórmula del promedio, el valor máximo de lípidos es 230 g."
+      },
+      {
+        "descripcion": "160 g",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No corresponde al resultado de despejar correctamente la fórmula."
+      },
+      {
+        "descripcion": "115 g",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Tampoco corresponde al resultado correcto de la ecuación."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un estudiante pregunta en su clase de Geometría si, con las siguientes longitudes: 3, 9 y 15, es posible formar un triángulo.\n\n¿Cuál de las siguientes es una afirmación verdadera que responde la inquietud del estudiante?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Sí es posible, porque con todas las longitudes se puede formar un triángulo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "No es posible formar un triángulo con estas longitudes."
+      },
+      {
+        "descripcion": "Sí es posible, porque toda longitud divisible por 3 puede formar un triángulo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La divisibilidad por 3 no es un criterio para determinar si se puede formar un triángulo."
+      },
+      {
+        "descripcion": "No es posible, porque la suma de dos de las longitudes es menor que la otra.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La suma de las dos longitudes menores (3+9=12) es menor que la longitud mayor (15), violando la desigualdad triangular."
+      },
+      {
+        "descripcion": "No es posible, porque una de las longitudes es un número primo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Que un número sea primo no tiene relación con la posibilidad de formar un triángulo."
+      }
+    ]
+  },
+  {
+    "enunciado": "Se hace una encuesta a un grupo de estudiantes, de los cuales el 25% pertenece a escuelas del sector rural y el 75% a escuelas del sector urbano de un pueblo pequeño de Colombia. Se propone la siguiente metodología para seleccionar a 400 estudiantes que representen la población estudiantil del pueblo:\n\nPaso 1. Hacer dos listas, una para el sector rural y otra para el sector urbano, ordenando a los estudiantes de mayor a menor de acuerdo con sus notas.\n\nPaso 2. Seleccionar los primeros estudiantes de cada lista hasta obtener 100 estudiantes del sector rural y 300 del sector urbano.\n\nEl procedimiento mostrado NO es adecuado, porque la muestra solo tiene en cuenta a los mejores estudiantes.\n\n¿De qué forma se puede corregir este procedimiento?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Cambiar el paso 1 por: “Hacer dos listas, una para el sector rural y otra para el sector urbano, ordenando a los estudiantes de menor a mayor de acuerdo con sus notas”.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Cambiar el orden de mayor a menor por menor a mayor solo invertiría el sesgo, sin eliminarlo."
+      },
+      {
+        "descripcion": "Cambiar el paso 2 por: “Seleccionar en cada lista la misma cantidad de estudiantes, escogiendo a los primeros y a los últimos de cada una”.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Tomar los primeros y los últimos seguiría dejando fuera a los estudiantes de notas intermedias, manteniendo un sesgo."
+      },
+      {
+        "descripcion": "Cambiar el paso 2 por: “Seleccionar estudiantes que estén alrededor de la mitad de cada lista hasta obtener 100 estudiantes urbanos y 300 rurales”.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Seleccionar alrededor de la mitad de cada lista también introduce sesgo, excluyendo a quienes tienen las notas más altas y más bajas."
+      },
+      {
+        "descripcion": "Cambiar el paso 1 por: “Hacer dos listas, una para el sector rural y otra para el sector urbano, sin tener en cuenta el orden”.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Al no ordenar por notas, cualquier subconjunto seleccionado tiene la misma probabilidad de incluir estudiantes de cualquier nivel de desempeño, eliminando el sesgo de selección."
+      }
     ]
   }
 ]

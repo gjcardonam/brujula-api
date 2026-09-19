@@ -7,6 +7,8 @@ public interface AlmacenDeImagenes {
 
     Imagen guardar(byte[] contenido);
 
+    void copiarSiFalta(String nombre, byte[] contenido);
+
     boolean existe(String nombre);
 
     String nombreDe(String nombreOUrl);
