@@ -42,6 +42,7 @@ brujula:
   modo-desarrollo: ${MODO_DESARROLLO:true}
   uploads-dir: ${UPLOADS_DIR:./uploads}
   mail-from: ${MAIL_FROM:no-reply@brujula.local}
+  brevo-api-key: ${BREVO_API_KEY:}
   admin:
     email: ${ADMIN_EMAIL:admin@brujula.local}
     password: ${ADMIN_PASSWORD:Admin.2026}

@@ -8,9 +8,7 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
 
-@Component
 public class CorreoSmtp implements NotificadorDeCorreo {
 
     private static final Logger log = LoggerFactory.getLogger(CorreoSmtp.class);
@@ -28,32 +26,21 @@ public class CorreoSmtp implements NotificadorDeCorreo {
 
     @Override
     public void enviarEnlaceDeRecuperacion(String correo, String token, int minutosDeVigencia) {
-        String enlace = propiedades.frontendUrl().replaceAll("/+$", "") + "/restablecer?token=" + token;
-        String cuerpo = """
-                Hola,
-
-                Recibimos una solicitud para restablecer la contraseña de tu cuenta en Brújula.
-                Abre este enlace para definir una nueva contraseña (vigente por %d minutos y de un solo uso):
-
-                %s
-
-                Si no hiciste esta solicitud, ignora este mensaje: tu contraseña no cambiará.
-                """.formatted(minutosDeVigencia, enlace);
-
+        MensajeDeRecuperacion.Mensaje mensaje =
+                MensajeDeRecuperacion.paraEnlace(propiedades.frontendUrl(), token, minutosDeVigencia);
         JavaMailSender envio = emisor.getIfAvailable();
         if (!smtpConfigurado || envio == null) {
-            log.warn("SMTP no configurado. Enlace de restablecimiento para {}: {}", correo, enlace);
+            log.warn("SMTP no configurado. Enlace de restablecimiento para {}: {}", correo, mensaje.enlace());
             return;
         }
         try {
-            SimpleMailMessage mensaje = new SimpleMailMessage();
-            mensaje.setFrom(propiedades.mailFrom());
-            mensaje.setTo(correo);
-            mensaje.setSubject("Brújula · Restablece tu contraseña");
-            mensaje.setText(cuerpo);
-            envio.send(mensaje);
+            SimpleMailMessage mensajeSmtp = new SimpleMailMessage();
+            mensajeSmtp.setFrom(propiedades.mailFrom());
+            mensajeSmtp.setTo(correo);
+            mensajeSmtp.setSubject(mensaje.asunto());
+            mensajeSmtp.setText(mensaje.texto());
+            envio.send(mensajeSmtp);
         } catch (RuntimeException e) {
-
             log.error("No fue posible enviar el correo de restablecimiento a {}: {}", correo, e.getMessage());
         }
     }

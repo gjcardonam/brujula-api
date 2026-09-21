@@ -20,7 +20,7 @@ class AlmacenEnDiscoTest {
 
     private AlmacenEnDisco almacenEn(Path carpeta) {
         BrujulaProperties propiedades = new BrujulaProperties(null, null, null, false,
-                carpeta.toString(), null, null, true);
+                carpeta.toString(), null, null, true, null);
         return new AlmacenEnDisco(propiedades);
     }
 
