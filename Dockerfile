@@ -14,4 +14,4 @@ COPY --from=build /app/target/brujula-api-*.jar app.jar
 USER brujula
 ENV UPLOADS_DIR=/app/uploads
 EXPOSE 8080
-ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-XX:TieredStopAtLevel=1", "-XX:+UseSerialGC", "-Dspring.jmx.enabled=false", "-jar", "app.jar"]
