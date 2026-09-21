@@ -10,25 +10,25 @@
         "descripcion": null,
         "imagen": "s1p01a.png",
         "esCorrecta": false,
-        "retroalimentacion": "Es un diagrama circular que muestra la distribución porcentual de las categorías de gasto (gasolina, parqueadero, peajes) sumando las cuatro semanas; no desagrega la información por semana, por lo que no permite comparar totales entre semanas."
+        "retroalimentacion": "Se pide una gráfica que permita comparar directamente los gastos TOTALES por semana. Es un diagrama circular que muestra la distribución porcentual de las categorías de gasto (gasolina, parqueadero, peajes) sumando las cuatro semanas; no desagrega la información por semana, por lo que no permite comparar totales entre semanas."
       },
       {
         "descripcion": null,
         "imagen": "s1p01b.png",
         "esCorrecta": true,
-        "retroalimentacion": "La gráfica de barras apiladas muestra, para cada semana, la suma visual de las tres categorías de gasto (la altura total de la barra), permitiendo comparar directamente el gasto total de cada semana con solo observar la altura de cada barra."
+        "retroalimentacion": "Se pide una gráfica que permita comparar directamente los gastos TOTALES por semana. La gráfica de barras apiladas muestra, para cada semana, la suma visual de las tres categorías de gasto (la altura total de la barra), permitiendo comparar directamente el gasto total de cada semana con solo observar la altura de cada barra."
       },
       {
         "descripcion": null,
         "imagen": "s1p01c.png",
         "esCorrecta": false,
-        "retroalimentacion": "Es un diagrama circular que sí distribuye el gasto por semana, pero en términos de porcentaje del total general, no en valores absolutos; leer proporciones en un círculo es menos directo que comparar alturas de barras."
+        "retroalimentacion": "Se pide una gráfica que permita comparar directamente los gastos TOTALES por semana. Es un diagrama circular que sí distribuye el gasto por semana, pero en términos de porcentaje del total general, no en valores absolutos; leer proporciones en un círculo es menos directo que comparar alturas de barras."
       },
       {
         "descripcion": null,
         "imagen": "s1p01d.png",
         "esCorrecta": false,
-        "retroalimentacion": "Es una gráfica de barras agrupadas por categoría, útil para comparar una categoría entre semanas, pero no permite ver el total semanal de un vistazo, pues habría que sumar mentalmente tres barras separadas."
+        "retroalimentacion": "Se pide una gráfica que permita comparar directamente los gastos TOTALES por semana. Es una gráfica de barras agrupadas por categoría, útil para comparar una categoría entre semanas, pero no permite ver el total semanal de un vistazo, pues habría que sumar mentalmente tres barras separadas."
       }
     ]
   },
@@ -43,25 +43,25 @@
         "descripcion": "Restar $100.000, al precio de venta de cada pantalón y multiplicar dicho valor por el número de unidades vendidas.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Aplica exactamente la definición de ganancia: (precio de venta − $100.000) × unidades vendidas."
+        "retroalimentacion": "La ganancia por pantalón es (precio de venta − costo), y la ganancia total es esa diferencia multiplicada por las unidades vendidas. Aplica exactamente la definición de ganancia: (precio de venta − $100.000) × unidades vendidas."
       },
       {
         "descripcion": "A $100.000 restarle el precio de venta de cada pantalón y multiplicar dicho valor por el número de unidades vendidas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Invierte el orden de la resta ($100.000 − precio de venta), lo que produce un valor negativo en lugar de la ganancia; confunde el orden de los términos."
+        "retroalimentacion": "La ganancia por pantalón es (precio de venta − costo), y la ganancia total es esa diferencia multiplicada por las unidades vendidas. Invierte el orden de la resta ($100.000 − precio de venta), lo que produce un valor negativo en lugar de la ganancia; confunde el orden de los términos."
       },
       {
         "descripcion": "Restar el resultado de la multiplicación entre $100.000 y el número de unidades vendidas, al precio de venta de cada pantalón.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Resta una cantidad total (costo×unidades) de un valor unitario (precio de venta), mezclando magnitudes de distinta naturaleza sin sentido dimensional."
+        "retroalimentacion": "La ganancia por pantalón es (precio de venta − costo), y la ganancia total es esa diferencia multiplicada por las unidades vendidas. Resta una cantidad total (costo×unidades) de un valor unitario (precio de venta), mezclando magnitudes de distinta naturaleza sin sentido dimensional."
       },
       {
         "descripcion": "Restar el resultado de la multiplicación entre el precio de venta de cada pantalón y el número de unidades vendidas, a $100.000.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Resta el ingreso total (precio de venta × unidades) del costo unitario ($100.000), lo cual tampoco corresponde al concepto de ganancia."
+        "retroalimentacion": "La ganancia por pantalón es (precio de venta − costo), y la ganancia total es esa diferencia multiplicada por las unidades vendidas. Resta el ingreso total (precio de venta × unidades) del costo unitario ($100.000), lo cual tampoco corresponde al concepto de ganancia."
       }
     ]
   },
@@ -76,25 +76,25 @@
         "descripcion": "Carretilla 1.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La carretilla 1 tiene capacidad de 3 bultos, la más cercana a 5 sin excederlo (las opciones con capacidad ≤5 no incluyen otra más cercana)."
+        "retroalimentacion": "El límite es 5 bultos por carretilla; se busca la capacidad más cercana a 5 sin superarla. La carretilla 1 tiene capacidad de 3 bultos, la más cercana a 5 sin excederlo (las opciones con capacidad ≤5 no incluyen otra más cercana)."
       },
       {
         "descripcion": "Carretilla 2.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La carretilla 2 tiene capacidad de 6 bultos, que supera el máximo permitido."
+        "retroalimentacion": "El límite es 5 bultos por carretilla; se busca la capacidad más cercana a 5 sin superarla. La carretilla 2 tiene capacidad de 6 bultos, que supera el máximo permitido."
       },
       {
         "descripcion": "Carretilla 3.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La carretilla 3 tiene capacidad de 7 bultos, muy por encima del límite."
+        "retroalimentacion": "El límite es 5 bultos por carretilla; se busca la capacidad más cercana a 5 sin superarla. La carretilla 3 tiene capacidad de 7 bultos, muy por encima del límite."
       },
       {
         "descripcion": "Carretilla 4.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La carretilla 4 tiene capacidad de solo 2 bultos; cumple el límite pero está más lejos de 5 que la carretilla 1."
+        "retroalimentacion": "El límite es 5 bultos por carretilla; se busca la capacidad más cercana a 5 sin superarla. La carretilla 4 tiene capacidad de solo 2 bultos; cumple el límite pero está más lejos de 5 que la carretilla 1."
       }
     ]
   },
@@ -109,25 +109,25 @@
         "descripcion": "Gaseosa.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La gaseosa acumula la mayor venta total (~31.500 unidades), superando a los demás productos."
+        "retroalimentacion": "Se debe sumar las ventas mensuales de cada producto durante los 4 meses reportados. La gaseosa acumula la mayor venta total (~31.500 unidades), superando a los demás productos."
       },
       {
         "descripcion": "Agua.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El agua mantiene un valor constante (~5.000 cada mes, total 20.000), inferior a la gaseosa."
+        "retroalimentacion": "Se debe sumar las ventas mensuales de cada producto durante los 4 meses reportados. El agua mantiene un valor constante (~5.000 cada mes, total 20.000), inferior a la gaseosa."
       },
       {
         "descripcion": "Cerveza.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La cerveza acumula un valor intermedio (~23.500), menor al de la gaseosa."
+        "retroalimentacion": "Se debe sumar las ventas mensuales de cada producto durante los 4 meses reportados. La cerveza acumula un valor intermedio (~23.500), menor al de la gaseosa."
       },
       {
         "descripcion": "Jugos.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Los jugos presentan el acumulado más bajo (~20.000)."
+        "retroalimentacion": "Se debe sumar las ventas mensuales de cada producto durante los 4 meses reportados. Los jugos presentan el acumulado más bajo (~20.000)."
       }
     ]
   },
@@ -142,25 +142,25 @@
         "descripcion": "x = 1",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Aplicando Pitágoras: x²+1²=(√2)² → x²+1=2 → x²=1 → x=1."
+        "retroalimentacion": "Triángulo rectángulo con catetos x y 1, e hipotenusa √2. Aplicando Pitágoras: x²+1²=(√2)² → x²+1=2 → x²=1 → x=1."
       },
       {
         "descripcion": "x=2",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "x=2 no satisface la ecuación (4+1=5≠2)."
+        "retroalimentacion": "Triángulo rectángulo con catetos x y 1, e hipotenusa √2. x=2 no satisface la ecuación (4+1=5≠2)."
       },
       {
         "descripcion": "x= √2-1",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Corresponde a una manipulación algebraica incorrecta del teorema de Pitágoras."
+        "retroalimentacion": "Triángulo rectángulo con catetos x y 1, e hipotenusa √2. Corresponde a una manipulación algebraica incorrecta del teorema de Pitágoras."
       },
       {
         "descripcion": "x= √(√2²+1²)",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Es una expresión que no se deriva del planteamiento correcto de la ecuación."
+        "retroalimentacion": "Triángulo rectángulo con catetos x y 1, e hipotenusa √2. Es una expresión que no se deriva del planteamiento correcto de la ecuación."
       }
     ]
   },
@@ -175,25 +175,25 @@
         "descripcion": "14cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "14 cm² no corresponde a ningún cálculo válido del área descrita."
+        "retroalimentacion": "El \"diamante\" inscrito es un cuadrado rotado cuyo lado es la hipotenusa (h) del triángulo rectángulo de catetos 3 y 4. 14 cm² no corresponde a ningún cálculo válido del área descrita."
       },
       {
         "descripcion": "50cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "50 cm² duplicaría el área real, posiblemente por confundir el área del cuadrado externo sin ajustar correctamente."
+        "retroalimentacion": "El \"diamante\" inscrito es un cuadrado rotado cuyo lado es la hipotenusa (h) del triángulo rectángulo de catetos 3 y 4. 50 cm² duplicaría el área real, posiblemente por confundir el área del cuadrado externo sin ajustar correctamente."
       },
       {
         "descripcion": "49cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "49 cm² corresponde al área del cuadrado grande completo (7×7), no a la región sombreada."
+        "retroalimentacion": "El \"diamante\" inscrito es un cuadrado rotado cuyo lado es la hipotenusa (h) del triángulo rectángulo de catetos 3 y 4. 49 cm² corresponde al área del cuadrado grande completo (7×7), no a la región sombreada."
       },
       {
         "descripcion": "25cm²",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La hipotenusa h=5 (Pitágoras con catetos 3 y 4). Como la región sombreada es un cuadrado de lado h, su área es h²=25 cm², que coincide con el área real (49−4×6=25)."
+        "retroalimentacion": "El \"diamante\" inscrito es un cuadrado rotado cuyo lado es la hipotenusa (h) del triángulo rectángulo de catetos 3 y 4. La hipotenusa h=5 (Pitágoras con catetos 3 y 4). Como la región sombreada es un cuadrado de lado h, su área es h²=25 cm², que coincide con el área real (49−4×6=25)."
       }
     ]
   },
@@ -208,25 +208,25 @@
         "descripcion": "450 min.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "450 min equivalen a 7h30min, mayor al valor real; posible error al sumar mal horas y minutos."
+        "retroalimentacion": "Conversión de 6 horas 50 minutos a minutos. 450 min equivalen a 7h30min, mayor al valor real; posible error al sumar mal horas y minutos."
       },
       {
         "descripcion": "410 min.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "6h × 60 + 50min = 360 + 50 = 410 minutos."
+        "retroalimentacion": "Conversión de 6 horas 50 minutos a minutos. 6h × 60 + 50min = 360 + 50 = 410 minutos."
       },
       {
         "descripcion": "390 min.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "390 min = 6h30min; ignora 20 minutos de la conversión correcta."
+        "retroalimentacion": "Conversión de 6 horas 50 minutos a minutos. 390 min = 6h30min; ignora 20 minutos de la conversión correcta."
       },
       {
         "descripcion": "360 min.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "360 min = 6h exactas; ignora por completo los 50 minutos adicionales."
+        "retroalimentacion": "Conversión de 6 horas 50 minutos a minutos. 360 min = 6h exactas; ignora por completo los 50 minutos adicionales."
       }
     ]
   },
@@ -241,25 +241,25 @@
         "descripcion": "Sí, porque en enero se registró la temperatura mínima menor que 0 °C.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Que la mínima de enero sea negativa no implica que tenga la mayor diferencia; en marzo la diferencia es mayor."
+        "retroalimentacion": "Se compara la diferencia entre temperatura máxima y mínima en cada mes: enero≈11°C; febrero≈6,3°C; marzo≈15°C. Que la mínima de enero sea negativa no implica que tenga la mayor diferencia; en marzo la diferencia es mayor."
       },
       {
         "descripcion": "No, porque en marzo se registró la temperatura máxima más alejada de la temperatura mínima.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "En marzo la diferencia entre máxima y mínima (≈15°C) es la mayor de los tres meses, por lo que la afirmación de Leonardo es falsa."
+        "retroalimentacion": "Se compara la diferencia entre temperatura máxima y mínima en cada mes: enero≈11°C; febrero≈6,3°C; marzo≈15°C. En marzo la diferencia entre máxima y mínima (≈15°C) es la mayor de los tres meses, por lo que la afirmación de Leonardo es falsa."
       },
       {
         "descripcion": "Sí, porque en enero se registró la temperatura máxima mensual más baja de los tres periodos.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Que enero tenga la máxima mensual más baja no determina que tenga la mayor diferencia entre máxima y mínima."
+        "retroalimentacion": "Se compara la diferencia entre temperatura máxima y mínima en cada mes: enero≈11°C; febrero≈6,3°C; marzo≈15°C. Que enero tenga la máxima mensual más baja no determina que tenga la mayor diferencia entre máxima y mínima."
       },
       {
         "descripcion": "No, porque en marzo se registró la temperatura mínima más cercana a 0 °C.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Es cierto que en marzo la mínima está cerca de 0°C, pero esa no es la razón de que la afirmación sea falsa (la razón es la diferencia entre extremos)."
+        "retroalimentacion": "Se compara la diferencia entre temperatura máxima y mínima en cada mes: enero≈11°C; febrero≈6,3°C; marzo≈15°C. Es cierto que en marzo la mínima está cerca de 0°C, pero esa no es la razón de que la afirmación sea falsa (la razón es la diferencia entre extremos)."
       }
     ]
   },
@@ -274,25 +274,25 @@
         "descripcion": "Paso1. Multiplicar $30.000.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 10.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Multiplicar por 2 y dividir entre 10 equivale a calcular el 20%, no el 2%."
+        "retroalimentacion": "Comisión = 2% de las ventas ($30.000.000). Multiplicar por 2 y dividir entre 10 equivale a calcular el 20%, no el 2%."
       },
       {
         "descripcion": "Paso1. Multiplicar $900.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 100.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Usa como base el salario básico ($900.000) en lugar de las ventas."
+        "retroalimentacion": "Comisión = 2% de las ventas ($30.000.000). Usa como base el salario básico ($900.000) en lugar de las ventas."
       },
       {
         "descripcion": "Paso1. Multiplicar $900.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 10.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Usa la base incorrecta (salario) y además divide entre 10 (10%) en lugar de 100."
+        "retroalimentacion": "Comisión = 2% de las ventas ($30.000.000). Usa la base incorrecta (salario) y además divide entre 10 (10%) en lugar de 100."
       },
       {
         "descripcion": "Paso1. Multiplicar $30.000.000 por 2.\nPaso2. Dividir el resultado del paso 1 entre 100.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Multiplicar $30.000.000 por 2 y dividir entre 100 equivale exactamente al 2% de las ventas."
+        "retroalimentacion": "Comisión = 2% de las ventas ($30.000.000). Multiplicar $30.000.000 por 2 y dividir entre 100 equivale exactamente al 2% de las ventas."
       }
     ]
   },
@@ -307,25 +307,25 @@
         "descripcion": "Tabla A",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Los valores (0,73 y 1) no corresponden a los mostrados en la gráfica, y los intervalos no están delimitados como disjuntos."
+        "retroalimentacion": "Los tres intervalos deben ser disjuntos y sus probabilidades deben coincidir con los valores mostrados en la curva (0,27 – 0,46 – 0,27). Los valores (0,73 y 1) no corresponden a los mostrados en la gráfica, y los intervalos no están delimitados como disjuntos."
       },
       {
         "descripcion": "Tabla B",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Los intervalos se solapan (todos inician en 0) y no corresponden a la partición mostrada en la gráfica."
+        "retroalimentacion": "Los tres intervalos deben ser disjuntos y sus probabilidades deben coincidir con los valores mostrados en la curva (0,27 – 0,46 – 0,27). Los intervalos se solapan (todos inician en 0) y no corresponden a la partición mostrada en la gráfica."
       },
       {
         "descripcion": "Tabla C",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Reproduce exactamente los tres intervalos disjuntos de la gráfica con sus probabilidades correspondientes."
+        "retroalimentacion": "Los tres intervalos deben ser disjuntos y sus probabilidades deben coincidir con los valores mostrados en la curva (0,27 – 0,46 – 0,27). Reproduce exactamente los tres intervalos disjuntos de la gráfica con sus probabilidades correspondientes."
       },
       {
         "descripcion": "Tabla D",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Los intervalos no son disjuntos (todos comienzan en 0) y las probabilidades no coinciden con los datos de la gráfica."
+        "retroalimentacion": "Los tres intervalos deben ser disjuntos y sus probabilidades deben coincidir con los valores mostrados en la curva (0,27 – 0,46 – 0,27). Los intervalos no son disjuntos (todos comienzan en 0) y las probabilidades no coinciden con los datos de la gráfica."
       }
     ]
   },
@@ -340,25 +340,25 @@
         "descripcion": null,
         "imagen": "s1p11a.png",
         "esCorrecta": false,
-        "retroalimentacion": "El mensaje no indica el espesor del vidrio, dato indispensable para consultar el precio por m²."
+        "retroalimentacion": "Para cotizar se necesita: tipo de material (vidrio o espejo), ambas dimensiones (ancho y alto) y el espesor. El mensaje no indica el espesor del vidrio, dato indispensable para consultar el precio por m²."
       },
       {
         "descripcion": null,
         "imagen": "s1p11b.png",
         "esCorrecta": false,
-        "retroalimentacion": "Menciona el espesor, pero solo da una dimensión (ancho); falta la otra para calcular el área."
+        "retroalimentacion": "Para cotizar se necesita: tipo de material (vidrio o espejo), ambas dimensiones (ancho y alto) y el espesor. Menciona el espesor, pero solo da una dimensión (ancho); falta la otra para calcular el área."
       },
       {
         "descripcion": null,
         "imagen": "s1p11c.png",
         "esCorrecta": false,
-        "retroalimentacion": "No especifica el espesor del espejo, por lo que no se puede determinar el precio por m²."
+        "retroalimentacion": "Para cotizar se necesita: tipo de material (vidrio o espejo), ambas dimensiones (ancho y alto) y el espesor. No especifica el espesor del espejo, por lo que no se puede determinar el precio por m²."
       },
       {
         "descripcion": null,
         "imagen": "s1p11d.png",
         "esCorrecta": true,
-        "retroalimentacion": "Incluye material (espejo), ambas dimensiones (1,3 m × 1 m) y el espesor (4 mm): suficiente para calcular el área y consultar el precio."
+        "retroalimentacion": "Para cotizar se necesita: tipo de material (vidrio o espejo), ambas dimensiones (ancho y alto) y el espesor. Incluye material (espejo), ambas dimensiones (1,3 m × 1 m) y el espesor (4 mm): suficiente para calcular el área y consultar el precio."
       }
     ]
   },
@@ -373,25 +373,25 @@
         "descripcion": "Porque la única manera de obtener resultados precisos es encuestar a toda la población del departamento.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No es cierto que la única manera de tener precisión sea encuestar a toda la población; el problema es la representatividad, no el tamaño total."
+        "retroalimentacion": "La muestra se toma de un solo municipio, lo cual introduce un sesgo de selección independiente del tamaño de la muestra. No es cierto que la única manera de tener precisión sea encuestar a toda la población; el problema es la representatividad, no el tamaño total."
       },
       {
         "descripcion": "Porque la encuesta solo representará la opinión de las personas del departamento, si el municipio escogido es el más grande.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Escoger el municipio más grande no resuelve el sesgo: seguiría representando solo a un municipio."
+        "retroalimentacion": "La muestra se toma de un solo municipio, lo cual introduce un sesgo de selección independiente del tamaño de la muestra. Escoger el municipio más grande no resuelve el sesgo: seguiría representando solo a un municipio."
       },
       {
         "descripcion": "Porque de esta manera solo están tomándose en cuenta las opiniones de la población de un municipio del departamento.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Al encuestar solo un municipio, se excluye la opinión del resto del departamento, generando un resultado no representativo (sesgo de muestreo)."
+        "retroalimentacion": "La muestra se toma de un solo municipio, lo cual introduce un sesgo de selección independiente del tamaño de la muestra. Al encuestar solo un municipio, se excluye la opinión del resto del departamento, generando un resultado no representativo (sesgo de muestreo)."
       },
       {
         "descripcion": "Porque la muestra es muy grande, lo cual permite que existan grandes diferencias entre las respuestas de las personas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Una muestra de 1.000 personas no es \"muy grande\" como para producir grandes diferencias entre respuestas; el problema es la falta de representatividad geográfica, no el tamaño."
+        "retroalimentacion": "La muestra se toma de un solo municipio, lo cual introduce un sesgo de selección independiente del tamaño de la muestra. Una muestra de 1.000 personas no es \"muy grande\" como para producir grandes diferencias entre respuestas; el problema es la falta de representatividad geográfica, no el tamaño."
       }
     ]
   },
@@ -406,25 +406,25 @@
         "descripcion": "225cm²",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El área del trozo 1 es 300 cm² (30 cm × 10 cm), a la que se resta el área del cuadrado recortado en su interior, 75 cm² (15 cm × 5 cm): 300 cm² − 75 cm² = 225 cm²."
+        "retroalimentacion": "El trozo 1 corresponde a un rectángulo de 30 cm de base por 10 cm de altura (300 cm²), al que se le debe restar el cuadrado recortado en su interior, de 15 cm de base por 5 cm de altura (75 cm²). El área del trozo 1 es 300 cm² (30 cm × 10 cm), a la que se resta el área del cuadrado recortado en su interior, 75 cm² (15 cm × 5 cm): 300 cm² − 75 cm² = 225 cm²."
       },
       {
         "descripcion": "150cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "150 cm² correspondería a multiplicar solo 15 cm × 10 cm, sin considerar que el trozo 1 completo mide 30 cm de base (no 15 cm) y sin restar el cuadrado recortado en su interior."
+        "retroalimentacion": "El trozo 1 corresponde a un rectángulo de 30 cm de base por 10 cm de altura (300 cm²), al que se le debe restar el cuadrado recortado en su interior, de 15 cm de base por 5 cm de altura (75 cm²). 150 cm² correspondería a multiplicar solo 15 cm × 10 cm, sin considerar que el trozo 1 completo mide 30 cm de base (no 15 cm) y sin restar el cuadrado recortado en su interior."
       },
       {
         "descripcion": "75cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "75 cm² corresponde únicamente al área del cuadrado recortado en el interior del trozo (15 cm × 5 cm), no al área total del trozo 1 después de restar dicho recorte."
+        "retroalimentacion": "El trozo 1 corresponde a un rectángulo de 30 cm de base por 10 cm de altura (300 cm²), al que se le debe restar el cuadrado recortado en su interior, de 15 cm de base por 5 cm de altura (75 cm²). 75 cm² corresponde únicamente al área del cuadrado recortado en el interior del trozo (15 cm × 5 cm), no al área total del trozo 1 después de restar dicho recorte."
       },
       {
         "descripcion": "40cm²",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "40 cm² no corresponde a ningún cálculo coherente con las medidas de la figura."
+        "retroalimentacion": "El trozo 1 corresponde a un rectángulo de 30 cm de base por 10 cm de altura (300 cm²), al que se le debe restar el cuadrado recortado en su interior, de 15 cm de base por 5 cm de altura (75 cm²). 40 cm² no corresponde a ningún cálculo coherente con las medidas de la figura."
       }
     ]
   },
@@ -439,25 +439,25 @@
         "descripcion": "En el paso 2, porque se debe multiplicar 3m x 4m x 5m",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El paso 2 sí tiene el error, pero la corrección propuesta (multiplicar 3×4×5) no corresponde a la fórmula del área de un triángulo."
+        "retroalimentacion": "El área de una región triangular es (base×altura)/2, no base×altura. El paso 2 sí tiene el error, pero la corrección propuesta (multiplicar 3×4×5) no corresponde a la fórmula del área de un triángulo."
       },
       {
         "descripcion": "En el paso 3, porque se debe multiplicar 2π×4m y luego dividir entre 4.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El paso 3 (cuarto de círculo) está correctamente planteado (π×16 ÷ 4); no contiene el error."
+        "retroalimentacion": "El área de una región triangular es (base×altura)/2, no base×altura. El paso 3 (cuarto de círculo) está correctamente planteado (π×16 ÷ 4); no contiene el error."
       },
       {
         "descripcion": "En el paso 2, porque se debe multiplicar 4m x 3m y luego dividir entre 2.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El error está en el paso 2: el área de un triángulo es base×altura÷2, no solo base×altura; la corrección correcta es 4×3÷2=6."
+        "retroalimentacion": "El área de una región triangular es (base×altura)/2, no base×altura. El error está en el paso 2: el área de un triángulo es base×altura÷2, no solo base×altura; la corrección correcta es 4×3÷2=6."
       },
       {
         "descripcion": "En el paso 3, porque se debe multiplicar πx 4m y luego dividir entre 4.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El paso 3 no tiene error, y la fórmula propuesta (π×4÷4) tampoco corresponde correctamente al área de un cuarto de círculo de radio 4."
+        "retroalimentacion": "El área de una región triangular es (base×altura)/2, no base×altura. El paso 3 no tiene error, y la fórmula propuesta (π×4÷4) tampoco corresponde correctamente al área de un cuarto de círculo de radio 4."
       }
     ]
   },
@@ -472,25 +472,25 @@
         "descripcion": "$250.000 y $50.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde a \"la mitad de lo que falta\" en el mes 2."
+        "retroalimentacion": "Total=$600.000. Mes 1: ahorran $300.000 (falta $300.000). Mes 2: ahorran la mitad de lo que falta = $150.000 (falta $150.000). Mes 3: ahorran el resto = $150.000. No corresponde a \"la mitad de lo que falta\" en el mes 2."
       },
       {
         "descripcion": "$200.000 y $100.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Tampoco corresponde a la mitad del monto faltante."
+        "retroalimentacion": "Total=$600.000. Mes 1: ahorran $300.000 (falta $300.000). Mes 2: ahorran la mitad de lo que falta = $150.000 (falta $150.000). Mes 3: ahorran el resto = $150.000. Tampoco corresponde a la mitad del monto faltante."
       },
       {
         "descripcion": "$100.000 y $200.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Invierte los valores correctos de los meses 2 y 3."
+        "retroalimentacion": "Total=$600.000. Mes 1: ahorran $300.000 (falta $300.000). Mes 2: ahorran la mitad de lo que falta = $150.000 (falta $150.000). Mes 3: ahorran el resto = $150.000. Invierte los valores correctos de los meses 2 y 3."
       },
       {
         "descripcion": "$150.000 y $150.000",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "En el mes 2 ahorran la mitad de los $300.000 que faltaban ($150.000), y en el mes 3 el resto ($150.000)."
+        "retroalimentacion": "Total=$600.000. Mes 1: ahorran $300.000 (falta $300.000). Mes 2: ahorran la mitad de lo que falta = $150.000 (falta $150.000). Mes 3: ahorran el resto = $150.000. En el mes 2 ahorran la mitad de los $300.000 que faltaban ($150.000), y en el mes 3 el resto ($150.000)."
       }
     ]
   },
@@ -505,25 +505,25 @@
         "descripcion": "w < z",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Como 8>6, w=8sen80°>z=6sen80°, por lo que \"w<z\" es falso."
+        "retroalimentacion": "Aplicando la ley de senos en ambos triángulos: w=8sen80°, x=8sen70° (arriba); z=6sen80°, y=6sen70° (abajo). Como 8>6, w=8sen80°>z=6sen80°, por lo que \"w<z\" es falso."
       },
       {
         "descripcion": "w = z",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Por la misma razón, w≠z (w>z)."
+        "retroalimentacion": "Aplicando la ley de senos en ambos triángulos: w=8sen80°, x=8sen70° (arriba); z=6sen80°, y=6sen70° (abajo). Por la misma razón, w≠z (w>z)."
       },
       {
         "descripcion": "x > y",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "x=8sen70° y y=6sen70°; como 8>6 y sen70° es positivo, x>y."
+        "retroalimentacion": "Aplicando la ley de senos en ambos triángulos: w=8sen80°, x=8sen70° (arriba); z=6sen80°, y=6sen70° (abajo). x=8sen70° y y=6sen70°; como 8>6 y sen70° es positivo, x>y."
       },
       {
         "descripcion": "x = y",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "x≠y, ya que x=8sen70° es mayor que y=6sen70°."
+        "retroalimentacion": "Aplicando la ley de senos en ambos triángulos: w=8sen80°, x=8sen70° (arriba); z=6sen80°, y=6sen70° (abajo). x≠y, ya que x=8sen70° es mayor que y=6sen70°."
       }
     ]
   },
@@ -538,25 +538,25 @@
         "descripcion": "Solamente Z.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Conocer solo Z no permite calcular Y+Z, pues falta el valor de Y."
+        "retroalimentacion": "Solo hay 2 hombres en total, por lo que el grupo \"tres hombres\" (X) es imposible (X=0), algo deducible directamente del enunciado sin la tabla. \"Al menos un hombre\" = X+Y+Z = Y+Z. Conocer solo Z no permite calcular Y+Z, pues falta el valor de Y."
       },
       {
         "descripcion": "Solamente Z y W.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "W corresponde al grupo sin hombres (tres mujeres) y no aporta a la suma de grupos con al menos un hombre."
+        "retroalimentacion": "Solo hay 2 hombres en total, por lo que el grupo \"tres hombres\" (X) es imposible (X=0), algo deducible directamente del enunciado sin la tabla. \"Al menos un hombre\" = X+Y+Z = Y+Z. W corresponde al grupo sin hombres (tres mujeres) y no aporta a la suma de grupos con al menos un hombre."
       },
       {
         "descripcion": "Solamente X.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "X ya se sabe que es 0 (imposible con solo 2 hombres); conocerlo no aporta información adicional."
+        "retroalimentacion": "Solo hay 2 hombres en total, por lo que el grupo \"tres hombres\" (X) es imposible (X=0), algo deducible directamente del enunciado sin la tabla. \"Al menos un hombre\" = X+Y+Z = Y+Z. X ya se sabe que es 0 (imposible con solo 2 hombres); conocerlo no aporta información adicional."
       },
       {
         "descripcion": "Solamente Y y Z.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Como X=0 es deducible sin la tabla, basta con conocer Y y Z para sumar los grupos que sí contienen al menos un hombre."
+        "retroalimentacion": "Solo hay 2 hombres en total, por lo que el grupo \"tres hombres\" (X) es imposible (X=0), algo deducible directamente del enunciado sin la tabla. \"Al menos un hombre\" = X+Y+Z = Y+Z. Como X=0 es deducible sin la tabla, basta con conocer Y y Z para sumar los grupos que sí contienen al menos un hombre."
       }
     ]
   },
@@ -571,25 +571,25 @@
         "descripcion": "Con la información de la tabla se obtienen los datos de la gráfica.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: de los valores absolutos de la tabla sí se pueden derivar los porcentajes de la gráfica."
+        "retroalimentacion": "La tabla contiene valores absolutos (votos); la gráfica contiene solo porcentajes/proporciones relativas. Esta afirmación es verdadera, y la pregunta pide la falsa: de los valores absolutos de la tabla sí se pueden derivar los porcentajes de la gráfica."
       },
       {
         "descripcion": "Con la información de la gráfica se obtiene cuál es el candidato con mayor intención de voto.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: el candidato con mayor porcentaje en la gráfica es visualmente identificable."
+        "retroalimentacion": "La tabla contiene valores absolutos (votos); la gráfica contiene solo porcentajes/proporciones relativas. Esta afirmación es verdadera, y la pregunta pide la falsa: el candidato con mayor porcentaje en la gráfica es visualmente identificable."
       },
       {
         "descripcion": "Con la información de la gráfica se obtienen los datos de la tabla.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Es la afirmación falsa que pide la pregunta. A partir de la gráfica (porcentajes) no es posible reconstruir los valores absolutos exactos de votos sin conocer el total de votantes."
+        "retroalimentacion": "La tabla contiene valores absolutos (votos); la gráfica contiene solo porcentajes/proporciones relativas. Es la afirmación falsa que pide la pregunta. A partir de la gráfica (porcentajes) no es posible reconstruir los valores absolutos exactos de votos sin conocer el total de votantes."
       },
       {
         "descripcion": "Con la información de la tabla se obtiene la proporción entre los votos por un candidato y el total.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Esta afirmación es verdadera, y la pregunta pide la falsa: la tabla permite calcular directamente la proporción de votos de un candidato sobre el total."
+        "retroalimentacion": "La tabla contiene valores absolutos (votos); la gráfica contiene solo porcentajes/proporciones relativas. Esta afirmación es verdadera, y la pregunta pide la falsa: la tabla permite calcular directamente la proporción de votos de un candidato sobre el total."
       }
     ]
   },
@@ -604,25 +604,25 @@
         "descripcion": "20",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "20 corresponde a la cantidad de gama baja, no de gama alta."
+        "retroalimentacion": "Total=120. Gama baja=120×1/6=20. Resto=100. Gama media=50% de 100=50. Gama alta=100−50=50. 20 corresponde a la cantidad de gama baja, no de gama alta."
       },
       {
         "descripcion": "30",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde a ningún resultado del procedimiento descrito."
+        "retroalimentacion": "Total=120. Gama baja=120×1/6=20. Resto=100. Gama media=50% de 100=50. Gama alta=100−50=50. No corresponde a ningún resultado del procedimiento descrito."
       },
       {
         "descripcion": "40",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Podría surgir de calcular el 50% sobre el total (120) en lugar de sobre el resto (100)."
+        "retroalimentacion": "Total=120. Gama baja=120×1/6=20. Resto=100. Gama media=50% de 100=50. Gama alta=100−50=50. Podría surgir de calcular el 50% sobre el total (120) en lugar de sobre el resto (100)."
       },
       {
         "descripcion": "50",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Siguiendo los cuatro pasos del procedimiento, se obtienen 50 computadoras de gama alta."
+        "retroalimentacion": "Total=120. Gama baja=120×1/6=20. Resto=100. Gama media=50% de 100=50. Gama alta=100−50=50. Siguiendo los cuatro pasos del procedimiento, se obtienen 50 computadoras de gama alta."
       }
     ]
   },
@@ -637,25 +637,25 @@
         "descripcion": "$480.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde al cálculo correcto del 6% mensual por 5 meses."
+        "retroalimentacion": "1% de $1.800.000=$18.000; 6%=$108.000/mes; en 5 meses=$540.000. No corresponde al cálculo correcto del 6% mensual por 5 meses."
       },
       {
         "descripcion": "$540.000",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "$108.000 × 5 meses = $540.000."
+        "retroalimentacion": "1% de $1.800.000=$18.000; 6%=$108.000/mes; en 5 meses=$540.000. $108.000 × 5 meses = $540.000."
       },
       {
         "descripcion": "$600.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Podría surgir de aplicar un porcentaje distinto al 6% real."
+        "retroalimentacion": "1% de $1.800.000=$18.000; 6%=$108.000/mes; en 5 meses=$540.000. Podría surgir de aplicar un porcentaje distinto al 6% real."
       },
       {
         "descripcion": "$620.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde a ningún cálculo coherente con los datos dados."
+        "retroalimentacion": "1% de $1.800.000=$18.000; 6%=$108.000/mes; en 5 meses=$540.000. No corresponde a ningún cálculo coherente con los datos dados."
       }
     ]
   },
@@ -670,25 +670,25 @@
         "descripcion": "La I y la II.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La afirmación II no es verdadera."
+        "retroalimentacion": "La gráfica muestra que la deserción disminuye mientras las horas de estudio en casa aumentan (afirmación I); sin embargo, las horas de ocio se mantienen relativamente estables, sin evidencia de causar la disminución de la deserción (afirmación II, además confunde correlación con causalidad). La afirmación II no es verdadera."
       },
       {
         "descripcion": "Ni la I ni la II.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La afirmación I sí es verdadera según la gráfica."
+        "retroalimentacion": "La gráfica muestra que la deserción disminuye mientras las horas de estudio en casa aumentan (afirmación I); sin embargo, las horas de ocio se mantienen relativamente estables, sin evidencia de causar la disminución de la deserción (afirmación II, además confunde correlación con causalidad). La afirmación I sí es verdadera según la gráfica."
       },
       {
         "descripcion": "Solamente la I.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Solo la afirmación I es verdadera."
+        "retroalimentacion": "La gráfica muestra que la deserción disminuye mientras las horas de estudio en casa aumentan (afirmación I); sin embargo, las horas de ocio se mantienen relativamente estables, sin evidencia de causar la disminución de la deserción (afirmación II, además confunde correlación con causalidad). Solo la afirmación I es verdadera."
       },
       {
         "descripcion": "Solamente la II.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La afirmación II no es verdadera, y la I sí lo es."
+        "retroalimentacion": "La gráfica muestra que la deserción disminuye mientras las horas de estudio en casa aumentan (afirmación I); sin embargo, las horas de ocio se mantienen relativamente estables, sin evidencia de causar la disminución de la deserción (afirmación II, además confunde correlación con causalidad). La afirmación II no es verdadera, y la I sí lo es."
       }
     ]
   },
@@ -703,25 +703,25 @@
         "descripcion": "El paso 1, porque la variable tiempo se debe reemplazar en los dos términos de la función.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El paso 1 (sustituir x en ambos términos) está bien planteado."
+        "retroalimentacion": "f(x)=5x²+1; para hallar x², se debe multiplicar el valor de x por sí mismo, no por 2. El paso 1 (sustituir x en ambos términos) está bien planteado."
       },
       {
         "descripcion": "El paso 2, porque el tiempo dado se debe multiplicar por sí mismo.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El error está en el paso 2: para elevar al cuadrado se multiplica x por sí mismo (x×x), no por 2."
+        "retroalimentacion": "f(x)=5x²+1; para hallar x², se debe multiplicar el valor de x por sí mismo, no por 2. El error está en el paso 2: para elevar al cuadrado se multiplica x por sí mismo (x×x), no por 2."
       },
       {
         "descripcion": "El paso 3, porque primero se debe sumar uno, y luego se debe multiplicar por cinco.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El orden de las operaciones en el paso 3 (multiplicar por 5 después de elevar al cuadrado) es correcto según la jerarquía de operaciones."
+        "retroalimentacion": "f(x)=5x²+1; para hallar x², se debe multiplicar el valor de x por sí mismo, no por 2. El orden de las operaciones en el paso 3 (multiplicar por 5 después de elevar al cuadrado) es correcto según la jerarquía de operaciones."
       },
       {
         "descripcion": "El paso 4, porque los términos de la función no son semejantes, y, por tanto, no se pueden sumar.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El paso 4 (sumar 1 al final) es correcto; se trata de evaluar la función, no de simplificar una expresión algebraica con términos semejantes."
+        "retroalimentacion": "f(x)=5x²+1; para hallar x², se debe multiplicar el valor de x por sí mismo, no por 2. El paso 4 (sumar 1 al final) es correcto; se trata de evaluar la función, no de simplificar una expresión algebraica con términos semejantes."
       }
     ]
   },
@@ -736,25 +736,25 @@
         "descripcion": "Sí, porque los ∡PQR y ∡PRQ obtenidos en el paso 1 miden 45°. __",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Los ángulos ∡PQR y ∡PRQ ya miden 45° desde el paso 1, por lo que no es necesario bisecar el ángulo en P (paso 2) para obtener un ángulo de 45°."
+        "retroalimentacion": "El triángulo PQR es isósceles y rectángulo en P (∡QPR=90°), por lo que los ángulos en Q y R miden 45° cada uno, ya obtenidos desde el paso 1. Los ángulos ∡PQR y ∡PRQ ya miden 45° desde el paso 1, por lo que no es necesario bisecar el ángulo en P (paso 2) para obtener un ángulo de 45°."
       },
       {
         "descripcion": "No, porque el segmento PS divide el ángulo recto en dos ángulos de 45°.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Aunque PS sí biseca el ángulo recto, esto no contradice que ya existían ángulos de 45° sin necesidad del paso 2."
+        "retroalimentacion": "El triángulo PQR es isósceles y rectángulo en P (∡QPR=90°), por lo que los ángulos en Q y R miden 45° cada uno, ya obtenidos desde el paso 1. Aunque PS sí biseca el ángulo recto, esto no contradice que ya existían ángulos de 45° sin necesidad del paso 2."
       },
       {
         "descripcion": "Sí, porque el ∡QPR construido en el paso 1 mide 45°.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El ángulo QPR mide 90°, no 45°."
+        "retroalimentacion": "El triángulo PQR es isósceles y rectángulo en P (∡QPR=90°), por lo que los ángulos en Q y R miden 45° cada uno, ya obtenidos desde el paso 1. El ángulo QPR mide 90°, no 45°."
       },
       {
         "descripcion": "No, porque se desconoce la medida de todos los ángulos del triángulo PQR.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Si se conocen dos ángulos del triángulo, el tercero se deduce por suma de ángulos internos (180°); sí se conocen todos los ángulos."
+        "retroalimentacion": "El triángulo PQR es isósceles y rectángulo en P (∡QPR=90°), por lo que los ángulos en Q y R miden 45° cada uno, ya obtenidos desde el paso 1. Si se conocen dos ángulos del triángulo, el tercero se deduce por suma de ángulos internos (180°); sí se conocen todos los ángulos."
       }
     ]
   },
@@ -769,25 +769,25 @@
         "descripcion": "La ruta de Mateo es más corta que la ruta de Lucas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No basta con comparar Mateo y Lucas; hay que comparar las tres rutas. Al calcularlas, Lucas (2√5 ≈ 4,47) resulta ser la más corta de las tres, no Juan ni Mateo."
+        "retroalimentacion": "Observando la cuadrícula: Juan recorre 2 unidades verticales + 4 horizontales = 6 unidades. Mateo recorre 3 unidades horizontales + una diagonal de √5 ≈ 2,24 = 5,24 unidades. Lucas recorre dos diagonales iguales, cada una de longitud √5 ≈ 2,24, es decir 2√5 ≈ 4,47 unidades. Por lo tanto: Lucas (4,47) < Mateo (5,24) < Juan (6). Cada tramo diagonal de √5 se obtiene aplicando el teorema de Pitágoras a un desplazamiento de 2 cuadros horizontales y 1 cuadro vertical: d²=2²+1²=4+1=5, por lo que d=√5. No basta con comparar Mateo y Lucas; hay que comparar las tres rutas. Al calcularlas, Lucas (2√5 ≈ 4,47) resulta ser la más corta de las tres, no Juan ni Mateo."
       },
       {
         "descripcion": "La ruta de Lucas es la más corta de las tres rutas.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La ruta de Lucas está formada por dos tramos diagonales iguales, cada uno de longitud √5 (obtenida con Pitágoras a partir de un desplazamiento de 2 cuadros horizontales y 1 vertical: d²=2²+1²=5). Su longitud total es 2√5 ≈ 4,47 unidades, menor que la de Mateo (5,24) y la de Juan (6), por lo que su ruta es la más corta de las tres."
+        "retroalimentacion": "Observando la cuadrícula: Juan recorre 2 unidades verticales + 4 horizontales = 6 unidades. Mateo recorre 3 unidades horizontales + una diagonal de √5 ≈ 2,24 = 5,24 unidades. Lucas recorre dos diagonales iguales, cada una de longitud √5 ≈ 2,24, es decir 2√5 ≈ 4,47 unidades. Por lo tanto: Lucas (4,47) < Mateo (5,24) < Juan (6). Cada tramo diagonal de √5 se obtiene aplicando el teorema de Pitágoras a un desplazamiento de 2 cuadros horizontales y 1 cuadro vertical: d²=2²+1²=4+1=5, por lo que d=√5. La ruta de Lucas está formada por dos tramos diagonales iguales, cada uno de longitud √5 (obtenida con Pitágoras a partir de un desplazamiento de 2 cuadros horizontales y 1 vertical: d²=2²+1²=5). Su longitud total es 2√5 ≈ 4,47 unidades, menor que la de Mateo (5,24) y la de Juan (6), por lo que su ruta es la más corta de las tres."
       },
       {
         "descripcion": "La ruta de Lucas es la más larga de las tres rutas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La ruta de Lucas no es la más larga."
+        "retroalimentacion": "Observando la cuadrícula: Juan recorre 2 unidades verticales + 4 horizontales = 6 unidades. Mateo recorre 3 unidades horizontales + una diagonal de √5 ≈ 2,24 = 5,24 unidades. Lucas recorre dos diagonales iguales, cada una de longitud √5 ≈ 2,24, es decir 2√5 ≈ 4,47 unidades. Por lo tanto: Lucas (4,47) < Mateo (5,24) < Juan (6). Cada tramo diagonal de √5 se obtiene aplicando el teorema de Pitágoras a un desplazamiento de 2 cuadros horizontales y 1 cuadro vertical: d²=2²+1²=4+1=5, por lo que d=√5. La ruta de Lucas no es la más larga."
       },
       {
         "descripcion": "La ruta de Mateo es igual de larga a la ruta de Lucas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Las rutas de Mateo y Lucas no son iguales: Mateo recorre 5,24 unidades y Lucas 4,47 unidades, siendo la de Lucas más corta."
+        "retroalimentacion": "Observando la cuadrícula: Juan recorre 2 unidades verticales + 4 horizontales = 6 unidades. Mateo recorre 3 unidades horizontales + una diagonal de √5 ≈ 2,24 = 5,24 unidades. Lucas recorre dos diagonales iguales, cada una de longitud √5 ≈ 2,24, es decir 2√5 ≈ 4,47 unidades. Por lo tanto: Lucas (4,47) < Mateo (5,24) < Juan (6). Cada tramo diagonal de √5 se obtiene aplicando el teorema de Pitágoras a un desplazamiento de 2 cuadros horizontales y 1 cuadro vertical: d²=2²+1²=4+1=5, por lo que d=√5. Las rutas de Mateo y Lucas no son iguales: Mateo recorre 5,24 unidades y Lucas 4,47 unidades, siendo la de Lucas más corta."
       }
     ]
   },
@@ -802,25 +802,25 @@
         "descripcion": "No, porque, al ser -7 mayor que -6, 10⁻⁷ es mayor que 10⁻⁶.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Afirma lo contrario de la relación correcta entre exponentes negativos."
+        "retroalimentacion": "Organismo X=2×10⁻⁷cm; Z=2×10⁻⁶cm. Como el exponente de X (−7) es menor que el de Z (−6), 10⁻⁷ es menor que 10⁻⁶. Afirma lo contrario de la relación correcta entre exponentes negativos."
       },
       {
         "descripcion": "Sí, porque, al ser -7 menor que -6, 10⁻⁷ es menor que 10⁻⁶.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Como −7<−6, entonces 10⁻⁷<10⁻⁶, y la afirmación del estudiante (X es menor) es correcta."
+        "retroalimentacion": "Organismo X=2×10⁻⁷cm; Z=2×10⁻⁶cm. Como el exponente de X (−7) es menor que el de Z (−6), 10⁻⁷ es menor que 10⁻⁶. Como −7<−6, entonces 10⁻⁷<10⁻⁶, y la afirmación del estudiante (X es menor) es correcta."
       },
       {
         "descripcion": "No, porque, al ser -7 menor que -6, 10⁻⁷ es mayor que 10⁻⁶.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La conclusión \"No\" contradice el resultado correcto (la afirmación del estudiante sí es correcta)."
+        "retroalimentacion": "Organismo X=2×10⁻⁷cm; Z=2×10⁻⁶cm. Como el exponente de X (−7) es menor que el de Z (−6), 10⁻⁷ es menor que 10⁻⁶. La conclusión \"No\" contradice el resultado correcto (la afirmación del estudiante sí es correcta)."
       },
       {
         "descripcion": "Sí, porque, al ser -7 mayor que -6, 10⁻⁷ es menor que 10⁻⁶.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Aunque concluye \"Sí\" correctamente, la justificación (−7 mayor que −6) es matemáticamente falsa."
+        "retroalimentacion": "Organismo X=2×10⁻⁷cm; Z=2×10⁻⁶cm. Como el exponente de X (−7) es menor que el de Z (−6), 10⁻⁷ es menor que 10⁻⁶. Aunque concluye \"Sí\" correctamente, la justificación (−7 mayor que −6) es matemáticamente falsa."
       }
     ]
   },
@@ -835,25 +835,25 @@
         "descripcion": "70.000 pesos.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde al resultado de aplicar correctamente los promedios sucesivos."
+        "retroalimentacion": "Promedios sucesivos: (8+12)/2=10; (10+4)/2=7; (7+11)/2=9; 9×10.000=90.000. No corresponde al resultado de aplicar correctamente los promedios sucesivos."
       },
       {
         "descripcion": "80.000 pesos.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Tampoco corresponde al resultado correcto."
+        "retroalimentacion": "Promedios sucesivos: (8+12)/2=10; (10+4)/2=7; (7+11)/2=9; 9×10.000=90.000. Tampoco corresponde al resultado correcto."
       },
       {
         "descripcion": "90.000 pesos.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Siguiendo los cinco pasos exactamente, el resultado es $90.000."
+        "retroalimentacion": "Promedios sucesivos: (8+12)/2=10; (10+4)/2=7; (7+11)/2=9; 9×10.000=90.000. Siguiendo los cinco pasos exactamente, el resultado es $90.000."
       },
       {
         "descripcion": "100.000 pesos.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde al resultado del procedimiento descrito."
+        "retroalimentacion": "Promedios sucesivos: (8+12)/2=10; (10+4)/2=7; (7+11)/2=9; 9×10.000=90.000. No corresponde al resultado del procedimiento descrito."
       }
     ]
   },
@@ -868,25 +868,25 @@
         "descripcion": "Pedro, el 50 %, y Ana, el 80 %.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Corresponde exactamente al cálculo del porcentaje de respuestas correctas en la sección de escritura."
+        "retroalimentacion": "Escritura: Pedro 5/10=50%; Ana 8/10=80%. Corresponde exactamente al cálculo del porcentaje de respuestas correctas en la sección de escritura."
       },
       {
         "descripcion": "Pedro, el 5 %, y Ana, el 8 %.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Confunde el número de respuestas correctas con el porcentaje (no realiza la conversión)."
+        "retroalimentacion": "Escritura: Pedro 5/10=50%; Ana 8/10=80%. Confunde el número de respuestas correctas con el porcentaje (no realiza la conversión)."
       },
       {
         "descripcion": "Pedro, el 50 %, y Ana, el 10 %.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El porcentaje de Ana está mal calculado."
+        "retroalimentacion": "Escritura: Pedro 5/10=50%; Ana 8/10=80%. El porcentaje de Ana está mal calculado."
       },
       {
         "descripcion": "Pedro, el 5 %, y Ana, el 1 %.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Nuevamente confunde cantidades absolutas con porcentajes."
+        "retroalimentacion": "Escritura: Pedro 5/10=50%; Ana 8/10=80%. Nuevamente confunde cantidades absolutas con porcentajes."
       }
     ]
   },
@@ -901,25 +901,25 @@
         "descripcion": "A los datos de la columna Precio por kilogramo.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El precio por kilogramo es un dato cuantitativo que puede ponderarse por la cantidad vendida (frecuencia), encajando con la estructura de la fórmula dada."
+        "retroalimentacion": "La fórmula pondera un valor (x) por una frecuencia (f); en la tabla, \"Precio por kilogramo\" puede tomarse como el valor (x) y \"Cantidad vendida\" como el peso (f) de cada valor. El precio por kilogramo es un dato cuantitativo que puede ponderarse por la cantidad vendida (frecuencia), encajando con la estructura de la fórmula dada."
       },
       {
         "descripcion": "A los datos de la columna Tamaño.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "\"Tamaño\" se expresa como un rango (p. ej. \"entre 20 y 25 cm\"), no como un valor numérico único."
+        "retroalimentacion": "La fórmula pondera un valor (x) por una frecuencia (f); en la tabla, \"Precio por kilogramo\" puede tomarse como el valor (x) y \"Cantidad vendida\" como el peso (f) de cada valor. \"Tamaño\" se expresa como un rango (p. ej. \"entre 20 y 25 cm\"), no como un valor numérico único."
       },
       {
         "descripcion": "A los datos de la columna Tienda.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "\"Tienda\" es una variable categórica/nominal (identificador), no cuantitativa."
+        "retroalimentacion": "La fórmula pondera un valor (x) por una frecuencia (f); en la tabla, \"Precio por kilogramo\" puede tomarse como el valor (x) y \"Cantidad vendida\" como el peso (f) de cada valor. \"Tienda\" es una variable categórica/nominal (identificador), no cuantitativa."
       },
       {
         "descripcion": "A los datos de la columna Mes.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "\"Mes\" también es una variable categórica (nombres de meses), no numérica."
+        "retroalimentacion": "La fórmula pondera un valor (x) por una frecuencia (f); en la tabla, \"Precio por kilogramo\" puede tomarse como el valor (x) y \"Cantidad vendida\" como el peso (f) de cada valor. \"Mes\" también es una variable categórica (nombres de meses), no numérica."
       }
     ]
   },
@@ -934,25 +934,25 @@
         "descripcion": "1.800 metros.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "1.800 metros corresponde a una conversión incorrecta (dividir por 10 en lugar de multiplicar por 1.000)."
+        "retroalimentacion": "El perímetro (circunferencia) ya está dado directamente (18 km); solo se requiere convertir unidades. 1.800 metros corresponde a una conversión incorrecta (dividir por 10 en lugar de multiplicar por 1.000)."
       },
       {
         "descripcion": "1.800 π metros.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Multiplicar por π no es necesario, ya que el perímetro ya fue dado; confunde con el caso en que se da el radio o diámetro."
+        "retroalimentacion": "El perímetro (circunferencia) ya está dado directamente (18 km); solo se requiere convertir unidades. Multiplicar por π no es necesario, ya que el perímetro ya fue dado; confunde con el caso en que se da el radio o diámetro."
       },
       {
         "descripcion": "18.000 metros.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "18 km equivalen a 18.000 metros (conversión directa de unidades)."
+        "retroalimentacion": "El perímetro (circunferencia) ya está dado directamente (18 km); solo se requiere convertir unidades. 18 km equivalen a 18.000 metros (conversión directa de unidades)."
       },
       {
         "descripcion": "18.000 π metros.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Igual que B, agrega π innecesariamente sobre una conversión que ya es directa."
+        "retroalimentacion": "El perímetro (circunferencia) ya está dado directamente (18 km); solo se requiere convertir unidades. Igual que B, agrega π innecesariamente sobre una conversión que ya es directa."
       }
     ]
   },
@@ -967,25 +967,25 @@
         "descripcion": "El número debe ser múltiplo de 3.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 3 (depende de N)."
+        "retroalimentacion": "Botones por camisa = (2 mangas×3 botones)+4 delanteros = 10 botones/camisa. El total (10×N) siempre será múltiplo de 10. No todo múltiplo de 10 es múltiplo de 3 (depende de N)."
       },
       {
         "descripcion": "El número debe ser múltiplo de 5.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Todo múltiplo de 10 es también múltiplo de 5, sin importar el número de camisas producidas."
+        "retroalimentacion": "Botones por camisa = (2 mangas×3 botones)+4 delanteros = 10 botones/camisa. El total (10×N) siempre será múltiplo de 10. Todo múltiplo de 10 es también múltiplo de 5, sin importar el número de camisas producidas."
       },
       {
         "descripcion": "El número debe ser múltiplo de 11.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 11."
+        "retroalimentacion": "Botones por camisa = (2 mangas×3 botones)+4 delanteros = 10 botones/camisa. El total (10×N) siempre será múltiplo de 10. No todo múltiplo de 10 es múltiplo de 11."
       },
       {
         "descripcion": "El número debe ser múltiplo de 14.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No todo múltiplo de 10 es múltiplo de 14."
+        "retroalimentacion": "Botones por camisa = (2 mangas×3 botones)+4 delanteros = 10 botones/camisa. El total (10×N) siempre será múltiplo de 10. No todo múltiplo de 10 es múltiplo de 14."
       }
     ]
   },
@@ -1000,25 +1000,25 @@
         "descripcion": "Sí, porque el porcentaje del área de la pared iluminada alrededor del cuadro es el menor de todas las opciones consideradas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Aunque el porcentaje de pared iluminada sea el menor, esto no compensa que el cuadro no quede completamente iluminado."
+        "retroalimentacion": "El objetivo es iluminar TOTALMENTE el cuadro; la Luz 2 solo cubre el 95% del cuadro, dejando una parte sin iluminar. Aunque el porcentaje de pared iluminada sea el menor, esto no compensa que el cuadro no quede completamente iluminado."
       },
       {
         "descripcion": "No, porque, aunque el área de la pared iluminada alrededor del cuadro es pequeña, queda una parte del cuadro sin iluminar.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La luz 2 no ilumina el 100% del cuadro (solo 95%), por lo que no cumple la condición de iluminarlo totalmente, sin importar el área de pared afectada."
+        "retroalimentacion": "El objetivo es iluminar TOTALMENTE el cuadro; la Luz 2 solo cubre el 95% del cuadro, dejando una parte sin iluminar. La luz 2 no ilumina el 100% del cuadro (solo 95%), por lo que no cumple la condición de iluminarlo totalmente, sin importar el área de pared afectada."
       },
       {
         "descripcion": "Sí, porque la suma de los porcentajes de las áreas del cuadro y de la pared es la menor de todas las opciones consideradas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Sumar los porcentajes no es un criterio relevante; además, sigue sin cumplirse el requisito de iluminación total del cuadro."
+        "retroalimentacion": "El objetivo es iluminar TOTALMENTE el cuadro; la Luz 2 solo cubre el 95% del cuadro, dejando una parte sin iluminar. Sumar los porcentajes no es un criterio relevante; además, sigue sin cumplirse el requisito de iluminación total del cuadro."
       },
       {
         "descripcion": "No, porque, aunque se cubre la mayor parte del cuadro, aun así, se ilumina una parte de la pared alrededor de este.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Que se ilumine parte de la pared no es el problema principal; el problema es que el cuadro no queda completamente iluminado."
+        "retroalimentacion": "El objetivo es iluminar TOTALMENTE el cuadro; la Luz 2 solo cubre el 95% del cuadro, dejando una parte sin iluminar. Que se ilumine parte de la pared no es el problema principal; el problema es que el cuadro no queda completamente iluminado."
       }
     ]
   },
@@ -1033,25 +1033,25 @@
         "descripcion": "Que los términos de la suma no están planteados en el orden correcto; debe ser primero largo, luego ancho y, finalmente, alto.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El orden de los términos en una suma no afecta el resultado; no es una razón matemáticamente válida."
+        "retroalimentacion": "Una caja rectangular tiene 12 aristas (4 de cada dimensión); el procedimiento del niño solo usa 3+2+2=7 aristas. El orden de los términos en una suma no afecta el resultado; no es una razón matemáticamente válida."
       },
       {
         "descripcion": "Que las unidades de medida deben ser unidades cúbicas, ya que estamos hablando de una figura en tres dimensiones.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Las unidades correctas para una longitud de hilo son lineales (cm), no cúbicas; confunde longitud con volumen."
+        "retroalimentacion": "Una caja rectangular tiene 12 aristas (4 de cada dimensión); el procedimiento del niño solo usa 3+2+2=7 aristas. Las unidades correctas para una longitud de hilo son lineales (cm), no cúbicas; confunde longitud con volumen."
       },
       {
         "descripcion": "Que la cantidad de aristas de cada medida debe ser mayor, ya que la longitud de cada arista debe ser multiplicada por cuatro.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Cada una de las tres medidas de la caja corresponde a 4 aristas (no 3, 2 y 2 como en el cálculo original); cada término debe multiplicarse por 4."
+        "retroalimentacion": "Una caja rectangular tiene 12 aristas (4 de cada dimensión); el procedimiento del niño solo usa 3+2+2=7 aristas. Cada una de las tres medidas de la caja corresponde a 4 aristas (no 3, 2 y 2 como en el cálculo original); cada término debe multiplicarse por 4."
       },
       {
         "descripcion": "Que solo se conoce la medida de tres de las aristas y, por tanto, la cantidad de hilo brillante no se puede calcular.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Sí se conocen las tres medidas de las aristas de la caja; el problema no es la falta de datos."
+        "retroalimentacion": "Una caja rectangular tiene 12 aristas (4 de cada dimensión); el procedimiento del niño solo usa 3+2+2=7 aristas. Sí se conocen las tres medidas de las aristas de la caja; el problema no es la falta de datos."
       }
     ]
   },
@@ -1066,25 +1066,25 @@
         "descripcion": "Sí, porque la solución I no tiene en cuenta que x² siempre es positivo y la solución II no tiene en cuenta que x nunca puede ser el mayor de los 3 números.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La razón dada no corresponde a las verdaderas fallas de cada solución."
+        "retroalimentacion": "Ambas soluciones son incompletas: la Solución I no diferencia si |x|<1 o |x|>1; la Solución II no diferencia el signo de x. La razón dada no corresponde a las verdaderas fallas de cada solución."
       },
       {
         "descripcion": "Sí, porque la solución I no tiene en cuenta si el valor absoluto de x es menor que 1 y la segunda no tiene en cuenta el signo de x.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La solución I ignora si |x| es menor o mayor que 1, y la solución II ignora si x es positivo o negativo; ambas omisiones producen conclusiones erróneas en ciertos casos."
+        "retroalimentacion": "Ambas soluciones son incompletas: la Solución I no diferencia si |x|<1 o |x|>1; la Solución II no diferencia el signo de x. La solución I ignora si |x| es menor o mayor que 1, y la solución II ignora si x es positivo o negativo; ambas omisiones producen conclusiones erróneas en ciertos casos."
       },
       {
         "descripcion": "No, porque, a pesar de que la solución II es incorrecta, la solución I es correcta pues tiene en cuenta el signo de x.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La solución I tampoco es completamente correcta (falla, por ejemplo, para 0<x<1)."
+        "retroalimentacion": "Ambas soluciones son incompletas: la Solución I no diferencia si |x|<1 o |x|>1; la Solución II no diferencia el signo de x. La solución I tampoco es completamente correcta (falla, por ejemplo, para 0<x<1)."
       },
       {
         "descripcion": "No, porque, a pesar de que la solución I es incorrecta, la solución II es correcta pues tiene en cuenta si el valor absoluto de x es menor que 1.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La solución II tampoco es completamente correcta (falla para valores negativos de x)."
+        "retroalimentacion": "Ambas soluciones son incompletas: la Solución I no diferencia si |x|<1 o |x|>1; la Solución II no diferencia el signo de x. La solución II tampoco es completamente correcta (falla para valores negativos de x)."
       }
     ]
   },
@@ -1099,25 +1099,25 @@
         "descripcion": "La cantidad de personas que no aceptaron la invitación.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Requiere conocer el total de invitados, que no se ha dado."
+        "retroalimentacion": "Solo se conoce con certeza la cantidad de personas que aceptaron (13); las invitaciones totales enviadas no se reportaron. Requiere conocer el total de invitados, que no se ha dado."
       },
       {
         "descripcion": "La cantidad de invitaciones enviadas hasta ese momento.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El número total de invitaciones enviadas no es un dato proporcionado."
+        "retroalimentacion": "Solo se conoce con certeza la cantidad de personas que aceptaron (13); las invitaciones totales enviadas no se reportaron. El número total de invitaciones enviadas no es un dato proporcionado."
       },
       {
         "descripcion": "La cantidad de personas que hay en el grupo en ese momento.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El número de personas en el grupo en ese momento es directamente 13, el único dato conocido con certeza."
+        "retroalimentacion": "Solo se conoce con certeza la cantidad de personas que aceptaron (13); las invitaciones totales enviadas no se reportaron. El número de personas en el grupo en ese momento es directamente 13, el único dato conocido con certeza."
       },
       {
         "descripcion": "La cantidad de invitaciones que los estudiantes aún no responden.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "También requiere conocer el total de invitaciones enviadas."
+        "retroalimentacion": "Solo se conoce con certeza la cantidad de personas que aceptaron (13); las invitaciones totales enviadas no se reportaron. También requiere conocer el total de invitaciones enviadas."
       }
     ]
   },
@@ -1132,25 +1132,25 @@
         "descripcion": "Múltiplo de 100",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "200 es múltiplo de 100 (200=2×100)."
+        "retroalimentacion": "25.000x+5.000.000≥10.000.000 → x≥200. El valor mínimo que cumple la condición es 200. 200 es múltiplo de 100 (200=2×100)."
       },
       {
         "descripcion": "Múltiplo de 1.000",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "200 no es múltiplo de 1.000."
+        "retroalimentacion": "25.000x+5.000.000≥10.000.000 → x≥200. El valor mínimo que cumple la condición es 200. 200 no es múltiplo de 1.000."
       },
       {
         "descripcion": "Divisor de 100",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "200 no es divisor de 100."
+        "retroalimentacion": "25.000x+5.000.000≥10.000.000 → x≥200. El valor mínimo que cumple la condición es 200. 200 no es divisor de 100."
       },
       {
         "descripcion": "Divisor de 500",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "200 no es divisor de 500."
+        "retroalimentacion": "25.000x+5.000.000≥10.000.000 → x≥200. El valor mínimo que cumple la condición es 200. 200 no es divisor de 500."
       }
     ]
   },
@@ -1165,25 +1165,25 @@
         "descripcion": "Con el procedimiento 1 se obtienen menos baldosas que con el procedimiento 2, pero no son suficientes para cubrir todo el piso.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El procedimiento 1 da más baldosas, no menos, que el procedimiento 2."
+        "retroalimentacion": "Convirtiendo las medidas a centímetros (piso de 200 cm × 300 cm; baldosas de 30 cm de lado): Procedimiento 1 (aproximar cada medida al múltiplo de 30 cm más cercano por encima y dividir): 200 cm se aproxima a 210 cm (30×7), y 300 cm ya es múltiplo exacto de 30 (30×10); 210÷30=7 y 300÷30=10, por lo que 7×10=70 baldosas. Procedimiento 2 (área total ÷ área de una baldosa): área del piso=200×300=60.000 cm²; área de la baldosa=30×30=900 cm²; 60.000÷900=66,66…, que se aproxima al entero siguiente: 67 baldosas. El procedimiento 2 arroja menos baldosas que el procedimiento 1 (67<70); como el área requerida se cubre con 66,66 baldosas \"puras\", contar con 67 baldosas es suficiente para cubrir la totalidad del piso, aprovechando los recortes sobrantes para completar los bordes. El procedimiento 1 da más baldosas, no menos, que el procedimiento 2."
       },
       {
         "descripcion": "Con el procedimiento 1 se obtienen menos baldosas que con el procedimiento 2, y son suficientes para cubrir todo el piso.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El procedimiento 1 sí da más baldosas; no es \"menos\" como plantea esta opción."
+        "retroalimentacion": "Convirtiendo las medidas a centímetros (piso de 200 cm × 300 cm; baldosas de 30 cm de lado): Procedimiento 1 (aproximar cada medida al múltiplo de 30 cm más cercano por encima y dividir): 200 cm se aproxima a 210 cm (30×7), y 300 cm ya es múltiplo exacto de 30 (30×10); 210÷30=7 y 300÷30=10, por lo que 7×10=70 baldosas. Procedimiento 2 (área total ÷ área de una baldosa): área del piso=200×300=60.000 cm²; área de la baldosa=30×30=900 cm²; 60.000÷900=66,66…, que se aproxima al entero siguiente: 67 baldosas. El procedimiento 2 arroja menos baldosas que el procedimiento 1 (67<70); como el área requerida se cubre con 66,66 baldosas \"puras\", contar con 67 baldosas es suficiente para cubrir la totalidad del piso, aprovechando los recortes sobrantes para completar los bordes. El procedimiento 1 sí da más baldosas; no es \"menos\" como plantea esta opción."
       },
       {
         "descripcion": "Con el procedimiento 2 se obtienen menos baldosas que con el procedimiento 1, pero no son suficientes para cubrir todo el piso.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No es necesario cubrir el piso con 70 baldosas completas en una cuadrícula de 10×7: el sobrante de cada fila puede recortarse y reutilizarse para completar los bordes, por lo que 70 baldosas sobreestiman la cantidad realmente necesaria."
+        "retroalimentacion": "Convirtiendo las medidas a centímetros (piso de 200 cm × 300 cm; baldosas de 30 cm de lado): Procedimiento 1 (aproximar cada medida al múltiplo de 30 cm más cercano por encima y dividir): 200 cm se aproxima a 210 cm (30×7), y 300 cm ya es múltiplo exacto de 30 (30×10); 210÷30=7 y 300÷30=10, por lo que 7×10=70 baldosas. Procedimiento 2 (área total ÷ área de una baldosa): área del piso=200×300=60.000 cm²; área de la baldosa=30×30=900 cm²; 60.000÷900=66,66…, que se aproxima al entero siguiente: 67 baldosas. El procedimiento 2 arroja menos baldosas que el procedimiento 1 (67<70); como el área requerida se cubre con 66,66 baldosas \"puras\", contar con 67 baldosas es suficiente para cubrir la totalidad del piso, aprovechando los recortes sobrantes para completar los bordes. No es necesario cubrir el piso con 70 baldosas completas en una cuadrícula de 10×7: el sobrante de cada fila puede recortarse y reutilizarse para completar los bordes, por lo que 70 baldosas sobreestiman la cantidad realmente necesaria."
       },
       {
         "descripcion": "Con el procedimiento 2 se obtienen menos baldosas que con el procedimiento 1, y son suficientes para cubrir todo el piso.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El área total requerida (60.000 cm²) se cubre con 66,66 baldosas \"puras\" (60.000÷900); por lo tanto, 67 baldosas —usando los recortes sobrantes de unas para completar los bordes de otras— son suficientes para cubrir la totalidad del piso."
+        "retroalimentacion": "Convirtiendo las medidas a centímetros (piso de 200 cm × 300 cm; baldosas de 30 cm de lado): Procedimiento 1 (aproximar cada medida al múltiplo de 30 cm más cercano por encima y dividir): 200 cm se aproxima a 210 cm (30×7), y 300 cm ya es múltiplo exacto de 30 (30×10); 210÷30=7 y 300÷30=10, por lo que 7×10=70 baldosas. Procedimiento 2 (área total ÷ área de una baldosa): área del piso=200×300=60.000 cm²; área de la baldosa=30×30=900 cm²; 60.000÷900=66,66…, que se aproxima al entero siguiente: 67 baldosas. El procedimiento 2 arroja menos baldosas que el procedimiento 1 (67<70); como el área requerida se cubre con 66,66 baldosas \"puras\", contar con 67 baldosas es suficiente para cubrir la totalidad del piso, aprovechando los recortes sobrantes para completar los bordes. El área total requerida (60.000 cm²) se cubre con 66,66 baldosas \"puras\" (60.000÷900); por lo tanto, 67 baldosas —usando los recortes sobrantes de unas para completar los bordes de otras— son suficientes para cubrir la totalidad del piso."
       }
     ]
   },
@@ -1198,25 +1198,25 @@
         "descripcion": "En el supermercado 1, pues puede comprar 5 paquetes de papas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "En el supermercado 1 se pueden comprar 6 paquetes, no 5."
+        "retroalimentacion": "Supermercado 1: 5000/1000=5 (paso1); 5/4=1 (paso2); total=5+1=6. Supermercado 2: 5000/850≈5,88→5. En el supermercado 1 se pueden comprar 6 paquetes, no 5."
       },
       {
         "descripcion": "En el supermercado 2, pues puede comprar 5 paquetes de papas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El supermercado 2 permite comprar solo 5 paquetes, no más que el supermercado 1."
+        "retroalimentacion": "Supermercado 1: 5000/1000=5 (paso1); 5/4=1 (paso2); total=5+1=6. Supermercado 2: 5000/850≈5,88→5. El supermercado 2 permite comprar solo 5 paquetes, no más que el supermercado 1."
       },
       {
         "descripcion": "En el supermercado 1, pues puede comprar 6 paquetes de papas.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Con el procedimiento dado, el supermercado 1 permite comprar 6 paquetes, más que los 5 del supermercado 2."
+        "retroalimentacion": "Supermercado 1: 5000/1000=5 (paso1); 5/4=1 (paso2); total=5+1=6. Supermercado 2: 5000/850≈5,88→5. Con el procedimiento dado, el supermercado 1 permite comprar 6 paquetes, más que los 5 del supermercado 2."
       },
       {
         "descripcion": "En el supermercado 2, pues puede comprar 6 paquetes de papas.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "El supermercado 2 no permite comprar 6 paquetes según el procedimiento (resulta en 5)."
+        "retroalimentacion": "Supermercado 1: 5000/1000=5 (paso1); 5/4=1 (paso2); total=5+1=6. Supermercado 2: 5000/850≈5,88→5. El supermercado 2 no permite comprar 6 paquetes según el procedimiento (resulta en 5)."
       }
     ]
   },
@@ -1231,25 +1231,25 @@
         "descripcion": "Porque es más probable adivinar dos cartas entre seis que una entre nueve.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No se trata de comparar \"dos entre seis\" contra \"una entre nueve\"; el cálculo correcto muestra igualdad de probabilidades."
+        "retroalimentacion": "Probabilidad juego 1 = (1/3)×(1/3)=1/9; probabilidad juego 2=1/9. Ambas son iguales. No se trata de comparar \"dos entre seis\" contra \"una entre nueve\"; el cálculo correcto muestra igualdad de probabilidades."
       },
       {
         "descripcion": "Porque es imposible hallar las dos probabilidades consecutivas en el primer juego.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Sí es posible calcular ambas probabilidades de forma independiente y compararlas."
+        "retroalimentacion": "Probabilidad juego 1 = (1/3)×(1/3)=1/9; probabilidad juego 2=1/9. Ambas son iguales. Sí es posible calcular ambas probabilidades de forma independiente y compararlas."
       },
       {
         "descripcion": "Porque la probabilidad de acertar es exactamente la misma en los dos juegos.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Al multiplicar las probabilidades del primer juego (1/3 × 1/3 = 1/9) se obtiene el mismo valor que la probabilidad del segundo juego (1/9); la afirmación del mago es falsa porque las probabilidades son iguales."
+        "retroalimentacion": "Probabilidad juego 1 = (1/3)×(1/3)=1/9; probabilidad juego 2=1/9. Ambas son iguales. Al multiplicar las probabilidades del primer juego (1/3 × 1/3 = 1/9) se obtiene el mismo valor que la probabilidad del segundo juego (1/9); la afirmación del mago es falsa porque las probabilidades son iguales."
       },
       {
         "descripcion": "Porque no dice si las seis cartas del primer juego están entre las nueve del segundo.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No es relevante si las cartas del primer juego están entre las del segundo; lo que importa es el cálculo de probabilidad, que resulta igual en ambos casos."
+        "retroalimentacion": "Probabilidad juego 1 = (1/3)×(1/3)=1/9; probabilidad juego 2=1/9. Ambas son iguales. No es relevante si las cartas del primer juego están entre las del segundo; lo que importa es el cálculo de probabilidad, que resulta igual en ambos casos."
       }
     ]
   },
@@ -1264,25 +1264,25 @@
         "descripcion": "La cantidad de cloro que entró cada minuto al tanque.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Se puede multiplicar directamente la concentración por el caudal (15×30=450 mg/min) para obtener el cloro que entra cada minuto."
+        "retroalimentacion": "Con la concentración (15 mg/L) y el caudal (30 L/min) se puede calcular el cloro que entra por minuto; no se conoce el tiempo total ni la capacidad del tanque. Se puede multiplicar directamente la concentración por el caudal (15×30=450 mg/min) para obtener el cloro que entra cada minuto."
       },
       {
         "descripcion": "La cantidad total de agua que hay en el tanque.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No se conoce el tiempo total de llenado ni la capacidad del tanque."
+        "retroalimentacion": "Con la concentración (15 mg/L) y el caudal (30 L/min) se puede calcular el cloro que entra por minuto; no se conoce el tiempo total ni la capacidad del tanque. No se conoce el tiempo total de llenado ni la capacidad del tanque."
       },
       {
         "descripcion": "La cantidad total de cloro que hay en el tanque.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Requiere conocer el tiempo total, que no se ha dado."
+        "retroalimentacion": "Con la concentración (15 mg/L) y el caudal (30 L/min) se puede calcular el cloro que entra por minuto; no se conoce el tiempo total ni la capacidad del tanque. Requiere conocer el tiempo total, que no se ha dado."
       },
       {
         "descripcion": "La cantidad de minutos que se demoró en llenar el tanque.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Falta el dato de la capacidad total del tanque para calcular el tiempo de llenado."
+        "retroalimentacion": "Con la concentración (15 mg/L) y el caudal (30 L/min) se puede calcular el cloro que entra por minuto; no se conoce el tiempo total ni la capacidad del tanque. Falta el dato de la capacidad total del tanque para calcular el tiempo de llenado."
       }
     ]
   },
@@ -1297,25 +1297,25 @@
         "descripcion": "20.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Corresponde exactamente al 40% de 50 toneladas."
+        "retroalimentacion": "50 toneladas × 40% = 20 toneladas. Corresponde exactamente al 40% de 50 toneladas."
       },
       {
         "descripcion": "50.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Corresponde al total de aluminio recibido, no a la parte usada."
+        "retroalimentacion": "50 toneladas × 40% = 20 toneladas. Corresponde al total de aluminio recibido, no a la parte usada."
       },
       {
         "descripcion": "10.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde a ningún cálculo coherente con los datos."
+        "retroalimentacion": "50 toneladas × 40% = 20 toneladas. No corresponde a ningún cálculo coherente con los datos."
       },
       {
         "descripcion": "40.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Confunde el porcentaje (40) con el resultado en toneladas."
+        "retroalimentacion": "50 toneladas × 40% = 20 toneladas. Confunde el porcentaje (40) con el resultado en toneladas."
       }
     ]
   },
@@ -1330,25 +1330,25 @@
         "descripcion": "Ringring.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Los modelos Ringring cuestan $1.400.000, más que el más barato disponible."
+        "retroalimentacion": "El precio más bajo en la tabla ($1.200.000) corresponde al modelo \"Enos\" de la marca SoiBeep. Los modelos Ringring cuestan $1.400.000, más que el más barato disponible."
       },
       {
         "descripcion": "Telebene.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Telebene es el más costoso ($1.600.000)."
+        "retroalimentacion": "El precio más bajo en la tabla ($1.200.000) corresponde al modelo \"Enos\" de la marca SoiBeep. Telebene es el más costoso ($1.600.000)."
       },
       {
         "descripcion": "SoiBeep.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "El modelo SoiBeep \"Enos\" tiene el precio más bajo de toda la tabla ($1.200.000)."
+        "retroalimentacion": "El precio más bajo en la tabla ($1.200.000) corresponde al modelo \"Enos\" de la marca SoiBeep. El modelo SoiBeep \"Enos\" tiene el precio más bajo de toda la tabla ($1.200.000)."
       },
       {
         "descripcion": "Uthil.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Uthil tiene modelos desde $1.250.000, más caro que el SoiBeep Enos."
+        "retroalimentacion": "El precio más bajo en la tabla ($1.200.000) corresponde al modelo \"Enos\" de la marca SoiBeep. Uthil tiene modelos desde $1.250.000, más caro que el SoiBeep Enos."
       }
     ]
   },
@@ -1363,25 +1363,25 @@
         "descripcion": "270 g",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "270 corresponde al valor máximo de proteína, no de lípidos."
+        "retroalimentacion": "Promedio=(mínimo+máximo)/2 → 150=(70+máximo)/2 → máximo=230g. 270 corresponde al valor máximo de proteína, no de lípidos."
       },
       {
         "descripcion": "230 g",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Despejando la fórmula del promedio, el valor máximo de lípidos es 230 g."
+        "retroalimentacion": "Promedio=(mínimo+máximo)/2 → 150=(70+máximo)/2 → máximo=230g. Despejando la fórmula del promedio, el valor máximo de lípidos es 230 g."
       },
       {
         "descripcion": "160 g",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No corresponde al resultado de despejar correctamente la fórmula."
+        "retroalimentacion": "Promedio=(mínimo+máximo)/2 → 150=(70+máximo)/2 → máximo=230g. No corresponde al resultado de despejar correctamente la fórmula."
       },
       {
         "descripcion": "115 g",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Tampoco corresponde al resultado correcto de la ecuación."
+        "retroalimentacion": "Promedio=(mínimo+máximo)/2 → 150=(70+máximo)/2 → máximo=230g. Tampoco corresponde al resultado correcto de la ecuación."
       }
     ]
   },
@@ -1396,25 +1396,25 @@
         "descripcion": "Sí es posible, porque con todas las longitudes se puede formar un triángulo.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "No es posible formar un triángulo con estas longitudes."
+        "retroalimentacion": "Para formar un triángulo, la suma de dos lados debe ser mayor que el tercero; 3+9=12<15, por lo que no se cumple la desigualdad triangular. No es posible formar un triángulo con estas longitudes."
       },
       {
         "descripcion": "Sí es posible, porque toda longitud divisible por 3 puede formar un triángulo.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "La divisibilidad por 3 no es un criterio para determinar si se puede formar un triángulo."
+        "retroalimentacion": "Para formar un triángulo, la suma de dos lados debe ser mayor que el tercero; 3+9=12<15, por lo que no se cumple la desigualdad triangular. La divisibilidad por 3 no es un criterio para determinar si se puede formar un triángulo."
       },
       {
         "descripcion": "No es posible, porque la suma de dos de las longitudes es menor que la otra.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "La suma de las dos longitudes menores (3+9=12) es menor que la longitud mayor (15), violando la desigualdad triangular."
+        "retroalimentacion": "Para formar un triángulo, la suma de dos lados debe ser mayor que el tercero; 3+9=12<15, por lo que no se cumple la desigualdad triangular. La suma de las dos longitudes menores (3+9=12) es menor que la longitud mayor (15), violando la desigualdad triangular."
       },
       {
         "descripcion": "No es posible, porque una de las longitudes es un número primo.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Que un número sea primo no tiene relación con la posibilidad de formar un triángulo."
+        "retroalimentacion": "Para formar un triángulo, la suma de dos lados debe ser mayor que el tercero; 3+9=12<15, por lo que no se cumple la desigualdad triangular. Que un número sea primo no tiene relación con la posibilidad de formar un triángulo."
       }
     ]
   },
@@ -1429,25 +1429,25 @@
         "descripcion": "Cambiar el paso 1 por: “Hacer dos listas, una para el sector rural y otra para el sector urbano, ordenando a los estudiantes de menor a mayor de acuerdo con sus notas”.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Cambiar el orden de mayor a menor por menor a mayor solo invertiría el sesgo, sin eliminarlo."
+        "retroalimentacion": "El sesgo surge porque los estudiantes se ordenan por notas y se seleccionan siempre los primeros (los de mejores notas). Cambiar el orden de mayor a menor por menor a mayor solo invertiría el sesgo, sin eliminarlo."
       },
       {
         "descripcion": "Cambiar el paso 2 por: “Seleccionar en cada lista la misma cantidad de estudiantes, escogiendo a los primeros y a los últimos de cada una”.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Tomar los primeros y los últimos seguiría dejando fuera a los estudiantes de notas intermedias, manteniendo un sesgo."
+        "retroalimentacion": "El sesgo surge porque los estudiantes se ordenan por notas y se seleccionan siempre los primeros (los de mejores notas). Tomar los primeros y los últimos seguiría dejando fuera a los estudiantes de notas intermedias, manteniendo un sesgo."
       },
       {
         "descripcion": "Cambiar el paso 2 por: “Seleccionar estudiantes que estén alrededor de la mitad de cada lista hasta obtener 100 estudiantes urbanos y 300 rurales”.",
         "imagen": null,
         "esCorrecta": false,
-        "retroalimentacion": "Seleccionar alrededor de la mitad de cada lista también introduce sesgo, excluyendo a quienes tienen las notas más altas y más bajas."
+        "retroalimentacion": "El sesgo surge porque los estudiantes se ordenan por notas y se seleccionan siempre los primeros (los de mejores notas). Seleccionar alrededor de la mitad de cada lista también introduce sesgo, excluyendo a quienes tienen las notas más altas y más bajas."
       },
       {
         "descripcion": "Cambiar el paso 1 por: “Hacer dos listas, una para el sector rural y otra para el sector urbano, sin tener en cuenta el orden”.",
         "imagen": null,
         "esCorrecta": true,
-        "retroalimentacion": "Al no ordenar por notas, cualquier subconjunto seleccionado tiene la misma probabilidad de incluir estudiantes de cualquier nivel de desempeño, eliminando el sesgo de selección."
+        "retroalimentacion": "El sesgo surge porque los estudiantes se ordenan por notas y se seleccionan siempre los primeros (los de mejores notas). Al no ordenar por notas, cualquier subconjunto seleccionado tiene la misma probabilidad de incluir estudiantes de cualquier nivel de desempeño, eliminando el sesgo de selección."
       }
     ]
   }
