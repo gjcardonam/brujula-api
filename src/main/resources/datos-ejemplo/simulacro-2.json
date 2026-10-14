@@ -1,0 +1,1454 @@
+[
+  {
+    "enunciado": "La figura muestra el triángulo rectángulo EFG.\n\n¿Cuál segmento representa la hipotenusa del triángulo rectángulo EFG?",
+    "imagen": "s2p01e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "EG",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "En el triángulo EFG, el ángulo recto está en F (el lado EF es vertical y el lado FG es horizontal, por lo tanto, perpendiculares). La hipotenusa es siempre el lado OPUESTO al ángulo recto, es decir, el lado que no forma parte de dicho ángulo. T es solo el pie de una altura trazada desde F hasta el lado EG, y el ángulo de 90° marcado en T corresponde a esa altura, no al ángulo recto del triángulo EFG. EG es el lado opuesto al ángulo recto (ubicado en F), por lo tanto, es la hipotenusa del triángulo EFG."
+      },
+      {
+        "descripcion": "FG",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo EFG, el ángulo recto está en F (el lado EF es vertical y el lado FG es horizontal, por lo tanto, perpendiculares). La hipotenusa es siempre el lado OPUESTO al ángulo recto, es decir, el lado que no forma parte de dicho ángulo. T es solo el pie de una altura trazada desde F hasta el lado EG, y el ángulo de 90° marcado en T corresponde a esa altura, no al ángulo recto del triángulo EFG. FG es uno de los catetos (lado adyacente al ángulo recto en F), no la hipotenusa."
+      },
+      {
+        "descripcion": "ET",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo EFG, el ángulo recto está en F (el lado EF es vertical y el lado FG es horizontal, por lo tanto, perpendiculares). La hipotenusa es siempre el lado OPUESTO al ángulo recto, es decir, el lado que no forma parte de dicho ángulo. T es solo el pie de una altura trazada desde F hasta el lado EG, y el ángulo de 90° marcado en T corresponde a esa altura, no al ángulo recto del triángulo EFG. ET es solo una parte del segmento EG (desde E hasta el punto T donde cae la altura), no el lado completo del triángulo. Confundir un segmento parcial con el lado completo es un error común al interpretar construcciones auxiliares."
+      },
+      {
+        "descripcion": "FT",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo EFG, el ángulo recto está en F (el lado EF es vertical y el lado FG es horizontal, por lo tanto, perpendiculares). La hipotenusa es siempre el lado OPUESTO al ángulo recto, es decir, el lado que no forma parte de dicho ángulo. T es solo el pie de una altura trazada desde F hasta el lado EG, y el ángulo de 90° marcado en T corresponde a esa altura, no al ángulo recto del triángulo EFG. FT es la altura trazada desde el vértice F hasta la hipotenusa EG, un segmento auxiliar que no es lado del triángulo EFG."
+      }
+    ]
+  },
+  {
+    "enunciado": "La autonomía de un carro eléctrico hace referencia al número máximo de kilómetros que puede recorrer, empezando con la batería completamente cargada, hasta que se descarga. Para recargar la batería, hay que ir hasta una estación y conectar el carro a la corriente eléctrica, lo cual se puede hacer incluso si la batería no está completamente descargada.\n\nEl carro de Ramiro tiene una autonomía de 140 km y tiene la batería cargada. Él quiere ir desde la ciudad M hasta la ciudad P, como se muestra en el mapa.\n\n¿Cuál de las siguientes alternativas debe escoger Ramiro, de tal forma que recorra la menor distancia sin que la batería de su auto se quede sin carga?",
+    "imagen": "s2p02e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Ir directamente desde la ciudad M hasta la ciudad P sin pasar por ninguna estación de recarga.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Usando el teorema de Pitágoras con los datos del mapa: la distancia diagonal de M a N es √(60² + 80²) = 100 km, y la distancia diagonal de N a P es √(30² + 40²) = 50 km (ya que la altura total es 120 km y de Estación 1 a N ya se recorrieron 80 km verticales, quedan 40 km para el tramo N–P). La ruta directa M–P (sin estaciones) mide 150 km, superior a los 140 km de autonomía, así que no es viable. Hay que comparar la distancia total de cada ruta viable (que sí permite recargar a tiempo) y escoger la más corta. La distancia directa de M a P es de 150 km (mayor a los 140 km de autonomía) y esta ruta no pasa por ninguna estación de recarga, por lo que el auto se quedaría sin batería antes de llegar."
+      },
+      {
+        "descripcion": "Ir desde M hasta N, luego hacer una recarga en la estación 2 y dirigirse desde allí hasta P.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Usando el teorema de Pitágoras con los datos del mapa: la distancia diagonal de M a N es √(60² + 80²) = 100 km, y la distancia diagonal de N a P es √(30² + 40²) = 50 km (ya que la altura total es 120 km y de Estación 1 a N ya se recorrieron 80 km verticales, quedan 40 km para el tramo N–P). La ruta directa M–P (sin estaciones) mide 150 km, superior a los 140 km de autonomía, así que no es viable. Hay que comparar la distancia total de cada ruta viable (que sí permite recargar a tiempo) y escoger la más corta. La ruta M→N (100 km, dentro del rango de 140 km) seguida de N→Estación 2 (30 km) y luego Estación 2→P (40 km, ya con la batería recargada) suma 170 km en total, siendo la ruta más corta de todas las que sí son viables sin quedarse sin energía."
+      },
+      {
+        "descripcion": "Ir desde M hasta la estación de recarga 1, luego ir hasta la ciudad N y desde allí hasta la estación 2 y luego, hasta la ciudad P.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Usando el teorema de Pitágoras con los datos del mapa: la distancia diagonal de M a N es √(60² + 80²) = 100 km, y la distancia diagonal de N a P es √(30² + 40²) = 50 km (ya que la altura total es 120 km y de Estación 1 a N ya se recorrieron 80 km verticales, quedan 40 km para el tramo N–P). La ruta directa M–P (sin estaciones) mide 150 km, superior a los 140 km de autonomía, así que no es viable. Hay que comparar la distancia total de cada ruta viable (que sí permite recargar a tiempo) y escoger la más corta. Esta ruta desvía el recorrido por la Estación 1, usando el camino en ángulo recto M→Estación1→N (60 + 80 = 140 km) en lugar de la diagonal directa M→N (100 km), lo que añade 40 km innecesarios; sumando el resto del trayecto, la distancia total es de 210 km."
+      },
+      {
+        "descripcion": "Ir desde M hasta la estación de recarga 1, para luego ir hasta la ciudad N y desde allí dirigirse hasta P.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Usando el teorema de Pitágoras con los datos del mapa: la distancia diagonal de M a N es √(60² + 80²) = 100 km, y la distancia diagonal de N a P es √(30² + 40²) = 50 km (ya que la altura total es 120 km y de Estación 1 a N ya se recorrieron 80 km verticales, quedan 40 km para el tramo N–P). La ruta directa M–P (sin estaciones) mide 150 km, superior a los 140 km de autonomía, así que no es viable. Hay que comparar la distancia total de cada ruta viable (que sí permite recargar a tiempo) y escoger la más corta. Desvía el recorrido por la Estación 1 (140 km en lugar de 100 km) y, aunque evita pasar por la Estación 2, la distancia total (190 km) sigue siendo mayor que la de la opción B."
+      }
+    ]
+  },
+  {
+    "enunciado": "En clase de Álgebra, el profesor graficó dos funciones: la función lineal y = 5x + 25, y la función cuadrática Y = 4x²-20x+50. En la gráfica, indicó los dos puntos de corte de las dos funciones, tal como aparece en la imagen.\n\nLuego, el profesor pidió a sus estudiantes que hallaran algebraicamente las coordenadas de los dos puntos de corte.\n\nPara encontrar los dos valores de x, un estudiante utilizó este procedimiento, pero cometió un error:\n\nPaso 1. Construyó la ecuación 5x + 25 = 4x² - 20x+50 , igualando las ecuaciones de las dos funciones.\n\nPaso 2. Agrupó los términos semejantes.\n\n5x + 20x + 25 - 50 = 4x²\n\nPaso 3. Redujo los términos semejantes.\n\n25x - 25 = 4x²\n\nPaso 4. Calculó la raíz cuadrada a cada miembro de la ecuación.\n\n√(25x-25) = √4x²\n\n5x - 5 = 2x\n\nPaso 5. Resolvió la ecuación lineal obtenida en el paso 4.\n\n5x - 2x = 5\n\n3x = 5\n\nx = 5/3\n\n¿En cuál paso se cometió el error?",
+    "imagen": "s2p03e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "En el paso 1, porque la primera ecuación corresponde a una función de grado uno y la segunda a una función de grado dos, y por eso no se pueden igualar.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación 25x – 25 = 4x² es cuadrática y no puede resolverse simplemente \"sacando raíz cuadrada\" a cada lado como si fuera una ecuación lineal. La raíz cuadrada de una resta NO es igual a la resta de las raíces cuadradas: √(a-b) ≠ √a - √b (esta es una generalización incorrecta de la propiedad √(a·b) = √a·√b, que sí aplica a productos, no a sumas o restas). Sí es válido igualar una función de grado uno con una de grado dos para encontrar sus puntos de corte. De hecho, así se obtiene una ecuación cuadrática que se debe resolver correctamente (lo cual no ocurrió en el paso 4)."
+      },
+      {
+        "descripcion": "En el paso 2, porque en un lado de la ecuación deben quedar los términos con la incógnita y en el otro los términos numéricos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación 25x – 25 = 4x² es cuadrática y no puede resolverse simplemente \"sacando raíz cuadrada\" a cada lado como si fuera una ecuación lineal. La raíz cuadrada de una resta NO es igual a la resta de las raíces cuadradas: √(a-b) ≠ √a - √b (esta es una generalización incorrecta de la propiedad √(a·b) = √a·√b, que sí aplica a productos, no a sumas o restas). Agrupar los términos con la incógnita en un lado y los numéricos en el otro es un paso algebraico válido y no es donde se origina el error."
+      },
+      {
+        "descripcion": "En el paso 4, porque la raíz cuadrada de una resta no es igual a la raíz cuadrada de cada uno de sus términos.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La ecuación 25x – 25 = 4x² es cuadrática y no puede resolverse simplemente \"sacando raíz cuadrada\" a cada lado como si fuera una ecuación lineal. La raíz cuadrada de una resta NO es igual a la resta de las raíces cuadradas: √(a-b) ≠ √a - √b (esta es una generalización incorrecta de la propiedad √(a·b) = √a·√b, que sí aplica a productos, no a sumas o restas). En el paso 4, el estudiante aplica incorrectamente la raíz cuadrada a cada término por separado (√(25x – 25) tratado como √25x – √25, y √(4x²) simplificado a 2x sin considerar también la raíz negativa). La raíz cuadrada de una resta no equivale a la resta de las raíces cuadradas de cada término."
+      },
+      {
+        "descripcion": "En el paso 5, porque no es posible que la solución de una ecuación lineal sea una fracción.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación 25x – 25 = 4x² es cuadrática y no puede resolverse simplemente \"sacando raíz cuadrada\" a cada lado como si fuera una ecuación lineal. La raíz cuadrada de una resta NO es igual a la resta de las raíces cuadradas: √(a-b) ≠ √a - √b (esta es una generalización incorrecta de la propiedad √(a·b) = √a·√b, que sí aplica a productos, no a sumas o restas). Que la solución de una ecuación sea una fracción es completamente válido matemáticamente; el error no está en el tipo de resultado obtenido en el paso 5, sino en el paso previo que llevó a una ecuación incorrecta."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona ubicada en el punto P de un edificio conoce los valores cos(α) y cos (β) de los ángulos que se muestran en la figura.\n\nLa persona afirma que puede determinar la altura del edificio del frente, si conoce también la distancia x entre los edificios. ¿La anterior afirmación es verdadera?",
+    "imagen": "s2p04e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Si, porque al multiplicar x∙cos(a) y x∙cos(β), obtiene los dos catetos que sumados corresponden a la altura del edificio.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conoce x (cateto adyacente a ambos ángulos α y β) y los valores de cos(α) y cos(β). Como cos(ángulo) = adyacente/hipotenusa, se puede despejar la hipotenusa de cada triángulo: hipotenusa = x/cos(ángulo). Una vez se tiene la hipotenusa y un cateto (x), el teorema de Pitágoras permite hallar el cateto vertical faltante (la altura parcial del edificio en cada triángulo), y sumando ambas alturas parciales se obtiene la altura total del edificio. Multiplicar x·cos(α) no da un cateto vertical; esa operación no corresponde a ninguna razón trigonométrica válida para obtener la altura. (Para obtener la altura directamente a partir de x se necesitaría la tangente, no el coseno, y aun así sería x·tan(α), no x·cos(α))."
+      },
+      {
+        "descripcion": "Si, porque con los cosenos y x puede calcular las hipotenusas de los triángulos y, luego, usar el teorema de Pitágoras para los catetos faltantes.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Se conoce x (cateto adyacente a ambos ángulos α y β) y los valores de cos(α) y cos(β). Como cos(ángulo) = adyacente/hipotenusa, se puede despejar la hipotenusa de cada triángulo: hipotenusa = x/cos(ángulo). Una vez se tiene la hipotenusa y un cateto (x), el teorema de Pitágoras permite hallar el cateto vertical faltante (la altura parcial del edificio en cada triángulo), y sumando ambas alturas parciales se obtiene la altura total del edificio. A partir de cos(ángulo) = x/hipotenusa, se despeja hipotenusa = x/cos(ángulo) para cada triángulo. Con la hipotenusa y el cateto x ya conocidos, el teorema de Pitágoras permite calcular el cateto vertical (altura parcial) de cada triángulo y la suma de ambas alturas da la altura total del edificio."
+      },
+      {
+        "descripcion": "No, porque para usar el teorema de Pitágoras, necesita saber, por lo menos, la longitud de dos lados de cada triángulo, y solamente conoce un cateto de cada uno.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conoce x (cateto adyacente a ambos ángulos α y β) y los valores de cos(α) y cos(β). Como cos(ángulo) = adyacente/hipotenusa, se puede despejar la hipotenusa de cada triángulo: hipotenusa = x/cos(ángulo). Una vez se tiene la hipotenusa y un cateto (x), el teorema de Pitágoras permite hallar el cateto vertical faltante (la altura parcial del edificio en cada triángulo), y sumando ambas alturas parciales se obtiene la altura total del edificio. Afirma que solo se conoce un cateto de cada triángulo, pero en realidad si se conoce x y cos(ángulo). Sí es posible calcular también la hipotenusa (despejándola de la razón coseno), con lo cual se tienen dos lados de cada triángulo, suficientes para aplicar Pitágoras."
+      },
+      {
+        "descripcion": "No, porque cos(a) y cos(β) solamente indican las proporciones entre los lados del triángulo, no sus medidas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conoce x (cateto adyacente a ambos ángulos α y β) y los valores de cos(α) y cos(β). Como cos(ángulo) = adyacente/hipotenusa, se puede despejar la hipotenusa de cada triángulo: hipotenusa = x/cos(ángulo). Una vez se tiene la hipotenusa y un cateto (x), el teorema de Pitágoras permite hallar el cateto vertical faltante (la altura parcial del edificio en cada triángulo), y sumando ambas alturas parciales se obtiene la altura total del edificio. Es cierto que el coseno es una proporción, pero al combinarla con el valor conocido de x (un lado real, no una proporción) sí es posible obtener medidas reales (la hipotenusa), por lo que esta afirmación es una generalización apresurada."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra algunos datos relacionados con un vehículo de transporte público durante 5 días.\n\nDia | Distancia recorrida en (km) | Distancia acumulada en (km) | Ganancia diaria | Ganancia acumulada\n1 | 10 | 10 | $120.000 | $120.000\n2 | 10 | 20 | $40.000 | $160.000\n3 | 10 | 30 | $60.000 | $220.000\n4 | 10 | 40 | $150.000 | $370.000\n5 | 10 | 50 | $110.000 | $480.000\n\nA partir de la Información anterior, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La distancia recorrida es directamente proporcional al número de días transcurridos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La distancia acumulada (10, 20, 30, 40, 50 km) aumenta siempre en 10 km cada día: esto es un crecimiento lineal (relación de la forma y = 10x, que en este caso además pasa por el origen, aunque lo relevante para la opción correcta es que el incremento es constante día a día). En cambio, la distancia recorrida por día es constante (10 km), no proporcional al número de días y la ganancia (diaria y acumulada) no sigue ningún patrón constante. Confunde \"ser constante\" con \"ser proporcional\". La distancia recorrida cada día es siempre 10 km, independientemente del día, por lo que NO es directamente proporcional al número de días (si lo fuera, aumentaría conforme pasan los días, como ocurre con la distancia acumulada)."
+      },
+      {
+        "descripcion": "La distancia acumulada crece linealmente respecto a los días transcurridos.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La distancia acumulada (10, 20, 30, 40, 50 km) aumenta siempre en 10 km cada día: esto es un crecimiento lineal (relación de la forma y = 10x, que en este caso además pasa por el origen, aunque lo relevante para la opción correcta es que el incremento es constante día a día). En cambio, la distancia recorrida por día es constante (10 km), no proporcional al número de días y la ganancia (diaria y acumulada) no sigue ningún patrón constante. La distancia acumulada crece siempre en incrementos iguales de 10 km por día (10, 20, 30, 40, 50), lo cual es la definición de un crecimiento lineal respecto a los días transcurridos."
+      },
+      {
+        "descripcion": "La ganancia diaria es directamente proporcional al número de días transcurridos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La distancia acumulada (10, 20, 30, 40, 50 km) aumenta siempre en 10 km cada día: esto es un crecimiento lineal (relación de la forma y = 10x, que en este caso además pasa por el origen, aunque lo relevante para la opción correcta es que el incremento es constante día a día). En cambio, la distancia recorrida por día es constante (10 km), no proporcional al número de días y la ganancia (diaria y acumulada) no sigue ningún patrón constante. La ganancia diaria ($120.000, $40.000, $60.000, $150.000, $110.000) no sigue ningún patrón de crecimiento proporcional al día; de hecho, no es creciente ni tiene una razón constante."
+      },
+      {
+        "descripcion": "La ganancia acumulada crece linealmente respecto a los días transcurridos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La distancia acumulada (10, 20, 30, 40, 50 km) aumenta siempre en 10 km cada día: esto es un crecimiento lineal (relación de la forma y = 10x, que en este caso además pasa por el origen, aunque lo relevante para la opción correcta es que el incremento es constante día a día). En cambio, la distancia recorrida por día es constante (10 km), no proporcional al número de días y la ganancia (diaria y acumulada) no sigue ningún patrón constante. La ganancia acumulada ($120.000, $160.000, $220.000, $370.000, $480.000) no aumenta en cantidades iguales cada día (los incrementos son $40.000, $60.000, $150.000 y $110.000), por lo que no crece linealmente."
+      }
+    ]
+  },
+  {
+    "enunciado": "Colombia tiene el número más grande de especies por unidad de área en el planeta, lo cual lo convierte en un país megadiverso. La figura muestra información sobre la cantidad total de especies y la cantidad de especies amenazadas que habitan el territorio colombiano según la clase de animal.\n\nBiodiversidad en Colombia\n\nEn este sentido, especies endémicas son especies cuyo hábitat está limitado a una región geográfica específica; la tabla muestra la cantidad de especies endémicas que hay en Colombia.\n\n¿Cuál de las siguientes gráficas representa de manera completa el número de especies amenazadas, de especies endémicas, y el total de especies según la clase?",
+    "imagen": "s2p06e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s2p06a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Para representar \"de manera completa\" la información se necesitan tres series de datos por clase de animal: cantidad amenazada, cantidad endémica y total de especies. Los datos reales son: Mamíferos (40 amenazadas, 34 endémicas, 472 total); Aves (68, 66, 1.889); Anfibios (55, 367, 763); Reptiles (25, 115, 571); Peces (81, 0, 1.889). Esta gráfica solo incluye las series \"Amenazadas\" y \"Endémicas\"; omite por completo el total de especies por clase, por lo que no representa la información de manera completa."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p06b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Para representar \"de manera completa\" la información se necesitan tres series de datos por clase de animal: cantidad amenazada, cantidad endémica y total de especies. Los datos reales son: Mamíferos (40 amenazadas, 34 endémicas, 472 total); Aves (68, 66, 1.889); Anfibios (55, 367, 763); Reptiles (25, 115, 571); Peces (81, 0, 1.889). Al igual que la opción A, solo muestra \"Amenazadas\" y \"Endémicas\" en una barra apilada, sin incluir el total de especies por clase."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p06c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Para representar \"de manera completa\" la información se necesitan tres series de datos por clase de animal: cantidad amenazada, cantidad endémica y total de especies. Los datos reales son: Mamíferos (40 amenazadas, 34 endémicas, 472 total); Aves (68, 66, 1.889); Anfibios (55, 367, 763); Reptiles (25, 115, 571); Peces (81, 0, 1.889). Aunque esta gráfica sí incluye las tres series (Amenazados, Endémicas y Total), los valores de \"Amenazados\" y \"Endémicas\" están intercambiados entre sí para cada clase (por ejemplo, en Anfibios muestra 367 como \"Amenazados\" cuando en realidad 367 es la cantidad de especies endémicas y 55 es la cantidad de amenazadas). Esto es un error de asignación de series, no de datos faltantes."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p06d.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Para representar \"de manera completa\" la información se necesitan tres series de datos por clase de animal: cantidad amenazada, cantidad endémica y total de especies. Los datos reales son: Mamíferos (40 amenazadas, 34 endémicas, 472 total); Aves (68, 66, 1.889); Anfibios (55, 367, 763); Reptiles (25, 115, 571); Peces (81, 0, 1.889). Esta gráfica incluye las tres series completas (Amenazadas, Endémicas y Total) con los valores correctamente asignados a cada clase de animal, coincidiendo exactamente con los datos presentados en la figura y en la tabla."
+      }
+    ]
+  },
+  {
+    "enunciado": "Se quieren repartir $24.000 entre tres personas, de tal manera que Leandro reciba el 50% del dinero total, mientras que Alberto y Luisa el resto en partes iguales. Una forma para conocer la cantidad de dinero que le corresponde a Luisa es multiplicar el total del dinero por 0,5 y el resultado de ello, multiplicarlo de nuevo por 0,5.\n\nDe acuerdo con lo anterior, ¿se tiene suficiente información para efectuar el plan?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "SI, porque dentro de la información dada está la cantidad de dinero a repartir.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Multiplicar el total por 0,5 dos veces equivale a calcular el 25% del total (0,5 × 0,5 = 0,25), que es exactamente la parte que le corresponde a Luisa: la mitad del 50% restante (después del 50% de Leandro). Para ejecutar este plan solo se necesita conocer el monto total a repartir, que sí está dado ($24.000). La información necesaria para aplicar la estrategia (multiplicar 0,5 por 0,5) es, precisamente, el monto total del dinero a repartir, y ese dato sí se encuentra en el enunciado ($24.000)."
+      },
+      {
+        "descripcion": "Sl, porque la cantidad de dinero a repartir es un entero divisible entre tres.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Multiplicar el total por 0,5 dos veces equivale a calcular el 25% del total (0,5 × 0,5 = 0,25), que es exactamente la parte que le corresponde a Luisa: la mitad del 50% restante (después del 50% de Leandro). Para ejecutar este plan solo se necesita conocer el monto total a repartir, que sí está dado ($24.000). Que el total sea o no divisible exactamente entre tres no tiene relación con la estrategia descrita, que de hecho no reparte el dinero en tercios iguales, sino en 50%, 25% y 25%."
+      },
+      {
+        "descripcion": "No, porque la suma de los porcentajes en la estrategia es menor que el cien por ciento.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Multiplicar el total por 0,5 dos veces equivale a calcular el 25% del total (0,5 × 0,5 = 0,25), que es exactamente la parte que le corresponde a Luisa: la mitad del 50% restante (después del 50% de Leandro). Para ejecutar este plan solo se necesita conocer el monto total a repartir, que sí está dado ($24.000). Los porcentajes de la estrategia sí suman el 100%: 50% para Leandro, y 25% + 25% (que resulta de 0,5×0,5 aplicado dos veces al resto) para Alberto y Luisa."
+      },
+      {
+        "descripcion": "No, porque falta indicar cuál es el resto del dinero que se dividirá en partes iguales.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Multiplicar el total por 0,5 dos veces equivale a calcular el 25% del total (0,5 × 0,5 = 0,25), que es exactamente la parte que le corresponde a Luisa: la mitad del 50% restante (después del 50% de Leandro). Para ejecutar este plan solo se necesita conocer el monto total a repartir, que sí está dado ($24.000). El resto del dinero (después del 50% de Leandro) sí puede determinarse: es el 50% restante del total conocido ($24.000), es decir, $12.000, aunque no se mencione explícitamente ese valor como tal."
+      }
+    ]
+  },
+  {
+    "enunciado": "En un juego de computador se muestra un número y el jugador debe escribir el cuadrado del número mostrado.\n\nSi en la pantalla aparece el número que se muestra en la figura, ¿cuál es el número que el jugador debe escribir?",
+    "imagen": "s2p08e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "4",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La pantalla del juego muestra el número 8. El jugador debe escribir su cuadrado. 4 no es el cuadrado de 8 (4 = √8 aproximadamente no, ni corresponde a ninguna operación coherente con el número mostrado)."
+      },
+      {
+        "descripcion": "16",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La pantalla del juego muestra el número 8. El jugador debe escribir su cuadrado. 16 sería el cuadrado de 4, no de 8. Posible confusión sobre cuál es el número base."
+      },
+      {
+        "descripcion": "32",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La pantalla del juego muestra el número 8. El jugador debe escribir su cuadrado. 32 correspondería a 8 × 4 o a 2⁵, no al cuadrado de 8."
+      },
+      {
+        "descripcion": "64",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La pantalla del juego muestra el número 8. El jugador debe escribir su cuadrado. 8² = 8 × 8 = 64."
+      }
+    ]
+  },
+  {
+    "enunciado": "En un examen de clasificación para evaluar el nivel de inglés de un grupo de aspirantes, 3/10 de los aspirantes fueron clasificados en el nivel básico. 2/3 de los restantes fueron clasificados en el nivel medio, y los demás aspirantes, en el nivel alto. Con el propósito de determinar la cantidad de aspirantes que quedaron clasificados en el nivel alto, se ha propuesto el siguiente procedimiento:\n\nPaso 1.Multiplicar el total de aspirantes que presentaron la prueba por 3/10\n\nPaso 2.Restar del total de aspirantes que presentaron la prueba la cantidad obtenida en el paso 1\n\nPaso 3.Multiplicar la cantidad obtenida en el paso 2 por 2/3\n\nPaso 4.Restar la cantidad obtenida en el paso 3 a la cantidad obtenida en el paso 2\n\nTeniendo en cuenta la información presentada y el procedimiento propuesto, ¿es posible determinar la cantidad de aspirantes que quedaron en el nivel alto?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "No, hace falta conocer la fracción exacta de aspirantes que quedaron en el nivel alto.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento propuesto (pasos 1 a 4) permite calcular, correctamente, QUÉ FRACCIÓN del total de aspirantes corresponde al nivel alto. Sin embargo, la pregunta pide la CANTIDAD (un número absoluto de personas), y para convertir una fracción en una cantidad se necesita multiplicarla por el total de aspirantes, dato que nunca se proporciona en el enunciado. No hace falta conocer \"la fracción exacta\" del nivel alto, pues esa fracción sí se puede derivar correctamente con el procedimiento dado (1 menos la fracción de básico menos la fracción de medio). Lo que falta es otro tipo de dato."
+      },
+      {
+        "descripcion": "Si, porque se conocen las fracciones que representan la cantidad de estudiantes que quedaron en los dos niveles restantes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento propuesto (pasos 1 a 4) permite calcular, correctamente, QUÉ FRACCIÓN del total de aspirantes corresponde al nivel alto. Sin embargo, la pregunta pide la CANTIDAD (un número absoluto de personas), y para convertir una fracción en una cantidad se necesita multiplicarla por el total de aspirantes, dato que nunca se proporciona en el enunciado. Aunque se conocen las fracciones de los otros dos niveles, estas por sí solas solo permiten calcular la FRACCIÓN del nivel alto, no la cantidad (número de personas) que pide la pregunta."
+      },
+      {
+        "descripcion": "No, porque hace falta conocer el número total de aspirantes que presentaron la prueba.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El procedimiento propuesto (pasos 1 a 4) permite calcular, correctamente, QUÉ FRACCIÓN del total de aspirantes corresponde al nivel alto. Sin embargo, la pregunta pide la CANTIDAD (un número absoluto de personas), y para convertir una fracción en una cantidad se necesita multiplicarla por el total de aspirantes, dato que nunca se proporciona en el enunciado. Sin conocer el número total de aspirantes que presentaron la prueba, es imposible convertir la fracción obtenida en una cantidad concreta de personas. El procedimiento dado solo llega hasta una proporción, no hasta un conteo."
+      },
+      {
+        "descripcion": "Si, porque solo se requiere conocer dos cantidades para encontrar la cantidad faltante.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento propuesto (pasos 1 a 4) permite calcular, correctamente, QUÉ FRACCIÓN del total de aspirantes corresponde al nivel alto. Sin embargo, la pregunta pide la CANTIDAD (un número absoluto de personas), y para convertir una fracción en una cantidad se necesita multiplicarla por el total de aspirantes, dato que nunca se proporciona en el enunciado. Aunque el procedimiento efectivamente combina dos cantidades (fracciones) para hallar la fracción faltante, esto no es suficiente para obtener una cantidad de personas sin conocer el total de aspirantes."
+      }
+    ]
+  },
+  {
+    "enunciado": "Las medidas de dos lados de un triángulo son 10 cm y 20 cm, pero la medida de su tercer lado se desconoce. Al respecto, una persona afirma que la medida del perímetro del triángulo está entre 10 cm y 30 cm. ¿Es verdadera dicha afirmación?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque la medida del tercer lado está entre 10 cm y 20 cm.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Por la desigualdad triangular, el tercer lado de un triángulo con lados 10 cm y 20 cm debe ser mayor que la diferencia de los otros dos lados (20 – 10 = 10 cm) y menor que su suma (20 + 10 = 30 cm); es decir, el tercer lado está estrictamente entre 10 cm y 30 cm. Por lo tanto, el perímetro (10 + 20 + tercer lado) está entre 40 cm (exclusivo) y 60 cm (exclusivo), nunca entre 10 cm y 30 cm como afirma el enunciado. Aunque concluye \"Sí\" (afirmando que el perímetro sí está entre 10 y 30 cm), el rango dado para el tercer lado (entre 10 y 20 cm) tampoco es el correcto según la desigualdad triangular (el rango real es entre 10 y 30 cm) y en cualquier caso el perímetro real es mucho mayor a 30 cm."
+      },
+      {
+        "descripcion": "No, porque la medida del tercer lado es mayor a 10 cm y menor a 30 cm.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Por la desigualdad triangular, el tercer lado de un triángulo con lados 10 cm y 20 cm debe ser mayor que la diferencia de los otros dos lados (20 – 10 = 10 cm) y menor que su suma (20 + 10 = 30 cm); es decir, el tercer lado está estrictamente entre 10 cm y 30 cm. Por lo tanto, el perímetro (10 + 20 + tercer lado) está entre 40 cm (exclusivo) y 60 cm (exclusivo), nunca entre 10 cm y 30 cm como afirma el enunciado. El tercer lado debe medir más de 10 cm y menos de 30 cm (por la desigualdad triangular), lo cual hace que el perímetro total sea mayor a 40 cm y menor a 60 cm; por lo tanto, la afirmación original (perímetro entre 10 y 30 cm) es falsa."
+      },
+      {
+        "descripcion": "Sí, porque el perímetro es la suma de los lados y, en este caso, es máximo 30 cm.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Por la desigualdad triangular, el tercer lado de un triángulo con lados 10 cm y 20 cm debe ser mayor que la diferencia de los otros dos lados (20 – 10 = 10 cm) y menor que su suma (20 + 10 = 30 cm); es decir, el tercer lado está estrictamente entre 10 cm y 30 cm. Por lo tanto, el perímetro (10 + 20 + tercer lado) está entre 40 cm (exclusivo) y 60 cm (exclusivo), nunca entre 10 cm y 30 cm como afirma el enunciado. El perímetro no puede ser \"máximo 30 cm\": solo dos de los lados (10 + 20) ya suman 30 cm, así que agregando cualquier tercer lado positivo el perímetro necesariamente supera los 30 cm."
+      },
+      {
+        "descripcion": "No, porque el perímetro es la suma de los lados y, en este caso, es mínimo 20 cm.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Por la desigualdad triangular, el tercer lado de un triángulo con lados 10 cm y 20 cm debe ser mayor que la diferencia de los otros dos lados (20 – 10 = 10 cm) y menor que su suma (20 + 10 = 30 cm); es decir, el tercer lado está estrictamente entre 10 cm y 30 cm. Por lo tanto, el perímetro (10 + 20 + tercer lado) está entre 40 cm (exclusivo) y 60 cm (exclusivo), nunca entre 10 cm y 30 cm como afirma el enunciado. Aunque concluye correctamente \"No\", el argumento de que el perímetro mínimo es 20 cm es incorrecto. El perímetro mínimo real (aproximándose, sin llegar nunca a igualarlo) es 40 cm, no 20 cm."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un investigador estudió el comportamiento de una variable económica durante 11 años y, a partir de ello, construyó la siguiente gráfica que modela el comportamiento estudiado.\n\nSi x representa el tiempo (en años) que ha transcurrido desde el inicio del estudio, ¿cuál función representa el comportamiento de la variable durante los 11 años?",
+    "imagen": "s2p11e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "y = x²",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra una curva creciente, pero con una tasa de crecimiento que disminuye progresivamente (la curva se \"aplana\" a medida que x aumenta), lo cual es característico de una función logarítmica. Verificando con la función y = log₂(x): log₂(1) = 0, log₂(2) = 1, log₂(4) = 2, log₂(8) = 3, log₂(11) ≈ 3,46; estos valores coinciden con los puntos observados en la gráfica. y = x² es una función que crece cada vez MÁS rápido (cóncava hacia arriba), justo el comportamiento opuesto al mostrado en la gráfica, donde el crecimiento se hace cada vez más lento."
+      },
+      {
+        "descripcion": "y = 2^(x)+1",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra una curva creciente, pero con una tasa de crecimiento que disminuye progresivamente (la curva se \"aplana\" a medida que x aumenta), lo cual es característico de una función logarítmica. Verificando con la función y = log₂(x): log₂(1) = 0, log₂(2) = 1, log₂(4) = 2, log₂(8) = 3, log₂(11) ≈ 3,46; estos valores coinciden con los puntos observados en la gráfica. y = 2ˣ + 1 es una función exponencial que crece de forma explosiva y cada vez más rápida; con x = 11 este valor sería extremadamente alto (más de 2.000), muy distinto de los valores cercanos a 3,5 que muestra la gráfica."
+      },
+      {
+        "descripcion": "y = 2x",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra una curva creciente, pero con una tasa de crecimiento que disminuye progresivamente (la curva se \"aplana\" a medida que x aumenta), lo cual es característico de una función logarítmica. Verificando con la función y = log₂(x): log₂(1) = 0, log₂(2) = 1, log₂(4) = 2, log₂(8) = 3, log₂(11) ≈ 3,46; estos valores coinciden con los puntos observados en la gráfica. y = 2x es una línea recta con crecimiento constante (mismo incremento por cada unidad de x). La gráfica, en cambio, muestra una curva cuyo crecimiento se va desacelerando, no una línea recta."
+      },
+      {
+        "descripcion": "y = log₂x",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La gráfica muestra una curva creciente, pero con una tasa de crecimiento que disminuye progresivamente (la curva se \"aplana\" a medida que x aumenta), lo cual es característico de una función logarítmica. Verificando con la función y = log₂(x): log₂(1) = 0, log₂(2) = 1, log₂(4) = 2, log₂(8) = 3, log₂(11) ≈ 3,46; estos valores coinciden con los puntos observados en la gráfica. y = log₂(x) coincide con el patrón de crecimiento desacelerado mostrado: aumenta rápido al principio y cada vez más lento después, alcanzando un valor cercano a 3,46 en x = 11, tal como lo muestra la gráfica."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una empresa quiere conocer los medios de transporte que utilizan sus 300 empleados para ir a la oficina y, para ello, realiza un estudio de movilidad que arroja los siguientes resultados:\n\nEn este caso, si se quiere conocer la cantidad de empleados que utilizan medios alternativos, ¿cuál de los siguientes procedimientos permite hacerlo?",
+    "imagen": "s2p12e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Paso 1. Sumar 115 con 100.\nPaso 2. A 300, restarle el resultado anterior.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar cuántos empleados usan \"medios alternativos\" (ni carro ni moto), primero hay que calcular cuántos usan carro O moto (unión), restando correctamente a quienes se cuentan dos veces por usar ambos: Unión = Carro + Moto – (Carro y moto) = 115 + 100 – 45 = 170. Luego, a los 300 empleados totales se les resta esa unión: 300 – 170 = 130. Suma carro y moto (115 + 100 = 215) sin restar los 45 que usan ambos (quienes quedan contados dos veces) y luego resta ese total mal calculado de 300, lo que produce un resultado incorrecto (85 en lugar de 130)."
+      },
+      {
+        "descripcion": "Paso 1. Sumar 115 con 100.\nPaso 2. Al resultado anterior, restarle 45.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar cuántos empleados usan \"medios alternativos\" (ni carro ni moto), primero hay que calcular cuántos usan carro O moto (unión), restando correctamente a quienes se cuentan dos veces por usar ambos: Unión = Carro + Moto – (Carro y moto) = 115 + 100 – 45 = 170. Luego, a los 300 empleados totales se les resta esa unión: 300 – 170 = 130. Esta opción sí resta correctamente el grupo que usa ambos medios (215 – 45 = 170, el número de empleados que usan carro O moto), pero se detiene ahí: le falta el paso final de restar ese resultado de los 300 empleados totales para obtener los que no usan ninguno de los dos."
+      },
+      {
+        "descripcion": "Paso 1. Sumar 115 con 100.\nPaso 2. Al resultado anterior, restarle 45.\nPaso 3. A 300, restarle el resultado del paso 2.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para hallar cuántos empleados usan \"medios alternativos\" (ni carro ni moto), primero hay que calcular cuántos usan carro O moto (unión), restando correctamente a quienes se cuentan dos veces por usar ambos: Unión = Carro + Moto – (Carro y moto) = 115 + 100 – 45 = 170. Luego, a los 300 empleados totales se les resta esa unión: 300 – 170 = 130. Primero suma carro y moto (215), resta a quienes se cuentan dos veces por usar ambos (215 – 45 = 170, el total que usa carro o moto) y finalmente resta ese resultado de los 300 empleados totales (300 – 170 = 130), obteniendo correctamente los que usan medios alternativos."
+      },
+      {
+        "descripcion": "Paso 1. Sumar 115 con 100.\nPaso 2. Al resultado anterior, sumarle 45.\nPaso 3. A 300, restarle el resultado del paso 2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar cuántos empleados usan \"medios alternativos\" (ni carro ni moto), primero hay que calcular cuántos usan carro O moto (unión), restando correctamente a quienes se cuentan dos veces por usar ambos: Unión = Carro + Moto – (Carro y moto) = 115 + 100 – 45 = 170. Luego, a los 300 empleados totales se les resta esa unión: 300 – 170 = 130. En el paso 2, SUMA el grupo de \"carro y moto\" en lugar de restarlo (215 + 45 = 260), lo cual sobreestima el número de personas que usan carro o moto (duplicando el conteo del grupo que usa ambos en lugar de corregirlo), llevando a un resultado final incorrecto."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una máquina separa las 2.000 papas de un bulto de acuerdo con su peso p, obteniendo los datos de la tabla.\n\n¿ Cual es la grafica que representa la distribucion de las papas del bulto de acuerdo con su peso?",
+    "imagen": "s2p13e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s2p13a.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Los datos son: 15 ≤ p < 20 → 700 papas (35% de 2.000); 20 ≤ p < 25 → 500 papas (25%); 25 ≤ p < 30 → 800 papas (40%). La gráfica correcta debe reflejar exactamente estas proporciones. Es un diagrama circular cuyas proporciones (40% para 25-30, 35% para 15-20, 25% para 20-25) coinciden exactamente con los datos reales de la tabla (800, 700 y 500 papas sobre un total de 2.000)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p13b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son: 15 ≤ p < 20 → 700 papas (35% de 2.000); 20 ≤ p < 25 → 500 papas (25%); 25 ≤ p < 30 → 800 papas (40%). La gráfica correcta debe reflejar exactamente estas proporciones. Muestra los tres intervalos con el mismo porcentaje (33,3% cada uno), como si la distribución fuera uniforme, cuando en realidad los pesos están distribuidos de forma desigual (25%, 35% y 40%)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p13c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son: 15 ≤ p < 20 → 700 papas (35% de 2.000); 20 ≤ p < 25 → 500 papas (25%); 25 ≤ p < 30 → 800 papas (40%). La gráfica correcta debe reflejar exactamente estas proporciones. Es una gráfica de barras que, además de etiquetar el eje vertical como \"peso (gramos)\" en lugar de \"cantidad de papas\" (confundiendo la variable que se mide con la que se agrupa), muestra las tres barras con la misma altura, lo cual no representa la diferencia real en la cantidad de papas por intervalo."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p13d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son: 15 ≤ p < 20 → 700 papas (35% de 2.000); 20 ≤ p < 25 → 500 papas (25%); 25 ≤ p < 30 → 800 papas (40%). La gráfica correcta debe reflejar exactamente estas proporciones. Es una gráfica de barras con una escala mal calibrada (el eje llega hasta 8.000 cuando el máximo dato real es 800) y, además, muestra el intervalo 15-20 como el de mayor cantidad, cuando en realidad el intervalo 25-30 (con 800 papas) es el más numeroso. El orden de las barras no corresponde a los datos reales."
+      }
+    ]
+  },
+  {
+    "enunciado": "La figura muestra la ubicación de 5 pueblos cercanos en un mapa.\n\n¿Cuál o cuáles de los pueblos están ubicados a una distancia de 2 km o menos de S?",
+    "imagen": "s2p14e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "R",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Ubicando los puntos en la cuadrícula (cada celda = 1 km) con S en (1,0): R está en (0,1), Q en (0,2), P en (0,4) y T en (4,0). Las distancias desde S son: a R, √(1² + 1²) = √2 ≈ 1,41 km; a Q, √(1² + 2²) = √5 ≈ 2,24 km; a P, √(1² + 4²) = √17 ≈ 4,12 km; a T, |4-1| = 3 km (en línea recta horizontal). Solo R está a 2 km o menos. La distancia de S a R es √2 ≈ 1,41 km, la única entre los cuatro pueblos que es menor o igual a 2 km."
+      },
+      {
+        "descripcion": "T",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ubicando los puntos en la cuadrícula (cada celda = 1 km) con S en (1,0): R está en (0,1), Q en (0,2), P en (0,4) y T en (4,0). Las distancias desde S son: a R, √(1² + 1²) = √2 ≈ 1,41 km; a Q, √(1² + 2²) = √5 ≈ 2,24 km; a P, √(1² + 4²) = √17 ≈ 4,12 km; a T, |4-1| = 3 km (en línea recta horizontal). Solo R está a 2 km o menos. La distancia de S a T es de 3 km en línea recta (ambos están sobre la misma fila de la cuadrícula, separados por 3 casillas), superior a los 2 km."
+      },
+      {
+        "descripcion": "R y Q",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ubicando los puntos en la cuadrícula (cada celda = 1 km) con S en (1,0): R está en (0,1), Q en (0,2), P en (0,4) y T en (4,0). Las distancias desde S son: a R, √(1² + 1²) = √2 ≈ 1,41 km; a Q, √(1² + 2²) = √5 ≈ 2,24 km; a P, √(1² + 4²) = √17 ≈ 4,12 km; a T, |4-1| = 3 km (en línea recta horizontal). Solo R está a 2 km o menos. Aunque R sí cumple la condición, Q está a √5 ≈ 2,24 km, una distancia mayor a 2 km, por lo que no debería incluirse."
+      },
+      {
+        "descripcion": "P y T",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ubicando los puntos en la cuadrícula (cada celda = 1 km) con S en (1,0): R está en (0,1), Q en (0,2), P en (0,4) y T en (4,0). Las distancias desde S son: a R, √(1² + 1²) = √2 ≈ 1,41 km; a Q, √(1² + 2²) = √5 ≈ 2,24 km; a P, √(1² + 4²) = √17 ≈ 4,12 km; a T, |4-1| = 3 km (en línea recta horizontal). Solo R está a 2 km o menos. Tanto P (≈ 4,12 km) como T (3 km) están a una distancia mayor a 2 km de S."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para convertir una temperatura de grados celsius (°C) a Fahrenheit (°F) , se utiliza la formula:\n\nPara temperaturas entre -10 °C y 5 °C, ¿qué característica tienen las temperaturas correspondientes en °F?",
+    "imagen": "s2p15e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Por debajo de los 0 °C; las correspondientes temperaturas en °F serán negativas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Evaluando °F = (9/5)°C + 32 en los extremos del intervalo dado: para °C = -10, °F = (9/5) (-10) + 32 = -18 + 32 = 14°F; para °C = 5, °F = 9 + 32 = 41°F. Como la función es creciente (la pendiente 9/5 es positiva), el valor mínimo de °F en todo el intervalo [-10,5] se alcanza en °C = -10, y ese mínimo (14°F) ya es positivo. Supone que las temperaturas por debajo de 0°C producen automáticamente valores negativos en °F, pero esto solo sería cierto para temperaturas Celsius considerablemente más bajas (por debajo de aproximadamente -17,8°C). En el intervalo dado (hasta -10°C) el resultado en °F sigue siendo positivo."
+      },
+      {
+        "descripcion": "Todas las temperaturas correspondientes en °F serán positivas.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Evaluando °F = (9/5)°C + 32 en los extremos del intervalo dado: para °C = -10, °F = (9/5) (-10) + 32 = -18 + 32 = 14°F; para °C = 5, °F = 9 + 32 = 41°F. Como la función es creciente (la pendiente 9/5 es positiva), el valor mínimo de °F en todo el intervalo [-10,5] se alcanza en °C = -10, y ese mínimo (14°F) ya es positivo. Incluso en el extremo más frío del intervalo (-10°C), la temperatura en Fahrenheit es 14°F, un valor positivo; como la función es creciente, todos los demás valores del intervalo también serán positivos."
+      },
+      {
+        "descripcion": "Por debajo de los 0°C, es imposible conocer las temperaturas correspondientes en °F.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Evaluando °F = (9/5)°C + 32 en los extremos del intervalo dado: para °C = -10, °F = (9/5) (-10) + 32 = -18 + 32 = 14°F; para °C = 5, °F = 9 + 32 = 41°F. Como la función es creciente (la pendiente 9/5 es positiva), el valor mínimo de °F en todo el intervalo [-10,5] se alcanza en °C = -10, y ese mínimo (14°F) ya es positivo. Sí es posible calcular las temperaturas en °F para valores de °C por debajo de 0, simplemente evaluando la fórmula dada; no hay ninguna restricción matemática que lo impida."
+      },
+      {
+        "descripcion": "Todas las temperaturas correspondientes en °F serán negativas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Evaluando °F = (9/5)°C + 32 en los extremos del intervalo dado: para °C = -10, °F = (9/5) (-10) + 32 = -18 + 32 = 14°F; para °C = 5, °F = 9 + 32 = 41°F. Como la función es creciente (la pendiente 9/5 es positiva), el valor mínimo de °F en todo el intervalo [-10,5] se alcanza en °C = -10, y ese mínimo (14°F) ya es positivo. Ninguna de las temperaturas en el intervalo dado produce un resultado negativo en °F; de hecho, todas son positivas (entre 14°F y 41°F)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Alberto tiene un salario mensual de $800.000 y quiere ahorrar cada mes el 2% de su sueldo para comprar una trompeta. Para determinar cuánto dinero ahorrará cada mes, realizó los siguientes cálculos:\n\n8×2=16.\n\nComo 800.000 tiene 5 ceros a la derecha, solo considera 3, y forma el número 1.000.\n\nFinalmente, con los dos valores anteriores forma el número 16.000.\n\nEsto quiere decir que Alberto ahorrará $16.000 cada mes. Estefanía quiere comprar una guitarra y planea seguir la misma estrategia de Alberto, pero ella tiene un sueldo mensual de $900.000 y quiere ahorrar cada mes el 3%.\n\nSi Estefania ahorra durante 10 meses consecutivos, ¿cuánto dinero ahorrará en total?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "$297.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Siguiendo la misma estrategia usada para Alberto (que sí arroja el resultado correcto: 2% de $800.000 = $16.000), para Estefanía: 9 × 3 = 27, y manteniendo tres ceros de los cinco que tiene 900.000 se forma 1.000. Combinando ambos valores se obtiene $27.000 mensuales (que equivale correctamente al 3% de $900.000). En 10 meses: $27.000 × 10 = $270.000. $297.000 no corresponde a 10 veces el ahorro mensual correcto de Estefanía ($27.000). Podría surgir de un error al calcular el porcentaje mensual o al multiplicar por el número de meses."
+      },
+      {
+        "descripcion": "$270.000",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Siguiendo la misma estrategia usada para Alberto (que sí arroja el resultado correcto: 2% de $800.000 = $16.000), para Estefanía: 9 × 3 = 27, y manteniendo tres ceros de los cinco que tiene 900.000 se forma 1.000. Combinando ambos valores se obtiene $27.000 mensuales (que equivale correctamente al 3% de $900.000). En 10 meses: $27.000 × 10 = $270.000. El ahorro mensual de Estefanía es $27.000 (3% de $900.000). En 10 meses ahorra $27.000 × 10 = $270.000."
+      },
+      {
+        "descripcion": "$240.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Siguiendo la misma estrategia usada para Alberto (que sí arroja el resultado correcto: 2% de $800.000 = $16.000), para Estefanía: 9 × 3 = 27, y manteniendo tres ceros de los cinco que tiene 900.000 se forma 1.000. Combinando ambos valores se obtiene $27.000 mensuales (que equivale correctamente al 3% de $900.000). En 10 meses: $27.000 × 10 = $270.000. $240.000 no corresponde al cálculo correcto del 3% de $900.000 durante 10 meses."
+      },
+      {
+        "descripcion": "$180.000",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Siguiendo la misma estrategia usada para Alberto (que sí arroja el resultado correcto: 2% de $800.000 = $16.000), para Estefanía: 9 × 3 = 27, y manteniendo tres ceros de los cinco que tiene 900.000 se forma 1.000. Combinando ambos valores se obtiene $27.000 mensuales (que equivale correctamente al 3% de $900.000). En 10 meses: $27.000 × 10 = $270.000. $180.000 equivaldría a $18.000 mensuales durante 10 meses, que sería el ahorro de un sueldo distinto o un porcentaje distinto al 3% de $900.000."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para determinar a cuántos radianes equivale un ángulo de 240 grados, un estudiante realizó el siguiente procedimiento:\n\nPaso 1. Dividió 240 entre 360.\n\nPaso 2. Multiplicó el resultado del paso 1 por 2π.\n\nPaso 3. Dividió 240 entre 180.\n\nPaso 4. Multiplicó el resultado del paso 3 por π.\n\n¿Cuáles pasos del procedimiento son innecesarios y por qué?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Los pasos 3 y 4, porque se obtiene el mismo resultado de los pasos 1 y 2.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Ambos pares de pasos son formas válidas y equivalentes de convertir 240° a radianes: Pasos 1-2 calculan (240/360) × 2π = 4π/3; Pasos 3-4 calculan (240/180) × π = 4π/3. Como las dos rutas llegan exactamente al mismo resultado (4π/3), una de ellas resulta innecesaria una vez ya se cuenta con el resultado de la otra. Los pasos 3 y 4 son innecesarios porque aplican una fracción equivalente (240/180 en lugar de (240/360) × 2) que conduce exactamente al mismo resultado (4π/3) ya obtenido en los pasos 1 y 2. Calcular el mismo valor dos veces de formas distintas no aporta información nueva."
+      },
+      {
+        "descripcion": "Los pasos 2 y 3, porque, después de dividir entre 360, se debe multiplicaг рог π.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ambos pares de pasos son formas válidas y equivalentes de convertir 240° a radianes: Pasos 1-2 calculan (240/360) × 2π = 4π/3; Pasos 3-4 calculan (240/180) × π = 4π/3. Como las dos rutas llegan exactamente al mismo resultado (4π/3), una de ellas resulta innecesaria una vez ya se cuenta con el resultado de la otra. Después de dividir 240 entre 360 se debe multiplicar por 2π (no solo por π), ya que 360° equivalen a 2π radianes, no a π radianes. Esta opción propone una regla de conversión incorrecta."
+      },
+      {
+        "descripcion": "Los pasos 1 y 3, porque solamente se debe multiplicar por π, que es el factor para convertir grados a radianes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ambos pares de pasos son formas válidas y equivalentes de convertir 240° a radianes: Pasos 1-2 calculan (240/360) × 2π = 4π/3; Pasos 3-4 calculan (240/180) × π = 4π/3. Como las dos rutas llegan exactamente al mismo resultado (4π/3), una de ellas resulta innecesaria una vez ya se cuenta con el resultado de la otra. Plantea que \"solamente se debe multiplicar por π\", pero sin dividir primero por 180 (el factor correcto de conversión grados-radianes es π/180, no π sin más), por lo que la regla sugerida es incompleta y daría un resultado erróneo."
+      },
+      {
+        "descripcion": "Los pasos 2 y 4, porque solamente se debe calcular la razón del ángulo respecto a la base, para medir en grados.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ambos pares de pasos son formas válidas y equivalentes de convertir 240° a radianes: Pasos 1-2 calculan (240/360) × 2π = 4π/3; Pasos 3-4 calculan (240/180) × π = 4π/3. Como las dos rutas llegan exactamente al mismo resultado (4π/3), una de ellas resulta innecesaria una vez ya se cuenta con el resultado de la otra. La frase \"calcular la razón del ángulo respecto a la base, para medir en grados\" no tiene sentido en el contexto de una conversión a radianes y no identifica correctamente qué pasos son redundantes ni por qué."
+      }
+    ]
+  },
+  {
+    "enunciado": "En la gráfica se muestran los resultados de una encuesta realizada a 200 personas, en la que se les preguntó cuál es el servicio que más utilizan de su caja de compensación.\n\nDe acuerdo con la información anterior, si se escoge al azar uno de los 200 encuestados, ¿cuál es la probabilidad de que el servicio más utilizado por esta persona sea el turismo?",
+    "imagen": "s2p18e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "20%",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El valor de Turismo no está etiquetado directamente en la gráfica, pero puede hallarse por diferencia: 200 - (20 + 60 + 30 + 50) = 200 – 160 = 40 personas. La probabilidad de que la persona elegida al azar use este servicio es 40/200. 40 personas de 200 usan Turismo (200 – 20 – 60 – 30 – 50 = 40). La probabilidad es 40/200 = 0,20 = 20%."
+      },
+      {
+        "descripcion": "15%",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El valor de Turismo no está etiquetado directamente en la gráfica, pero puede hallarse por diferencia: 200 - (20 + 60 + 30 + 50) = 200 – 160 = 40 personas. La probabilidad de que la persona elegida al azar use este servicio es 40/200. 15% correspondería a 30 personas de 200, que en realidad es el valor de Cultura, no de Turismo."
+      },
+      {
+        "descripcion": "40%",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El valor de Turismo no está etiquetado directamente en la gráfica, pero puede hallarse por diferencia: 200 - (20 + 60 + 30 + 50) = 200 – 160 = 40 personas. La probabilidad de que la persona elegida al azar use este servicio es 40/200. 40% correspondería a 80 personas, el doble del valor real de Turismo."
+      },
+      {
+        "descripcion": "30%",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El valor de Turismo no está etiquetado directamente en la gráfica, pero puede hallarse por diferencia: 200 - (20 + 60 + 30 + 50) = 200 – 160 = 40 personas. La probabilidad de que la persona elegida al azar use este servicio es 40/200. 30% correspondería a 60 personas, que en realidad es el valor de Crédito, no de Turismo."
+      }
+    ]
+  },
+  {
+    "enunciado": "Ana trabaja en el área encargada de la vigilancia de un aeropuerto; allá, de cada 10 maletas que se registran, se elige una al azar para abrirla y revisar su contenido. Para calcular la probabilidad de que una maleta pase por el aeropuerto sin ser abierta, se utiliza el siguiente procedimiento:\n\nPaso 1. Dividir entre 100 el número de maletas que se abrieron de un grupo de 100 maletas.\n\nPaso 2. A 1 restarle el resultado del paso anterior.\n\n¿Cuál es la probabilidad de que una maleta pase por el aeropuerto sin ser abierta?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "0,1",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De cada 10 maletas se abre 1, lo que equivale a una tasa de apertura de 10 de cada 100 (10/100 = 0,1). La probabilidad de que una maleta NO sea abierta es el complemento: 1 - 0,1 = 0,9. 0,1 es la probabilidad de que la maleta SÍ sea abierta (el evento contrario al que pregunta el enunciado)."
+      },
+      {
+        "descripcion": "0,9",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "De cada 10 maletas se abre 1, lo que equivale a una tasa de apertura de 10 de cada 100 (10/100 = 0,1). La probabilidad de que una maleta NO sea abierta es el complemento: 1 - 0,1 = 0,9. 1 - 0,1 = 0,9: la probabilidad de que una maleta pase sin ser abierta."
+      },
+      {
+        "descripcion": "0,01",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De cada 10 maletas se abre 1, lo que equivale a una tasa de apertura de 10 de cada 100 (10/100 = 0,1). La probabilidad de que una maleta NO sea abierta es el complemento: 1 - 0,1 = 0,9. 0,01 podría surgir de dividir incorrectamente 10 entre 1000 en lugar de entre 100."
+      },
+      {
+        "descripcion": "0,99",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De cada 10 maletas se abre 1, lo que equivale a una tasa de apertura de 10 de cada 100 (10/100 = 0,1). La probabilidad de que una maleta NO sea abierta es el complemento: 1 - 0,1 = 0,9. 0,99 no corresponde al complemento de 0,1; sería el complemento de una probabilidad de apertura de solo 0,01 (1 de cada 100 maletas, no 1 de cada 10)."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una librería se venden libros de aventura y de romance. Una persona compró 7 libros de aventura y 2 libros de romance, y dicha compra tuvo un costo de $34.000. Como se sabe que hay un valor fijo para todos los libros de aventura y otro para todos los libros de romance, el pago total se obtiene al plantear:\n\n$34.000 = 7 x ( precio de libros de aventura ) + 2 x (precios de libros de romance)\n\n¿Cuál de las siguientes opciones corresponde a un posible precio para cada tipo de libro?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Aventura: $3.000. Romance: $4.000.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación es $34.000 = 7 × (precio aventura) + 2 × (precio romance). Hay que sustituir cada par de precios propuesto y verificar si la igualdad se cumple exactamente. 7 × $3.000 + 2 × $4.000 = $21.000 + $8.000 = $29.000, que no es igual a $34.000."
+      },
+      {
+        "descripcion": "Romance: $300. Aventura: $400.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación es $34.000 = 7 × (precio aventura) + 2 × (precio romance). Hay que sustituir cada par de precios propuesto y verificar si la igualdad se cumple exactamente. 7 × $400 + 2 × $300 = $2.800 + $600 = $3.400 (nótese además que los precios parecen intercambiados respecto al enunciado: $300 para romance y $400 para aventura dan un total diez veces menor al requerido), que no es igual a $34.000."
+      },
+      {
+        "descripcion": "Romance: $400. Aventura: $300.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La ecuación es $34.000 = 7 × (precio aventura) + 2 × (precio romance). Hay que sustituir cada par de precios propuesto y verificar si la igualdad se cumple exactamente. 7 × $300 + 2 × $400 = $2.100 + $800 = $2.900, que no es igual a $34.000."
+      },
+      {
+        "descripcion": "Aventura: $4.000. Romance: $3.000.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La ecuación es $34.000 = 7 × (precio aventura) + 2 × (precio romance). Hay que sustituir cada par de precios propuesto y verificar si la igualdad se cumple exactamente. 7 × $4.000 + 2 × $3.000 = $28.000 + $6.000 = $34.000, que coincide exactamente con el costo total dado en el enunciado."
+      }
+    ]
+  },
+  {
+    "enunciado": "La siguiente figura muestra la longitud de los lados y la medida de los ángulos de un triángulo rectángulo\n\n¿Cuál de las siguientes razones trigonométricas es la de mayor valor?",
+    "imagen": "s2p21e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Sen (60°)",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo: ángulo de 60° (arriba), ángulo de 30° (abajo a la derecha), hipotenusa = 8, cateto vertical = 4 (opuesto a 30°), cateto horizontal = 4√3 (opuesto a 60°). Calculando cada razón: sen(60°) = (4√3)/8 = √3/2 ≈ 0,87; sen(30°) = 4/8 = 0,5; tan(60°) = (4√3)/4 = √3 ≈ 1,73; tan(30°) = 4/4√3 = 1/√3 ≈ 0,58. sen(60°) ≈ 0,87, un valor considerable pero inferior al de tan(60°)."
+      },
+      {
+        "descripcion": "Sen (30°)",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo: ángulo de 60° (arriba), ángulo de 30° (abajo a la derecha), hipotenusa = 8, cateto vertical = 4 (opuesto a 30°), cateto horizontal = 4√3 (opuesto a 60°). Calculando cada razón: sen(60°) = (4√3)/8 = √3/2 ≈ 0,87; sen(30°) = 4/8 = 0,5; tan(60°) = (4√3)/4 = √3 ≈ 1,73; tan(30°) = 4/4√3 = 1/√3 ≈ 0,58. sen(30°) = 0,5, el segundo valor más pequeño de los cuatro."
+      },
+      {
+        "descripcion": "tan (60°)",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "En el triángulo: ángulo de 60° (arriba), ángulo de 30° (abajo a la derecha), hipotenusa = 8, cateto vertical = 4 (opuesto a 30°), cateto horizontal = 4√3 (opuesto a 60°). Calculando cada razón: sen(60°) = (4√3)/8 = √3/2 ≈ 0,87; sen(30°) = 4/8 = 0,5; tan(60°) = (4√3)/4 = √3 ≈ 1,73; tan(30°) = 4/4√3 = 1/√3 ≈ 0,58. tan(60°) = √3 ≈ 1,73 es el mayor de los cuatro valores calculados, ya que la tangente de un ángulo mayor a 45° siempre supera a 1, mientras que el seno nunca supera a 1."
+      },
+      {
+        "descripcion": "tan (30°)",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el triángulo: ángulo de 60° (arriba), ángulo de 30° (abajo a la derecha), hipotenusa = 8, cateto vertical = 4 (opuesto a 30°), cateto horizontal = 4√3 (opuesto a 60°). Calculando cada razón: sen(60°) = (4√3)/8 = √3/2 ≈ 0,87; sen(30°) = 4/8 = 0,5; tan(60°) = (4√3)/4 = √3 ≈ 1,73; tan(30°) = 4/4√3 = 1/√3 ≈ 0,58. tan(30°) ≈ 0,58, el valor más pequeño de los cuatro."
+      }
+    ]
+  },
+  {
+    "enunciado": "Este año la clase de Ciencias de grado décimo tuvo por tema central el cambio climático, por lo que se decidió estudiar la temperatura promedio del día más frío que hubo en distintos meses de un año; sin embargo, solo se encontraron los datos como se presentan a continuación:\n\nDe acuerdo con la tabla anterior, ¿en cual de los siguientes trimestres es posible calcular el promedio de la temperatura del día más frío?",
+    "imagen": "s2p22e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Enero, febrero y marzo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para calcular un promedio exacto, los tres valores del trimestre deben ser números puntuales, no rangos. Revisando: enero-febrero-marzo incluye marzo (rango \"entre 9°C y 19°C\"); julio-agosto-septiembre incluye agosto (rango \"entre 8°C y 17°C\"); octubre-noviembre-diciembre incluye octubre (rango \"entre 9°C y 18°C\"). Solo abril-mayo-junio tiene los tres valores como números exactos: 14°C, 13°C y 13°C. Marzo está dado como un rango (\"entre 9°C y 19°C\"), no como un valor exacto, lo que impide calcular un promedio preciso para este trimestre."
+      },
+      {
+        "descripcion": "Abril, mayo y junio.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para calcular un promedio exacto, los tres valores del trimestre deben ser números puntuales, no rangos. Revisando: enero-febrero-marzo incluye marzo (rango \"entre 9°C y 19°C\"); julio-agosto-septiembre incluye agosto (rango \"entre 8°C y 17°C\"); octubre-noviembre-diciembre incluye octubre (rango \"entre 9°C y 18°C\"). Solo abril-mayo-junio tiene los tres valores como números exactos: 14°C, 13°C y 13°C. Abril (14°C), mayo (13°C) y junio (13°C) son los únicos tres meses consecutivos con valores exactos y no en rango, permitiendo calcular el promedio: (14 + 13 + 13) /3 ≈ 13,3°C."
+      },
+      {
+        "descripcion": "Julio, agosto y septiembre.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para calcular un promedio exacto, los tres valores del trimestre deben ser números puntuales, no rangos. Revisando: enero-febrero-marzo incluye marzo (rango \"entre 9°C y 19°C\"); julio-agosto-septiembre incluye agosto (rango \"entre 8°C y 17°C\"); octubre-noviembre-diciembre incluye octubre (rango \"entre 9°C y 18°C\"). Solo abril-mayo-junio tiene los tres valores como números exactos: 14°C, 13°C y 13°C. Agosto está dado como un rango (\"entre 8°C y 17°C\"), lo que impide un cálculo exacto del promedio para este trimestre."
+      },
+      {
+        "descripcion": "Octubre, noviembre y diciembre",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para calcular un promedio exacto, los tres valores del trimestre deben ser números puntuales, no rangos. Revisando: enero-febrero-marzo incluye marzo (rango \"entre 9°C y 19°C\"); julio-agosto-septiembre incluye agosto (rango \"entre 8°C y 17°C\"); octubre-noviembre-diciembre incluye octubre (rango \"entre 9°C y 18°C\"). Solo abril-mayo-junio tiene los tres valores como números exactos: 14°C, 13°C y 13°C. Octubre está dado como un rango (\"entre 9°C y 18°C\"), lo que impide un cálculo exacto del promedio para este trimestre."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una fábrica de productos químicos se utilizan un ventilador grande y uno pequeño para eliminar el humo y gases industriales. Los dos ventiladores encendidos, durante un día, consumen 5 kilovatios, de los cuales el 70% es consumido por el ventilador grande, mientras que el 30% es consumido por el ventilador pequeño.\n\n¿Cuál es el consumo, respectivamente, por día del ventilador grande y del ventilador pequeño?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "3,5 kilovatios y 1,5 kilovatios.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El consumo total es 5 kilovatios. El ventilador grande consume el 70% y el pequeño el 30%. 70% de 5 kW=3,5 kW (grande) y 30% de 5 kW=1,5 kW (pequeño). Además, 3,5 + 1,5 = 5, lo cual confirma que se usó correctamente el 100% del consumo total."
+      },
+      {
+        "descripcion": "2,3 kilovatios y 0,4 kilovatios.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El consumo total es 5 kilovatios. El ventilador grande consume el 70% y el pequeño el 30%. 2,3 + 0,4 = 2,7 kW, que no suma el total de 5 kW consumidos por ambos ventiladores."
+      },
+      {
+        "descripcion": "4,3 kilovatios y 0,7 kilovatios.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El consumo total es 5 kilovatios. El ventilador grande consume el 70% y el pequeño el 30%. 4,3 + 0,7 = 5 kW sí suma el total correcto, pero las proporciones no corresponden a 70% y 30% de 5 kW (4,3/5 = 86% y 0,7/5 = 14%, porcentajes distintos a los indicados en el enunciado)."
+      },
+      {
+        "descripcion": "8,5 kilovatios y 6,5 kilovatios.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El consumo total es 5 kilovatios. El ventilador grande consume el 70% y el pequeño el 30%. 8,5 + 6,5 = 15 kW, un valor que supera por mucho el consumo total dado de 5 kW."
+      }
+    ]
+  },
+  {
+    "enunciado": "El espejo principal del telescopio espacial James Web está compuesto por 18 espejos hexagonales, cada uno con un área de 14625 cm² , como se muestra en la figura.\n\n¿Cuál es el área, medida en metros cuadrados, de cada uno de los espejos?",
+    "imagen": "s2p24e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "146,25 metros cuadrados.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Cada espejo tiene un área de 14.625 cm². Como 1 m²=10.000 cm² (porque 1 m = 100 cm y el área se eleva al cuadrado: 100² = 10.000), para convertir se debe dividir entre 10.000: 14.625 ÷ 10.000 = 1,4625 m². 146,25 resultaría de dividir entre 100 en lugar de entre 10.000. Es un error típico de usar el factor de conversión lineal (1 m = 100 cm) en lugar del factor de conversión de área (1 m² = 10.000 cm²)."
+      },
+      {
+        "descripcion": "1,4625 metros cuadrados.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Cada espejo tiene un área de 14.625 cm². Como 1 m²=10.000 cm² (porque 1 m = 100 cm y el área se eleva al cuadrado: 100² = 10.000), para convertir se debe dividir entre 10.000: 14.625 ÷ 10.000 = 1,4625 m². 14.625 cm² ÷ 10.000 = 1,4625 m²."
+      },
+      {
+        "descripcion": "146.250.000 metros cuadrados,",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Cada espejo tiene un área de 14.625 cm². Como 1 m²=10.000 cm² (porque 1 m = 100 cm y el área se eleva al cuadrado: 100² = 10.000), para convertir se debe dividir entre 10.000: 14.625 ÷ 10.000 = 1,4625 m². 146.250.000 resultaría de multiplicar en lugar de dividir por 10.000, un error de dirección en la conversión."
+      },
+      {
+        "descripcion": "1.462.500 metros cuadrados",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Cada espejo tiene un área de 14.625 cm². Como 1 m²=10.000 cm² (porque 1 m = 100 cm y el área se eleva al cuadrado: 100² = 10.000), para convertir se debe dividir entre 10.000: 14.625 ÷ 10.000 = 1,4625 m². 1.462.500 resultaría de multiplicar por 100 en lugar de dividir entre 10.000, combinando dos errores: dirección de la operación y factor de conversión."
+      }
+    ]
+  },
+  {
+    "enunciado": "La relación de Mosteller es una fórmula que se utiliza en medicina para calcular el área de la superficie corporal (ASC) de una persona. Si una persona tiene una estatura de 144 cm y su masa corporal es w, medida en kilogramos, el valor nominal del ASC, medido en m², se puede calcular por medio de la fórmula:\n\nASC=√(144w/(3.600))=√w/5\n\n¿Cuál es el ASC de un paciente con estatura de 144 cm y con una masa corporal de 100 kilogramos?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "50m²/5",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula simplificada es ASC = √w/5. Sustituyendo w = 100: ASC = √100/5 = 10/5. 50/5 no corresponde a √100 (que es 10, no 50)."
+      },
+      {
+        "descripcion": "44m²/5",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula simplificada es ASC = √w/5. Sustituyendo w = 100: ASC = √100/5 = 10/5. 44/5 no corresponde a ningún cálculo coherente con los datos dados."
+      },
+      {
+        "descripcion": "10m²/5",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La fórmula simplificada es ASC = √w/5. Sustituyendo w = 100: ASC = √100/5 = 10/5. √100 = 10, por lo que ASC=10/5 m² (equivalente a 2 m²)."
+      },
+      {
+        "descripcion": "12m²/5",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula simplificada es ASC = √w/5. Sustituyendo w = 100: ASC = √100/5 = 10/5. 12/5 no corresponde a √100. Podría surgir de un error al calcular la raíz cuadrada de 100."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para determinar los cortes con el eje x de la gráfica de la función f(x) = x² - 169, se pueden emplear varios métodos. ¿Cuál de los siguientes métodos NO permite determinar los cortes con el eje x?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Factorizar x² - 169 = (x-13)(x+13)",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La función es f(x) = x² - 169 (sin término lineal, b = 0). Sus raíces son x = ±13. Los métodos de factorización (A), fórmula cuadrática (B) y despeje directo (D) son todos válidos y llevan correctamente a x = ±13. El método de \"completar cuadrados\" propuesto en la opción C, en cambio, contiene una manipulación algebraica que no corresponde a un procedimiento válido para despejar las raíces. Este método sí es válido, y la pregunta pide el que no funciona. x² - 169 = (x - 13) (x + 13) es una factorización de diferencia de cuadrados correctamente aplicada. Igualando a cero cada factor se obtienen las raíces x = 13 y x = -13."
+      },
+      {
+        "descripcion": "Utilizar la fórmula cuadrática x = ± (√(4 ∙ 169))/2",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La función es f(x) = x² - 169 (sin término lineal, b = 0). Sus raíces son x = ±13. Los métodos de factorización (A), fórmula cuadrática (B) y despeje directo (D) son todos válidos y llevan correctamente a x = ±13. El método de \"completar cuadrados\" propuesto en la opción C, en cambio, contiene una manipulación algebraica que no corresponde a un procedimiento válido para despejar las raíces. Este método sí es válido, y la pregunta pide el que no funciona. Con a = 1, b = 0 y c = -169, la fórmula cuadrática x = (-b ± √(b² - 4ac)) /2a se reduce a x = ± √(4·169) /2 = ±26/2 = ±13, un procedimiento válido y correcto."
+      },
+      {
+        "descripcion": "Completar cuadrados x² - 169 + 26x-26x = (x-13)²",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La función es f(x) = x² - 169 (sin término lineal, b = 0). Sus raíces son x = ±13. Los métodos de factorización (A), fórmula cuadrática (B) y despeje directo (D) son todos válidos y llevan correctamente a x = ±13. El método de \"completar cuadrados\" propuesto en la opción C, en cambio, contiene una manipulación algebraica que no corresponde a un procedimiento válido para despejar las raíces. Es el método que no funciona, que es lo que pide la pregunta. La expresión \"x² - 169 + 26x - 26x = (x - 13)²\" simplemente suma y resta 26x sin que esto aporte una transformación útil: el lado izquierdo sigue siendo igual a x² - 169 (ya que +26x – 26x = 0), pero no es igual a (x - 13)² = x² - 26x + 169. Esta manipulación no corresponde a un proceso válido de completar cuadrados para esta función (que, al no tener término lineal, ya está en su forma más simple) y no permite obtener los cortes con el eje x de manera confiable."
+      },
+      {
+        "descripcion": "Encontrar dos números tales que su cuadrado sea 169 o resolver x = ± √169",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La función es f(x) = x² - 169 (sin término lineal, b = 0). Sus raíces son x = ±13. Los métodos de factorización (A), fórmula cuadrática (B) y despeje directo (D) son todos válidos y llevan correctamente a x = ±13. El método de \"completar cuadrados\" propuesto en la opción C, en cambio, contiene una manipulación algebraica que no corresponde a un procedimiento válido para despejar las raíces. Este método sí es válido, y la pregunta pide el que no funciona. Buscar dos números cuyo cuadrado sea 169, o resolver x = ±√169, es equivalente a despejar directamente x² = 169, lo cual lleva correctamente a x = ±13."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra la cantidad de personas contagiadas de un virus en un pequeño hospital, según su rango de edad.\n\nEdad | Cantidad de contagiados\n45-64 | 56\n65-74 | 4\n75 o + | 20\n\n¿Cuál de las siguientes graficas muestra la distribución de las 80 personas contagiadas en el hospital?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s2p27a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 56 contagiados (45-64 años), 4 (65-74 años) y 20 (75+ años), que suman exactamente 80 personas (el total mencionado en la pregunta), sin necesidad de una categoría adicional. Las proporciones son 70%, 5% y 25% respectivamente. Incluye una cuarta categoría (\"Otro\") que no existe en los datos originales. Como 56 + 4 + 20 ya suman el total de 80 personas, agregar una categoría adicional distorsiona la representación real (le resta proporción visual a las tres categorías que sí existen)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p27b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 56 contagiados (45-64 años), 4 (65-74 años) y 20 (75+ años), que suman exactamente 80 personas (el total mencionado en la pregunta), sin necesidad de una categoría adicional. Las proporciones son 70%, 5% y 25% respectivamente. Es una gráfica de barras cuyos valores (aproximadamente 65, 75 y 100) no corresponden en absoluto a los datos reales (56, 4 y 20); además, muestra al grupo de 65-74 años con una cantidad considerable, cuando en realidad es el grupo con menos contagiados (solo 4)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p27c.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Los datos son 56 contagiados (45-64 años), 4 (65-74 años) y 20 (75+ años), que suman exactamente 80 personas (el total mencionado en la pregunta), sin necesidad de una categoría adicional. Las proporciones son 70%, 5% y 25% respectivamente. Es un diagrama circular que incluye únicamente las tres categorías reales de los datos (45-64, 65-74, 75+), con proporciones visuales consistentes con 70%, 5% y 25% respectivamente."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p27d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 56 contagiados (45-64 años), 4 (65-74 años) y 20 (75+ años), que suman exactamente 80 personas (el total mencionado en la pregunta), sin necesidad de una categoría adicional. Las proporciones son 70%, 5% y 25% respectivamente. Las categorías del eje están mal etiquetadas (aparece \"0-45\" en lugar de \"45-64\" y el grupo \"75+\" aparece duplicado en lugar de \"65-74\"), y además las proporciones mostradas no corresponden a los datos reales (muestra a 65-74 como el grupo mayoritario, cuando en realidad es el más pequeño)."
+      }
+    ]
+  },
+  {
+    "enunciado": "La figura muestra un recipiente cilíndrico de 10 cm de altura y 5 cm de diámetro en su base, en el que se depositaron 50 ml de agua y un volumen desconocido de aceite.\n\nPara calcular el volumen de aceite depositado, se efectúa el siguiente procedimiento:\n\nPaso 1. Se calcula el área del círculo que tiene 5 cm de diámetro.\n\nPaso 2. El anterior resultado se multiplica por 10 cm.\n\nPaso 3. Al resultado del paso 2, se le resta 50 ml.\n\n¿En qué paso hay un error?",
+    "imagen": "s2p28e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Paso 1, porque el área del círculo se debe calcular con el radio de la base del cilindro.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento busca el volumen de aceite restando el volumen de agua (50 ml) del volumen total de un cilindro imaginario. Sin embargo, la figura muestra que el líquido (agua + aceite) NO llena todo el recipiente hasta el borde de 10 cm: hay un espacio vacío en la parte superior. Al multiplicar el área del círculo por la altura TOTAL del recipiente (10 cm, paso 2), se está calculando el volumen que cabría en todo el recipiente, incluyendo el espacio vacío de aire, y no solo el volumen realmente ocupado por el agua y el aceite. El área del círculo sí debe calcularse con el radio (la mitad del diámetro). El error identificado en esta opción no corresponde al problema real del procedimiento, que está en la altura usada, no en el cálculo del área."
+      },
+      {
+        "descripcion": "Paso 1, porque la base del cilindro que forma el aceite es diferente a la del recipiente.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento busca el volumen de aceite restando el volumen de agua (50 ml) del volumen total de un cilindro imaginario. Sin embargo, la figura muestra que el líquido (agua + aceite) NO llena todo el recipiente hasta el borde de 10 cm: hay un espacio vacío en la parte superior. Al multiplicar el área del círculo por la altura TOTAL del recipiente (10 cm, paso 2), se está calculando el volumen que cabría en todo el recipiente, incluyendo el espacio vacío de aire, y no solo el volumen realmente ocupado por el agua y el aceite. El aceite y el agua están depositados dentro del mismo recipiente cilíndrico, por lo que ambos comparten la misma base (el área de la base no cambia entre uno y otro). Esta no es la razón del error."
+      },
+      {
+        "descripcion": "Paso 2, porque con esa altura se estaría calculando el volumen de todo el recipiente.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El procedimiento busca el volumen de aceite restando el volumen de agua (50 ml) del volumen total de un cilindro imaginario. Sin embargo, la figura muestra que el líquido (agua + aceite) NO llena todo el recipiente hasta el borde de 10 cm: hay un espacio vacío en la parte superior. Al multiplicar el área del círculo por la altura TOTAL del recipiente (10 cm, paso 2), se está calculando el volumen que cabría en todo el recipiente, incluyendo el espacio vacío de aire, y no solo el volumen realmente ocupado por el agua y el aceite. Al multiplicar el área de la base por la altura TOTAL del recipiente (10 cm), se calcula el volumen que ocuparía todo el cilindro lleno hasta el borde, incluyendo el espacio de aire que queda vacío sobre el líquido, en lugar de usar solo la altura que realmente ocupan el agua y el aceite juntos."
+      },
+      {
+        "descripcion": "Paso 2, porque se estaría calculando el volumen que ocupa el agua.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El procedimiento busca el volumen de aceite restando el volumen de agua (50 ml) del volumen total de un cilindro imaginario. Sin embargo, la figura muestra que el líquido (agua + aceite) NO llena todo el recipiente hasta el borde de 10 cm: hay un espacio vacío en la parte superior. Al multiplicar el área del círculo por la altura TOTAL del recipiente (10 cm, paso 2), se está calculando el volumen que cabría en todo el recipiente, incluyendo el espacio vacío de aire, y no solo el volumen realmente ocupado por el agua y el aceite. El paso 2 no calcula el volumen del agua específicamente, sino el volumen de todo el recipiente (usando su altura total), que es un valor distinto y mayor tanto al volumen del agua como al volumen conjunto real de agua y aceite."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un estudiante está ahorrando para un paseo que tiene un costo de $800.000; él empezó su ahorro en enero con $100.000 que su abuela le regaló, y al final de cada mes, está ahorrando cierta cantidad de dinero. La tabla resume el progreso del ahorro del estudiante durante los primeros cuatro meses.\n\n¿Cuál es la tendencia del dinero ahorrado al finalizar cada mes?",
+    "imagen": "s2p29e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Disminuye $30.000 cada mes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El dinero ahorrado al finalizar cada mes (columna \"Dinero ahorrado al finalizar el mes\") es: $130.000, $160.000, $190.000, $220.000. Cada valor es $30.000 mayor que el anterior. Los valores aumentan, no disminuyen, de un mes a otro."
+      },
+      {
+        "descripcion": "Aumenta $30.000 cada mes.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El dinero ahorrado al finalizar cada mes (columna \"Dinero ahorrado al finalizar el mes\") es: $130.000, $160.000, $190.000, $220.000. Cada valor es $30.000 mayor que el anterior. Cada mes el dinero ahorrado al finalizar aumenta exactamente $30.000 respecto al mes anterior (130.000→160.000→190.000→220.000)."
+      },
+      {
+        "descripcion": "Aumenta $100.000 cada mes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El dinero ahorrado al finalizar cada mes (columna \"Dinero ahorrado al finalizar el mes\") es: $130.000, $160.000, $190.000, $220.000. Cada valor es $30.000 mayor que el anterior. El incremento real es de $30.000 por mes, no de $100.000."
+      },
+      {
+        "descripcion": "Disminuye $100.000 cada mes.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El dinero ahorrado al finalizar cada mes (columna \"Dinero ahorrado al finalizar el mes\") es: $130.000, $160.000, $190.000, $220.000. Cada valor es $30.000 mayor que el anterior. Los valores aumentan, no disminuyen."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra el registro que llevó un mecánico automotriz de las piezas que tuvieron que reemplazarse durante el mantenimiento de tres vehículos.\n\nDe acuerdo con esta información, ¿cuál es el promedio del número de piezas reemplazadas de los tres vehículos?",
+    "imagen": "s2p30e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "21",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Piezas reemplazadas por vehículo: 6, 5 y 10. Promedio = (6 + 5 + 10) /3 = 21/3. 21 es la suma total de las piezas, no el promedio (falta dividir entre 3, el número de vehículos)."
+      },
+      {
+        "descripcion": "7",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Piezas reemplazadas por vehículo: 6, 5 y 10. Promedio = (6 + 5 + 10) /3 = 21/3. (6 + 5 + 10) /3 = 21/3 = 7."
+      },
+      {
+        "descripcion": "10",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Piezas reemplazadas por vehículo: 6, 5 y 10. Promedio = (6 + 5 + 10) /3 = 21/3. 10 es el valor máximo (vehículo 3), no el promedio de los tres vehículos."
+      },
+      {
+        "descripcion": "6",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Piezas reemplazadas por vehículo: 6, 5 y 10. Promedio = (6 + 5 + 10) /3 = 21/3. 6 es el valor del vehículo 1, no el promedio de los tres vehículos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un banco organizó un concurso para premiar a los usuarios que más utilizan las tarjetas de crédito. La tabla muestra el tipo de premio, la cantidad de premios que se entregó de cada tipo y el monto correspondiente a cada tipo de premio.\n\n¿Cuál de las siguientes tablas muestra el total de dinero entregado por el banco para cada tipo de premio?",
+    "imagen": "s2p31e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s2p31a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Dinero entregado por tipo de premio: Oro = 5 × $10.000.000 = $50.000.000; Plata = 25 × $5.000.000 = $125.000.000; Bronce = 100 × $1.000.000 = $100.000.000. Esta tabla repite los montos unitarios de cada premio ($10.000.000, $5.000.000, $1.000.000) sin multiplicarlos por la cantidad de premios entregada."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p31b.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Dinero entregado por tipo de premio: Oro = 5 × $10.000.000 = $50.000.000; Plata = 25 × $5.000.000 = $125.000.000; Bronce = 100 × $1.000.000 = $100.000.000. $50.000.000 (oro), $125.000.000 (plata) y $100.000.000 (bronce) coinciden exactamente con el resultado de multiplicar la cantidad de premios por el monto de cada uno."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p31c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Dinero entregado por tipo de premio: Oro = 5 × $10.000.000 = $50.000.000; Plata = 25 × $5.000.000 = $125.000.000; Bronce = 100 × $1.000.000 = $100.000.000. Los valores de oro y bronce aparecen intercambiados y reducidos ($1.000.000 y $5.000.000), sin corresponder a los productos correctos."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p31d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Dinero entregado por tipo de premio: Oro = 5 × $10.000.000 = $50.000.000; Plata = 25 × $5.000.000 = $125.000.000; Bronce = 100 × $1.000.000 = $100.000.000. Aunque el valor de oro es correcto ($50.000.000), los valores de plata y bronce aparecen intercambiados entre sí ($100.000.000 y $125.000.000 en el orden equivocado)."
+      }
+    ]
+  },
+  {
+    "enunciado": "El fundador de una empresa de procesadores identificó que el número de transistores de un procesador del tipo X se duplicó cada dos años. Si en el 2010 el procesador tipo X tenía 10.000 transistores, ¿cuántos transistores tenía el procesador tipo X en el 2016?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "20.000 transistores.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El número de transistores se duplica cada 2 años. De 2010 a 2016 transcurren 6 años, es decir, 3 periodos de duplicación. Partiendo de 10.000: 10.000 × 2³ = 10.000 × 8. 20.000 corresponde a una sola duplicación (2012), no a las tres duplicaciones que ocurren entre 2010 y 2016."
+      },
+      {
+        "descripcion": "40.000 transistores.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El número de transistores se duplica cada 2 años. De 2010 a 2016 transcurren 6 años, es decir, 3 periodos de duplicación. Partiendo de 10.000: 10.000 × 2³ = 10.000 × 8. 40.000 corresponde a dos duplicaciones (2014), faltando una duplicación más para llegar a 2016."
+      },
+      {
+        "descripcion": "60.000 transistores.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El número de transistores se duplica cada 2 años. De 2010 a 2016 transcurren 6 años, es decir, 3 periodos de duplicación. Partiendo de 10.000: 10.000 × 2³ = 10.000 × 8. 60.000 no corresponde a ningún número entero de duplicaciones a partir de 10.000."
+      },
+      {
+        "descripcion": "80.000 transistores.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El número de transistores se duplica cada 2 años. De 2010 a 2016 transcurren 6 años, es decir, 3 periodos de duplicación. Partiendo de 10.000: 10.000 × 2³ = 10.000 × 8. En 6 años ocurren 3 duplicaciones (2010→2012→2014→2016): 10.000 × 2 × 2 × 2 =80.000."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un jardín con forma cuadrada, de vértices EFGH, tiene de lado x + y. Otro cuadrado de vértices PQRS está inscrito en el cuadrado EFGH, de tal manera que la distancia más cercana entre dos vértices consecutivos mide x.\n\nPara encontrar una fórmula que corresponda al área de la región sombreada, el jardinero propuso los siguientes pasos:\n\nPaso 1. Escoger uno de los cuatro triángulos sombreados y multiplicar la medida de la altura por la medida de la base.\n\nPaso 2. Dividir entre 2 el resultado obtenido en el paso 1.\n\nPaso 3. Multiplicar por 4 el resultado del paso anterior.\n\nPaso 4. Sumar cuatro veces el resultado del paso 2.\n\nDe los pasos propuestos, ¿cuál es redundante para el cálculo del área de la región sombreada?",
+    "imagen": "s2p33e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "El paso 4, porque, al sumar cuatro veces el resultado del paso 2, se obtiene el resultado del paso 3.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El área de la región sombreada es la suma de las áreas de los 4 triángulos (cada uno con catetos x, y). Paso 1 calcula base × altura de un triángulo (x·y). Paso 2 divide entre 2 para obtener el área de UN triángulo (x·y/2). A partir de ahí, el paso 3 multiplica por 4 para obtener el área total de los 4 triángulos (4·(x·y/2)=2xy), mientras que el paso 4 propone sumar cuatro veces ese mismo resultado del paso 2, lo cual es matemáticamente idéntico a multiplicarlo por 4 (4·(x·y/2)=2xy también). Sumar cuatro veces el resultado del paso 2 (x·y/2 + x·y/2 + x·y/2 + x·y/2) es exactamente lo mismo, matemáticamente, que multiplicarlo por 4 (como ya se hizo en el paso 3); por lo tanto, el paso 4 repite innecesariamente un cálculo que ya se había resuelto."
+      },
+      {
+        "descripcion": "El paso 3, porque, al multiplicar por 4 el resultado del paso 2, se obtiene el mismo resultado obtenido en el paso 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El área de la región sombreada es la suma de las áreas de los 4 triángulos (cada uno con catetos x, y). Paso 1 calcula base × altura de un triángulo (x·y). Paso 2 divide entre 2 para obtener el área de UN triángulo (x·y/2). A partir de ahí, el paso 3 multiplica por 4 para obtener el área total de los 4 triángulos (4·(x·y/2)=2xy), mientras que el paso 4 propone sumar cuatro veces ese mismo resultado del paso 2, lo cual es matemáticamente idéntico a multiplicarlo por 4 (4·(x·y/2)=2xy también). El paso 3 (multiplicar por 4 el área de un triángulo) es necesario, pues es el que primero obtiene correctamente el área total de los 4 triángulos. No se puede eliminar sin perder el resultado buscado."
+      },
+      {
+        "descripcion": "El paso 2, porque, al dividir entre 2 el resultado del paso 1, se obtiene el mismo resultado del paso 3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El área de la región sombreada es la suma de las áreas de los 4 triángulos (cada uno con catetos x, y). Paso 1 calcula base × altura de un triángulo (x·y). Paso 2 divide entre 2 para obtener el área de UN triángulo (x·y/2). A partir de ahí, el paso 3 multiplica por 4 para obtener el área total de los 4 triángulos (4·(x·y/2)=2xy), mientras que el paso 4 propone sumar cuatro veces ese mismo resultado del paso 2, lo cual es matemáticamente idéntico a multiplicarlo por 4 (4·(x·y/2)=2xy también). El paso 2 (dividir entre 2 para obtener el área de un triángulo) es un paso fundamental del procedimiento (el área de un triángulo siempre requiere dividir base×altura entre 2). No es redundante ni se puede omitir."
+      },
+      {
+        "descripcion": "El paso 1, porque, al multiplicar la altura de uno de los triángulos por la base, se obtiene el área total de la figura.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El área de la región sombreada es la suma de las áreas de los 4 triángulos (cada uno con catetos x, y). Paso 1 calcula base × altura de un triángulo (x·y). Paso 2 divide entre 2 para obtener el área de UN triángulo (x·y/2). A partir de ahí, el paso 3 multiplica por 4 para obtener el área total de los 4 triángulos (4·(x·y/2)=2xy), mientras que el paso 4 propone sumar cuatro veces ese mismo resultado del paso 2, lo cual es matemáticamente idéntico a multiplicarlo por 4 (4·(x·y/2)=2xy también). El paso 1 (multiplicar base por altura de un triángulo) no da el área total de la figura, sino solo el producto base×altura de UN triángulo, que necesita dividirse entre 2 (paso 2) y multiplicarse por 4 (paso 3) para obtener el área total. Esta opción describe incorrectamente lo que realmente se calcula en el paso 1."
+      }
+    ]
+  },
+  {
+    "enunciado": "Al entrar a un túnel, un carro que lleva una velocidad de 10 m/s, acelera a 3m/s² durante 15 segundos, que es lo que dura recorriéndolo. La longitud del túnel se puede calcular mediante la siguiente formula:\n\n(10m/s)(15s)+1/2(3m/s²)(15s)²\n\nAl ver la formula, una persona afirma que esta es equivalente a:\n\n15s ∙(10m/s+1/2(3m/s²))\n\n¿Es verdadera la afirmación de la persona?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque lo que hizo fue factorizar el tiempo que tarda en recorrer el túnel.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula original es (10 m/s) (15 s) + ½ (3 m/s²) (15 s)², donde el segundo término incluye (15 s) elevado al cuadrado. Al \"factorizar\" 15 s de ambos términos como propone la persona, se estaría tratando (15 s)² como si fuera simplemente 15 s multiplicado por el resto de la expresión, lo cual ignora que en el segundo término hay un factor adicional de 15 s que no puede cancelarse o extraerse de esa manera simple. No se trata de una factorización válida del tiempo, ya que el segundo término tiene el tiempo elevado al cuadrado y al \"factorizar\" un solo 15 s se ignora el segundo factor de 15 s que queda pendiente."
+      },
+      {
+        "descripcion": "No, porque omitió que hay unos 15 segundos elevados al cuadrado.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La fórmula original es (10 m/s) (15 s) + ½ (3 m/s²) (15 s)², donde el segundo término incluye (15 s) elevado al cuadrado. Al \"factorizar\" 15 s de ambos términos como propone la persona, se estaría tratando (15 s)² como si fuera simplemente 15 s multiplicado por el resto de la expresión, lo cual ignora que en el segundo término hay un factor adicional de 15 s que no puede cancelarse o extraerse de esa manera simple. La expresión original tiene (15 s)² en el segundo término (es decir, 15 s multiplicado por sí mismo), pero al factorizar solo se extrajo un 15 s, dejando sin considerar el segundo factor de 15 s. Por eso las dos expresiones no son equivalentes (487,5 m ≠ 172,5 m al evaluarlas)."
+      },
+      {
+        "descripcion": "Sí, porque el exponente 2, al que está elevado el tiempo, se puede cancelar.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula original es (10 m/s) (15 s) + ½ (3 m/s²) (15 s)², donde el segundo término incluye (15 s) elevado al cuadrado. Al \"factorizar\" 15 s de ambos términos como propone la persona, se estaría tratando (15 s)² como si fuera simplemente 15 s multiplicado por el resto de la expresión, lo cual ignora que en el segundo término hay un factor adicional de 15 s que no puede cancelarse o extraerse de esa manera simple. El exponente 2 no se puede \"cancelar\" arbitrariamente al factorizar; de hacerlo, se estaría alterando el valor real de la expresión, como de hecho ocurre en este caso."
+      },
+      {
+        "descripcion": "No, porque también se tiene que factorizar el fraccionario 1/2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula original es (10 m/s) (15 s) + ½ (3 m/s²) (15 s)², donde el segundo término incluye (15 s) elevado al cuadrado. Al \"factorizar\" 15 s de ambos términos como propone la persona, se estaría tratando (15 s)² como si fuera simplemente 15 s multiplicado por el resto de la expresión, lo cual ignora que en el segundo término hay un factor adicional de 15 s que no puede cancelarse o extraerse de esa manera simple. El problema no está en el fraccionario 1/2, que se mantiene igual en ambas expresiones, sino en cómo se maneja el término (15 s)² al intentar factorizar el tiempo."
+      }
+    ]
+  },
+  {
+    "enunciado": "Arturo quiere calcular el tiempo que se necesita para descargar un archivo de internet que tiene de 12,6 megabytes. Él sabe que en su computador la velocidad de descarga es de 300 kilobytes por segundo y que 1 megabyte equivale a 1024 kilobytes. ¿Cuál de los siguientes procedimientos NO permite calcular el tiempo necesario para descargar el archivo?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Paso 1. Multiplicar 12,6 por 1024\nPaso 2. Dividir el resultado del paso 1 entre 300",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El tiempo correcto es (12,6 MB × 1.024 KB/MB) ÷ 300 KB/s ≈ 43 segundos. Debido a las propiedades de la multiplicación y la división, esta misma operación puede reagruparse de varias formas equivalentes (como en las opciones A, C y D), pero cualquier reordenamiento que cambie qué cantidad se divide entre cuál produce un resultado distinto e incorrecto. Este procedimiento sí es válido, y la pregunta pide el que no funciona. (12,6 × 1.024) ÷ 300 es la forma directa y correcta de resolver el problema: primero convierte los megabytes a kilobytes, luego divide entre la velocidad de descarga."
+      },
+      {
+        "descripcion": "Paso 1. Multiplicar 1024 por 300\nPaso 2. Dividir el resultado del paso 1 entre 12,6",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El tiempo correcto es (12,6 MB × 1.024 KB/MB) ÷ 300 KB/s ≈ 43 segundos. Debido a las propiedades de la multiplicación y la división, esta misma operación puede reagruparse de varias formas equivalentes (como en las opciones A, C y D), pero cualquier reordenamiento que cambie qué cantidad se divide entre cuál produce un resultado distinto e incorrecto. Es el procedimiento que no funciona, que es lo que pide la pregunta. (1.024 × 300) ÷ 12,6 mezcla incorrectamente las cantidades: multiplica la velocidad (300 KB/s) por el factor de conversión (1.024 KB/MB), un producto sin sentido en el contexto del problema, y luego divide por el tamaño del archivo (12,6 MB) en lugar de dividir por la velocidad. El resultado (≈ 24.381) no corresponde al tiempo real de descarga."
+      },
+      {
+        "descripcion": "Paso 1. Dividir 12,6 entre 300\nPaso 2. Multiplicar el resultado del paso 1 por 1024",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El tiempo correcto es (12,6 MB × 1.024 KB/MB) ÷ 300 KB/s ≈ 43 segundos. Debido a las propiedades de la multiplicación y la división, esta misma operación puede reagruparse de varias formas equivalentes (como en las opciones A, C y D), pero cualquier reordenamiento que cambie qué cantidad se divide entre cuál produce un resultado distinto e incorrecto. Este procedimiento sí es válido, y la pregunta pide el que no funciona. (12,6 ÷ 300) × 1.024 es una forma válida de reorganizar la misma operación que en la opción A (por la propiedad asociativa de la multiplicación y división), y produce el mismo resultado correcto (≈ 43 segundos)."
+      },
+      {
+        "descripcion": "Paso 1. Dividir 1024 entre 300\nPaso 2. Multiplicar el resultado del paso 1 por 12,6",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El tiempo correcto es (12,6 MB × 1.024 KB/MB) ÷ 300 KB/s ≈ 43 segundos. Debido a las propiedades de la multiplicación y la división, esta misma operación puede reagruparse de varias formas equivalentes (como en las opciones A, C y D), pero cualquier reordenamiento que cambie qué cantidad se divide entre cuál produce un resultado distinto e incorrecto. Este procedimiento sí es válido, y la pregunta pide el que no funciona. (1.024 ÷ 300) × 12,6 es otra reorganización matemáticamente equivalente de la misma operación correcta, que también produce ≈ 43 segundos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona construyó una rampa, como se muestra en la figura, pero se necesita un refuerzo para evitar que esta se parta. Para esto, a dos metros del muro, se va a construir una columna que fortalezca la estructura.\n\n¿Cuál de los siguientes procedimientos permite calcular la altura h que debe tener la columna?",
+    "imagen": "s2p36e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Paso 1. Dividir 2 m entre 4 m, obteniendo 0,5.\nPaso 2. Dividir 3 m entre el valor calculado en el paso 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La rampa forma un triángulo grande con catetos de 3 m (altura total) y 4 m (longitud total de la base). La columna de altura h se ubica a 2 m del muro, formando un triángulo más pequeño semejante al grande, con base de (4-2) = 2 m restantes hasta el extremo de la rampa. Por semejanza de triángulos: h/3 = 2/4, de donde h=3 × (2/4) = 1,5 m (equivalente a h = 3 ÷ (4/2) = 3 ÷ 2 = 1,5). Divide 2 entre 4 (0,5, cálculo correcto) pero luego divide 3 entre ese 0,5, lo que da 6, un valor que no corresponde a la relación de semejanza correcta entre los triángulos de la figura."
+      },
+      {
+        "descripcion": "Paso 1. Dividir 4 m entre 2 m, obteniendo 0,5.\nPaso 2. Multiplicar 3 m por el valor calculado en el paso 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La rampa forma un triángulo grande con catetos de 3 m (altura total) y 4 m (longitud total de la base). La columna de altura h se ubica a 2 m del muro, formando un triángulo más pequeño semejante al grande, con base de (4-2) = 2 m restantes hasta el extremo de la rampa. Por semejanza de triángulos: h/3 = 2/4, de donde h=3 × (2/4) = 1,5 m (equivalente a h = 3 ÷ (4/2) = 3 ÷ 2 = 1,5). El primer paso contiene un error aritmético: 4 entre 2 es igual a 2, no a 0,5 como se indica. Aunque el resultado final (1,5) coincide numéricamente con la respuesta correcta, se llega a él partiendo de una afirmación matemáticamente falsa en el paso 1."
+      },
+      {
+        "descripcion": "Paso 1. Dividir 4 m entre 2 m, obteniendo 2.\nPaso 2. Dividir 3 m entre el valor calculado en el paso 1.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La rampa forma un triángulo grande con catetos de 3 m (altura total) y 4 m (longitud total de la base). La columna de altura h se ubica a 2 m del muro, formando un triángulo más pequeño semejante al grande, con base de (4-2) = 2 m restantes hasta el extremo de la rampa. Por semejanza de triángulos: h/3 = 2/4, de donde h=3 × (2/4) = 1,5 m (equivalente a h = 3 ÷ (4/2) = 3 ÷ 2 = 1,5). 4 entre 2 es igual a 2 (correctamente calculado). Dividiendo 3 entre ese valor (3 ÷ 2) se obtiene 1,5 m, que es la altura real de la columna según la relación de semejanza de los triángulos de la figura."
+      },
+      {
+        "descripcion": "Paso 1. Dividir 2 m entre 4 m, obteniendo 2.\nPaso 2. Multiplicar 3 m por el valor calculado en el paso 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La rampa forma un triángulo grande con catetos de 3 m (altura total) y 4 m (longitud total de la base). La columna de altura h se ubica a 2 m del muro, formando un triángulo más pequeño semejante al grande, con base de (4-2) = 2 m restantes hasta el extremo de la rampa. Por semejanza de triángulos: h/3 = 2/4, de donde h=3 × (2/4) = 1,5 m (equivalente a h = 3 ÷ (4/2) = 3 ÷ 2 = 1,5). El primer paso contiene un error aritmético: 2 entre 4 es igual a 0,5, no a 2 como se indica. Al multiplicar 3 por ese valor erróneo (3 × 2 = 6) se obtiene un resultado incorrecto."
+      }
+    ]
+  },
+  {
+    "enunciado": "Álvaro y Jesús trabajan recolectando fruta. La Tabla 1 muestra la cantidad de kilogramos de fruta recolectada por Álvaro durante cinco días.\n\nLa tabla 2 muestra la cantidad de kilogramos de fruta recolectada por Jesús durante los mismo cinco días.\n\nDe acuerdo con la información consignada en las dos tablas, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": "s2p37e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La mediana de los kilogramos recolectados por Jesús es igual a la mediana de los kilogramos recolectados por Álvaro.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Álvaro: 24, 30, 26, 20, 30 (ordenados: 20,24,26,30,30) → mediana = 26, promedio = 26, moda = 30, rango = 10. Jesús: 20, 24, 26, 24, 30 (ordenados: 20,24,24,26,30) → mediana = 24, promedio = 24,8, moda = 24, rango = 10. La mediana de Jesús (24) no es igual a la mediana de Álvaro (26)."
+      },
+      {
+        "descripcion": "El promedio de los kilogramos recolectados por Álvaro es igual al promedio de los kilogramos recolectados por Jesús.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Álvaro: 24, 30, 26, 20, 30 (ordenados: 20,24,26,30,30) → mediana = 26, promedio = 26, moda = 30, rango = 10. Jesús: 20, 24, 26, 24, 30 (ordenados: 20,24,24,26,30) → mediana = 24, promedio = 24,8, moda = 24, rango = 10. El promedio de Álvaro (26) no es igual al promedio de Jesús (24,8)."
+      },
+      {
+        "descripcion": "El rango de los kilogramos recolectados por Jesús es mayor que el rango de los kilogramos recolectados por Álvaro.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Álvaro: 24, 30, 26, 20, 30 (ordenados: 20,24,26,30,30) → mediana = 26, promedio = 26, moda = 30, rango = 10. Jesús: 20, 24, 26, 24, 30 (ordenados: 20,24,24,26,30) → mediana = 24, promedio = 24,8, moda = 24, rango = 10. El rango de ambos conjuntos es el mismo (30 – 20 = 10 en ambos casos), por lo que no es cierto que el de Jesús sea mayor."
+      },
+      {
+        "descripcion": "La moda de los kilogramos recolectados por Álvaro es mayor que la moda de los kilogramos recolectados por Jesús.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Álvaro: 24, 30, 26, 20, 30 (ordenados: 20,24,26,30,30) → mediana = 26, promedio = 26, moda = 30, rango = 10. Jesús: 20, 24, 26, 24, 30 (ordenados: 20,24,24,26,30) → mediana = 24, promedio = 24,8, moda = 24, rango = 10. La moda de Álvaro es 30 (el valor que más se repite, dos veces), mientras que la moda de Jesús es 24 (también dos veces). Como 30 es mayor que 24, la afirmación es verdadera."
+      }
+    ]
+  },
+  {
+    "enunciado": "Kevin trabaja en una farmacia que entrega los medicamentos a domicilio. Los días viernes Kevin tiene la posibilidad de salir tres horas antes de su trabajo, pero la condición es que debe repartir los pedidos que hagan falta por entregar y que estén ubicados en la ruta que toma hacia su casa. Por ejemplo, el último viernes que salió tuvo que entregar un total de cuatro pedidos, así:\n\nPara entregar el primer pedido, tuvo que avanzar 3 cuadras.\n\nPara entregar el segundo pedido, tuvo que avanzar el doble de cuadras de las que había hecho para entregar el primer pedido.\n\nPara llegar a la dirección del tercer pedido, tuvo que avanzar la mitad de cuadras que avanzó para entregar el pedido anterior.\n\nPara el último pedido, tuvo que regresarse 10 cuadras y, así, acabar su ruta de entregas.\n\nDespués de terminar las entregas, solo tuvo que caminar una cuadra para llegar a su casa.\n\n¿Cuál de las siguientes operaciones permite obtener la distancia que hay desde la farmacia hasta la casa de Kevin?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "3+3+3-10+1",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Kevin avanza 3 cuadras (pedido 1); luego avanza el doble de eso, es decir 2 × 3 = 6 cuadras (pedido 2); luego avanza la mitad de lo anterior, es decir 6 ÷ 2 = 3 cuadras (pedido 3); luego retrocede 10 cuadras (pedido 4); y finalmente camina 1 cuadra más hasta su casa. El total es 3 + 6 + 3 – 10 + 1. Usa \"3\" en el segundo término en lugar de \"6\" (el doble de 3), sin reflejar correctamente que el segundo pedido implicó avanzar el doble de cuadras que el primero."
+      },
+      {
+        "descripcion": "3+6+6+10",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Kevin avanza 3 cuadras (pedido 1); luego avanza el doble de eso, es decir 2 × 3 = 6 cuadras (pedido 2); luego avanza la mitad de lo anterior, es decir 6 ÷ 2 = 3 cuadras (pedido 3); luego retrocede 10 cuadras (pedido 4); y finalmente camina 1 cuadra más hasta su casa. El total es 3 + 6 + 3 – 10 + 1. Repite \"6\" dos veces en lugar de usar \"6\" y luego \"3\" (la mitad de 6), y además trata el regreso de 10 cuadras y la última cuadra caminada como si también fueran avances (todos positivos), ignorando que el regreso debe restarse."
+      },
+      {
+        "descripcion": "3+6+3-10+1",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Kevin avanza 3 cuadras (pedido 1); luego avanza el doble de eso, es decir 2 × 3 = 6 cuadras (pedido 2); luego avanza la mitad de lo anterior, es decir 6 ÷ 2 = 3 cuadras (pedido 3); luego retrocede 10 cuadras (pedido 4); y finalmente camina 1 cuadra más hasta su casa. El total es 3 + 6 + 3 – 10 + 1. 3 (primer pedido) + 6 (el doble, segundo pedido) + 3 (la mitad del anterior, tercer pedido) - 10 (retrocede, cuarto pedido) + 1 (camina a casa) representa fielmente cada movimiento descrito, con el signo correcto para el retroceso."
+      },
+      {
+        "descripcion": "6+3+10-1",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Kevin avanza 3 cuadras (pedido 1); luego avanza el doble de eso, es decir 2 × 3 = 6 cuadras (pedido 2); luego avanza la mitad de lo anterior, es decir 6 ÷ 2 = 3 cuadras (pedido 3); luego retrocede 10 cuadras (pedido 4); y finalmente camina 1 cuadra más hasta su casa. El total es 3 + 6 + 3 – 10 + 1. El orden y los signos de los términos no corresponden a la secuencia de eventos descrita en el enunciado (por ejemplo, resta 1 en lugar de sumarlo y omite el tercer pedido)."
+      }
+    ]
+  },
+  {
+    "enunciado": "La presión pleural se genera entre algunas paredes de los pulmones en el proceso de respiración del ser humano. Al respecto, se midió la presión pleural de cuatro pacientes para determinar el orden en que deben recibir un tratamiento pulmonar.\n\nPara determinar el orden en que los pacientes van a recibir el tratamiento médico, se les debe ordenar de menor a mayor según su presión pleural. ¿Cuál de las siguientes tablas indica el orden en qué deben recibir el tratamiento los pacientes?",
+    "imagen": "s2p39e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s2p39a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Presiones: Santiago = -7,6; Ximena = -7,09; Mariana = -7,62; Orlando = -7,53. Ordenando de menor a mayor (recordando que, entre negativos, -7,62 es menor que -7,6, que es menor que -7,53, que es menor que -7,09): Mariana (-7,62) < Santiago (-7,6) < Orlando (-7,53) < Ximena (-7,09). Coloca a Ximena (el valor menos negativo, -7,09) de primera, cuando en realidad debería recibir el tratamiento de último, pues tiene la presión más alta (menos negativa) de las cuatro."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p39b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Presiones: Santiago = -7,6; Ximena = -7,09; Mariana = -7,62; Orlando = -7,53. Ordenando de menor a mayor (recordando que, entre negativos, -7,62 es menor que -7,6, que es menor que -7,53, que es menor que -7,09): Mariana (-7,62) < Santiago (-7,6) < Orlando (-7,53) < Ximena (-7,09). Invierte por completo el orden correcto, colocando primero a quien debería ir de último (Orlando) y viceversa con Ximena."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p39c.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Presiones: Santiago = -7,6; Ximena = -7,09; Mariana = -7,62; Orlando = -7,53. Ordenando de menor a mayor (recordando que, entre negativos, -7,62 es menor que -7,6, que es menor que -7,53, que es menor que -7,09): Mariana (-7,62) < Santiago (-7,6) < Orlando (-7,53) < Ximena (-7,09). Mariana (-7,62, la más negativa) recibe el tratamiento primero, seguida de Santiago (-7,6), Orlando (-7,53) y finalmente Ximena (-7,09, la menos negativa)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s2p39d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Presiones: Santiago = -7,6; Ximena = -7,09; Mariana = -7,62; Orlando = -7,53. Ordenando de menor a mayor (recordando que, entre negativos, -7,62 es menor que -7,6, que es menor que -7,53, que es menor que -7,09): Mariana (-7,62) < Santiago (-7,6) < Orlando (-7,53) < Ximena (-7,09). Coloca a Mariana (la presión más baja/negativa, que debería ir primero) de primera correctamente, pero luego intercambia el orden de Ximena y Orlando respecto al correcto."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una pieza de papel de forma cuadrada tiene un lado igual a 2 cm. ¿Cuál de las siguientes opciones NO es un método para encontrar el área de esta pieza?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Dividir el cuadrado en dos triángulos con 2 cm de base y 2 cm de altura.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El cuadrado tiene área 2 × 2=4 cm². Cualquier método de división válido debe producir piezas cuya área total sume exactamente 4 cm². Este método sí es válido, y la pregunta pide el que no funciona. Dos triángulos de base 2 cm y altura 2 cm tienen cada uno un área de (2 × 2) /2 = 2 cm²; en total, 2 × 2 = 4 cm², que coincide con el área real del cuadrado."
+      },
+      {
+        "descripcion": "Dividir el cuadrado en dos rectángulos con 1 cm de base y 2 cm de altura.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El cuadrado tiene área 2 × 2=4 cm². Cualquier método de división válido debe producir piezas cuya área total sume exactamente 4 cm². Este método sí es válido, y la pregunta pide el que no funciona. Dos rectángulos de 1 cm de base por 2 cm de altura tienen cada uno un área de 2 cm²; en total, 4 cm², que coincide con el área real."
+      },
+      {
+        "descripcion": "Dividir el cuadrado en 8 triángulos con 1 cm de base y 1 cm de altura.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El cuadrado tiene área 2 × 2=4 cm². Cualquier método de división válido debe producir piezas cuya área total sume exactamente 4 cm². Este método sí es válido, y la pregunta pide el que no funciona. Ocho triángulos de base 1 cm y altura 1 cm tienen cada uno un área de 0,5 cm². En total, 8 × 0,5 = 4 cm², que coincide con el área real."
+      },
+      {
+        "descripcion": "Dividir el cuadrado en 10 triángulos con 2 cm de base y 1 cm de altura.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El cuadrado tiene área 2 × 2=4 cm². Cualquier método de división válido debe producir piezas cuya área total sume exactamente 4 cm². Diez triángulos de base 2 cm y altura 1 cm tienen cada uno un área de (2 × 1) /2 = 1 cm²; en total, 10 × 1 = 10 cm², un valor que NO coincide con el área real del cuadrado (4 cm²), por lo que este no es un método válido para hallar su área."
+      }
+    ]
+  },
+  {
+    "enunciado": "El padre de Manuel tiene una cuenta de ahorros en el Banco M, donde le cobran $12.000 de cuota de manejo trimestral y $1.000 cada vez que retira dinero de la entidad. Manuel le sugiere a su padre que se cambie al Banco N, que no cobra cuota de manejo, pero en el que, cada vez que retira dinero, le descuentan un valor de $5.000.\n\nSi el padre de Manuel siempre retira dinero del banco dos veces al mes, al cabo de un año, ¿ahorraría al seguir el consejo de su hijo?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque en el Banco M le cobran cuota de manejo y en el N, no.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 2 retiros mensuales, en un año hay 24 retiros. Banco M: cuota trimestral de $12.000 (4 trimestres al año = $48.000) + $1.000 por retiro (24 × $1.000 = $24.000) = $72.000 al año. Banco N: sin cuota de manejo, pero $5.000 por retiro (24 × $5.000 = $120.000) = $120.000 al año. Aunque es cierto que el Banco M cobra cuota de manejo y el N no, esta sola diferencia no determina cuál banco resulta más económico en total. Hay que comparar el costo total de ambos, incluyendo los cobros por retiro."
+      },
+      {
+        "descripcion": "No, porque debería pagar igual cantidad de dinero a ambos bancos cada año.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 2 retiros mensuales, en un año hay 24 retiros. Banco M: cuota trimestral de $12.000 (4 trimestres al año = $48.000) + $1.000 por retiro (24 × $1.000 = $24.000) = $72.000 al año. Banco N: sin cuota de manejo, pero $5.000 por retiro (24 × $5.000 = $120.000) = $120.000 al año. Los dos bancos NO cobran la misma cantidad total al año: el Banco M cuesta $72.000 y el Banco N cuesta $120.000 anuales."
+      },
+      {
+        "descripcion": "Sí, porque, teniendo en cuenta cada retiro, pagaría menos dinero si se cambiara al Banco N.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 2 retiros mensuales, en un año hay 24 retiros. Banco M: cuota trimestral de $12.000 (4 trimestres al año = $48.000) + $1.000 por retiro (24 × $1.000 = $24.000) = $72.000 al año. Banco N: sin cuota de manejo, pero $5.000 por retiro (24 × $5.000 = $120.000) = $120.000 al año. Afirma que cambiarse al Banco N ahorraría dinero por los retiros, pero en realidad el Banco N cobra más por cada retiro ($5.000 frente a $1.000 del Banco M), lo que hace que termine siendo más costoso en total, no menos."
+      },
+      {
+        "descripcion": "No, porque, incluso pagando cuota de manejo, pagaría menos dinero si se quedara en el Banco M.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Con 2 retiros mensuales, en un año hay 24 retiros. Banco M: cuota trimestral de $12.000 (4 trimestres al año = $48.000) + $1.000 por retiro (24 × $1.000 = $24.000) = $72.000 al año. Banco N: sin cuota de manejo, pero $5.000 por retiro (24 × $5.000 = $120.000) = $120.000 al año. Aunque el Banco M cobra una cuota de manejo trimestral, su costo total anual ($72.000) es menor que el del Banco N ($120.000), principalmente porque el costo por retiro en el Banco N es cinco veces mayor; por lo tanto, no convendría cambiar de banco."
+      }
+    ]
+  },
+  {
+    "enunciado": "En los últimos 100 años, las universidades de EE. UU. han dado a los estudiantes calificaciones cada vez más altas por trabajos de similares características. Por ejemplo, alguien que, hace veinte años, tuvo un promedio de 73 puntos sobre 100, con el mismo trabajo, hoy tendría 82 puntos sobre 100, puesto que cada 20 años las calificaciones suben un tercio de lo que les falta para ser iguales a 100; es decir, a 73 le faltan 27, y como, de este último número, debe subir la tercera parte, por eso resulta 82.\n\nEn general, si una persona tuvo hace veinte años un promedio inicial cualquiera de puntos sobre 100, entonces, ¿cuál sería su media, en el día de hoy, también sobre 100?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Promedio actual = Promedio inicial+ (Promedio inicial) /3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según el ejemplo: a 73 le faltan 27 para llegar a 100 (100 – 73 = 27); se sube la tercera parte de ese faltante (27/3 = 9). El promedio actual es 73 + 9 = 82. Generalizando con \"Promedio inicial\" en lugar de 73: lo que falta para 100 es (100 – Promedio inicial), se sube un tercio de eso, y se suma al promedio inicial. Suma al promedio inicial un tercio de SÍ MISMO (Promedio inicial/3), en lugar de un tercio de lo que le falta para llegar a 100. Con el ejemplo (73), esta fórmula daría 73 + 73/3 ≈ 97,3, no 82."
+      },
+      {
+        "descripcion": "Promedio actual = 100-(Promedio inicial) /3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según el ejemplo: a 73 le faltan 27 para llegar a 100 (100 – 73 = 27); se sube la tercera parte de ese faltante (27/3 = 9). El promedio actual es 73 + 9 = 82. Generalizando con \"Promedio inicial\" en lugar de 73: lo que falta para 100 es (100 – Promedio inicial), se sube un tercio de eso, y se suma al promedio inicial. Resta a 100 un tercio del promedio inicial, una operación que no corresponde al patrón descrito (subir el promedio, no partir de 100 y restarle algo). Con 73 daría 100 – 24,3 ≈ 75,7, no 82."
+      },
+      {
+        "descripcion": "Promedio actual = Promedio inicial + (100-Promedio inicial) /3.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Según el ejemplo: a 73 le faltan 27 para llegar a 100 (100 – 73 = 27); se sube la tercera parte de ese faltante (27/3 = 9). El promedio actual es 73 + 9 = 82. Generalizando con \"Promedio inicial\" en lugar de 73: lo que falta para 100 es (100 – Promedio inicial), se sube un tercio de eso, y se suma al promedio inicial. Esta fórmula suma al promedio inicial un tercio de lo que le falta para llegar a 100 (100 – Promedio inicial) /3, reproduciendo exactamente el patrón del ejemplo: 73 + (100 – 73) /3 = 73 + 9 = 82."
+      },
+      {
+        "descripcion": "Promedio actual = Promedio inicial + 100/3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según el ejemplo: a 73 le faltan 27 para llegar a 100 (100 – 73 = 27); se sube la tercera parte de ese faltante (27/3 = 9). El promedio actual es 73 + 9 = 82. Generalizando con \"Promedio inicial\" en lugar de 73: lo que falta para 100 es (100 – Promedio inicial), se sube un tercio de eso, y se suma al promedio inicial. Suma al promedio inicial la constante 100/3 (≈ 33,3) sin importar cuál sea el promedio inicial, lo cual no corresponde al patrón (que depende de cuánto le falta a CADA promedio inicial para llegar a 100, no de una cantidad fija)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Los miembros de una familia deciden ahorrar dinero para comprar una bicicleta que cuesta $750.000. Ellos acuerdan ahorrar $50.000 el primer mes y duplicar el ahorro cada mes hasta completar el valor de la bicicleta. Para calcular la cantidad de meses que la familia debe ahorrar, se puede usar el siguiente procedimiento.\n\nPaso 1. Dividir $750.000 entre $50.000.\n\nPaso 2. Encontrar el valor de x tal que la suma de 2⁰+2¹+⋯+2^(x) sea igual al resultado obtenido en el paso 1.\n\nРаsо 3. Sumar 1 al valor de encontrado en el paso 2.\n\n¿Cuántos meses debe ahorrar la familia para comprar la bicicleta?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "16",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "$750.000 ÷ $50.000 = 15 (paso 1). El paso 2 busca x tal que 2⁰ + 2¹ + ... + 2ˣ = 15. Usando la fórmula de la suma de una serie geométrica (2⁰ + 2¹ + ... + 2ˣ = 2(x+1) – 1): 2(x+1) – 1 = 15 → 2(x+1) = 16 = 2⁴ → x + 1 = 4 → x = 3. El paso 3 suma 1 al valor hallado: 3 + 1 = 4. 16 correspondería al valor de 2(x+1) (es decir, 2⁴), no al número de meses buscado."
+      },
+      {
+        "descripcion": "8",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "$750.000 ÷ $50.000 = 15 (paso 1). El paso 2 busca x tal que 2⁰ + 2¹ + ... + 2ˣ = 15. Usando la fórmula de la suma de una serie geométrica (2⁰ + 2¹ + ... + 2ˣ = 2(x+1) – 1): 2(x+1) – 1 = 15 → 2(x+1) = 16 = 2⁴ → x + 1 = 4 → x = 3. El paso 3 suma 1 al valor hallado: 3 + 1 = 4. 8 no corresponde a ningún resultado coherente del procedimiento descrito."
+      },
+      {
+        "descripcion": "4",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "$750.000 ÷ $50.000 = 15 (paso 1). El paso 2 busca x tal que 2⁰ + 2¹ + ... + 2ˣ = 15. Usando la fórmula de la suma de una serie geométrica (2⁰ + 2¹ + ... + 2ˣ = 2(x+1) – 1): 2(x+1) – 1 = 15 → 2(x+1) = 16 = 2⁴ → x + 1 = 4 → x = 3. El paso 3 suma 1 al valor hallado: 3 + 1 = 4. Siguiendo los tres pasos: 750.000 ÷ 50.000 = 15. El valor de x tal que 2⁰ + 2¹ + 2² + 2³ = 1 + 2 + 4 + 8 = 15 es x = 3; sumando 1 (3 + 1), la familia debe ahorrar durante 4 meses."
+      },
+      {
+        "descripcion": "2",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "$750.000 ÷ $50.000 = 15 (paso 1). El paso 2 busca x tal que 2⁰ + 2¹ + ... + 2ˣ = 15. Usando la fórmula de la suma de una serie geométrica (2⁰ + 2¹ + ... + 2ˣ = 2(x+1) – 1): 2(x+1) – 1 = 15 → 2(x+1) = 16 = 2⁴ → x + 1 = 4 → x = 3. El paso 3 suma 1 al valor hallado: 3 + 1 = 4. 2 no corresponde a ningún resultado coherente del procedimiento. Con solo 2 meses el ahorro acumulado (duplicándose desde $50.000) sería apenas $50.000 + $100.000 = $150.000, muy por debajo de los $750.000 necesarios."
+      }
+    ]
+  },
+  {
+    "enunciado": "La grafica muestra el comportamiento de una función en el intervalo [1,5].\n\nUn estudiante asegura que la función es constante en el intervalo [1, 5]. ¿Es verdadera esta afirmación?",
+    "imagen": "s2p44e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque la función toma los mismos valores en los extremos del intervalo [1, 5].",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra: un tramo constante en [1,2] (altura 1), un tramo decreciente en [2,3] (baja de 1 a 0), un tramo constante en [3,4] (altura 0) y un tramo creciente en [4,5] (sube de 0 a 1). Una función es \"constante en un intervalo\" solo si no cambia su valor en NINGÚN punto de ese intervalo completo, no basta con que coincida en los extremos. Que la función tome el mismo valor en los extremos del intervalo (x = 1 y x = 5, ambos con y = 1) no significa que sea constante en todo el intervalo; de hecho, la función varía considerablemente entre esos extremos (baja hasta 0 y vuelve a subir)."
+      },
+      {
+        "descripcion": "No, porque la función es decreciente en el intervalo [2, 3] y creciente en [4, 5].",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La gráfica muestra: un tramo constante en [1,2] (altura 1), un tramo decreciente en [2,3] (baja de 1 a 0), un tramo constante en [3,4] (altura 0) y un tramo creciente en [4,5] (sube de 0 a 1). Una función es \"constante en un intervalo\" solo si no cambia su valor en NINGÚN punto de ese intervalo completo, no basta con que coincida en los extremos. La función claramente no es constante: decrece en el intervalo [2,3] (de y = 1 a y = 0) y crece en el intervalo [4,5] (de y = 0 a y = 1), cambiando de valor en varios tramos del intervalo [1,5]."
+      },
+      {
+        "descripcion": "Sí, porque el valor de la función en x = 2 es igual a los valores en x = 1 y x = 5.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra: un tramo constante en [1,2] (altura 1), un tramo decreciente en [2,3] (baja de 1 a 0), un tramo constante en [3,4] (altura 0) y un tramo creciente en [4,5] (sube de 0 a 1). Una función es \"constante en un intervalo\" solo si no cambia su valor en NINGÚN punto de ese intervalo completo, no basta con que coincida en los extremos. Aunque es cierto que el valor en x = 2 coincide con los valores en x = 1 y x = 5 (todos iguales a 1), esto no prueba que la función sea constante, pues entre esos puntos la función sí cambia (desciende hasta 0 en x = 3 y x = 4)."
+      },
+      {
+        "descripcion": "No, porque la función es igual a cero solamente en el intervalo [3, 4].",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica muestra: un tramo constante en [1,2] (altura 1), un tramo decreciente en [2,3] (baja de 1 a 0), un tramo constante en [3,4] (altura 0) y un tramo creciente en [4,5] (sube de 0 a 1). Una función es \"constante en un intervalo\" solo si no cambia su valor en NINGÚN punto de ese intervalo completo, no basta con que coincida en los extremos. Si bien es cierto que la función vale 0 solo en el intervalo [3,4], esta observación por sí sola no es la razón más completa para explicar por qué la función no es constante en todo [1,5]. La razón más directa y completa es que la función decrece y luego crece, como indica la opción B."
+      }
+    ]
+  }
+]
