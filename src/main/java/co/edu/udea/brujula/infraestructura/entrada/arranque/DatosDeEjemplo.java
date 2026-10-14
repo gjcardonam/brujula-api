@@ -6,12 +6,12 @@ import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
 import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarCatalogos;
-import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarComponentesDelBanco;
 import co.edu.udea.brujula.dominio.puerto.entrada.CrearEjercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.comando.DatosDeEjercicio;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.CifradorDeContrasenas;
+import co.edu.udea.brujula.dominio.puerto.salida.EjercicioRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.Reloj;
 import co.edu.udea.brujula.dominio.puerto.salida.UsuarioRepositorio;
 import co.edu.udea.brujula.infraestructura.configuracion.BrujulaProperties;
@@ -25,11 +25,13 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Component
@@ -39,7 +41,8 @@ public class DatosDeEjemplo implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(DatosDeEjemplo.class);
     private static final String CORREO_DE_PRUEBA = "estudiante@brujula.local";
     private static final String CLAVE_DE_PRUEBA = "Estudiante.2026";
-    private static final String ARCHIVO = "datos-ejemplo/ejercicios.json";
+    static final List<String> ARCHIVOS = List.of("datos-ejemplo/ejercicios.json",
+            "datos-ejemplo/simulacro-2.json");
     private static final String CARPETA_IMAGENES = "datos-ejemplo/imagenes/";
 
     public record EjercicioJson(String enunciado, String imagen, String componente, String competencia,
@@ -50,7 +53,7 @@ public class DatosDeEjemplo implements ApplicationRunner {
     }
 
     private final BrujulaProperties propiedades;
-    private final ConsultarComponentesDelBanco banco;
+    private final EjercicioRepositorio banco;
     private final ConsultarCatalogos catalogos;
     private final CrearEjercicio creacion;
     private final UsuarioRepositorio usuarios;
@@ -60,7 +63,7 @@ public class DatosDeEjemplo implements ApplicationRunner {
     private final ObjectMapper json;
     private final AlmacenDeImagenes imagenes;
 
-    public DatosDeEjemplo(BrujulaProperties propiedades, ConsultarComponentesDelBanco banco,
+    public DatosDeEjemplo(BrujulaProperties propiedades, EjercicioRepositorio banco,
                           ConsultarCatalogos catalogos, CrearEjercicio creacion, UsuarioRepositorio usuarios,
                           CatalogoRepositorio catalogoRepositorio, CifradorDeContrasenas cifrador, Reloj reloj,
                           ObjectMapper json, AlmacenDeImagenes imagenes) {
@@ -82,22 +85,27 @@ public class DatosDeEjemplo implements ApplicationRunner {
 
         crearEstudianteDePrueba();
 
-        List<EjercicioJson> ejercicios = leerArchivo();
+        List<EjercicioJson> ejercicios = leerArchivos();
         restaurarImagenesDeEjemplo(ejercicios);
 
-        if (banco.componentes(true).total() > 0) return;
+        List<EjercicioJson> nuevos = faltantes(ejercicios, banco::existeConEnunciado);
+        if (nuevos.isEmpty()) return;
         Usuario administrador = usuarios.porEmail(propiedades.admin().email()).orElse(null);
         if (administrador == null || !administrador.esAdministrador()) {
             log.warn("No hay administrador; no se cargan ejercicios de ejemplo.");
             return;
         }
-        cargarEjercicios(administrador.id(), ejercicios);
+        cargarEjercicios(administrador.id(), nuevos);
     }
 
     private void restaurarImagenesDeEjemplo(List<EjercicioJson> ejercicios) throws Exception {
         for (String nombre : nombresDeImagenes(ejercicios)) {
             imagenes.copiarSiFalta(nombre, leerRecursoImagen(nombre));
         }
+    }
+
+    static List<EjercicioJson> faltantes(List<EjercicioJson> ejercicios, Predicate<String> existe) {
+        return ejercicios.stream().filter(ejercicio -> !existe.test(ejercicio.enunciado().trim())).toList();
     }
 
     static Set<String> nombresDeImagenes(List<EjercicioJson> ejercicios) {
@@ -144,11 +152,15 @@ public class DatosDeEjemplo implements ApplicationRunner {
         log.info("Se cargaron {} ejercicios de ejemplo", ejercicios.size());
     }
 
-    private List<EjercicioJson> leerArchivo() throws Exception {
-        try (InputStream archivo = new ClassPathResource(ARCHIVO).getInputStream()) {
-            return json.readValue(archivo,
-                    json.getTypeFactory().constructCollectionType(List.class, EjercicioJson.class));
+    private List<EjercicioJson> leerArchivos() throws Exception {
+        List<EjercicioJson> ejercicios = new ArrayList<>();
+        for (String ruta : ARCHIVOS) {
+            try (InputStream archivo = new ClassPathResource(ruta).getInputStream()) {
+                ejercicios.addAll(json.readValue(archivo,
+                        json.getTypeFactory().constructCollectionType(List.class, EjercicioJson.class)));
+            }
         }
+        return ejercicios;
     }
 
     private static <T> Map<String, Long> indexar(List<T> elementos, Function<T, String> nombre,
