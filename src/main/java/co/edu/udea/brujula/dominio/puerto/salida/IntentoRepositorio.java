@@ -2,6 +2,7 @@ package co.edu.udea.brujula.dominio.puerto.salida;
 
 import co.edu.udea.brujula.dominio.modelo.Intento;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -12,4 +13,14 @@ public interface IntentoRepositorio {
     Optional<Intento> porToken(UUID token);
 
     long cantidadDeIntentos(Long idEstudiante, Long idEjercicio);
+
+    boolean yaRespondidoEnSimulacro(Long idSimulacro, Long idEjercicio);
+
+    List<Intento> delSimulacro(Long idSimulacro);
+
+    long respondidosEn(Long idSimulacro);
+
+    long correctasEn(Long idSimulacro);
+
+    List<Intento> deEstudiante(Long idEstudiante);
 }

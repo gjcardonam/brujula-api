@@ -2,6 +2,7 @@ package co.edu.udea.brujula.dominio.puerto.salida;
 
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 
@@ -23,4 +24,8 @@ public interface CatalogoRepositorio {
     List<NivelDificultad> niveles();
 
     Optional<NivelDificultad> nivel(Long id);
+
+    List<DuracionSimulacro> duraciones();
+
+    Optional<DuracionSimulacro> duracion(Long id);
 }

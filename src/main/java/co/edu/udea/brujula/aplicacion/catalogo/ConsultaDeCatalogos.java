@@ -17,6 +17,7 @@ public class ConsultaDeCatalogos implements ConsultarCatalogos {
     @Override
     @Transactional(readOnly = true)
     public Catalogos todos() {
-        return new Catalogos(catalogos.componentes(true), catalogos.competencias(true), catalogos.niveles());
+        return new Catalogos(catalogos.componentes(true), catalogos.competencias(true), catalogos.niveles(),
+                catalogos.duraciones());
     }
 }
