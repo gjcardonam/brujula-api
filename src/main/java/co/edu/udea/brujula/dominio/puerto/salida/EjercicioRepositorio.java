@@ -19,4 +19,8 @@ public interface EjercicioRepositorio {
     Ejercicio guardar(Ejercicio ejercicio);
 
     Optional<Long> siguienteParaPractica(Long idActual, Long idComponente, Long idEstudiante);
+
+    long cantidadDeActivos();
+
+    Optional<Long> siguienteParaSimulacro(Long idSimulacro);
 }

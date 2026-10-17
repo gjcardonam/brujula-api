@@ -1,9 +1,9 @@
 package co.edu.udea.brujula.infraestructura.entrada.rest;
 
-import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeIntento;
 import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarIntento;
 import co.edu.udea.brujula.dominio.puerto.entrada.ValidarSesion;
 import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Peticiones.IntentoRequest;
+import co.edu.udea.brujula.infraestructura.entrada.rest.dto.Respuestas.ResultadoDeIntentoDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -26,9 +26,10 @@ public class IntentoControlador {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResultadoDeIntento registrar(@AuthenticationPrincipal ValidarSesion.Autenticado usuario,
-                                        @RequestBody IntentoRequest peticion) {
-        return registro.registrar(usuario.id(), new RegistrarIntento.Respuesta(peticion.idEjercicio(),
-                peticion.idOpcion(), peticion.nivelConfianza(), peticion.tokenIdempotencia()));
+    public ResultadoDeIntentoDto registrar(@AuthenticationPrincipal ValidarSesion.Autenticado usuario,
+                                           @RequestBody IntentoRequest peticion) {
+        return ResultadoDeIntentoDto.de(registro.registrar(usuario.id(), new RegistrarIntento.Respuesta(
+                peticion.idEjercicio(), peticion.idOpcion(), peticion.nivelConfianza(), peticion.tokenIdempotencia(),
+                peticion.idSimulacro())));
     }
 }
