@@ -5,11 +5,12 @@ la distingue de un banco de preguntas cualquiera es que, al fallar, le explica *
 equivocó según la opción que eligió**, y le pide declarar qué tan seguro estaba antes de
 responder.
 
-Este documento describe lo que hay en `main`, que es el alcance del **Sprint 1**: acceso y
-cuenta, banco de ejercicios y el ciclo de resolver con retroalimentación, más la creación
-de ejercicios por parte del administrador. Los simulacros, las estadísticas, el historial,
-la edición del banco y la clasificación del tipo de error están construidos y viven en la
-rama `sprint-2`; entran a `main` cuando llegue su sprint.
+Este documento describe lo que hay en `main`: el alcance del **Sprint 1** (acceso y cuenta,
+banco de ejercicios y el ciclo de resolver con retroalimentación, más la creación de
+ejercicios por parte del administrador) y el del **Sprint 3** (simulacros con tiempo,
+resultados, recomendaciones de estudio y estadísticas personales). El historial, la edición
+del banco y la clasificación del tipo de error están construidos y viven en la rama
+`sprint-2`; entran a `main` cuando llegue su sprint.
 
 ## De un vistazo
 
@@ -25,9 +26,9 @@ base de datos o de framework web es escribir otro adaptador.
 
 | Capa | Archivos | Qué contiene |
 | :-- | --: | :-- |
-| `dominio` | 62 | Modelo con comportamiento, reglas puras, puertos y errores de negocio |
-| `aplicacion` | 21 | Los casos de uso, uno por acción del usuario |
-| `infraestructura` | 53 | Controladores, JPA, seguridad, correo, Google, disco y reloj |
+| `dominio` | 86 | Modelo con comportamiento, reglas puras, puertos y errores de negocio |
+| `aplicacion` | 29 | Los casos de uso, uno por acción del usuario |
+| `infraestructura` | 66 | Controladores, JPA, seguridad, correo, Google, disco y reloj |
 
 La regla es una sola: **las dependencias apuntan hacia adentro**. Y no se queda en la
 promesa: `ArquitecturaTest` lee los imports del proyecto y falla si alguien la rompe. Son
@@ -68,7 +69,15 @@ nombra con un verbo en infinitivo y la clase que lo implementa con un sustantivo
 | `ConsultarComponentesDelBanco` | `banco/ConsultaDeComponentesDelBanco` | HU-007 | `GET /api/ejercicios/componentes` |
 | `AbrirEjercicio` | `banco/AperturaDeEjercicio` | HU-009 | `GET /api/ejercicios/{id}` |
 | `BuscarSiguienteEjercicio` | `banco/BusquedaDelSiguienteEjercicio` | HU-009 | `GET /api/ejercicios/{id}/siguiente` |
-| `RegistrarIntento` | `practica/RegistroDeIntento` | HU-010, HU-011, HU-012 | `POST /api/intentos` |
+| `RegistrarIntento` | `practica/RegistroDeIntento` | HU-010, HU-011, HU-012, HU-014, HU-016 | `POST /api/intentos` |
+| `IniciarSimulacro` | `simulacro/InicioDeSimulacro` | HU-013 | `POST /api/simulacros` |
+| `ConsultarSimulacroEnCurso` | `simulacro/ConsultaDelSimulacroEnCurso` | HU-016 | `GET /api/simulacros/en-curso` |
+| `ConsultarEstadoDelSimulacro` | `simulacro/ConsultaDelEstadoDelSimulacro` | HU-013, HU-015 | `GET /api/simulacros/{id}` |
+| `PresentarSiguienteEjercicio` | `simulacro/PresentacionDelSiguienteEjercicio` | HU-014, HU-015 | `GET /api/simulacros/{id}/siguiente-ejercicio` |
+| `FinalizarSimulacro` | `simulacro/FinalizacionDeSimulacro` | HU-015 | `POST /api/simulacros/{id}/finalizar` |
+| `ConsultarResultadoDelSimulacro` | `simulacro/ConsultaDelResultadoDelSimulacro` | HU-017, HU-018 | `GET /api/simulacros/{id}/resultado` |
+| `ListarSimulacros` | `simulacro/ListadoDeSimulacros` | HU-017 | `GET /api/simulacros/mios` |
+| `ConsultarEstadisticas` | `estadisticas/ConsultaDeEstadisticas` | HU-019 | `GET /api/estadisticas/mias` |
 | `CrearEjercicio` | `administracion/CreacionDeEjercicio` | HU-020 | `POST /api/ejercicios` |
 | `GuardarImagen` | `administracion/GuardadoDeImagen` | HU-020 | `POST /api/archivos` |
 | `ConsultarCatalogos` | `catalogo/ConsultaDeCatalogos` | HU-020 | `GET /api/catalogos` |
@@ -77,7 +86,7 @@ nombra con un verbo en infinitivo y la clase que lo implementa con un sustantivo
 
 ![Puertos de salida](imagenes/puertos-de-salida.png)
 
-Trece puertos de salida. Siete son repositorios y seis no: el reloj, los parámetros del
+Catorce puertos de salida. Ocho son repositorios y seis no: el reloj, los parámetros del
 sistema, el cifrador, el proveedor de tokens, el notificador de correo, el verificador de
 Google y el almacén de imágenes. Aquí está la inversión que da nombre a la arquitectura: el
 dominio declara la interfaz en su propio vocabulario y la base de datos la cumple, no al
@@ -128,6 +137,26 @@ por diseño.
 `ValidacionDeSesion` lo rechaza si es anterior al último cambio de contraseña. Aplica tanto
 al restablecimiento por correo como al cambio desde el perfil.
 
+**El reloj del simulacro está en el servidor.** No hay un proceso que despierte a cerrar
+simulacros: se guarda la hora de inicio y cada llamada sobre un simulacro revisa si ya se
+venció; si es así, lo cierra ahí mismo con la hora de fin prevista, no con la actual. Así la
+desconexión no regala tiempo y al reconectar el simulacro aparece ya finalizado.
+
+**Cerrar un simulacro es una regla de dominio, no un caso de uso.** Nueve casos de uso pueden
+encontrarse un simulacro vencido y ninguno puede llamar a otro, así que el cierre vive en
+`CierreDeSimulacros`, un servicio del dominio que solo habla con puertos. Infraestructura lo
+registra como bean sin que el dominio sepa de Spring. El cierre es condicional en la base
+(`... where estado = 'En curso'`): si dos peticiones lo intentan a la vez, solo una genera las
+recomendaciones.
+
+**Responder dentro de un simulacro bloquea su fila.** La respuesta toma el simulacro con
+`SELECT ... FOR UPDATE` antes de mirar el token. Una respuesta y una finalización simultáneas
+quedan en fila, y dos reenvíos del mismo token devuelven el mismo intento en lugar de chocar.
+
+**Las recomendaciones se escriben una vez.** Se calculan al cerrar el simulacro y se guardan
+con él; consultar el resultado después las lee, no las recalcula. Por eso un simulacro nuevo
+no cambia las de los anteriores.
+
 ## Dos recorridos completos
 
 **Iniciar sesión**, con sus tres caminos. Sirve para explicar por qué el mensaje de error es
@@ -141,7 +170,7 @@ siempre el mismo exista o no la cuenta.
 
 ## La base de datos
 
-Once tablas, dos migraciones de Flyway y ningún comentario: la intención va en el nombre de
+Catorce tablas, tres migraciones de Flyway y ningún comentario: la intención va en el nombre de
 cada restricción. Hibernate arranca en `validate`, así que el esquema lo define el SQL y
 nunca las anotaciones.
 
@@ -149,6 +178,7 @@ nunca las anotaciones.
 roles · usuarios · tokens_recuperacion · tokens_sesion_revocados
 componentes · competencias · niveles_dificultad
 ejercicios · opciones_respuesta · intentos · parametros_sistema
+duraciones_simulacro · simulacros · recomendaciones_estudio
 ```
 
 Tres decisiones que vale la pena mirar:
@@ -161,6 +191,10 @@ Tres decisiones que vale la pena mirar:
   compuesta, `(id_opcion_seleccionada, id_ejercicio)`, contra una unicidad del mismo par en
   `opciones_respuesta`.
 - **El correo es único sin distinguir mayúsculas**, por un índice sobre `lower(email)`.
+- **Un simulacro en curso por estudiante y un ejercicio por simulacro**, con dos índices
+  únicos parciales. El intento apunta a su simulacro con la llave compuesta
+  `(id_simulacro, id_usuario)`, así que no puede colgarse del simulacro de otro, y un disparador
+  rechaza intentos nuevos sobre un simulacro finalizado.
 
 ## Despliegue
 
@@ -171,13 +205,13 @@ correos en desarrollo. Las imágenes de los ejercicios viven en un volumen.
 
 ## Pruebas
 
-110 pruebas, todas sin base de datos, sin Spring y sin librerías de dobles: los dobles son
+187 pruebas, todas sin base de datos, sin Spring y sin librerías de dobles: los dobles son
 clases en memoria escritas a mano que implementan los puertos.
 
 | Dónde | Archivos | Qué verifican |
 | :-- | --: | :-- |
-| `aplicacion/` | 21 | Un archivo por caso de uso |
-| `dominio/servicio/` | 3 | Las tres políticas |
+| `aplicacion/` | 29 | Un archivo por caso de uso |
+| `dominio/servicio/` | 7 | Las tres políticas, el cierre, el desempeño, las recomendaciones y las estadísticas |
 | raíz | 1 | Las siete reglas de arquitectura |
 
 ```bash
