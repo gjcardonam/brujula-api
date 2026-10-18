@@ -6,12 +6,7 @@ import java.util.UUID;
 
 public interface RegistrarIntento {
 
-    record Respuesta(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia,
-                     Long idSimulacro) {
-
-        public Respuesta(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia) {
-            this(idEjercicio, idOpcion, nivelConfianza, tokenIdempotencia, null);
-        }
+    record Respuesta(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia) {
     }
 
     ResultadoDeIntento registrar(Long idEstudiante, Respuesta respuesta);

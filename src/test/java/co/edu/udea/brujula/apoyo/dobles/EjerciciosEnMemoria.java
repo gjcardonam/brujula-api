@@ -10,19 +10,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
-import java.util.function.Function;
 
 public class EjerciciosEnMemoria implements EjercicioRepositorio {
 
     private final Map<Long, Ejercicio> porId = new LinkedHashMap<>();
     private long siguienteId = 1;
-    private Function<Long, Set<Long>> respondidosEnSimulacro = idSimulacro -> Set.of();
-
-    public EjerciciosEnMemoria descartandoLosRespondidosEn(IntentosEnMemoria intentos) {
-        respondidosEnSimulacro = intentos::ejerciciosRespondidosEn;
-        return this;
-    }
 
     public Ejercicio agregar(Ejercicio ejercicio) {
         porId.put(ejercicio.id(), ejercicio);
@@ -84,21 +76,6 @@ public class EjerciciosEnMemoria implements EjercicioRepositorio {
                 .filter(ejercicio -> !ejercicio.id().equals(idActual))
                 .filter(ejercicio -> idComponente == null || ejercicio.componente().id().equals(idComponente))
                 .map(Ejercicio::id)
-                .findFirst();
-    }
-
-    @Override
-    public long cantidadDeActivos() {
-        return porId.values().stream().filter(Ejercicio::estaActivo).count();
-    }
-
-    @Override
-    public Optional<Long> siguienteParaSimulacro(Long idSimulacro) {
-        Set<Long> respondidos = respondidosEnSimulacro.apply(idSimulacro);
-        return porId.values().stream()
-                .filter(Ejercicio::estaActivo)
-                .map(Ejercicio::id)
-                .filter(id -> !respondidos.contains(id))
                 .findFirst();
     }
 }

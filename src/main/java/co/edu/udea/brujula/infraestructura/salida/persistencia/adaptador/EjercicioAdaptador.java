@@ -70,16 +70,6 @@ public class EjercicioAdaptador implements EjercicioRepositorio {
     }
 
     @Override
-    public long cantidadDeActivos() {
-        return ejercicios.contarTotal(true);
-    }
-
-    @Override
-    public Optional<Long> siguienteParaSimulacro(Long idSimulacro) {
-        return ejercicios.siguienteParaSimulacro(idSimulacro);
-    }
-
-    @Override
     public Ejercicio guardar(Ejercicio ejercicio) {
         EjercicioEntidad entidad = new EjercicioEntidad();
         entidad.setEnunciado(ejercicio.enunciado());

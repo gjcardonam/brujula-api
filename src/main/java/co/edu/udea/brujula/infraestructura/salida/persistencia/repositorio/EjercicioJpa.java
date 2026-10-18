@@ -46,14 +46,4 @@ public interface EjercicioJpa extends JpaRepository<EjercicioEntidad, Long> {
     Optional<Long> siguienteParaPractica(@Param("idActual") Long idActual,
                                          @Param("idComponente") Long idComponente,
                                          @Param("idUsuario") Long idUsuario);
-
-    @Query(value = """
-            select e.id_ejercicio from ejercicios e
-            where e.estado = 'Activo'
-              and not exists (select 1 from intentos i
-                              where i.id_simulacro = :idSimulacro and i.id_ejercicio = e.id_ejercicio)
-            order by md5(cast(:idSimulacro as text) || '-' || cast(e.id_ejercicio as text))
-            limit 1
-            """, nativeQuery = true)
-    Optional<Long> siguienteParaSimulacro(@Param("idSimulacro") Long idSimulacro);
 }

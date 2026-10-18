@@ -11,7 +11,6 @@ import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.Opcio
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -38,12 +37,11 @@ public class IntentoAdaptador implements IntentoRepositorio {
         entidad.setEjercicio(ejercicios.getReferenceById(intento.ejercicio().id()));
         entidad.setOpcionSeleccionada(opciones.getReferenceById(intento.opcionSeleccionada().id()));
         entidad.setTokenIdempotencia(intento.tokenIdempotencia());
-        entidad.setIdSimulacro(intento.idSimulacro());
         try {
             IntentoEntidad guardado = intentos.saveAndFlush(entidad);
             return new Intento(guardado.getId(), intento.respondidoEn(), intento.correcto(),
                     intento.nivelConfianza(), intento.idEstudiante(), intento.ejercicio(),
-                    intento.opcionSeleccionada(), intento.tokenIdempotencia(), intento.idSimulacro());
+                    intento.opcionSeleccionada(), intento.tokenIdempotencia());
         } catch (DataIntegrityViolationException e) {
             return porToken(intento.tokenIdempotencia()).orElseThrow(() -> new Conflicto("INTENTO_DUPLICADO",
                     "No fue posible registrar la respuesta. Intenta de nuevo."));
@@ -58,31 +56,5 @@ public class IntentoAdaptador implements IntentoRepositorio {
     @Override
     public long cantidadDeIntentos(Long idEstudiante, Long idEjercicio) {
         return intentos.countByIdUsuarioAndEjercicio_Id(idEstudiante, idEjercicio);
-    }
-
-    @Override
-    public boolean yaRespondidoEnSimulacro(Long idSimulacro, Long idEjercicio) {
-        return intentos.existsByIdSimulacroAndEjercicio_Id(idSimulacro, idEjercicio);
-    }
-
-    @Override
-    public List<Intento> delSimulacro(Long idSimulacro) {
-        return intentos.findByIdSimulacroOrderByRespondidoEnAscIdAsc(idSimulacro).stream()
-                .map(Mapeador::aDominioConOpciones).toList();
-    }
-
-    @Override
-    public long respondidosEn(Long idSimulacro) {
-        return intentos.countByIdSimulacro(idSimulacro);
-    }
-
-    @Override
-    public long correctasEn(Long idSimulacro) {
-        return intentos.countByIdSimulacroAndCorrectoTrue(idSimulacro);
-    }
-
-    @Override
-    public List<Intento> deEstudiante(Long idEstudiante) {
-        return intentos.findByIdUsuario(idEstudiante).stream().map(Mapeador::aDominio).toList();
     }
 }

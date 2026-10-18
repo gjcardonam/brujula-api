@@ -24,7 +24,7 @@ class AperturaDeEjercicioTest {
     @Test
     void entrega_el_ejercicio_con_sus_opciones_y_los_intentos_previos() {
         Ejercicio ejercicio = ejercicios.agregar(Datos.ejercicioActivo(1L));
-        intentos.guardar(Intento.nuevo(7L, ejercicio, ejercicio.opciones().get(0), 4, null, null, Datos.AHORA));
+        intentos.guardar(Intento.nuevo(7L, ejercicio, ejercicio.opciones().get(0), 4, null, Datos.AHORA));
 
         AbrirEjercicio.ParaPracticar abierto = apertura.abrir(7L, 1L);
 

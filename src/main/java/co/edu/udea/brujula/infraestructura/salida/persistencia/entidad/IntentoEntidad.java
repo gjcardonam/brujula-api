@@ -45,9 +45,6 @@ public class IntentoEntidad {
     @Column(name = "respondido_en", nullable = false)
     private Instant respondidoEn;
 
-    @Column(name = "id_simulacro")
-    private Long idSimulacro;
-
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getIdUsuario() { return idUsuario; }
@@ -64,6 +61,4 @@ public class IntentoEntidad {
     public void setTokenIdempotencia(UUID tokenIdempotencia) { this.tokenIdempotencia = tokenIdempotencia; }
     public Instant getRespondidoEn() { return respondidoEn; }
     public void setRespondidoEn(Instant respondidoEn) { this.respondidoEn = respondidoEn; }
-    public Long getIdSimulacro() { return idSimulacro; }
-    public void setIdSimulacro(Long idSimulacro) { this.idSimulacro = idSimulacro; }
 }

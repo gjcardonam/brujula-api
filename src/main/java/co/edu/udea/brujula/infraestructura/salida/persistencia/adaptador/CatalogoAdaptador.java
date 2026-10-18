@@ -2,14 +2,12 @@ package co.edu.udea.brujula.infraestructura.salida.persistencia.adaptador;
 
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
-import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.Mapeador;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.CompetenciaJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.ComponenteJpa;
-import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.DuracionSimulacroJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.NivelDificultadJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.RolJpa;
 import org.springframework.stereotype.Component;
@@ -26,15 +24,13 @@ public class CatalogoAdaptador implements CatalogoRepositorio {
     private final ComponenteJpa componentes;
     private final CompetenciaJpa competencias;
     private final NivelDificultadJpa niveles;
-    private final DuracionSimulacroJpa duraciones;
 
     public CatalogoAdaptador(RolJpa roles, ComponenteJpa componentes, CompetenciaJpa competencias,
-                             NivelDificultadJpa niveles, DuracionSimulacroJpa duraciones) {
+                             NivelDificultadJpa niveles) {
         this.roles = roles;
         this.componentes = componentes;
         this.competencias = competencias;
         this.niveles = niveles;
-        this.duraciones = duraciones;
     }
 
     @Override
@@ -76,15 +72,5 @@ public class CatalogoAdaptador implements CatalogoRepositorio {
     @Override
     public Optional<NivelDificultad> nivel(Long id) {
         return niveles.findById(id).map(Mapeador::aDominio);
-    }
-
-    @Override
-    public List<DuracionSimulacro> duraciones() {
-        return duraciones.findAllByOrderByMinutosAsc().stream().map(Mapeador::aDominio).toList();
-    }
-
-    @Override
-    public Optional<DuracionSimulacro> duracion(Long id) {
-        return duraciones.findById(id).map(Mapeador::aDominio);
     }
 }

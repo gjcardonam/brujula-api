@@ -3,7 +3,6 @@ package co.edu.udea.brujula.apoyo.dobles;
 import co.edu.udea.brujula.apoyo.Datos;
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
-import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
@@ -18,9 +17,6 @@ public class CatalogosEnMemoria implements CatalogoRepositorio {
     private final List<Competencia> competencias = List.of(Datos.INTERPRETACION, Datos.ARGUMENTACION,
             new Competencia(9L, "Competencia retirada", "Desactivado"));
     private final List<NivelDificultad> niveles = List.of(Datos.BASICO, new NivelDificultad(2L, "Intermedio"));
-    private final List<DuracionSimulacro> duraciones = List.of(Datos.TREINTA_MINUTOS,
-            new DuracionSimulacro(2L, 45), new DuracionSimulacro(3L, 60), new DuracionSimulacro(4L, 90),
-            new DuracionSimulacro(5L, 120));
 
     @Override
     public Optional<Rol> rol(String nombre) {
@@ -55,15 +51,5 @@ public class CatalogosEnMemoria implements CatalogoRepositorio {
     @Override
     public Optional<NivelDificultad> nivel(Long id) {
         return niveles.stream().filter(n -> n.id().equals(id)).findFirst();
-    }
-
-    @Override
-    public List<DuracionSimulacro> duraciones() {
-        return duraciones;
-    }
-
-    @Override
-    public Optional<DuracionSimulacro> duracion(Long id) {
-        return duraciones.stream().filter(d -> d.id().equals(id)).findFirst();
     }
 }
