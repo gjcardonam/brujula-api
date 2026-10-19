@@ -7,6 +7,7 @@ import co.edu.udea.brujula.dominio.modelo.Intento;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Opcion;
 import co.edu.udea.brujula.dominio.modelo.Rol;
+import co.edu.udea.brujula.dominio.modelo.TipoError;
 import co.edu.udea.brujula.dominio.modelo.TokenRecuperacion;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.CompetenciaEntidad;
@@ -16,6 +17,7 @@ import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.IntentoEn
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.NivelDificultadEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.OpcionEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.RolEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.TipoErrorEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.TokenRecuperacionEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.UsuarioEntidad;
 
@@ -42,6 +44,10 @@ public final class Mapeador {
         return entidad == null ? null : new NivelDificultad(entidad.getId(), entidad.getNivel());
     }
 
+    public static TipoError aDominio(TipoErrorEntidad entidad) {
+        return entidad == null ? null : new TipoError(entidad.getId(), entidad.getNombre());
+    }
+
     public static Usuario aDominio(UsuarioEntidad entidad) {
         if (entidad == null) return null;
         return Usuario.reconstruir(entidad.getId(), entidad.getNombre(), entidad.getApellido(), entidad.getEmail(),
@@ -53,7 +59,7 @@ public final class Mapeador {
 
     public static Opcion aDominio(OpcionEntidad entidad) {
         return new Opcion(entidad.getId(), entidad.getTexto(), entidad.getImagen(), entidad.isCorrecta(),
-                entidad.getRetroalimentacion(), entidad.getOrden());
+                entidad.getRetroalimentacion(), aDominio(entidad.getTipoError()), entidad.getOrden());
     }
 
     public static Ejercicio aDominioSinOpciones(EjercicioEntidad entidad) {
@@ -75,8 +81,9 @@ public final class Mapeador {
 
     public static Intento aDominio(IntentoEntidad entidad) {
         return new Intento(entidad.getId(), entidad.getRespondidoEn(), entidad.isCorrecto(),
-                entidad.getNivelConfianza(), entidad.getIdUsuario(), aDominioSinOpciones(entidad.getEjercicio()),
-                aDominio(entidad.getOpcionSeleccionada()), entidad.getTokenIdempotencia());
+                entidad.getNivelConfianza(), aDominio(entidad.getTipoError()), entidad.getIdUsuario(),
+                aDominioSinOpciones(entidad.getEjercicio()), aDominio(entidad.getOpcionSeleccionada()),
+                entidad.getTokenIdempotencia());
     }
 
     public static TokenRecuperacion aDominio(TokenRecuperacionEntidad entidad) {

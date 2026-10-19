@@ -9,13 +9,10 @@ public record Ejercicio(Long id, Integer numero, String enunciado, String imagen
                         Long idCreador, String nombreCreador, List<Opcion> opciones) {
 
     public static final String ACTIVO = "Activo";
+    public static final String DESACTIVADO = "Desactivado";
 
-    public Ejercicio {
-        opciones = opciones == null ? List.of() : List.copyOf(opciones);
-    }
-
-    public static Ejercicio nuevo(String enunciado, String imagen, Componente componente, Competencia competencia,
-                                  NivelDificultad nivel, List<Opcion> opciones, Long idCreador,
+    public static Ejercicio nuevo(String enunciado, String imagen, NivelDificultad nivel, Componente componente,
+                                  Competencia competencia, List<Opcion> opciones, Long idCreador,
                                   String nombreCreador, Instant ahora) {
         return new Ejercicio(null, null, enunciado, imagen, nivel, componente, competencia, ACTIVO, ahora,
                 idCreador, nombreCreador, opciones);
@@ -31,5 +28,16 @@ public record Ejercicio(Long id, Integer numero, String enunciado, String imagen
 
     public Optional<Opcion> opcion(Long idOpcion) {
         return opciones.stream().filter(o -> o.id().equals(idOpcion)).findFirst();
+    }
+
+    public Ejercicio conContenido(String enunciado, String imagen, NivelDificultad nivel, Componente componente,
+                                  Competencia competencia, List<Opcion> opciones) {
+        return new Ejercicio(id, numero, enunciado, imagen, nivel, componente, competencia, estado, creadoEn,
+                idCreador, nombreCreador, opciones);
+    }
+
+    public Ejercicio conEstado(String nuevoEstado) {
+        return new Ejercicio(id, numero, enunciado, imagen, nivel, componente, competencia, nuevoEstado, creadoEn,
+                idCreador, nombreCreador, opciones);
     }
 }

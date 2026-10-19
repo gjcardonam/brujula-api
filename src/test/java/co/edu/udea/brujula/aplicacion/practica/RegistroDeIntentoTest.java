@@ -4,6 +4,8 @@ import co.edu.udea.brujula.apoyo.Datos;
 import co.edu.udea.brujula.apoyo.dobles.EjerciciosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.IntentosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.RelojFijo;
+import co.edu.udea.brujula.apoyo.dobles.CatalogosEnMemoria;
+import co.edu.udea.brujula.apoyo.dobles.ParametrosEnMemoria;
 import co.edu.udea.brujula.dominio.excepcion.AccesoDenegado;
 import co.edu.udea.brujula.dominio.excepcion.DatosInvalidos;
 import co.edu.udea.brujula.dominio.excepcion.NoEncontrado;
@@ -31,7 +33,9 @@ class RegistroDeIntentoTest {
     private final EjerciciosEnMemoria ejercicios = new EjerciciosEnMemoria();
     private final IntentosEnMemoria intentos = new IntentosEnMemoria();
     private final RelojFijo reloj = new RelojFijo();
-    private final RegistroDeIntento registro = new RegistroDeIntento(intentos, ejercicios, reloj);
+    private final CatalogosEnMemoria catalogos = new CatalogosEnMemoria();
+    private final ParametrosEnMemoria parametros = new ParametrosEnMemoria();
+    private final RegistroDeIntento registro = new RegistroDeIntento(intentos, ejercicios, catalogos, parametros, reloj);
 
     private Ejercicio ejercicio;
 

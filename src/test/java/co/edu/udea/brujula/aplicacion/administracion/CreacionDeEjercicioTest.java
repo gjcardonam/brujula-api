@@ -7,6 +7,7 @@ import co.edu.udea.brujula.apoyo.dobles.EjerciciosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.ImagenesEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.RelojFijo;
 import co.edu.udea.brujula.apoyo.dobles.UsuariosEnMemoria;
+import co.edu.udea.brujula.apoyo.dobles.AuditoriaEnMemoria;
 import co.edu.udea.brujula.dominio.excepcion.Conflicto;
 import co.edu.udea.brujula.dominio.excepcion.DatosInvalidos;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
@@ -31,8 +32,9 @@ class CreacionDeEjercicioTest {
     private final UsuariosEnMemoria usuarios = new UsuariosEnMemoria();
     private final ImagenesEnMemoria imagenes = new ImagenesEnMemoria();
     private final RelojFijo reloj = new RelojFijo();
+    private final AuditoriaEnMemoria auditoria = new AuditoriaEnMemoria();
     private final CreacionDeEjercicio creacion =
-            new CreacionDeEjercicio(ejercicios, new CatalogosEnMemoria(), usuarios, imagenes, reloj);
+            new CreacionDeEjercicio(ejercicios, new CatalogosEnMemoria(), usuarios, auditoria, imagenes, reloj);
 
     @BeforeEach
     void prepararElAdministrador() {

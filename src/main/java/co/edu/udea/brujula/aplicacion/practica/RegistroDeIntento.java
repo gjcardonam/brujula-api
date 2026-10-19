@@ -7,11 +7,15 @@ import co.edu.udea.brujula.dominio.excepcion.RecursoNoDisponible;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Intento;
 import co.edu.udea.brujula.dominio.modelo.Opcion;
+import co.edu.udea.brujula.dominio.modelo.TipoError;
 import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeIntento;
 import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarIntento;
+import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.EjercicioRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.IntentoRepositorio;
+import co.edu.udea.brujula.dominio.puerto.salida.ParametrosDelSistema;
 import co.edu.udea.brujula.dominio.puerto.salida.Reloj;
+import co.edu.udea.brujula.dominio.servicio.ClasificadorDeError;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,11 +31,16 @@ public class RegistroDeIntento implements RegistrarIntento {
 
     private final IntentoRepositorio intentos;
     private final EjercicioRepositorio ejercicios;
+    private final CatalogoRepositorio catalogos;
+    private final ParametrosDelSistema parametros;
     private final Reloj reloj;
 
-    public RegistroDeIntento(IntentoRepositorio intentos, EjercicioRepositorio ejercicios, Reloj reloj) {
+    public RegistroDeIntento(IntentoRepositorio intentos, EjercicioRepositorio ejercicios,
+                             CatalogoRepositorio catalogos, ParametrosDelSistema parametros, Reloj reloj) {
         this.intentos = intentos;
         this.ejercicios = ejercicios;
+        this.catalogos = catalogos;
+        this.parametros = parametros;
         this.reloj = reloj;
     }
 
@@ -54,9 +63,22 @@ public class RegistroDeIntento implements RegistrarIntento {
                 .orElseThrow(() -> new DatosInvalidos("OPCION_INVALIDA",
                         "La opción seleccionada no pertenece al ejercicio."));
 
-        Intento nuevo = Intento.nuevo(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza(),
+        TipoError tipoError = opcion.correcta()
+                ? null
+                : clasificar(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza());
+        Intento nuevo = Intento.nuevo(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza(), tipoError,
                 respuesta.tokenIdempotencia(), reloj.ahora());
         return resultado(intentos.guardar(nuevo), false);
+    }
+
+    private TipoError clasificar(Long idEstudiante, Ejercicio ejercicio, Opcion opcion, int nivelConfianza) {
+        var ventana = new ClasificadorDeError.Ventana(
+                parametros.entero(ParametrosDelSistema.VENTANA_INTENTOS, 5),
+                parametros.entero(ParametrosDelSistema.MINIMO_INTENTOS_VENTANA, 3),
+                parametros.entero(ParametrosDelSistema.UMBRAL_DOMINIO_PCT, 70));
+        List<Boolean> previos = intentos.ultimosResultados(idEstudiante, ejercicio.componente().id(),
+                ejercicio.competencia().id(), ventana.tamano());
+        return catalogos.tipoDeError(ClasificadorDeError.clasificar(nivelConfianza, opcion, previos, ventana));
     }
 
     private Optional<Intento> buscarPorToken(Long idEstudiante, Respuesta respuesta) {

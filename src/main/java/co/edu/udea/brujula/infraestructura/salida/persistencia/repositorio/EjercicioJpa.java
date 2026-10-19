@@ -31,8 +31,8 @@ public interface EjercicioJpa extends JpaRepository<EjercicioEntidad, Long> {
     @Query("select count(e) from EjercicioEntidad e where (:soloActivos = false or e.estado = 'Activo')")
     long contarTotal(@Param("soloActivos") boolean soloActivos);
 
-    @Query("select count(e) from EjercicioEntidad e where lower(trim(e.enunciado)) = lower(trim(:enunciado))")
-    long contarConEnunciado(@Param("enunciado") String enunciado);
+    @Query("select e.id from EjercicioEntidad e where lower(trim(e.enunciado)) = lower(trim(:enunciado))")
+    List<Long> idsConEnunciado(@Param("enunciado") String enunciado);
 
     @Query(value = """
             select e.id_ejercicio from ejercicios e

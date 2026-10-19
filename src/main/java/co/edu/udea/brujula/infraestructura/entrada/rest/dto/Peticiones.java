@@ -35,7 +35,11 @@ public final class Peticiones {
     public record IntentoRequest(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia) {
     }
 
-    public record OpcionRequest(String descripcion, String imagen, Boolean esCorrecta, String retroalimentacion) {
+    public record CambioEstadoRequest(String estado) {
+    }
+
+    public record OpcionRequest(Long id, String descripcion, String imagen, Boolean esCorrecta,
+                                String retroalimentacion, Long idTipoError) {
     }
 
     public record EjercicioRequest(String enunciado, String imagenEnunciado, Long idComponente, Long idCompetencia,

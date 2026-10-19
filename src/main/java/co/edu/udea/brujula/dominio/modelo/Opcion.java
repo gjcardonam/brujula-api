@@ -1,8 +1,13 @@
 package co.edu.udea.brujula.dominio.modelo;
 
-public record Opcion(Long id, String texto, String imagen, boolean correcta, String retroalimentacion, int orden) {
+public record Opcion(Long id, String texto, String imagen, boolean correcta, String retroalimentacion,
+                     TipoError tipoError, int orden) {
 
     public static final String SIN_RETROALIMENTACION = "No hay una explicación disponible para esta respuesta.";
+
+    public Opcion(Long id, String texto, String imagen, boolean correcta, String retroalimentacion, int orden) {
+        this(id, texto, imagen, correcta, retroalimentacion, null, orden);
+    }
 
     public String retroalimentacionParaMostrar() {
         return tieneRetroalimentacion() ? retroalimentacion : SIN_RETROALIMENTACION;

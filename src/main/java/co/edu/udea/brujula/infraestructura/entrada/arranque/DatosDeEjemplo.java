@@ -88,7 +88,7 @@ public class DatosDeEjemplo implements ApplicationRunner {
         List<EjercicioJson> ejercicios = leerArchivos();
         restaurarImagenesDeEjemplo(ejercicios);
 
-        List<EjercicioJson> nuevos = faltantes(ejercicios, banco::existeConEnunciado);
+        List<EjercicioJson> nuevos = faltantes(ejercicios, (enunciado) -> banco.existeOtroConEnunciado(enunciado, null));
         if (nuevos.isEmpty()) return;
         Usuario administrador = usuarios.porEmail(propiedades.admin().email()).orElse(null);
         if (administrador == null || !administrador.esAdministrador()) {

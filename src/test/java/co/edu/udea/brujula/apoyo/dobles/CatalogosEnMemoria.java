@@ -5,6 +5,7 @@ import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
+import co.edu.udea.brujula.dominio.modelo.TipoError;
 import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class CatalogosEnMemoria implements CatalogoRepositorio {
     private final List<Competencia> competencias = List.of(Datos.INTERPRETACION, Datos.ARGUMENTACION,
             new Competencia(9L, "Competencia retirada", "Desactivado"));
     private final List<NivelDificultad> niveles = List.of(Datos.BASICO, new NivelDificultad(2L, "Intermedio"));
+    private final List<TipoError> tiposError = List.of(new TipoError(1L, TipoError.COGNITIVO),
+            new TipoError(2L, TipoError.HABITO), new TipoError(3L, TipoError.ANSIEDAD));
 
     @Override
     public Optional<Rol> rol(String nombre) {
@@ -51,5 +54,20 @@ public class CatalogosEnMemoria implements CatalogoRepositorio {
     @Override
     public Optional<NivelDificultad> nivel(Long id) {
         return niveles.stream().filter(n -> n.id().equals(id)).findFirst();
+    }
+
+    @Override
+    public List<TipoError> tiposDeError() {
+        return tiposError;
+    }
+
+    @Override
+    public Optional<TipoError> tipoDeError(Long id) {
+        return tiposError.stream().filter(t -> t.id().equals(id)).findFirst();
+    }
+
+    @Override
+    public TipoError tipoDeError(String nombre) {
+        return tiposError.stream().filter(t -> t.nombre().equals(nombre)).findFirst().orElse(null);
     }
 }

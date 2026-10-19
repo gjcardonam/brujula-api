@@ -38,6 +38,10 @@ public class OpcionEntidad {
     @Column(nullable = false, columnDefinition = "text")
     private String retroalimentacion;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tipo_error")
+    private TipoErrorEntidad tipoError;
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public EjercicioEntidad getEjercicio() { return ejercicio; }
@@ -52,4 +56,6 @@ public class OpcionEntidad {
     public void setCorrecta(boolean correcta) { this.correcta = correcta; }
     public String getRetroalimentacion() { return retroalimentacion; }
     public void setRetroalimentacion(String retroalimentacion) { this.retroalimentacion = retroalimentacion; }
+    public TipoErrorEntidad getTipoError() { return tipoError; }
+    public void setTipoError(TipoErrorEntidad tipoError) { this.tipoError = tipoError; }
 }

@@ -4,11 +4,14 @@ import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Pagina;
 import co.edu.udea.brujula.dominio.modelo.SesionIniciada;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
+import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeEjercicio;
+import co.edu.udea.brujula.dominio.modelo.consulta.UsoDelEjercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarCatalogos;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 public final class Respuestas {
 
@@ -44,13 +47,15 @@ public final class Respuestas {
         }
     }
 
-    public record CatalogosDto(List<Item> componentes, List<Item> competencias, List<Item> niveles) {
+    public record CatalogosDto(List<Item> componentes, List<Item> competencias, List<Item> niveles,
+                               List<Item> tiposError) {
 
         public static CatalogosDto de(ConsultarCatalogos.Catalogos catalogos) {
             return new CatalogosDto(
                     catalogos.componentes().stream().map(c -> new Item(c.id(), c.nombre())).toList(),
                     catalogos.competencias().stream().map(c -> new Item(c.id(), c.nombre())).toList(),
-                    catalogos.niveles().stream().map(n -> new Item(n.id(), n.nombre())).toList());
+                    catalogos.niveles().stream().map(n -> new Item(n.id(), n.nombre())).toList(),
+                    catalogos.tiposDeError().stream().map(t -> new Item(t.id(), t.nombre())).toList());
         }
     }
 
@@ -76,24 +81,30 @@ public final class Respuestas {
     }
 
     public record OpcionAdminDto(Long id, String letra, String descripcion, String imagen, boolean esCorrecta,
-                                 String retroalimentacion, int orden) {
+                                 String retroalimentacion, Item tipoError, int orden, boolean usadaEnIntentos) {
     }
 
     public record EjercicioAdminDto(Long id, Integer numero, String enunciado, String imagenEnunciado,
                                     Item componente, Item competencia, Item nivel, String estado, String creadoPor,
-                                    Instant creadoEn, List<OpcionAdminDto> opciones) {
+                                    Instant creadoEn, List<OpcionAdminDto> opciones, UsoDelEjercicio uso,
+                                    boolean tieneIntentos) {
 
-        public static EjercicioAdminDto de(Ejercicio ejercicio, AlmacenDeImagenes imagenes) {
+        public static EjercicioAdminDto de(DetalleDeEjercicio detalle, AlmacenDeImagenes imagenes) {
+            Ejercicio ejercicio = detalle.ejercicio();
+            Set<Long> usadas = detalle.opcionesUsadas();
             List<OpcionAdminDto> opciones = ejercicio.opciones().stream()
                     .map(o -> new OpcionAdminDto(o.id(), o.letra(), o.texto(), imagenes.urlDe(o.imagen()),
-                            o.correcta(), o.retroalimentacion(), o.orden()))
+                            o.correcta(), o.retroalimentacion(),
+                            o.tipoError() == null ? null : new Item(o.tipoError().id(), o.tipoError().nombre()),
+                            o.orden(), usadas.contains(o.id())))
                     .toList();
             return new EjercicioAdminDto(ejercicio.id(), ejercicio.numero(), ejercicio.enunciado(),
                     imagenes.urlDe(ejercicio.imagen()),
                     new Item(ejercicio.componente().id(), ejercicio.componente().nombre()),
                     new Item(ejercicio.competencia().id(), ejercicio.competencia().nombre()),
                     new Item(ejercicio.nivel().id(), ejercicio.nivel().nombre()),
-                    ejercicio.estado(), ejercicio.nombreCreador(), ejercicio.creadoEn(), opciones);
+                    ejercicio.estado(), ejercicio.nombreCreador(), ejercicio.creadoEn(), opciones,
+                    detalle.uso(), detalle.tieneIntentos());
         }
     }
 }

@@ -55,8 +55,9 @@ public class EjerciciosEnMemoria implements EjercicioRepositorio {
     }
 
     @Override
-    public boolean existeConEnunciado(String enunciado) {
+    public boolean existeOtroConEnunciado(String enunciado, Long idExcluido) {
         return porId.values().stream()
+                .filter(ejercicio -> idExcluido == null || !ejercicio.id().equals(idExcluido))
                 .anyMatch(ejercicio -> ejercicio.enunciado().trim().equalsIgnoreCase(enunciado.trim()));
     }
 

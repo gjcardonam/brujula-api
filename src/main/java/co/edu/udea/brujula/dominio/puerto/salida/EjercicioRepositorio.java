@@ -14,7 +14,7 @@ public interface EjercicioRepositorio {
 
     ComponentesDelBanco conteoPorComponente(boolean soloActivos);
 
-    boolean existeConEnunciado(String enunciado);
+    boolean existeOtroConEnunciado(String enunciado, Long idExcluido);
 
     Ejercicio guardar(Ejercicio ejercicio);
 

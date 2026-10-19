@@ -39,6 +39,10 @@ public class IntentoEntidad {
     @Column(name = "nivel_confianza", nullable = false)
     private short nivelConfianza;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tipo_error")
+    private TipoErrorEntidad tipoError;
+
     @Column(name = "token_idempotencia", nullable = false)
     private UUID tokenIdempotencia;
 
@@ -57,6 +61,8 @@ public class IntentoEntidad {
     public void setCorrecto(boolean correcto) { this.correcto = correcto; }
     public short getNivelConfianza() { return nivelConfianza; }
     public void setNivelConfianza(short nivelConfianza) { this.nivelConfianza = nivelConfianza; }
+    public TipoErrorEntidad getTipoError() { return tipoError; }
+    public void setTipoError(TipoErrorEntidad tipoError) { this.tipoError = tipoError; }
     public UUID getTokenIdempotencia() { return tokenIdempotencia; }
     public void setTokenIdempotencia(UUID tokenIdempotencia) { this.tokenIdempotencia = tokenIdempotencia; }
     public Instant getRespondidoEn() { return respondidoEn; }

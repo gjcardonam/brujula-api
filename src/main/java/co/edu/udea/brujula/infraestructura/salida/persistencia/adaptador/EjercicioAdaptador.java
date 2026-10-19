@@ -12,12 +12,16 @@ import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.Compe
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.ComponenteJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.EjercicioJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.NivelDificultadJpa;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.TipoErrorJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.UsuarioJpa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
@@ -27,14 +31,16 @@ public class EjercicioAdaptador implements EjercicioRepositorio {
     private final ComponenteJpa componentes;
     private final CompetenciaJpa competencias;
     private final NivelDificultadJpa niveles;
+    private final TipoErrorJpa tiposDeError;
     private final UsuarioJpa usuarios;
 
     public EjercicioAdaptador(EjercicioJpa ejercicios, ComponenteJpa componentes, CompetenciaJpa competencias,
-                              NivelDificultadJpa niveles, UsuarioJpa usuarios) {
+                              NivelDificultadJpa niveles, TipoErrorJpa tiposDeError, UsuarioJpa usuarios) {
         this.ejercicios = ejercicios;
         this.componentes = componentes;
         this.competencias = competencias;
         this.niveles = niveles;
+        this.tiposDeError = tiposDeError;
         this.usuarios = usuarios;
     }
 
@@ -60,8 +66,9 @@ public class EjercicioAdaptador implements EjercicioRepositorio {
     }
 
     @Override
-    public boolean existeConEnunciado(String enunciado) {
-        return ejercicios.contarConEnunciado(enunciado) > 0;
+    public boolean existeOtroConEnunciado(String enunciado, Long idExcluido) {
+        return ejercicios.idsConEnunciado(enunciado).stream()
+                .anyMatch(id -> idExcluido == null || !id.equals(idExcluido));
     }
 
     @Override
@@ -71,27 +78,50 @@ public class EjercicioAdaptador implements EjercicioRepositorio {
 
     @Override
     public Ejercicio guardar(Ejercicio ejercicio) {
-        EjercicioEntidad entidad = new EjercicioEntidad();
+        EjercicioEntidad entidad = ejercicio.id() == null
+                ? nueva(ejercicio)
+                : ejercicios.buscarCompleto(ejercicio.id()).orElseThrow();
+
         entidad.setEnunciado(ejercicio.enunciado());
         entidad.setImagen(ejercicio.imagen());
         entidad.setEstado(ejercicio.estado());
-        entidad.setCreadoEn(ejercicio.creadoEn());
-        entidad.setCreador(usuarios.getReferenceById(ejercicio.idCreador()));
         entidad.setComponente(componentes.findById(ejercicio.componente().id()).orElseThrow());
         entidad.setCompetencia(competencias.findById(ejercicio.competencia().id()).orElseThrow());
         entidad.setNivel(niveles.findById(ejercicio.nivel().id()).orElseThrow());
-        ejercicio.opciones().forEach(opcion -> entidad.getOpciones().add(comoEntidad(opcion, entidad)));
+        sincronizarOpciones(entidad, ejercicio.opciones());
+
         return Mapeador.aDominio(ejercicios.saveAndFlush(entidad));
     }
 
-    private static OpcionEntidad comoEntidad(Opcion opcion, EjercicioEntidad ejercicio) {
-        OpcionEntidad entidad = new OpcionEntidad();
-        entidad.setEjercicio(ejercicio);
-        entidad.setOrden((short) opcion.orden());
-        entidad.setTexto(opcion.texto());
-        entidad.setImagen(opcion.imagen());
-        entidad.setCorrecta(opcion.correcta());
-        entidad.setRetroalimentacion(opcion.retroalimentacion());
+    private EjercicioEntidad nueva(Ejercicio ejercicio) {
+        EjercicioEntidad entidad = new EjercicioEntidad();
+        entidad.setCreadoEn(ejercicio.creadoEn());
+        entidad.setCreador(usuarios.getReferenceById(ejercicio.idCreador()));
         return entidad;
+    }
+
+    private void sincronizarOpciones(EjercicioEntidad entidad, List<Opcion> opciones) {
+        Map<Long, OpcionEntidad> existentes = new HashMap<>();
+        entidad.getOpciones().forEach(opcion -> existentes.put(opcion.getId(), opcion));
+
+        List<OpcionEntidad> resultado = new ArrayList<>();
+        for (Opcion opcion : opciones) {
+            OpcionEntidad destino = opcion.id() == null ? new OpcionEntidad() : existentes.get(opcion.id());
+            if (destino == null) {
+                throw new IllegalArgumentException("La opción " + opcion.id() + " no pertenece al ejercicio.");
+            }
+            destino.setEjercicio(entidad);
+            destino.setTexto(opcion.texto());
+            destino.setImagen(opcion.imagen());
+            destino.setCorrecta(opcion.correcta());
+            destino.setRetroalimentacion(opcion.retroalimentacion());
+            destino.setOrden((short) opcion.orden());
+            destino.setTipoError(opcion.tipoError() == null
+                    ? null
+                    : tiposDeError.findById(opcion.tipoError().id()).orElseThrow());
+            resultado.add(destino);
+        }
+        entidad.getOpciones().clear();
+        entidad.getOpciones().addAll(resultado);
     }
 }
