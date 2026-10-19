@@ -78,7 +78,10 @@ public class IntentosEnMemoria implements IntentoRepositorio {
     public List<Boolean> ultimosResultados(Long idEstudiante, Long idComponente, Long idCompetencia, int limite) {
         return guardados.stream()
                 .filter(i -> i.idEstudiante().equals(idEstudiante))
-                .sorted((a, b) -> b.respondidoEn().compareTo(a.respondidoEn()))
+                .filter(i -> i.ejercicio().componente().id().equals(idComponente)
+                        || i.ejercicio().competencia().id().equals(idCompetencia))
+                .sorted((a, b) -> { int fecha = b.respondidoEn().compareTo(a.respondidoEn());
+                    return fecha == 0 ? b.id().compareTo(a.id()) : fecha; })
                 .limit(Math.max(1, limite))
                 .map(Intento::correcto)
                 .toList();
@@ -119,7 +122,7 @@ public class IntentosEnMemoria implements IntentoRepositorio {
                             i.ejercicio().numero(), i.ejercicio().enunciado(), i.ejercicio().imagen(),
                             i.ejercicio().componente().nombre(), i.ejercicio().competencia().nombre(),
                             i.ejercicio().nivel().nombre(), i.ejercicio().estado(), revisadas, i.correcto(),
-                            i.nivelConfianza(), i.respondidoEn(), retro);
+                            i.nivelConfianza(), i.respondidoEn(), retro, i.tipoError() == null ? null : i.tipoError().nombre());
                 });
     }
 }

@@ -95,7 +95,7 @@ public class RegistroDeIntento implements RegistrarIntento {
         long numero = intentos.cantidadDeIntentos(intento.idEstudiante(), intento.ejercicio().id());
         return new ResultadoDeIntento(intento.id(), intento.correcto(), elegida.id(), idCorrecta,
                 elegida.retroalimentacionParaMostrar(), elegida.tieneRetroalimentacion(), intento.nivelConfianza(),
-                intento.respondidoEn(), numero, repetido);
+                intento.respondidoEn(), numero, repetido, intento.tipoError() == null ? null : intento.tipoError().nombre());
     }
 
     private static void exigirTokenDeIdempotencia(Respuesta respuesta) {

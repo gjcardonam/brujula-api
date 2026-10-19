@@ -14,6 +14,10 @@ import java.util.UUID;
 
 public interface IntentoJpa extends JpaRepository<IntentoEntidad, Long> {
 
+    @Query("select i.ejercicio.componente.id, i.ejercicio.componente.nombre, t.nombre "
+            + "from IntentoEntidad i left join i.tipoError t where i.idUsuario = :idUsuario and i.correcto = false")
+    List<Object[]> erroresDelEstudiante(@Param("idUsuario") Long idUsuario);
+
     Optional<IntentoEntidad> findByTokenIdempotencia(UUID token);
 
     long countByIdUsuarioAndEjercicio_Id(Long idUsuario, Long idEjercicio);

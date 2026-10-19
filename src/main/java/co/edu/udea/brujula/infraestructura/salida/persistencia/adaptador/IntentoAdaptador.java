@@ -151,6 +151,7 @@ public class IntentoAdaptador implements IntentoRepositorio {
                 ejercicio.getNumero(), ejercicio.getEnunciado(), imagenes.urlDe(ejercicio.getImagen()),
                 ejercicio.getComponente().getNombre(), ejercicio.getCompetencia().getNombre(),
                 ejercicio.getNivel().getNivel(), ejercicio.getEstado(), revisadas, intento.isCorrecto(),
-                intento.getNivelConfianza(), intento.getRespondidoEn(), retroalimentacion);
+                intento.getNivelConfianza(), intento.getRespondidoEn(), retroalimentacion,
+                intento.getTipoError() == null ? null : intento.getTipoError().getNombre());
     }
 }

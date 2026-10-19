@@ -53,6 +53,27 @@ class RegistroDeIntentoTest {
     }
 
     @Test
+    void clasificacionSeGuardaYSeConservaAlReenviarYConsultarHistorial() {
+        var peticion = respuestaCon(ejercicio.opciones().get(1), 5);
+        var resultado = registro.registrar(ESTUDIANTE, peticion);
+        assertEquals(co.edu.udea.brujula.dominio.modelo.TipoError.ANSIEDAD, resultado.tipoError());
+        assertEquals(resultado.tipoError(), intentos.todos().getFirst().tipoError().nombre());
+        var repetido = registro.registrar(ESTUDIANTE, peticion);
+        assertTrue(repetido.repetido());
+        assertEquals(resultado.tipoError(), repetido.tipoError());
+        assertEquals(1, intentos.todos().size());
+        assertEquals(resultado.tipoError(), intentos.detalle(resultado.idIntento(), ESTUDIANTE).orElseThrow().tipoError());
+        assertTrue(intentos.detalle(resultado.idIntento(), 999L).isEmpty());
+    }
+
+    @Test
+    void respuestaCorrectaNoSeClasificaComoErrorAunqueTengaConfianzaAlta() {
+        var resultado = registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 5));
+        org.junit.jupiter.api.Assertions.assertNull(resultado.tipoError());
+        org.junit.jupiter.api.Assertions.assertNull(intentos.todos().getFirst().tipoError());
+    }
+
+    @Test
     void guarda_el_intento_con_su_nivel_de_confianza_y_la_hora_del_envio() {
         ResultadoDeIntento resultado = registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 5));
 
