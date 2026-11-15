@@ -28,6 +28,7 @@ public class RegistroDeIntento implements RegistrarIntento {
 
     private static final int CONFIANZA_MINIMA = 1;
     private static final int CONFIANZA_MAXIMA = 5;
+    private static final int TIEMPO_MAXIMO_MS = 3_600_000;
 
     private final IntentoRepositorio intentos;
     private final EjercicioRepositorio ejercicios;
@@ -67,8 +68,12 @@ public class RegistroDeIntento implements RegistrarIntento {
                 ? null
                 : clasificar(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza());
         Intento nuevo = Intento.nuevo(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza(), tipoError,
-                respuesta.tokenIdempotencia(), reloj.ahora());
+                respuesta.tokenIdempotencia(), reloj.ahora(), tiempoValido(respuesta.tiempoRespuestaMs()));
         return resultado(intentos.guardar(nuevo), false);
+    }
+
+    private static Integer tiempoValido(Integer tiempoMs) {
+        return tiempoMs == null || tiempoMs <= 0 || tiempoMs > TIEMPO_MAXIMO_MS ? null : tiempoMs;
     }
 
     private TipoError clasificar(Long idEstudiante, Ejercicio ejercicio, Opcion opcion, int nivelConfianza) {

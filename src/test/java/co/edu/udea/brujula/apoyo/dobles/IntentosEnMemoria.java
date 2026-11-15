@@ -35,7 +35,7 @@ public class IntentosEnMemoria implements IntentoRepositorio {
         if (fallarAlGuardar) throw new IllegalStateException("No se pudo guardar el intento");
         Intento conId = new Intento(siguienteId++, intento.respondidoEn(), intento.correcto(),
                 intento.nivelConfianza(), intento.tipoError(), intento.idEstudiante(), intento.ejercicio(),
-                intento.opcionSeleccionada(), intento.tokenIdempotencia());
+                intento.opcionSeleccionada(), intento.tokenIdempotencia(), intento.tiempoRespuestaMs());
         guardados.add(conId);
         return conId;
     }
@@ -80,6 +80,8 @@ public class IntentosEnMemoria implements IntentoRepositorio {
                 .filter(i -> i.idEstudiante().equals(idEstudiante))
                 .filter(i -> i.ejercicio().componente().id().equals(idComponente)
                         || i.ejercicio().competencia().id().equals(idCompetencia))
+                .filter(i -> guardados.stream().noneMatch(p -> p.idEstudiante().equals(i.idEstudiante())
+                        && p.ejercicio().id().equals(i.ejercicio().id()) && p.id() < i.id()))
                 .sorted((a, b) -> { int fecha = b.respondidoEn().compareTo(a.respondidoEn());
                     return fecha == 0 ? b.id().compareTo(a.id()) : fecha; })
                 .limit(Math.max(1, limite))

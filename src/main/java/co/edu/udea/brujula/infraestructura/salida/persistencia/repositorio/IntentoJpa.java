@@ -35,6 +35,8 @@ public interface IntentoJpa extends JpaRepository<IntentoEntidad, Long> {
 
     @Query("select i.correcto from IntentoEntidad i where i.idUsuario = :idUsuario "
             + "and (i.ejercicio.componente.id = :idComponente or i.ejercicio.competencia.id = :idCompetencia) "
+            + "and i.id = (select min(p.id) from IntentoEntidad p "
+            + "where p.idUsuario = i.idUsuario and p.ejercicio.id = i.ejercicio.id) "
             + "order by i.respondidoEn desc, i.id desc")
     List<Boolean> ultimosResultados(@Param("idUsuario") Long idUsuario, @Param("idComponente") Long idComponente,
                                     @Param("idCompetencia") Long idCompetencia, Pageable pageable);

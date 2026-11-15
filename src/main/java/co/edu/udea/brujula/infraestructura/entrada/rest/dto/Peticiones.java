@@ -32,7 +32,8 @@ public final class Peticiones {
     public record CambioPasswordRequest(String passwordActual, String passwordNueva, String confirmacionPassword) {
     }
 
-    public record IntentoRequest(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia) {
+    public record IntentoRequest(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia,
+                                 Integer tiempoRespuestaMs) {
     }
 
     public record CambioEstadoRequest(String estado) {

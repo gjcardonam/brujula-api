@@ -59,6 +59,7 @@ public class IntentoAdaptador implements IntentoRepositorio {
         entidad.setEjercicio(ejercicios.getReferenceById(intento.ejercicio().id()));
         entidad.setOpcionSeleccionada(opciones.getReferenceById(intento.opcionSeleccionada().id()));
         entidad.setTokenIdempotencia(intento.tokenIdempotencia());
+        entidad.setTiempoRespuestaMs(intento.tiempoRespuestaMs());
         if (intento.tipoError() != null) {
             entidad.setTipoError(tiposDeError.getReferenceById(intento.tipoError().id()));
         }
@@ -66,7 +67,7 @@ public class IntentoAdaptador implements IntentoRepositorio {
             IntentoEntidad guardado = intentos.saveAndFlush(entidad);
             return new Intento(guardado.getId(), intento.respondidoEn(), intento.correcto(),
                     intento.nivelConfianza(), intento.tipoError(), intento.idEstudiante(), intento.ejercicio(),
-                    intento.opcionSeleccionada(), intento.tokenIdempotencia());
+                    intento.opcionSeleccionada(), intento.tokenIdempotencia(), intento.tiempoRespuestaMs());
         } catch (DataIntegrityViolationException e) {
             if (intento.tokenIdempotencia() != null) {
                 Optional<Intento> yaGuardado = porToken(intento.tokenIdempotencia());

@@ -104,6 +104,31 @@ class RegistroDeIntentoTest {
     }
 
     @Test
+    void guarda_el_tiempo_de_respuesta_sin_mostrarlo_y_descarta_los_tiempos_invalidos() {
+        registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 42_000));
+        registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), -5));
+        registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 4_000_000));
+
+        assertEquals(42_000, intentos.todos().get(0).tiempoRespuestaMs());
+        org.junit.jupiter.api.Assertions.assertNull(intentos.todos().get(1).tiempoRespuestaMs());
+        org.junit.jupiter.api.Assertions.assertNull(intentos.todos().get(2).tiempoRespuestaMs());
+    }
+
+    @Test
+    void repetir_un_ejercicio_despues_de_ver_la_respuesta_no_cuenta_como_dominio_del_tema() {
+        registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(1), 2));
+        for (int i = 0; i < 3; i++) registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3));
+
+        ResultadoDeIntento otraVezMal = registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(1), 2));
+
+        org.junit.jupiter.api.Assertions.assertNotEquals(
+                co.edu.udea.brujula.dominio.modelo.TipoError.HABITO, otraVezMal.tipoError());
+    }
+
+    @Test
     void exige_el_token_de_idempotencia() {
         RegistrarIntento.Respuesta sinToken = respuestaCon(ejercicio.opciones().get(0), 3, null);
 

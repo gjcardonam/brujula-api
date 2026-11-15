@@ -83,7 +83,7 @@ public final class Mapeador {
         return new Intento(entidad.getId(), entidad.getRespondidoEn(), entidad.isCorrecto(),
                 entidad.getNivelConfianza(), aDominio(entidad.getTipoError()), entidad.getIdUsuario(),
                 aDominioSinOpciones(entidad.getEjercicio()), aDominio(entidad.getOpcionSeleccionada()),
-                entidad.getTokenIdempotencia());
+                entidad.getTokenIdempotencia(), entidad.getTiempoRespuestaMs());
     }
 
     public static TokenRecuperacion aDominio(TokenRecuperacionEntidad entidad) {
