@@ -53,9 +53,9 @@ class ClasificadorDeErrorTest {
     }
 
     @Test
-    void sinDominioSeRespetaLaClasificacionDelDistractor() {
+    void sinDominioEsCognitivoAunqueElDistractorEsteEtiquetadoConOtroTipo() {
         List<Boolean> venia = List.of(false, false, false);
-        assertEquals(TipoError.HABITO, ClasificadorDeError.clasificar(3, clasificadaComoHabito, venia, VENTANA));
+        assertEquals(TipoError.COGNITIVO, ClasificadorDeError.clasificar(3, clasificadaComoHabito, venia, VENTANA));
     }
 
     @Test

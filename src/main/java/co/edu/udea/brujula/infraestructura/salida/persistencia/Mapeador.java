@@ -2,22 +2,28 @@ package co.edu.udea.brujula.infraestructura.salida.persistencia;
 
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Intento;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Opcion;
+import co.edu.udea.brujula.dominio.modelo.Recomendacion;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.modelo.TipoError;
+import co.edu.udea.brujula.dominio.modelo.Simulacro;
 import co.edu.udea.brujula.dominio.modelo.TokenRecuperacion;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.CompetenciaEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.ComponenteEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.DuracionSimulacroEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.EjercicioEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.IntentoEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.NivelDificultadEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.OpcionEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.RecomendacionEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.RolEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.TipoErrorEntidad;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.SimulacroEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.TokenRecuperacionEntidad;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.entidad.UsuarioEntidad;
 
@@ -80,10 +86,48 @@ public final class Mapeador {
     }
 
     public static Intento aDominio(IntentoEntidad entidad) {
+        return intento(entidad, List.of());
+    }
+
+    public static Intento aDominioConOpciones(IntentoEntidad entidad) {
+        return intento(entidad, entidad.getEjercicio().getOpciones().stream().map(Mapeador::aDominio).toList());
+    }
+
+    private static Intento intento(IntentoEntidad entidad, List<Opcion> opciones) {
+        EjercicioEntidad ejercicio = entidad.getEjercicio();
+        Ejercicio comoSeRespondio = new Ejercicio(ejercicio.getId(), ejercicio.getNumero(), entidad.getEnunciado(),
+                entidad.getImagenEnunciado(), aDominio(entidad.getNivel()), aDominio(entidad.getComponente()),
+                aDominio(entidad.getCompetencia()), ejercicio.getEstado(), ejercicio.getCreadoEn(), null, null,
+                opciones);
+        OpcionEntidad elegida = entidad.getOpcionSeleccionada();
+        Opcion opcionComoSeVio = new Opcion(elegida.getId(), elegida.getTexto(), elegida.getImagen(),
+                elegida.isCorrecta(), entidad.getRetroalimentacion(), aDominio(elegida.getTipoError()),
+                elegida.getOrden());
         return new Intento(entidad.getId(), entidad.getRespondidoEn(), entidad.isCorrecto(),
                 entidad.getNivelConfianza(), aDominio(entidad.getTipoError()), entidad.getIdUsuario(),
-                aDominioSinOpciones(entidad.getEjercicio()), aDominio(entidad.getOpcionSeleccionada()),
-                entidad.getTokenIdempotencia(), entidad.getTiempoRespuestaMs());
+                comoSeRespondio, opcionComoSeVio, entidad.getTokenIdempotencia(), entidad.getTiempoRespuestaMs(),
+                entidad.getIdSimulacro());
+    }
+
+    public static DuracionSimulacro aDominio(DuracionSimulacroEntidad entidad) {
+        return new DuracionSimulacro(entidad.getId(), entidad.getMinutos());
+    }
+
+    public static Simulacro aDominio(SimulacroEntidad entidad) {
+        return new Simulacro(entidad.getId(), entidad.getIdUsuario(), aDominio(entidad.getDuracion()),
+                entidad.getInicio(), entidad.getFin(), entidad.getEstado(), entidad.getTiempoUtilizadoSeg());
+    }
+
+    public static Recomendacion aDominio(RecomendacionEntidad entidad) {
+        ComponenteEntidad componente = entidad.getComponente();
+        CompetenciaEntidad competencia = entidad.getCompetencia();
+        return componente != null
+                ? new Recomendacion(entidad.getId(), entidad.getOrden(), componente.getNombre(),
+                        Recomendacion.COMPONENTE, componente.getId(), null, entidad.getPorcentaje(),
+                        entidad.getMensaje())
+                : new Recomendacion(entidad.getId(), entidad.getOrden(), competencia.getNombre(),
+                        Recomendacion.COMPETENCIA, null, competencia.getId(), entidad.getPorcentaje(),
+                        entidad.getMensaje());
     }
 
     public static TokenRecuperacion aDominio(TokenRecuperacionEntidad entidad) {

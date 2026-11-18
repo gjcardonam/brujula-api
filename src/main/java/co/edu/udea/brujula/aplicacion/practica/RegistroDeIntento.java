@@ -1,12 +1,14 @@
 package co.edu.udea.brujula.aplicacion.practica;
 
 import co.edu.udea.brujula.dominio.excepcion.AccesoDenegado;
+import co.edu.udea.brujula.dominio.excepcion.Conflicto;
 import co.edu.udea.brujula.dominio.excepcion.DatosInvalidos;
 import co.edu.udea.brujula.dominio.excepcion.NoEncontrado;
 import co.edu.udea.brujula.dominio.excepcion.RecursoNoDisponible;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Intento;
 import co.edu.udea.brujula.dominio.modelo.Opcion;
+import co.edu.udea.brujula.dominio.modelo.Simulacro;
 import co.edu.udea.brujula.dominio.modelo.TipoError;
 import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeIntento;
 import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarIntento;
@@ -15,12 +17,17 @@ import co.edu.udea.brujula.dominio.puerto.salida.EjercicioRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.IntentoRepositorio;
 import co.edu.udea.brujula.dominio.puerto.salida.ParametrosDelSistema;
 import co.edu.udea.brujula.dominio.puerto.salida.Reloj;
+import co.edu.udea.brujula.dominio.puerto.salida.SimulacroRepositorio;
+import co.edu.udea.brujula.dominio.servicio.CierreDeSimulacros;
 import co.edu.udea.brujula.dominio.servicio.ClasificadorDeError;
+import co.edu.udea.brujula.dominio.servicio.LimiteDeReintentos;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -34,14 +41,19 @@ public class RegistroDeIntento implements RegistrarIntento {
     private final EjercicioRepositorio ejercicios;
     private final CatalogoRepositorio catalogos;
     private final ParametrosDelSistema parametros;
+    private final SimulacroRepositorio simulacros;
+    private final CierreDeSimulacros cierre;
     private final Reloj reloj;
 
     public RegistroDeIntento(IntentoRepositorio intentos, EjercicioRepositorio ejercicios,
-                             CatalogoRepositorio catalogos, ParametrosDelSistema parametros, Reloj reloj) {
+                             CatalogoRepositorio catalogos, ParametrosDelSistema parametros,
+                             SimulacroRepositorio simulacros, CierreDeSimulacros cierre, Reloj reloj) {
         this.intentos = intentos;
         this.ejercicios = ejercicios;
         this.catalogos = catalogos;
         this.parametros = parametros;
+        this.simulacros = simulacros;
+        this.cierre = cierre;
         this.reloj = reloj;
     }
 
@@ -50,6 +62,10 @@ public class RegistroDeIntento implements RegistrarIntento {
     public ResultadoDeIntento registrar(Long idEstudiante, Respuesta respuesta) {
         exigirTokenDeIdempotencia(respuesta);
         exigirRespuestaCompleta(respuesta);
+
+        Optional<Simulacro> simulacro = Optional.ofNullable(respuesta.idSimulacro())
+                .map(idSimulacro -> simulacros.deEstudianteParaResponder(idSimulacro, idEstudiante)
+                        .orElseThrow(() -> new NoEncontrado("El simulacro no existe.")));
 
         Optional<Intento> yaRegistrado = buscarPorToken(idEstudiante, respuesta);
         if (yaRegistrado.isPresent()) return resultado(yaRegistrado.get(), true);
@@ -64,11 +80,15 @@ public class RegistroDeIntento implements RegistrarIntento {
                 .orElseThrow(() -> new DatosInvalidos("OPCION_INVALIDA",
                         "La opción seleccionada no pertenece al ejercicio."));
 
+        Instant ahora = reloj.ahora();
+        if (simulacro.isPresent()) exigirQueAdmitaLaRespuesta(simulacro.get(), ejercicio, ahora);
+        else exigirQueQuedenIntentos(idEstudiante, ejercicio, ahora);
         TipoError tipoError = opcion.correcta()
                 ? null
                 : clasificar(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza());
         Intento nuevo = Intento.nuevo(idEstudiante, ejercicio, opcion, respuesta.nivelConfianza(), tipoError,
-                respuesta.tokenIdempotencia(), reloj.ahora(), tiempoValido(respuesta.tiempoRespuestaMs()));
+                respuesta.tokenIdempotencia(), ahora, tiempoValido(respuesta.tiempoRespuestaMs()),
+                respuesta.idSimulacro());
         return resultado(intentos.guardar(nuevo), false);
     }
 
@@ -86,6 +106,31 @@ public class RegistroDeIntento implements RegistrarIntento {
         return catalogos.tipoDeError(ClasificadorDeError.clasificar(nivelConfianza, opcion, previos, ventana));
     }
 
+    private void exigirQueQuedenIntentos(Long idEstudiante, Ejercicio ejercicio, Instant ahora) {
+        LimiteDeReintentos.Disponibilidad disponibilidad = LimiteDeReintentos.evaluar(
+                intentos.practicaDe(idEstudiante, ejercicio.id()),
+                parametros.entero(ParametrosDelSistema.MAX_INTENTOS_PRACTICA, 2),
+                parametros.entero(ParametrosDelSistema.HORAS_ESPERA_REINTENTO, 24));
+        if (disponibilidad.restantes() == 0) {
+            throw new Conflicto("SIN_INTENTOS", "Ya usaste todos los intentos de este ejercicio.");
+        }
+        if (!disponibilidad.permiteResponder(ahora)) {
+            throw new Conflicto("REINTENTO_EN_ESPERA", "Podrás volver a intentar este ejercicio más adelante.",
+                    Map.of("disponibleDesde", disponibilidad.disponibleDesde().toString()));
+        }
+    }
+
+    private void exigirQueAdmitaLaRespuesta(Simulacro simulacro, Ejercicio ejercicio, Instant ahora) {
+        if (!cierre.cerrarSiSeVencio(simulacro, ahora).enCurso()) {
+            throw new Conflicto("SIMULACRO_FINALIZADO",
+                    "El simulacro ya finalizó; no es posible registrar más respuestas.",
+                    Map.of("idSimulacro", simulacro.id()));
+        }
+        if (intentos.yaRespondidoEnSimulacro(simulacro.id(), ejercicio.id())) {
+            throw new Conflicto("EJERCICIO_YA_RESPONDIDO", "Este ejercicio ya fue respondido en el simulacro.");
+        }
+    }
+
     private Optional<Intento> buscarPorToken(Long idEstudiante, Respuesta respuesta) {
         Optional<Intento> previo = intentos.porToken(respuesta.tokenIdempotencia());
         if (previo.isPresent() && !previo.get().idEstudiante().equals(idEstudiante)) {
@@ -100,7 +145,8 @@ public class RegistroDeIntento implements RegistrarIntento {
         long numero = intentos.cantidadDeIntentos(intento.idEstudiante(), intento.ejercicio().id());
         return new ResultadoDeIntento(intento.id(), intento.correcto(), elegida.id(), idCorrecta,
                 elegida.retroalimentacionParaMostrar(), elegida.tieneRetroalimentacion(), intento.nivelConfianza(),
-                intento.respondidoEn(), numero, repetido, intento.tipoError() == null ? null : intento.tipoError().nombre());
+                intento.respondidoEn(), numero, repetido,
+                intento.tipoError() == null ? null : intento.tipoError().nombre(), intento.idSimulacro());
     }
 
     private static void exigirTokenDeIdempotencia(Respuesta respuesta) {

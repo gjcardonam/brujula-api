@@ -21,9 +21,6 @@ public final class ClasificadorDeError {
         if (dominaElArea(resultadosPrevios, ventana)) {
             return TipoError.HABITO;
         }
-        if (opcionElegida.tipoError() != null) {
-            return opcionElegida.tipoError().nombre();
-        }
         return TipoError.COGNITIVO;
     }
 

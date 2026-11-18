@@ -72,8 +72,20 @@ public class EjercicioAdaptador implements EjercicioRepositorio {
     }
 
     @Override
-    public Optional<Long> siguienteParaPractica(Long idActual, Long idComponente, Long idEstudiante) {
-        return ejercicios.siguienteParaPractica(idActual, idComponente, idEstudiante);
+    public Optional<Long> siguienteParaPractica(Long idActual, Long idComponente, Long idEstudiante,
+                                                int maximoDeIntentos, int horasDeEspera) {
+        return ejercicios.siguienteParaPractica(idActual, idComponente, idEstudiante, maximoDeIntentos,
+                horasDeEspera);
+    }
+
+    @Override
+    public long cantidadDeActivos() {
+        return ejercicios.contarTotal(true);
+    }
+
+    @Override
+    public Optional<Long> siguienteParaSimulacro(Long idSimulacro) {
+        return ejercicios.siguienteParaSimulacro(idSimulacro);
     }
 
     @Override

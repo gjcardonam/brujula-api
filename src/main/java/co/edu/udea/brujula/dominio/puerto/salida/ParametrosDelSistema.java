@@ -11,6 +11,9 @@ public interface ParametrosDelSistema {
     String MINUTOS_VIGENCIA_RECUPERACION = "minutos_vigencia_recuperacion";
     String MAX_SOLICITUDES_RECUPERACION_HORA = "max_solicitudes_recuperacion_hora";
     String TAMANO_PAGINA_BANCO = "tamano_pagina_banco";
+    String UMBRAL_RECOMENDACION_PCT = "umbral_recomendacion_pct";
+    String MAX_INTENTOS_PRACTICA = "max_intentos_practica";
+    String HORAS_ESPERA_REINTENTO = "horas_espera_reintento";
 
     int entero(String clave, int valorPorDefecto);
 }

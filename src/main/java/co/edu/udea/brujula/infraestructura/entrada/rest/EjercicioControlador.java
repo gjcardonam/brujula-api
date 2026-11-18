@@ -88,7 +88,8 @@ public class EjercicioControlador {
             return EjercicioAdminDto.de(consultaDeDetalle.detalle(id), imagenes);
         }
         AbrirEjercicio.ParaPracticar abierto = apertura.abrir(usuario.id(), id);
-        return EjercicioEstudianteDto.de(abierto.ejercicio(), abierto.intentosPrevios(), imagenes);
+        return EjercicioEstudianteDto.de(abierto.ejercicio(), abierto.intentosPrevios(), abierto.intentosRestantes(),
+                abierto.disponibleDesde(), imagenes);
     }
 
     @GetMapping("/{id}/siguiente")

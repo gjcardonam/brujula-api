@@ -38,6 +38,12 @@ public interface EjercicioJpa extends JpaRepository<EjercicioEntidad, Long> {
             select e.id_ejercicio from ejercicios e
             where e.estado = 'Activo' and e.id_ejercicio <> :idActual
               and (cast(:idComponente as bigint) is null or e.id_componente = cast(:idComponente as bigint))
+              and not exists (select 1 from intentos i
+                              where i.id_ejercicio = e.id_ejercicio and i.id_usuario = :idUsuario
+                                and i.id_simulacro is null
+                              group by i.id_ejercicio
+                              having count(*) >= :maximo
+                                  or max(i.respondido_en) > now() - make_interval(hours => :horasDeEspera))
             order by (exists (select 1 from intentos i
                               where i.id_ejercicio = e.id_ejercicio and i.id_usuario = :idUsuario)) asc,
                      random()
@@ -45,5 +51,16 @@ public interface EjercicioJpa extends JpaRepository<EjercicioEntidad, Long> {
             """, nativeQuery = true)
     Optional<Long> siguienteParaPractica(@Param("idActual") Long idActual,
                                          @Param("idComponente") Long idComponente,
-                                         @Param("idUsuario") Long idUsuario);
+                                         @Param("idUsuario") Long idUsuario, @Param("maximo") int maximo,
+                                         @Param("horasDeEspera") int horasDeEspera);
+
+    @Query(value = """
+            select e.id_ejercicio from ejercicios e
+            where e.estado = 'Activo'
+              and not exists (select 1 from intentos i
+                              where i.id_simulacro = :idSimulacro and i.id_ejercicio = e.id_ejercicio)
+            order by md5(cast(:idSimulacro as text) || '-' || cast(e.id_ejercicio as text))
+            limit 1
+            """, nativeQuery = true)
+    Optional<Long> siguienteParaSimulacro(@Param("idSimulacro") Long idSimulacro);
 }

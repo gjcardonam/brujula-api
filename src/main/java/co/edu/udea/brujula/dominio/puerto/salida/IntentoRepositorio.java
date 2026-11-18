@@ -5,6 +5,7 @@ import co.edu.udea.brujula.dominio.modelo.Pagina;
 import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeIntento;
 import co.edu.udea.brujula.dominio.modelo.consulta.ResumenDeIntento;
 import co.edu.udea.brujula.dominio.modelo.consulta.UsoDelEjercicio;
+import co.edu.udea.brujula.dominio.servicio.LimiteDeReintentos;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,8 @@ public interface IntentoRepositorio {
 
     long cantidadDeIntentos(Long idEstudiante, Long idEjercicio);
 
+    LimiteDeReintentos.Practica practicaDe(Long idEstudiante, Long idEjercicio);
+
     UsoDelEjercicio usoDe(Long idEjercicio);
 
     Set<Long> opcionesUsadas(Long idEjercicio);
@@ -28,4 +31,14 @@ public interface IntentoRepositorio {
     Pagina<ResumenDeIntento> historialDe(Long idEstudiante, int pagina, int tamano);
 
     Optional<DetalleDeIntento> detalle(Long idIntento, Long idEstudiante);
+
+    boolean yaRespondidoEnSimulacro(Long idSimulacro, Long idEjercicio);
+
+    List<Intento> delSimulacro(Long idSimulacro);
+
+    long respondidosEn(Long idSimulacro);
+
+    long correctasEn(Long idSimulacro);
+
+    List<Intento> deEstudiante(Long idEstudiante);
 }

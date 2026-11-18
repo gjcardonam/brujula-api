@@ -21,7 +21,7 @@ public final class DistribucionDeErrores {
     private static String orientacion(String tipo) {
         if (TipoError.COGNITIVO.equals(tipo)) return "Repasa los conceptos del área y revisa la retroalimentación antes de volver a practicar.";
         if (TipoError.HABITO.equals(tipo)) return "Lee con cuidado el enunciado y verifica tu respuesta antes de enviarla.";
-        if (TipoError.ANSIEDAD.equals(tipo)) return "Haz una pausa, respira y revisa tu razonamiento incluso cuando te sientas muy seguro.";
+        if (TipoError.ANSIEDAD.equals(tipo)) return "Practica con tiempo, como en un simulacro, para acostumbrarte a la presión, y revisa tu procedimiento antes de confirmar aunque te sientas seguro.";
         return null;
     }
 }

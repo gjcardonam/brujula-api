@@ -2,6 +2,7 @@ package co.edu.udea.brujula.dominio.puerto.salida;
 
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.modelo.TipoError;
@@ -30,4 +31,8 @@ public interface CatalogoRepositorio {
     Optional<TipoError> tipoDeError(Long id);
 
     TipoError tipoDeError(String nombre);
+
+    List<DuracionSimulacro> duraciones();
+
+    Optional<DuracionSimulacro> duracion(Long id);
 }

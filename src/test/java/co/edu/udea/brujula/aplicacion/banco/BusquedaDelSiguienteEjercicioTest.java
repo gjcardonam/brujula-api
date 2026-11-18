@@ -1,6 +1,7 @@
 package co.edu.udea.brujula.aplicacion.banco;
 
 import co.edu.udea.brujula.apoyo.Datos;
+import co.edu.udea.brujula.apoyo.dobles.ParametrosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.EjerciciosEnMemoria;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.BuscarSiguienteEjercicio;
@@ -18,7 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class BusquedaDelSiguienteEjercicioTest {
 
     private final EjerciciosEnMemoria ejercicios = new EjerciciosEnMemoria();
-    private final BusquedaDelSiguienteEjercicio busqueda = new BusquedaDelSiguienteEjercicio(ejercicios);
+    private final BusquedaDelSiguienteEjercicio busqueda = new BusquedaDelSiguienteEjercicio(ejercicios,
+            new ParametrosEnMemoria());
 
     @Test
     void entrega_otro_ejercicio_activo_distinto_del_actual() {

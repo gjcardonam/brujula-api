@@ -33,7 +33,10 @@ public final class Peticiones {
     }
 
     public record IntentoRequest(Long idEjercicio, Long idOpcion, Integer nivelConfianza, UUID tokenIdempotencia,
-                                 Integer tiempoRespuestaMs) {
+                                 Integer tiempoRespuestaMs, Long idSimulacro) {
+    }
+
+    public record SimulacroRequest(Long idDuracion) {
     }
 
     public record CambioEstadoRequest(String estado) {

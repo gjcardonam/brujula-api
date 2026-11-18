@@ -2,13 +2,20 @@ package co.edu.udea.brujula.infraestructura.entrada.rest.dto;
 
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Pagina;
+import co.edu.udea.brujula.dominio.modelo.Recomendacion;
 import co.edu.udea.brujula.dominio.modelo.SesionIniciada;
 import co.edu.udea.brujula.dominio.modelo.Usuario;
 import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeEjercicio;
+import co.edu.udea.brujula.dominio.modelo.consulta.DesempenoPorArea;
+import co.edu.udea.brujula.dominio.modelo.consulta.DetalleDeIntento;
+import co.edu.udea.brujula.dominio.modelo.consulta.EstadoDelSimulacro;
+import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeSimulacro;
+import co.edu.udea.brujula.dominio.modelo.consulta.SiguienteDelSimulacro;
 import co.edu.udea.brujula.dominio.modelo.consulta.UsoDelEjercicio;
 import co.edu.udea.brujula.dominio.puerto.entrada.ConsultarCatalogos;
 import co.edu.udea.brujula.dominio.puerto.salida.AlmacenDeImagenes;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.Set;
@@ -47,15 +54,19 @@ public final class Respuestas {
         }
     }
 
+    public record DuracionDto(Long id, int minutos) {
+    }
+
     public record CatalogosDto(List<Item> componentes, List<Item> competencias, List<Item> niveles,
-                               List<Item> tiposError) {
+                               List<Item> tiposError, List<DuracionDto> duraciones) {
 
         public static CatalogosDto de(ConsultarCatalogos.Catalogos catalogos) {
             return new CatalogosDto(
                     catalogos.componentes().stream().map(c -> new Item(c.id(), c.nombre())).toList(),
                     catalogos.competencias().stream().map(c -> new Item(c.id(), c.nombre())).toList(),
                     catalogos.niveles().stream().map(n -> new Item(n.id(), n.nombre())).toList(),
-                    catalogos.tiposDeError().stream().map(t -> new Item(t.id(), t.nombre())).toList());
+                    catalogos.tiposDeError().stream().map(t -> new Item(t.id(), t.nombre())).toList(),
+                    catalogos.duraciones().stream().map(d -> new DuracionDto(d.id(), d.minutos())).toList());
         }
     }
 
@@ -64,10 +75,16 @@ public final class Respuestas {
 
     public record EjercicioEstudianteDto(Long id, Integer numero, String enunciado, String imagenEnunciado,
                                          Item componente, Item competencia, String nivel, String estado,
-                                         List<OpcionEstudianteDto> opciones, long intentosPrevios) {
+                                         List<OpcionEstudianteDto> opciones, long intentosPrevios,
+                                         Integer intentosRestantes, Instant disponibleDesde) {
 
         public static EjercicioEstudianteDto de(Ejercicio ejercicio, long intentosPrevios,
                                                 AlmacenDeImagenes imagenes) {
+            return de(ejercicio, intentosPrevios, null, null, imagenes);
+        }
+
+        public static EjercicioEstudianteDto de(Ejercicio ejercicio, long intentosPrevios, Integer intentosRestantes,
+                                                Instant disponibleDesde, AlmacenDeImagenes imagenes) {
             List<OpcionEstudianteDto> opciones = ejercicio.opciones().stream()
                     .map(o -> new OpcionEstudianteDto(o.id(), o.letra(), o.texto(), imagenes.urlDe(o.imagen()),
                             o.orden()))
@@ -76,7 +93,8 @@ public final class Respuestas {
                     imagenes.urlDe(ejercicio.imagen()),
                     new Item(ejercicio.componente().id(), ejercicio.componente().nombre()),
                     new Item(ejercicio.competencia().id(), ejercicio.competencia().nombre()),
-                    ejercicio.nivel().nombre(), ejercicio.estado(), opciones, intentosPrevios);
+                    ejercicio.nivel().nombre(), ejercicio.estado(), opciones, intentosPrevios,
+                    intentosRestantes, disponibleDesde);
         }
     }
 
@@ -105,6 +123,57 @@ public final class Respuestas {
                     new Item(ejercicio.nivel().id(), ejercicio.nivel().nombre()),
                     ejercicio.estado(), ejercicio.nombreCreador(), ejercicio.creadoEn(), opciones,
                     detalle.uso(), detalle.tieneIntentos());
+        }
+    }
+
+    public record SiguienteSimulacroDto(boolean finalizado, String motivo, EjercicioEstudianteDto ejercicio,
+                                        EstadoDelSimulacro estado) {
+
+        public static SiguienteSimulacroDto de(SiguienteDelSimulacro siguiente, AlmacenDeImagenes imagenes) {
+            EjercicioEstudianteDto ejercicio = siguiente.ejercicio() == null ? null
+                    : EjercicioEstudianteDto.de(siguiente.ejercicio(), 0, imagenes);
+            return new SiguienteSimulacroDto(siguiente.finalizado(), siguiente.motivo(), ejercicio,
+                    siguiente.estado());
+        }
+    }
+
+    public record RecomendacionDto(int orden, String area, String tipo, Long idComponente, Long idCompetencia,
+                                   BigDecimal porcentaje, String mensaje) {
+
+        public static RecomendacionDto de(Recomendacion recomendacion) {
+            return new RecomendacionDto(recomendacion.orden(), recomendacion.area(), recomendacion.tipoDeArea(),
+                    recomendacion.idComponente(), recomendacion.idCompetencia(), recomendacion.porcentaje(),
+                    recomendacion.mensaje());
+        }
+    }
+
+    public record ResultadoSimulacroDto(Long id, Instant fechaInicio, Instant fechaFin, int duracionMinutos,
+                                        Integer tiempoUtilizadoSeg, long respondidos, long correctas,
+                                        long incorrectas, BigDecimal porcentajeAciertos,
+                                        List<DesempenoPorArea> porComponente, List<DesempenoPorArea> porCompetencia,
+                                        List<RecomendacionDto> recomendaciones, String mensajeRecomendacion,
+                                        List<DetalleDeIntento> detalle) {
+
+        public static ResultadoSimulacroDto de(ResultadoDeSimulacro resultado, AlmacenDeImagenes imagenes) {
+            return new ResultadoSimulacroDto(resultado.id(), resultado.fechaInicio(), resultado.fechaFin(),
+                    resultado.duracionMinutos(), resultado.tiempoUtilizadoSeg(), resultado.respondidos(),
+                    resultado.correctas(), resultado.incorrectas(), resultado.porcentajeAciertos(),
+                    resultado.porComponente(), resultado.porCompetencia(),
+                    resultado.recomendaciones().stream().map(RecomendacionDto::de).toList(),
+                    resultado.mensajeRecomendacion(),
+                    resultado.detalle().stream().map(detalle -> conImagenes(detalle, imagenes)).toList());
+        }
+
+        private static DetalleDeIntento conImagenes(DetalleDeIntento detalle, AlmacenDeImagenes imagenes) {
+            List<DetalleDeIntento.OpcionRevisada> opciones = detalle.opciones().stream()
+                    .map(o -> new DetalleDeIntento.OpcionRevisada(o.id(), o.letra(), o.descripcion(),
+                            imagenes.urlDe(o.imagen()), o.seleccionada(), o.esCorrecta()))
+                    .toList();
+            return new DetalleDeIntento(detalle.id(), detalle.idEjercicio(), detalle.numeroEjercicio(),
+                    detalle.enunciado(), imagenes.urlDe(detalle.imagenEnunciado()), detalle.componente(),
+                    detalle.competencia(), detalle.nivel(), detalle.estadoEjercicio(), opciones,
+                    detalle.esCorrecto(), detalle.nivelConfianza(), detalle.fechaHora(),
+                    detalle.retroalimentacion(), detalle.tipoError(), detalle.idSimulacro());
         }
     }
 }

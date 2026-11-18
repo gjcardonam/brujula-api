@@ -3,21 +3,27 @@ package co.edu.udea.brujula.aplicacion.practica;
 import co.edu.udea.brujula.apoyo.Datos;
 import co.edu.udea.brujula.apoyo.dobles.EjerciciosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.IntentosEnMemoria;
+import co.edu.udea.brujula.apoyo.dobles.ParametrosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.RelojFijo;
 import co.edu.udea.brujula.apoyo.dobles.CatalogosEnMemoria;
-import co.edu.udea.brujula.apoyo.dobles.ParametrosEnMemoria;
+import co.edu.udea.brujula.apoyo.dobles.SimulacrosEnMemoria;
 import co.edu.udea.brujula.dominio.excepcion.AccesoDenegado;
+import co.edu.udea.brujula.dominio.excepcion.Conflicto;
 import co.edu.udea.brujula.dominio.excepcion.DatosInvalidos;
 import co.edu.udea.brujula.dominio.excepcion.NoEncontrado;
 import co.edu.udea.brujula.dominio.excepcion.RecursoNoDisponible;
 import co.edu.udea.brujula.dominio.modelo.Ejercicio;
 import co.edu.udea.brujula.dominio.modelo.Opcion;
+import co.edu.udea.brujula.dominio.modelo.Simulacro;
 import co.edu.udea.brujula.dominio.modelo.consulta.ResultadoDeIntento;
 import co.edu.udea.brujula.dominio.puerto.entrada.RegistrarIntento;
+import co.edu.udea.brujula.dominio.puerto.salida.ParametrosDelSistema;
+import co.edu.udea.brujula.dominio.servicio.CierreDeSimulacros;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,10 +38,16 @@ class RegistroDeIntentoTest {
 
     private final EjerciciosEnMemoria ejercicios = new EjerciciosEnMemoria();
     private final IntentosEnMemoria intentos = new IntentosEnMemoria();
+    private final SimulacrosEnMemoria simulacros = new SimulacrosEnMemoria();
     private final RelojFijo reloj = new RelojFijo();
     private final CatalogosEnMemoria catalogos = new CatalogosEnMemoria();
-    private final ParametrosEnMemoria parametros = new ParametrosEnMemoria();
-    private final RegistroDeIntento registro = new RegistroDeIntento(intentos, ejercicios, catalogos, parametros, reloj);
+    // Sin límite de reintentos para los casos que responden varias veces el mismo ejercicio.
+    private final ParametrosEnMemoria parametros = new ParametrosEnMemoria()
+            .con(ParametrosDelSistema.MAX_INTENTOS_PRACTICA, 100)
+            .con(ParametrosDelSistema.HORAS_ESPERA_REINTENTO, 0);
+    private final CierreDeSimulacros cierre = new CierreDeSimulacros(simulacros, intentos, parametros);
+    private final RegistroDeIntento registro = new RegistroDeIntento(intentos, ejercicios, catalogos, parametros,
+            simulacros, cierre, reloj);
 
     private Ejercicio ejercicio;
 
@@ -50,6 +62,14 @@ class RegistroDeIntentoTest {
 
     private RegistrarIntento.Respuesta respuestaCon(Opcion opcion, Integer confianza, UUID token) {
         return new RegistrarIntento.Respuesta(ejercicio.id(), opcion.id(), confianza, token);
+    }
+
+    private Simulacro simulacroEnCurso(Long idEstudiante) {
+        return simulacros.guardar(Simulacro.iniciar(idEstudiante, Datos.TREINTA_MINUTOS, reloj.ahora()));
+    }
+
+    private RegistrarIntento.Respuesta enSimulacro(Simulacro simulacro, Opcion opcion, UUID token) {
+        return new RegistrarIntento.Respuesta(ejercicio.id(), opcion.id(), 4, token, null, simulacro.id());
     }
 
     @Test
@@ -106,11 +126,11 @@ class RegistroDeIntentoTest {
     @Test
     void guarda_el_tiempo_de_respuesta_sin_mostrarlo_y_descarta_los_tiempos_invalidos() {
         registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
-                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 42_000));
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 42_000, null));
         registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
-                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), -5));
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), -5, null));
         registro.registrar(ESTUDIANTE, new RegistrarIntento.Respuesta(ejercicio.id(),
-                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 4_000_000));
+                ejercicio.opciones().get(0).id(), 3, UUID.randomUUID(), 4_000_000, null));
 
         assertEquals(42_000, intentos.todos().get(0).tiempoRespuestaMs());
         org.junit.jupiter.api.Assertions.assertNull(intentos.todos().get(1).tiempoRespuestaMs());
@@ -118,14 +138,40 @@ class RegistroDeIntentoTest {
     }
 
     @Test
-    void repetir_un_ejercicio_despues_de_ver_la_respuesta_no_cuenta_como_dominio_del_tema() {
-        registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(1), 2));
-        for (int i = 0; i < 3; i++) registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3));
+    void en_practica_solo_deja_reintentar_una_vez_y_despues_de_la_espera() {
+        RelojFijo relojPropio = new RelojFijo();
+        ParametrosEnMemoria porDefecto = new ParametrosEnMemoria();
+        RegistroDeIntento limitado = new RegistroDeIntento(intentos, ejercicios, catalogos, porDefecto, simulacros,
+                new CierreDeSimulacros(simulacros, intentos, porDefecto), relojPropio);
+        limitado.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(1), 2));
 
-        ResultadoDeIntento otraVezMal = registro.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(1), 2));
+        Conflicto enEspera = assertThrows(Conflicto.class,
+                () -> limitado.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3)));
+        assertEquals("REINTENTO_EN_ESPERA", enEspera.codigo());
 
-        org.junit.jupiter.api.Assertions.assertNotEquals(
-                co.edu.udea.brujula.dominio.modelo.TipoError.HABITO, otraVezMal.tipoError());
+        relojPropio.avanzar(Duration.ofHours(24));
+        limitado.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3));
+
+        relojPropio.avanzar(Duration.ofDays(3));
+        Conflicto agotado = assertThrows(Conflicto.class,
+                () -> limitado.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3)));
+        assertEquals("SIN_INTENTOS", agotado.codigo());
+    }
+
+    @Test
+    void los_intentos_del_simulacro_no_gastan_los_de_practica() {
+        RelojFijo relojPropio = new RelojFijo();
+        ParametrosEnMemoria porDefecto = new ParametrosEnMemoria();
+        CierreDeSimulacros cierrePropio = new CierreDeSimulacros(simulacros, intentos, porDefecto);
+        RegistroDeIntento limitado = new RegistroDeIntento(intentos, ejercicios, catalogos, porDefecto, simulacros,
+                cierrePropio, relojPropio);
+        Simulacro simulacro = simulacros.guardar(Simulacro.iniciar(ESTUDIANTE, Datos.TREINTA_MINUTOS,
+                relojPropio.ahora()));
+        limitado.registrar(ESTUDIANTE, enSimulacro(simulacro, ejercicio.opciones().get(0), UUID.randomUUID()));
+
+        ResultadoDeIntento enPractica = limitado.registrar(ESTUDIANTE, respuestaCon(ejercicio.opciones().get(0), 3));
+
+        assertTrue(enPractica.esCorrecto());
     }
 
     @Test
@@ -195,5 +241,78 @@ class RegistroDeIntentoTest {
     void avisa_cuando_el_ejercicio_no_existe() {
         assertThrows(NoEncontrado.class, () -> registro.registrar(ESTUDIANTE,
                 new RegistrarIntento.Respuesta(99L, 10L, 3, UUID.randomUUID())));
+    }
+
+    @Test
+    void asocia_el_intento_al_simulacro_en_curso() {
+        Simulacro simulacro = simulacroEnCurso(ESTUDIANTE);
+
+        ResultadoDeIntento resultado = registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(1), UUID.randomUUID()));
+
+        assertEquals(simulacro.id(), resultado.idSimulacro());
+        assertEquals(simulacro.id(), intentos.todos().get(0).idSimulacro());
+        assertEquals(ejercicio.opciones().get(1).retroalimentacion(), resultado.retroalimentacion());
+    }
+
+    @Test
+    void no_registra_dos_veces_el_mismo_ejercicio_dentro_del_simulacro() {
+        Simulacro simulacro = simulacroEnCurso(ESTUDIANTE);
+        registro.registrar(ESTUDIANTE, enSimulacro(simulacro, ejercicio.opciones().get(0), UUID.randomUUID()));
+
+        Conflicto error = assertThrows(Conflicto.class, () -> registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(1), UUID.randomUUID())));
+
+        assertEquals("EJERCICIO_YA_RESPONDIDO", error.codigo());
+        assertEquals(1, intentos.todos().size());
+    }
+
+    @Test
+    void reenviar_la_misma_respuesta_tras_una_desconexion_no_la_duplica() {
+        Simulacro simulacro = simulacroEnCurso(ESTUDIANTE);
+        UUID token = UUID.randomUUID();
+        ResultadoDeIntento primero = registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(0), token));
+        reloj.avanzar(Duration.ofMinutes(45));
+
+        ResultadoDeIntento reenvio = registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(0), token));
+
+        assertTrue(reenvio.repetido());
+        assertEquals(primero.idIntento(), reenvio.idIntento());
+        assertEquals(1, intentos.todos().size());
+    }
+
+    @Test
+    void no_acepta_respuestas_en_un_simulacro_finalizado() {
+        Simulacro simulacro = simulacroEnCurso(ESTUDIANTE);
+        cierre.cerrar(simulacro, reloj.ahora());
+
+        Conflicto error = assertThrows(Conflicto.class, () -> registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(0), UUID.randomUUID())));
+
+        assertEquals("SIMULACRO_FINALIZADO", error.codigo());
+        assertTrue(intentos.todos().isEmpty());
+    }
+
+    @Test
+    void no_acepta_respuestas_cuando_ya_se_agoto_el_tiempo() {
+        Simulacro simulacro = simulacroEnCurso(ESTUDIANTE);
+        reloj.avanzar(Duration.ofMinutes(30));
+
+        Conflicto error = assertThrows(Conflicto.class, () -> registro.registrar(ESTUDIANTE,
+                enSimulacro(simulacro, ejercicio.opciones().get(0), UUID.randomUUID())));
+
+        assertEquals("SIMULACRO_FINALIZADO", error.codigo());
+        assertTrue(intentos.todos().isEmpty());
+    }
+
+    @Test
+    void no_deja_responder_en_el_simulacro_de_otro_estudiante() {
+        Simulacro ajeno = simulacroEnCurso(8L);
+
+        assertThrows(NoEncontrado.class, () -> registro.registrar(ESTUDIANTE,
+                enSimulacro(ajeno, ejercicio.opciones().get(0), UUID.randomUUID())));
+        assertTrue(intentos.todos().isEmpty());
     }
 }

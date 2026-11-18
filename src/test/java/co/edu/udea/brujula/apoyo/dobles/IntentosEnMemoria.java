@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class IntentosEnMemoria implements IntentoRepositorio {
 
@@ -30,12 +31,20 @@ public class IntentosEnMemoria implements IntentoRepositorio {
         fallarAlGuardar = true;
     }
 
+    public Set<Long> ejerciciosRespondidosEn(Long idSimulacro) {
+        return guardados.stream()
+                .filter(intento -> idSimulacro.equals(intento.idSimulacro()))
+                .map(intento -> intento.ejercicio().id())
+                .collect(Collectors.toSet());
+    }
+
     @Override
     public Intento guardar(Intento intento) {
         if (fallarAlGuardar) throw new IllegalStateException("No se pudo guardar el intento");
         Intento conId = new Intento(siguienteId++, intento.respondidoEn(), intento.correcto(),
                 intento.nivelConfianza(), intento.tipoError(), intento.idEstudiante(), intento.ejercicio(),
-                intento.opcionSeleccionada(), intento.tokenIdempotencia(), intento.tiempoRespuestaMs());
+                intento.opcionSeleccionada(), intento.tokenIdempotencia(), intento.tiempoRespuestaMs(),
+                intento.idSimulacro());
         guardados.add(conId);
         return conId;
     }
@@ -75,13 +84,22 @@ public class IntentosEnMemoria implements IntentoRepositorio {
     }
 
     @Override
+    public co.edu.udea.brujula.dominio.servicio.LimiteDeReintentos.Practica practicaDe(Long idEstudiante,
+                                                                                      Long idEjercicio) {
+        List<Intento> practica = guardados.stream()
+                .filter(i -> i.idEstudiante().equals(idEstudiante) && i.ejercicio().id().equals(idEjercicio))
+                .filter(i -> i.idSimulacro() == null)
+                .toList();
+        return new co.edu.udea.brujula.dominio.servicio.LimiteDeReintentos.Practica(practica.size(),
+                practica.stream().map(Intento::respondidoEn).max(java.time.Instant::compareTo).orElse(null));
+    }
+
+    @Override
     public List<Boolean> ultimosResultados(Long idEstudiante, Long idComponente, Long idCompetencia, int limite) {
         return guardados.stream()
                 .filter(i -> i.idEstudiante().equals(idEstudiante))
                 .filter(i -> i.ejercicio().componente().id().equals(idComponente)
                         || i.ejercicio().competencia().id().equals(idCompetencia))
-                .filter(i -> guardados.stream().noneMatch(p -> p.idEstudiante().equals(i.idEstudiante())
-                        && p.ejercicio().id().equals(i.ejercicio().id()) && p.id() < i.id()))
                 .sorted((a, b) -> { int fecha = b.respondidoEn().compareTo(a.respondidoEn());
                     return fecha == 0 ? b.id().compareTo(a.id()) : fecha; })
                 .limit(Math.max(1, limite))
@@ -124,7 +142,33 @@ public class IntentosEnMemoria implements IntentoRepositorio {
                             i.ejercicio().numero(), i.ejercicio().enunciado(), i.ejercicio().imagen(),
                             i.ejercicio().componente().nombre(), i.ejercicio().competencia().nombre(),
                             i.ejercicio().nivel().nombre(), i.ejercicio().estado(), revisadas, i.correcto(),
-                            i.nivelConfianza(), i.respondidoEn(), retro, i.tipoError() == null ? null : i.tipoError().nombre());
+                            i.nivelConfianza(), i.respondidoEn(), retro, i.tipoError() == null ? null : i.tipoError().nombre(),
+                            i.idSimulacro());
                 });
+    }
+
+    @Override
+    public boolean yaRespondidoEnSimulacro(Long idSimulacro, Long idEjercicio) {
+        return ejerciciosRespondidosEn(idSimulacro).contains(idEjercicio);
+    }
+
+    @Override
+    public List<Intento> delSimulacro(Long idSimulacro) {
+        return guardados.stream().filter(intento -> idSimulacro.equals(intento.idSimulacro())).toList();
+    }
+
+    @Override
+    public long respondidosEn(Long idSimulacro) {
+        return delSimulacro(idSimulacro).size();
+    }
+
+    @Override
+    public long correctasEn(Long idSimulacro) {
+        return delSimulacro(idSimulacro).stream().filter(Intento::correcto).count();
+    }
+
+    @Override
+    public List<Intento> deEstudiante(Long idEstudiante) {
+        return guardados.stream().filter(intento -> intento.idEstudiante().equals(idEstudiante)).toList();
     }
 }

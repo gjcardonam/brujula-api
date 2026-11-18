@@ -5,23 +5,27 @@ import java.util.UUID;
 
 public record Intento(Long id, Instant respondidoEn, boolean correcto, int nivelConfianza, TipoError tipoError,
                       Long idEstudiante, Ejercicio ejercicio, Opcion opcionSeleccionada, UUID tokenIdempotencia,
-                      Integer tiempoRespuestaMs) {
+                      Integer tiempoRespuestaMs, Long idSimulacro) {
 
     public Intento(Long id, Instant respondidoEn, boolean correcto, int nivelConfianza, TipoError tipoError,
                    Long idEstudiante, Ejercicio ejercicio, Opcion opcionSeleccionada, UUID tokenIdempotencia) {
         this(id, respondidoEn, correcto, nivelConfianza, tipoError, idEstudiante, ejercicio, opcionSeleccionada,
-                tokenIdempotencia, null);
+                tokenIdempotencia, null, null);
     }
 
     public static Intento nuevo(Long idEstudiante, Ejercicio ejercicio, Opcion opcion, int nivelConfianza,
                                 TipoError tipoError, UUID tokenIdempotencia, Instant ahora) {
-        return nuevo(idEstudiante, ejercicio, opcion, nivelConfianza, tipoError, tokenIdempotencia, ahora, null);
+        return nuevo(idEstudiante, ejercicio, opcion, nivelConfianza, tipoError, tokenIdempotencia, ahora, null, null);
     }
 
     public static Intento nuevo(Long idEstudiante, Ejercicio ejercicio, Opcion opcion, int nivelConfianza,
                                 TipoError tipoError, UUID tokenIdempotencia, Instant ahora,
-                                Integer tiempoRespuestaMs) {
+                                Integer tiempoRespuestaMs, Long idSimulacro) {
         return new Intento(null, ahora, opcion.correcta(), nivelConfianza, tipoError, idEstudiante,
-                ejercicio, opcion, tokenIdempotencia, tiempoRespuestaMs);
+                ejercicio, opcion, tokenIdempotencia, tiempoRespuestaMs, idSimulacro);
+    }
+
+    public boolean fueEnSimulacro() {
+        return idSimulacro != null;
     }
 }

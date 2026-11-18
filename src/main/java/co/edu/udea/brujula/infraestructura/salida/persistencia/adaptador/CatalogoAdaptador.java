@@ -2,6 +2,7 @@ package co.edu.udea.brujula.infraestructura.salida.persistencia.adaptador;
 
 import co.edu.udea.brujula.dominio.modelo.Competencia;
 import co.edu.udea.brujula.dominio.modelo.Componente;
+import co.edu.udea.brujula.dominio.modelo.DuracionSimulacro;
 import co.edu.udea.brujula.dominio.modelo.NivelDificultad;
 import co.edu.udea.brujula.dominio.modelo.Rol;
 import co.edu.udea.brujula.dominio.modelo.TipoError;
@@ -9,6 +10,7 @@ import co.edu.udea.brujula.dominio.puerto.salida.CatalogoRepositorio;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.Mapeador;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.CompetenciaJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.ComponenteJpa;
+import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.DuracionSimulacroJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.NivelDificultadJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.RolJpa;
 import co.edu.udea.brujula.infraestructura.salida.persistencia.repositorio.TipoErrorJpa;
@@ -27,14 +29,16 @@ public class CatalogoAdaptador implements CatalogoRepositorio {
     private final CompetenciaJpa competencias;
     private final NivelDificultadJpa niveles;
     private final TipoErrorJpa tiposDeError;
+    private final DuracionSimulacroJpa duraciones;
 
     public CatalogoAdaptador(RolJpa roles, ComponenteJpa componentes, CompetenciaJpa competencias,
-                             NivelDificultadJpa niveles, TipoErrorJpa tiposDeError) {
+                             NivelDificultadJpa niveles, TipoErrorJpa tiposDeError, DuracionSimulacroJpa duraciones) {
         this.roles = roles;
         this.componentes = componentes;
         this.competencias = competencias;
         this.niveles = niveles;
         this.tiposDeError = tiposDeError;
+        this.duraciones = duraciones;
     }
 
     @Override
@@ -92,5 +96,15 @@ public class CatalogoAdaptador implements CatalogoRepositorio {
     public TipoError tipoDeError(String nombre) {
         return tiposDeError.findByNombre(nombre).map(Mapeador::aDominio)
                 .orElseThrow(() -> new IllegalStateException("No existe el tipo de error " + nombre));
+    }
+
+    @Override
+    public List<DuracionSimulacro> duraciones() {
+        return duraciones.findAllByOrderByMinutosAsc().stream().map(Mapeador::aDominio).toList();
+    }
+
+    @Override
+    public Optional<DuracionSimulacro> duracion(Long id) {
+        return duraciones.findById(id).map(Mapeador::aDominio);
     }
 }

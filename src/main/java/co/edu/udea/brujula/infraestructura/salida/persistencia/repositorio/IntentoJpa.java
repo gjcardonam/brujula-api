@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public interface IntentoJpa extends JpaRepository<IntentoEntidad, Long> {
 
-    @Query("select i.ejercicio.componente.id, i.ejercicio.componente.nombre, t.nombre "
+    @Query("select i.componente.id, i.componente.nombre, t.nombre "
             + "from IntentoEntidad i left join i.tipoError t where i.idUsuario = :idUsuario and i.correcto = false")
     List<Object[]> erroresDelEstudiante(@Param("idUsuario") Long idUsuario);
 
@@ -23,6 +23,10 @@ public interface IntentoJpa extends JpaRepository<IntentoEntidad, Long> {
     long countByIdUsuarioAndEjercicio_Id(Long idUsuario, Long idEjercicio);
 
     long countByEjercicio_Id(Long idEjercicio);
+
+    @Query("select count(i), max(i.respondidoEn) from IntentoEntidad i where i.idUsuario = :idUsuario "
+            + "and i.ejercicio.id = :idEjercicio and i.idSimulacro is null")
+    List<Object[]> practicaDe(@Param("idUsuario") Long idUsuario, @Param("idEjercicio") Long idEjercicio);
 
     long countByEjercicio_IdAndCorrectoTrue(Long idEjercicio);
 
@@ -34,17 +38,29 @@ public interface IntentoJpa extends JpaRepository<IntentoEntidad, Long> {
     List<Object[]> erroresPorEjercicio(@Param("idEjercicio") Long idEjercicio);
 
     @Query("select i.correcto from IntentoEntidad i where i.idUsuario = :idUsuario "
-            + "and (i.ejercicio.componente.id = :idComponente or i.ejercicio.competencia.id = :idCompetencia) "
-            + "and i.id = (select min(p.id) from IntentoEntidad p "
-            + "where p.idUsuario = i.idUsuario and p.ejercicio.id = i.ejercicio.id) "
+            + "and (i.componente.id = :idComponente or i.competencia.id = :idCompetencia) "
             + "order by i.respondidoEn desc, i.id desc")
     List<Boolean> ultimosResultados(@Param("idUsuario") Long idUsuario, @Param("idComponente") Long idComponente,
                                     @Param("idCompetencia") Long idCompetencia, Pageable pageable);
 
-    @EntityGraph(attributePaths = {"ejercicio", "ejercicio.componente", "ejercicio.competencia", "ejercicio.nivel"})
+    @EntityGraph(attributePaths = {"ejercicio", "componente", "competencia", "nivel"})
     Page<IntentoEntidad> findByIdUsuarioOrderByRespondidoEnDescIdDesc(Long idUsuario, Pageable pageable);
 
-    @EntityGraph(attributePaths = {"ejercicio", "ejercicio.componente", "ejercicio.competencia", "ejercicio.nivel",
+    @EntityGraph(attributePaths = {"ejercicio", "componente", "competencia", "nivel",
             "ejercicio.opciones", "opcionSeleccionada", "tipoError"})
     Optional<IntentoEntidad> findByIdAndIdUsuario(Long id, Long idUsuario);
+
+    boolean existsByIdSimulacroAndEjercicio_Id(Long idSimulacro, Long idEjercicio);
+
+    long countByIdSimulacro(Long idSimulacro);
+
+    long countByIdSimulacroAndCorrectoTrue(Long idSimulacro);
+
+    @EntityGraph(attributePaths = {"ejercicio", "componente", "competencia", "nivel",
+            "ejercicio.opciones", "opcionSeleccionada", "tipoError"})
+    List<IntentoEntidad> findByIdSimulacroOrderByRespondidoEnAscIdAsc(Long idSimulacro);
+
+    @EntityGraph(attributePaths = {"ejercicio", "componente", "competencia", "nivel",
+            "opcionSeleccionada", "tipoError"})
+    List<IntentoEntidad> findByIdUsuario(Long idUsuario);
 }

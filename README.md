@@ -11,7 +11,7 @@ Este repositorio tiene la API, la base de datos y el despliegue. El front está 
 
 ## Qué hay en esta rama
 
-`main` contiene el **Sprint 1**:
+`main` contiene el **Sprint 1** y los simulacros y estadísticas del **Sprint 3**:
 
 | | |
 | :-- | :-- |
@@ -19,9 +19,11 @@ Este repositorio tiene la API, la base de datos y el despliegue. El front está 
 | Banco de ejercicios | Consulta, filtro por componente, paginación y apertura de un ejercicio |
 | Práctica | Responder registrando el nivel de confianza y recibir la retroalimentación de la opción elegida |
 | Administración | Crear ejercicios con sus opciones, su retroalimentación y sus imágenes |
+| Simulacros | Elegir la duración, responder ejercicios uno a uno con el tiempo controlado por el servidor, finalizar, consultar el resultado y recibir recomendaciones de estudio |
+| Estadísticas | Desempeño consolidado de la práctica y los simulacros, por componente, competencia y nivel de confianza |
 
-Los simulacros, las estadísticas, el historial, la edición del banco y la clasificación del
-tipo de error están construidos y esperan en la rama
+El historial, la edición del banco y la clasificación del tipo de error están construidos y
+esperan en la rama
 [`sprint-2`](https://github.com/gjcardonam/brujula-api/tree/sprint-2). Entran a `main`
 cuando llegue su sprint, con su propia migración de base de datos.
 
@@ -67,7 +69,7 @@ docker compose up -d db mailpit
 ./mvnw test
 ```
 
-Las 110 pruebas corren sin base de datos y sin levantar Spring: tardan segundos.
+Las 187 pruebas corren sin base de datos y sin levantar Spring: tardan segundos.
 
 ## Configuración
 
@@ -90,7 +92,7 @@ Los umbrales del negocio no son variables de entorno: viven en la tabla
 
 ## Cómo está hecho
 
-Spring Boot 3 y Java 21 sobre PostgreSQL 16, en arquitectura hexagonal: 21 casos de uso,
+Spring Boot 3 y Java 21 sobre PostgreSQL 16, en arquitectura hexagonal: 29 casos de uso,
 uno por acción del usuario, y un dominio que no importa ni una clase de Spring.
 
 ```
@@ -99,8 +101,8 @@ src/main/java/co/edu/udea/brujula/
 ├── aplicacion/       los casos de uso, agrupados por contexto
 └── infraestructura/  controladores, JPA, seguridad, correo, Google, disco y reloj
 
-src/main/resources/db/migration/   el esquema, en dos migraciones de Flyway
-src/test/java/                     110 pruebas, ninguna necesita base de datos
+src/main/resources/db/migration/   el esquema, en tres migraciones de Flyway
+src/test/java/                     187 pruebas, ninguna necesita base de datos
 docs/                              el documento de arquitectura y sus diagramas
 ```
 
@@ -109,7 +111,7 @@ El detalle, con diagramas y las decisiones que hay detrás, está en
 
 ## La API
 
-Veintitrés rutas bajo `/api`. Todas responden JSON y los errores llevan siempre la misma
+Treinta y una rutas bajo `/api`. Todas responden JSON y los errores llevan siempre la misma
 forma: `{ estado, codigo, mensaje }`, con un código estable que el front usa para decidir
 qué mostrar.
 
@@ -120,8 +122,13 @@ qué mostrar.
 | Perfil | `PUT /perfil` · `PUT /perfil/password` |
 | Banco | `GET /ejercicios` · `/ejercicios/componentes` · `/ejercicios/{id}` · `/ejercicios/{id}/siguiente` |
 | Práctica | `POST /intentos` |
+| Simulacros | `POST /simulacros` · `GET /simulacros/en-curso` · `/simulacros/mios` · `/simulacros/{id}` · `/simulacros/{id}/siguiente-ejercicio` · `/simulacros/{id}/resultado` · `POST /simulacros/{id}/finalizar` |
+| Estadísticas | `GET /estadisticas/mias` |
 | Administración | `POST /ejercicios` · `POST /archivos` · `GET /catalogos` |
 | Público | `GET /catalogos/publicos` · `GET /archivos/{nombre}` · `GET /salud` |
 
 La sesión viaja en `Authorization: Bearer`. Un token deja de valer al cerrar sesión, al
 expirar y al cambiar la contraseña.
+
+El contrato de los simulacros y las estadísticas, con cada cuerpo y cada código de error, está
+en **[docs/contrato-sprint-3.md](docs/contrato-sprint-3.md)**.

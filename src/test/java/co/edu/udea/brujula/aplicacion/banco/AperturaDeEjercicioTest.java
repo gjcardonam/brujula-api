@@ -1,6 +1,7 @@
 package co.edu.udea.brujula.aplicacion.banco;
 
 import co.edu.udea.brujula.apoyo.Datos;
+import co.edu.udea.brujula.apoyo.dobles.ParametrosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.EjerciciosEnMemoria;
 import co.edu.udea.brujula.apoyo.dobles.IntentosEnMemoria;
 import co.edu.udea.brujula.dominio.excepcion.NoEncontrado;
@@ -19,7 +20,8 @@ class AperturaDeEjercicioTest {
 
     private final EjerciciosEnMemoria ejercicios = new EjerciciosEnMemoria();
     private final IntentosEnMemoria intentos = new IntentosEnMemoria();
-    private final AperturaDeEjercicio apertura = new AperturaDeEjercicio(ejercicios, intentos);
+    private final AperturaDeEjercicio apertura = new AperturaDeEjercicio(ejercicios, intentos,
+            new ParametrosEnMemoria());
 
     @Test
     void entrega_el_ejercicio_con_sus_opciones_y_los_intentos_previos() {

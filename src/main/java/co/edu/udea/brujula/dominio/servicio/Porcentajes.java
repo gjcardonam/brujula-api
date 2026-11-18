@@ -5,6 +5,8 @@ import java.math.RoundingMode;
 
 public final class Porcentajes {
 
+    private static final int DECIMALES = 2;
+
     private Porcentajes() {
     }
 
@@ -12,14 +14,14 @@ public final class Porcentajes {
         if (total <= 0) return cero();
         return BigDecimal.valueOf(parte)
                 .multiply(BigDecimal.valueOf(100))
-                .divide(BigDecimal.valueOf(total), 2, RoundingMode.HALF_UP);
+                .divide(BigDecimal.valueOf(total), DECIMALES, RoundingMode.HALF_UP);
     }
 
     public static BigDecimal redondear(double valor) {
-        return BigDecimal.valueOf(valor).setScale(2, RoundingMode.HALF_UP);
+        return BigDecimal.valueOf(valor).setScale(DECIMALES, RoundingMode.HALF_UP);
     }
 
     public static BigDecimal cero() {
-        return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
+        return BigDecimal.ZERO.setScale(DECIMALES, RoundingMode.HALF_UP);
     }
 }

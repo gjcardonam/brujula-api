@@ -39,7 +39,7 @@ public class IntentoControlador {
                                         @RequestBody IntentoRequest peticion) {
         return registro.registrar(usuario.id(), new RegistrarIntento.Respuesta(peticion.idEjercicio(),
                 peticion.idOpcion(), peticion.nivelConfianza(), peticion.tokenIdempotencia(),
-                peticion.tiempoRespuestaMs()));
+                peticion.tiempoRespuestaMs(), peticion.idSimulacro()));
     }
 
     @GetMapping("/mios")

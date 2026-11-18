@@ -52,6 +52,30 @@ public class IntentoEntidad {
     @Column(name = "tiempo_respuesta_ms")
     private Integer tiempoRespuestaMs;
 
+    @Column(name = "id_simulacro")
+    private Long idSimulacro;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_componente", nullable = false)
+    private ComponenteEntidad componente;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_competencia", nullable = false)
+    private CompetenciaEntidad competencia;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_nivel_dificultad", nullable = false)
+    private NivelDificultadEntidad nivel;
+
+    @Column(name = "enunciado", nullable = false)
+    private String enunciado;
+
+    @Column(name = "imagen_enunciado")
+    private String imagenEnunciado;
+
+    @Column(name = "retroalimentacion")
+    private String retroalimentacion;
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Long getIdUsuario() { return idUsuario; }
@@ -72,4 +96,20 @@ public class IntentoEntidad {
     public void setRespondidoEn(Instant respondidoEn) { this.respondidoEn = respondidoEn; }
     public Integer getTiempoRespuestaMs() { return tiempoRespuestaMs; }
     public void setTiempoRespuestaMs(Integer tiempoRespuestaMs) { this.tiempoRespuestaMs = tiempoRespuestaMs; }
+
+    public Long getIdSimulacro() { return idSimulacro; }
+    public void setIdSimulacro(Long idSimulacro) { this.idSimulacro = idSimulacro; }
+
+    public ComponenteEntidad getComponente() { return componente; }
+    public void setComponente(ComponenteEntidad componente) { this.componente = componente; }
+    public CompetenciaEntidad getCompetencia() { return competencia; }
+    public void setCompetencia(CompetenciaEntidad competencia) { this.competencia = competencia; }
+    public NivelDificultadEntidad getNivel() { return nivel; }
+    public void setNivel(NivelDificultadEntidad nivel) { this.nivel = nivel; }
+    public String getEnunciado() { return enunciado; }
+    public void setEnunciado(String enunciado) { this.enunciado = enunciado; }
+    public String getImagenEnunciado() { return imagenEnunciado; }
+    public void setImagenEnunciado(String imagenEnunciado) { this.imagenEnunciado = imagenEnunciado; }
+    public String getRetroalimentacion() { return retroalimentacion; }
+    public void setRetroalimentacion(String retroalimentacion) { this.retroalimentacion = retroalimentacion; }
 }
