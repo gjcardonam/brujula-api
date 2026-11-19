@@ -1,0 +1,1454 @@
+[
+  {
+    "enunciado": "La función polinomial f(x)=x³+ 2x²+x se quiere escribir de una forma equivalente en la cual sea posible identificar directamente sus raíces. ¿Cuál de las siguientes representaciones es la adecuada para cumplir este objetivo?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "f(x)=x+2x²+ x³",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para identificar las raíces \"a simple vista\" el polinomio debe estar escrito como un producto de factores, porque un producto es cero solo cuando alguno de sus factores es cero. Factorizando f(x)=x³+2x²+x: primero se saca factor común x, quedando x(x²+2x+1); luego x²+2x+1 es un trinomio cuadrado perfecto, igual a (x+1)². Entonces f(x)=x(x+1)², cuyas raíces son x=0 y x=−1 (esta última doble). x+2x²+x³ es el mismo polinomio con los términos en otro orden (de menor a mayor grado). Reordenar una suma no cambia su forma: sigue siendo una suma de términos y las raíces no se pueden leer directamente."
+      },
+      {
+        "descripcion": "f(x)=x² (x+2)+ x",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para identificar las raíces \"a simple vista\" el polinomio debe estar escrito como un producto de factores, porque un producto es cero solo cuando alguno de sus factores es cero. Factorizando f(x)=x³+2x²+x: primero se saca factor común x, quedando x(x²+2x+1); luego x²+2x+1 es un trinomio cuadrado perfecto, igual a (x+1)². Entonces f(x)=x(x+1)², cuyas raíces son x=0 y x=−1 (esta última doble). x²(x+2)+x es una factorización parcial: solo se agrupó una parte del polinomio, y además es una suma (el término \"+x\" queda suelto), por lo que no es un producto de factores. Adicionalmente, x²(x+2)+x=x³+2x²+x, así que es equivalente, pero no permite ver las raíces."
+      },
+      {
+        "descripcion": "f(x)=x (x+1)²",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para identificar las raíces \"a simple vista\" el polinomio debe estar escrito como un producto de factores, porque un producto es cero solo cuando alguno de sus factores es cero. Factorizando f(x)=x³+2x²+x: primero se saca factor común x, quedando x(x²+2x+1); luego x²+2x+1 es un trinomio cuadrado perfecto, igual a (x+1)². Entonces f(x)=x(x+1)², cuyas raíces son x=0 y x=−1 (esta última doble). f(x)=x(x+1)² es un producto de factores: se anula cuando x=0 o cuando (x+1)=0, es decir, x=−1. Es la única opción en la que las raíces se identifican directamente."
+      },
+      {
+        "descripcion": "f(x)=x³+x²+x²+ x",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para identificar las raíces \"a simple vista\" el polinomio debe estar escrito como un producto de factores, porque un producto es cero solo cuando alguno de sus factores es cero. Factorizando f(x)=x³+2x²+x: primero se saca factor común x, quedando x(x²+2x+1); luego x²+2x+1 es un trinomio cuadrado perfecto, igual a (x+1)². Entonces f(x)=x(x+1)², cuyas raíces son x=0 y x=−1 (esta última doble). x³+x²+x²+x solo descompone el término 2x² en x²+x²; sigue siendo una suma de cuatro términos. Es una expresión equivalente, pero no está factorizada, así que no revela las raíces."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona preparó una torta con forma de cilindro y se la va a enviar a un familiar. La imagen muestra las dimensiones de la torta y de una caja de cartón que compró para empacarla.\n\n¿La caja que compró sirve para empacar la torta?",
+    "imagen": "s3p02e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque el volumen de la caja es mayor que el volumen de la torta.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para que la torta quepa, cada dimensión de su \"huella\" debe caber en la caja. La torta tiene 18 cm de diámetro (su base circular ocupa al menos 18 cm × 18 cm) y 8 cm de alto. La caja mide 20 cm de largo, 15 cm de ancho y 10 cm de alto. El alto (8 < 10) y el largo (18 < 20) caben, pero el ancho de la caja (15 cm) es menor que el diámetro de la torta (18 cm), por lo que la torta no cabe. Aunque el volumen de la caja (20×15×10=3.000 cm³) es mayor que el de la torta (π·9²·8≈2.036 cm³), tener más volumen no garantiza que el objeto quepa: importa la forma y las dimensiones lineales. Comparar solo volúmenes es el error más frecuente en este tipo de problemas."
+      },
+      {
+        "descripcion": "No, porque el ancho de la caja es menor que el diámetro de la torta.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para que la torta quepa, cada dimensión de su \"huella\" debe caber en la caja. La torta tiene 18 cm de diámetro (su base circular ocupa al menos 18 cm × 18 cm) y 8 cm de alto. La caja mide 20 cm de largo, 15 cm de ancho y 10 cm de alto. El alto (8 < 10) y el largo (18 < 20) caben, pero el ancho de la caja (15 cm) es menor que el diámetro de la torta (18 cm), por lo que la torta no cabe. El ancho de la caja (15 cm) es menor que el diámetro de la torta (18 cm), así que la torta no entra, aunque el largo y el alto sí alcancen."
+      },
+      {
+        "descripcion": "Sí, porque el alto de la caja es mayor que el alto de la torta.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para que la torta quepa, cada dimensión de su \"huella\" debe caber en la caja. La torta tiene 18 cm de diámetro (su base circular ocupa al menos 18 cm × 18 cm) y 8 cm de alto. La caja mide 20 cm de largo, 15 cm de ancho y 10 cm de alto. El alto (8 < 10) y el largo (18 < 20) caben, pero el ancho de la caja (15 cm) es menor que el diámetro de la torta (18 cm), por lo que la torta no cabe. Que el alto de la caja (10 cm) supere el alto de la torta (8 cm) es cierto, pero es una condición necesaria, no suficiente: también deben caber el diámetro en el largo y en el ancho. Revisar una sola dimensión lleva a una conclusión errónea."
+      },
+      {
+        "descripcion": "No, porque la caja también debe tener forma cilíndrica.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para que la torta quepa, cada dimensión de su \"huella\" debe caber en la caja. La torta tiene 18 cm de diámetro (su base circular ocupa al menos 18 cm × 18 cm) y 8 cm de alto. La caja mide 20 cm de largo, 15 cm de ancho y 10 cm de alto. El alto (8 < 10) y el largo (18 < 20) caben, pero el ancho de la caja (15 cm) es menor que el diámetro de la torta (18 cm), por lo que la torta no cabe. Una caja no necesita tener la misma forma del objeto que guarda; basta con que sus dimensiones lo contengan. La razón real de que no sirva es el ancho insuficiente."
+      }
+    ]
+  },
+  {
+    "enunciado": "La batería de un teléfono tuvo una duración promedio de 27 horas y, 18 horas durante el primer y segundo año, respectivamente. Una persona observa que la duración del segundo año fue 2/3 de la duración del primer año. Para estimar la duración promedio en el tercer año, multiplica la duración del segundo año por 2/3 obtiene 12 horas.\n\nDe manera similar, la batería de un computador tuvo una duración de 16 horas y 12 horas durante el primer y segundo año, respectivamente.\n\n¿Cuál sería la duración promedio de la batería del computador durante el tercer año?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "10 horas",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el teléfono, la razón entre el año 2 y el año 1 es 18/27=2/3, y esa misma razón se aplica al año 2 para estimar el año 3 (18×2/3=12). \"De manera similar\" significa calcular primero la razón propia del computador: 12/16=3/4. Entonces, el año 3 se estima como 12×3/4=9 horas. 10 horas no se obtiene de aplicar la razón del computador (3/4) a 12 horas; no corresponde a ningún cálculo coherente con los datos."
+      },
+      {
+        "descripcion": "9 horas",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "En el teléfono, la razón entre el año 2 y el año 1 es 18/27=2/3, y esa misma razón se aplica al año 2 para estimar el año 3 (18×2/3=12). \"De manera similar\" significa calcular primero la razón propia del computador: 12/16=3/4. Entonces, el año 3 se estima como 12×3/4=9 horas. La razón del computador es 12/16=3/4, y 12×3/4=9 horas."
+      },
+      {
+        "descripcion": "8 horas",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el teléfono, la razón entre el año 2 y el año 1 es 18/27=2/3, y esa misma razón se aplica al año 2 para estimar el año 3 (18×2/3=12). \"De manera similar\" significa calcular primero la razón propia del computador: 12/16=3/4. Entonces, el año 3 se estima como 12×3/4=9 horas. 8 horas resulta de usar la razón del teléfono (2/3) en lugar de la del computador (12×2/3=8). Es el error de copiar la fracción del ejemplo sin recalcularla con los datos nuevos."
+      },
+      {
+        "descripcion": "6 horas",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "En el teléfono, la razón entre el año 2 y el año 1 es 18/27=2/3, y esa misma razón se aplica al año 2 para estimar el año 3 (18×2/3=12). \"De manera similar\" significa calcular primero la razón propia del computador: 12/16=3/4. Entonces, el año 3 se estima como 12×3/4=9 horas. 6 horas equivale a dividir 12 entre 2 (o a restar 6 horas), una regla que no corresponde a ninguna de las razones del problema."
+      }
+    ]
+  },
+  {
+    "enunciado": "Se realizó una prueba a varios tipos de juguete para determinar el tiempo que le dura la batería a cada uno. Los resultados aparecen en la tabla.\n\nEl encargado de la prueba afirmó que el tiempo promedio de duración de la batería de la guitarra es menor que el tiempo promedio de duración de la batería de los demás juguetes. ¿Es verdadera la afirmación del encargado?",
+    "imagen": "s3p04e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "No, porque la batería del avión 1 fue la que menos duró.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Promedios: Carro (4+3+4+5)/4=4 horas; Avión (2+3+4+3)/4=3 horas; Dinosaurio (5+3+3+5)/4=4 horas; Guitarra (3+3+3+3)/4=3 horas. La afirmación dice que la guitarra tiene un promedio MENOR que el de todos los demás juguetes; pero el avión tiene el mismo promedio (3 horas), por lo que la afirmación es falsa. Es cierto que una batería de avión (2 horas) fue la que menos duró, pero eso es un valor individual; la afirmación se evalúa con los promedios, y que un dato extremo sea bajo no dice nada sobre si el promedio de la guitarra es menor."
+      },
+      {
+        "descripcion": "Si, porque la batería de las 4 guitarras que se probaron duró el mismo tiempo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Promedios: Carro (4+3+4+5)/4=4 horas; Avión (2+3+4+3)/4=3 horas; Dinosaurio (5+3+3+5)/4=4 horas; Guitarra (3+3+3+3)/4=3 horas. La afirmación dice que la guitarra tiene un promedio MENOR que el de todos los demás juguetes; pero el avión tiene el mismo promedio (3 horas), por lo que la afirmación es falsa. Que las 4 guitarras duraran lo mismo es cierto, pero no justifica que su promedio sea menor que el de los demás; además la respuesta \"Sí\" es incorrecta porque el promedio de los aviones también es 3."
+      },
+      {
+        "descripcion": "Sí, porque para los otros tres tipos de juguete, al menos uno tuvo una batería que duró más de 3 horas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Promedios: Carro (4+3+4+5)/4=4 horas; Avión (2+3+4+3)/4=3 horas; Dinosaurio (5+3+3+5)/4=4 horas; Guitarra (3+3+3+3)/4=3 horas. La afirmación dice que la guitarra tiene un promedio MENOR que el de todos los demás juguetes; pero el avión tiene el mismo promedio (3 horas), por lo que la afirmación es falsa. Que en cada tipo de juguete haya al menos una batería de más de 3 horas no prueba nada: el avión tiene datos de 4 horas y aun así su promedio es igual al de la guitarra. Esta opción confunde \"algún dato mayor\" con \"promedio mayor\"."
+      },
+      {
+        "descripcion": "No, porque el tiempo promedio de duración de la batería de los aviones es el mismo que el de las guitarras.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Promedios: Carro (4+3+4+5)/4=4 horas; Avión (2+3+4+3)/4=3 horas; Dinosaurio (5+3+3+5)/4=4 horas; Guitarra (3+3+3+3)/4=3 horas. La afirmación dice que la guitarra tiene un promedio MENOR que el de todos los demás juguetes; pero el avión tiene el mismo promedio (3 horas), por lo que la afirmación es falsa. El promedio de los aviones (3 h) es igual al de las guitarras (3 h), así que el promedio de la guitarra no es menor que el de todos los demás juguetes; la afirmación del encargado es falsa."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un reporte de una entidad protectora del medio ambiente muestra que en el primer año se sembraron 2.000 árboles en una ciudad. El reporte, a su vez indica que en el segundo año hubo un aumento del 15% respecto al número de árboles sembrados el primer año. ¿Cuál fue el número total de árboles sembrados el segundo año?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "150",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El segundo año se sembró un 15% más que el primero. Aumento=15% de 2.000=0,15×2.000=300 árboles; total del segundo año=2.000+300=2.300 árboles (equivalente a multiplicar 2.000 por 1,15). 150 equivale al 15% de 1.000 (o al 7,5% de 2.000), no al 15% de 2.000; además, aunque se calculara bien el aumento, faltaría sumarlo a los 2.000 iniciales."
+      },
+      {
+        "descripcion": "300",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El segundo año se sembró un 15% más que el primero. Aumento=15% de 2.000=0,15×2.000=300 árboles; total del segundo año=2.000+300=2.300 árboles (equivalente a multiplicar 2.000 por 1,15). 300 es solo el aumento (15% de 2.000), no el total sembrado en el segundo año. Falta sumarle los 2.000 originales."
+      },
+      {
+        "descripcion": "2.015",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El segundo año se sembró un 15% más que el primero. Aumento=15% de 2.000=0,15×2.000=300 árboles; total del segundo año=2.000+300=2.300 árboles (equivalente a multiplicar 2.000 por 1,15). 2.015 resulta de sumar 15 al total, tratando el 15% como si fueran 15 unidades en lugar de 15 de cada 100."
+      },
+      {
+        "descripcion": "2.300",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El segundo año se sembró un 15% más que el primero. Aumento=15% de 2.000=0,15×2.000=300 árboles; total del segundo año=2.000+300=2.300 árboles (equivalente a multiplicar 2.000 por 1,15). 2.000+0,15×2.000=2.000+300=2.300 árboles."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un entrenador personal le propone a su alumno realizar un seguimiento en el que se registre la cantidad de horas de entrenamiento y la cantidad de calorías quemadas por día, durante diez días consecutivos, obteniendo una correlación positiva entre la cantidad de horas y el número de calorías quemadas. ¿Cuál de los siguientes diagramas representa la conclusión obtenida?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s3p06a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Una correlación positiva entre horas de entrenamiento y calorías quemadas significa que, en general, a más horas más calorías: la nube de puntos sube de izquierda a derecha y la línea de tendencia tiene pendiente positiva. La línea de tendencia desciende de izquierda a derecha y los puntos siguen esa dirección: es una correlación negativa (más horas, menos calorías)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p06b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Una correlación positiva entre horas de entrenamiento y calorías quemadas significa que, en general, a más horas más calorías: la nube de puntos sube de izquierda a derecha y la línea de tendencia tiene pendiente positiva. La línea de tendencia es horizontal y los puntos están dispersos sin patrón creciente ni decreciente: indica correlación nula (las variables no se relacionan linealmente)."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p06c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Una correlación positiva entre horas de entrenamiento y calorías quemadas significa que, en general, a más horas más calorías: la nube de puntos sube de izquierda a derecha y la línea de tendencia tiene pendiente positiva. La curva decrece (cada vez más rápido) a medida que aumentan las horas: muestra una relación negativa y no lineal, contraria a la conclusión del entrenador."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p06d.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Una correlación positiva entre horas de entrenamiento y calorías quemadas significa que, en general, a más horas más calorías: la nube de puntos sube de izquierda a derecha y la línea de tendencia tiene pendiente positiva. Los puntos se agrupan cerca de una recta ascendente: a mayor número de horas, mayor cantidad de calorías, es decir, correlación positiva."
+      }
+    ]
+  },
+  {
+    "enunciado": "Carlos hará una prueba de calidad a una piscina, de la cual conoce todas las medidas; para esto, solicita que se vierta agua únicamente hasta la mitad de la capacidad de la piscina. Para saber cuánta agua se requiere, ¿Qué es lo primero que se debe calcular?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La mitad de cada una de las dimensiones.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuánta agua llenar, hay que conocer el volumen de la piscina y tomar su mitad. El volumen (capacidad) de un recipiente prismático se calcula como área de la base × profundidad. Como se conocen todas las medidas, el primer cálculo concreto del procedimiento es el área de la base; luego se multiplica por la profundidad para obtener la capacidad total, y finalmente se divide entre 2. Tomar la mitad de cada dimensión reduce el volumen a la octava parte (1/2·1/2·1/2=1/8), no a la mitad. Es un error clásico al trabajar con volúmenes: la mitad de la capacidad no se obtiene dividiendo cada medida entre 2."
+      },
+      {
+        "descripcion": "La capacidad total de la piscina.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuánta agua llenar, hay que conocer el volumen de la piscina y tomar su mitad. El volumen (capacidad) de un recipiente prismático se calcula como área de la base × profundidad. Como se conocen todas las medidas, el primer cálculo concreto del procedimiento es el área de la base; luego se multiplica por la profundidad para obtener la capacidad total, y finalmente se divide entre 2. La capacidad total es el resultado intermedio que se necesita antes de dividir entre 2, pero para obtenerla primero hay que calcular el área de la base y multiplicarla por la profundidad; por eso, entre las opciones, el área de la base es lo primero que se calcula."
+      },
+      {
+        "descripcion": "El área de la base de la piscina",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para saber cuánta agua llenar, hay que conocer el volumen de la piscina y tomar su mitad. El volumen (capacidad) de un recipiente prismático se calcula como área de la base × profundidad. Como se conocen todas las medidas, el primer cálculo concreto del procedimiento es el área de la base; luego se multiplica por la profundidad para obtener la capacidad total, y finalmente se divide entre 2. Con las medidas conocidas, lo primero que se calcula es el área de la base; al multiplicarla por la profundidad se obtiene la capacidad total y, tomando su mitad, el agua que se debe verter."
+      },
+      {
+        "descripcion": "El doble de las medidas de las caras de la piscina.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuánta agua llenar, hay que conocer el volumen de la piscina y tomar su mitad. El volumen (capacidad) de un recipiente prismático se calcula como área de la base × profundidad. Como se conocen todas las medidas, el primer cálculo concreto del procedimiento es el área de la base; luego se multiplica por la profundidad para obtener la capacidad total, y finalmente se divide entre 2. Duplicar las medidas de las caras multiplicaría el volumen por 8 (y las áreas por 4); no tiene relación con obtener la mitad de la capacidad."
+      }
+    ]
+  },
+  {
+    "enunciado": "La temperatura a las 6:00 de la mañana del miércoles en la casa de Natalia fue de 12,7 °C. Si la temperatura del jueves a las 6:00 de la mañana disminuyó 0,3 °C respecto a la temperatura del miércoles a esa misma hora, ¿cuál es la temperatura que se registró el jueves?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "9,7 °C",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La temperatura del jueves es la del miércoles menos 0,3 °C: 12,7−0,3=12,4 °C. 9,7 °C resulta de restar 3 en lugar de 0,3 (12,7−3), un error de lectura del valor decimal."
+      },
+      {
+        "descripcion": "12,4 °C",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La temperatura del jueves es la del miércoles menos 0,3 °C: 12,7−0,3=12,4 °C. 12,7−0,3=12,4 °C."
+      },
+      {
+        "descripcion": "13 °C",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La temperatura del jueves es la del miércoles menos 0,3 °C: 12,7−0,3=12,4 °C. 13 °C resulta de SUMAR 0,3 (12,7+0,3), ignorando que el enunciado dice que la temperatura disminuyó."
+      },
+      {
+        "descripcion": "15,7 °C",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La temperatura del jueves es la del miércoles menos 0,3 °C: 12,7−0,3=12,4 °C. 15,7 °C resulta de sumar 3 (12,7+3) en lugar de restar 0,3: dos errores combinados (operación y magnitud)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un estudiante quisiera saber qué tanto varía el número de plátanos que contiene un paquete comercializado por una empresa. Para ello, cuenta la cantidad de plátanos que contienen 6 paquetes y calcula el rango estadístico, restando el valor mínimo de plátanos del valor máximo. Los registros se muestran en la tabla.\n\n¿Cuál de las siguientes representaciones ilustra correctamente los elementos para tener en cuenta, en la obtención del rango estadístico de estos datos?",
+    "imagen": "s3p09e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s3p09a.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Los datos son 17, 17, 23, 24, 21 y 19. El valor mínimo es 17 y el máximo es 24, así que el rango es 24−17=7. En la recta numérica, el rango se ilustra como el segmento que comienza en el mínimo (17) y termina en el máximo (24). El segmento va exactamente desde 17 hasta 24: muestra a la vez el mínimo, el máximo y la longitud (7) del rango."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p09b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 17, 17, 23, 24, 21 y 19. El valor mínimo es 17 y el máximo es 24, así que el rango es 24−17=7. En la recta numérica, el rango se ilustra como el segmento que comienza en el mínimo (17) y termina en el máximo (24). Este segmento abarca aproximadamente de 17 a 19: no llega al máximo (24), por lo que no representa la diferencia entre el máximo y el mínimo."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p09c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 17, 17, 23, 24, 21 y 19. El valor mínimo es 17 y el máximo es 24, así que el rango es 24−17=7. En la recta numérica, el rango se ilustra como el segmento que comienza en el mínimo (17) y termina en el máximo (24). Representa un segmento corto entre ~20 y 21, que no corresponde a los extremos de los datos."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p09d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los datos son 17, 17, 23, 24, 21 y 19. El valor mínimo es 17 y el máximo es 24, así que el rango es 24−17=7. En la recta numérica, el rango se ilustra como el segmento que comienza en el mínimo (17) y termina en el máximo (24). Este segmento tiene la longitud correcta (7) pero está ubicado entre 0 y 7, no entre el mínimo y el máximo de los datos. Confunde \"la medida del rango\" con su posición: el rango debe mostrar los valores extremos reales."
+      }
+    ]
+  },
+  {
+    "enunciado": "En la figura se muestra un triángulo rectángulo\n\n¿Cuáles de las siguientes medidas permiten hallar la longitud del lado n del triángulo?",
+    "imagen": "s3p10e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Únicamente las de los ángulos M y N.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar una longitud se necesita conocer, como mínimo, otra longitud: los ángulos solos no determinan el tamaño de un triángulo (hay infinitos triángulos semejantes con los mismos ángulos). El lado n es el cateto adyacente al ángulo M y la hipotenusa es h, de modo que cos(M)=n/h, es decir, n=h·cos(M). Con solo los ángulos M y N no se conoce ninguna longitud: se determina la forma del triángulo, pero no su tamaño. Sin al menos un lado no es posible calcular n."
+      },
+      {
+        "descripcion": "Únicamente las de los ángulos R y N.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar una longitud se necesita conocer, como mínimo, otra longitud: los ángulos solos no determinan el tamaño de un triángulo (hay infinitos triángulos semejantes con los mismos ángulos). El lado n es el cateto adyacente al ángulo M y la hipotenusa es h, de modo que cos(M)=n/h, es decir, n=h·cos(M). R es el ángulo recto (90°) y N otro ángulo: igualmente son solo ángulos, que no aportan ninguna longitud."
+      },
+      {
+        "descripcion": "Únicamente la del ángulo M y la de h.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para hallar una longitud se necesita conocer, como mínimo, otra longitud: los ángulos solos no determinan el tamaño de un triángulo (hay infinitos triángulos semejantes con los mismos ángulos). El lado n es el cateto adyacente al ángulo M y la hipotenusa es h, de modo que cos(M)=n/h, es decir, n=h·cos(M). Con el ángulo M y la hipotenusa h se puede usar el coseno: n=h·cos(M)."
+      },
+      {
+        "descripcion": "Únicamente la del ángulo R y la de m.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para hallar una longitud se necesita conocer, como mínimo, otra longitud: los ángulos solos no determinan el tamaño de un triángulo (hay infinitos triángulos semejantes con los mismos ángulos). El lado n es el cateto adyacente al ángulo M y la hipotenusa es h, de modo que cos(M)=n/h, es decir, n=h·cos(M). R es el ángulo recto y ya se sabe que mide 90°, de modo que no aporta información nueva; con solo el cateto m no se puede hallar n (haría falta además otro ángulo agudo o la hipotenusa)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Dada la función definida a trozos\n\nPara evaluar la continuidad de la función, se realizan los siguientes pasos:\n\nPaso 1. Se reemplaza x = 2 en el trozo 4x − 6.\n\nPaso 2. Se reemplaza x = 2 en el trozo x² − x.\n\nPaso 3. Se comparan los resultados de los pasos 1 y 2.\n\n¿Cuál es el resultado de la comparación?",
+    "imagen": "s3p11e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "El resultado del paso 1 es mayor.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para revisar la continuidad en x=2, los dos trozos deben dar el mismo valor en ese punto. Paso 1: en el trozo 4x−6, 4(2)−6=8−6=2. Paso 2: en el trozo x²−x, 2²−2=4−2=2. Los dos pasos dan 2, así que los resultados son iguales. La función no da un salto en x=2 y es continua en ese punto. El paso 1 da 2 y no es mayor que el paso 2, que también da 2. Esta opción solo sale si alguna de las dos operaciones se hace mal, por ejemplo al sumar el 6 en vez de restarlo en el paso 1."
+      },
+      {
+        "descripcion": "El resultado del paso 2 es mayor.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para revisar la continuidad en x=2, los dos trozos deben dar el mismo valor en ese punto. Paso 1: en el trozo 4x−6, 4(2)−6=8−6=2. Paso 2: en el trozo x²−x, 2²−2=4−2=2. Los dos pasos dan 2, así que los resultados son iguales. La función no da un salto en x=2 y es continua en ese punto. Esta opción sale de calcular solo 2²=4 en el paso 2 y olvidar restar la x. El trozo es x²−x, y al restar el 2 queda 4−2=2, el mismo valor del paso 1."
+      },
+      {
+        "descripcion": "Los resultados son iguales.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para revisar la continuidad en x=2, los dos trozos deben dar el mismo valor en ese punto. Paso 1: en el trozo 4x−6, 4(2)−6=8−6=2. Paso 2: en el trozo x²−x, 2²−2=4−2=2. Los dos pasos dan 2, así que los resultados son iguales. La función no da un salto en x=2 y es continua en ese punto. Los dos trozos dan 2 en x=2: 4(2)−6=2 y 2²−2=2. Como coinciden, la función es continua en ese punto."
+      },
+      {
+        "descripcion": "Los resultados son incomparables.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para revisar la continuidad en x=2, los dos trozos deben dar el mismo valor en ese punto. Paso 1: en el trozo 4x−6, 4(2)−6=8−6=2. Paso 2: en el trozo x²−x, 2²−2=4−2=2. Los dos pasos dan 2, así que los resultados son iguales. La función no da un salto en x=2 y es continua en ese punto. Los dos resultados son números reales y siempre se pueden comparar. Que cada trozo tenga una expresión distinta no impide la comparación, y así es como se revisa la continuidad de una función a trozos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para la construcción de una lámina de acero rectangular, para el soporte de un techo de una casa, el arquitecto exige que se garanticen los siguientes aspectos:\n\n1. El ancho más el largo de la lámina debe medir al menos 6 metros\n2. El largo de la lámina debe medir al menos 4 metros\n3. El área de la lámina debe tener máximo 36 metros cuadrados de área\n4. El ancho de la lámina debe medir al menos 2 metros\n\nUna de las anteriores exigencias se cumple si se satisfacen las otras, por lo tanto, ¿cuál de las cuatro exigencias NO es necesario verificar?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "La 1, porque se puede verificar de los aspectos 2 y 4.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Las exigencias son: (1) ancho+largo≥6; (2) largo≥4; (3) área≤36; (4) ancho≥2. Si se cumplen (2) largo≥4 y (4) ancho≥2, al sumar ambas desigualdades se obtiene ancho+largo≥6, que es justamente la exigencia (1). Por eso (1) no necesita verificarse por separado. De largo≥4 y ancho≥2 se deduce directamente que ancho+largo≥6, así que la exigencia 1 es consecuencia de las exigencias 2 y 4."
+      },
+      {
+        "descripcion": "La 2, porque se puede verificar de los aspectos 1 y 4.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Las exigencias son: (1) ancho+largo≥6; (2) largo≥4; (3) área≤36; (4) ancho≥2. Si se cumplen (2) largo≥4 y (4) ancho≥2, al sumar ambas desigualdades se obtiene ancho+largo≥6, que es justamente la exigencia (1). Por eso (1) no necesita verificarse por separado. De ancho+largo≥6 y ancho≥2 no se deduce largo≥4 (por ejemplo, ancho=3 y largo=3 cumplen 1 y 4, pero no 2). La exigencia 2 sí debe verificarse."
+      },
+      {
+        "descripcion": "La 3, porque se puede verificar del aspecto 1.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Las exigencias son: (1) ancho+largo≥6; (2) largo≥4; (3) área≤36; (4) ancho≥2. Si se cumplen (2) largo≥4 y (4) ancho≥2, al sumar ambas desigualdades se obtiene ancho+largo≥6, que es justamente la exigencia (1). Por eso (1) no necesita verificarse por separado. El área máxima de 36 m² no se deduce de ancho+largo≥6: esa suma puede ser tan grande como se quiera y el área también (por ejemplo, 10×10=100). Es una condición independiente."
+      },
+      {
+        "descripcion": "La 4, porque se puede verificar del aspecto 2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Las exigencias son: (1) ancho+largo≥6; (2) largo≥4; (3) área≤36; (4) ancho≥2. Si se cumplen (2) largo≥4 y (4) ancho≥2, al sumar ambas desigualdades se obtiene ancho+largo≥6, que es justamente la exigencia (1). Por eso (1) no necesita verificarse por separado. De largo≥4 no se deduce ancho≥2 (el ancho podría ser 1 y la exigencia 4 se incumpliría); la exigencia 4 debe verificarse."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una reserva ambiental tendrá a su cargo nuevos animales y, por tanto, se deben crear hábitats adecuados para cada especie. Para esto, el encargado de la reserva cuenta con la siguiente información.\n\nPara saber cuántos hábitats nuevos debe adecuar esta reserva ambiental, ¿qué información es necesario tener en cuenta?",
+    "imagen": "s3p13e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "El número de animales por especie y el número de hembras.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuántos hábitats se requieren hay que hallar, por cada especie, cuántos hábitats hacen falta: (animales de la especie) ÷ (máximo de animales por hábitat), aproximando hacia arriba, y luego sumar los resultados de todas las especies. Guacamayas: 50÷30→2; jaguares: 2÷1→2; chigüiros: 28÷15→2; monos tití: 20÷10→2; total 8 hábitats. No se necesita separar machos y hembras. Incluye el número de hembras (irrelevante) y omite el máximo de animales por hábitat, dato indispensable para dividir."
+      },
+      {
+        "descripcion": "La cantidad de especies, el número de animales por especie y el número máximo de animales por hábitat.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Para saber cuántos hábitats se requieren hay que hallar, por cada especie, cuántos hábitats hacen falta: (animales de la especie) ÷ (máximo de animales por hábitat), aproximando hacia arriba, y luego sumar los resultados de todas las especies. Guacamayas: 50÷30→2; jaguares: 2÷1→2; chigüiros: 28÷15→2; monos tití: 20÷10→2; total 8 hábitats. No se necesita separar machos y hembras. La cantidad de especies, el número de animales por especie y el máximo de animales por hábitat son exactamente los datos que se usan para calcular los hábitats de cada especie y sumarlos."
+      },
+      {
+        "descripcion": "El número de machos de cada especie y el número de hembras.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuántos hábitats se requieren hay que hallar, por cada especie, cuántos hábitats hacen falta: (animales de la especie) ÷ (máximo de animales por hábitat), aproximando hacia arriba, y luego sumar los resultados de todas las especies. Guacamayas: 50÷30→2; jaguares: 2÷1→2; chigüiros: 28÷15→2; monos tití: 20÷10→2; total 8 hábitats. No se necesita separar machos y hembras. Machos y hembras suman el total de animales por especie, pero esta opción no incluye el máximo de animales por hábitat ni la cantidad de especies; sin el máximo no se puede determinar el número de hábitats."
+      },
+      {
+        "descripcion": "El número máximo de animales por hábitat, el número de machos y la cantidad de especies.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Para saber cuántos hábitats se requieren hay que hallar, por cada especie, cuántos hábitats hacen falta: (animales de la especie) ÷ (máximo de animales por hábitat), aproximando hacia arriba, y luego sumar los resultados de todas las especies. Guacamayas: 50÷30→2; jaguares: 2÷1→2; chigüiros: 28÷15→2; monos tití: 20÷10→2; total 8 hábitats. No se necesita separar machos y hembras. Incluye el máximo por hábitat y la cantidad de especies, pero usa el número de machos en lugar del número total de animales por especie, lo que dejaría fuera a las hembras y daría un conteo incorrecto."
+      }
+    ]
+  },
+  {
+    "enunciado": "A un estudiante se le pide que rote 90° el triángulo de la figura 1, en dirección contraria al movimiento de las manecillas del reloj en torno del origen.\n\nEl estudiante obtiene como resultado la figura 2\n\nEste resultado es incorrecto. ¿por qué?",
+    "imagen": "s3p14e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Porque el triángulo no debería apuntar hacia abajo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Una rotación de 90° antihoraria lleva el punto (x, y) al punto (−y, x). El triángulo de la figura 1 está sobre el eje x positivo, con su ángulo recto en el vértice de la derecha y su tercer vértice por encima del eje. Al rotarlo, los vértices sobre el eje x pasan al eje y positivo (arriba), y el tercer vértice, que estaba arriba (y>0), pasa a x=−y<0, es decir, queda a la IZQUIERDA del eje y. En la figura 2 ese vértice quedó a la derecha, lo que equivale a una reflexión respecto al eje y, no a una rotación. El triángulo de la figura 2 no apunta hacia abajo: está ubicado correctamente sobre el eje y positivo. Un triángulo que apuntara hacia abajo estaría en la parte negativa del eje."
+      },
+      {
+        "descripcion": "Porque el triángulo no debería apuntar hacia la derecha",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Una rotación de 90° antihoraria lleva el punto (x, y) al punto (−y, x). El triángulo de la figura 1 está sobre el eje x positivo, con su ángulo recto en el vértice de la derecha y su tercer vértice por encima del eje. Al rotarlo, los vértices sobre el eje x pasan al eje y positivo (arriba), y el tercer vértice, que estaba arriba (y>0), pasa a x=−y<0, es decir, queda a la IZQUIERDA del eje y. En la figura 2 ese vértice quedó a la derecha, lo que equivale a una reflexión respecto al eje y, no a una rotación. Tras la rotación correcta, el triángulo debería extenderse hacia la izquierda del eje y; en la figura 2 se extiende hacia la derecha, lo que muestra que no se rotó, sino que se reflejó."
+      },
+      {
+        "descripcion": "Porque la rotación realizada fue de menos de 90°",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Una rotación de 90° antihoraria lleva el punto (x, y) al punto (−y, x). El triángulo de la figura 1 está sobre el eje x positivo, con su ángulo recto en el vértice de la derecha y su tercer vértice por encima del eje. Al rotarlo, los vértices sobre el eje x pasan al eje y positivo (arriba), y el tercer vértice, que estaba arriba (y>0), pasa a x=−y<0, es decir, queda a la IZQUIERDA del eje y. En la figura 2 ese vértice quedó a la derecha, lo que equivale a una reflexión respecto al eje y, no a una rotación. La posición del triángulo sobre el eje y indica que el giro sí fue de 90°; el error no está en la cantidad de grados sino en la orientación final de la figura."
+      },
+      {
+        "descripcion": "Porque la rotación se hizo en la dirección equivocada",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Una rotación de 90° antihoraria lleva el punto (x, y) al punto (−y, x). El triángulo de la figura 1 está sobre el eje x positivo, con su ángulo recto en el vértice de la derecha y su tercer vértice por encima del eje. Al rotarlo, los vértices sobre el eje x pasan al eje y positivo (arriba), y el tercer vértice, que estaba arriba (y>0), pasa a x=−y<0, es decir, queda a la IZQUIERDA del eje y. En la figura 2 ese vértice quedó a la derecha, lo que equivale a una reflexión respecto al eje y, no a una rotación. Si la rotación se hubiera hecho en sentido horario, el triángulo habría quedado sobre el eje y negativo (abajo), no arriba."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una empresa de turismo les formuló a 9 personas la siguiente pregunta: “¿cada cuánto tiempo realiza un viaje a Cartagena?”, y se obtuvieron las respuestas que se muestran en la tabla.\n\nPara determinar cada cuánto tiempo se debe ofrecer un viaje, la empresa de turismo efectúa el siguiente procedimiento\n\nPaso 1. Calcula el promedio de todas las respuestas.\n\nPaso 2. Calcula la mediana de todas las respuestas.\n\nPaso 3. Compara los datos obtenidos en los pasos 1 y 2.\n\nPaso 4. Elige el menor de los datos obtenidos en El paso 3.\n\nSiguiendo el procedimiento ¿cada cuánto se debe ofrecer un viaje a Cartagena?",
+    "imagen": "s3p15e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Cada 6 meses.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Respuestas (en meses): 4, 4, 4, 5, 5, 6, 7, 8, 11. Promedio: (4+4+4+5+5+6+7+8+11)/9=54/9=6 meses. Mediana (dato central, el quinto de nueve datos ordenados): 5 meses. El procedimiento pide elegir el menor de los dos: 5. 6 meses es el promedio, el mayor de los dos valores; el procedimiento pide el menor."
+      },
+      {
+        "descripcion": "Cada 5 meses.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Respuestas (en meses): 4, 4, 4, 5, 5, 6, 7, 8, 11. Promedio: (4+4+4+5+5+6+7+8+11)/9=54/9=6 meses. Mediana (dato central, el quinto de nueve datos ordenados): 5 meses. El procedimiento pide elegir el menor de los dos: 5. La mediana (5) es menor que el promedio (6), así que se ofrece un viaje cada 5 meses."
+      },
+      {
+        "descripcion": "Cada 4 meses.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Respuestas (en meses): 4, 4, 4, 5, 5, 6, 7, 8, 11. Promedio: (4+4+4+5+5+6+7+8+11)/9=54/9=6 meses. Mediana (dato central, el quinto de nueve datos ordenados): 5 meses. El procedimiento pide elegir el menor de los dos: 5. 4 meses es la moda (el dato que más se repite), una medida que el procedimiento no utiliza."
+      },
+      {
+        "descripcion": "Cada 3 meses.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Respuestas (en meses): 4, 4, 4, 5, 5, 6, 7, 8, 11. Promedio: (4+4+4+5+5+6+7+8+11)/9=54/9=6 meses. Mediana (dato central, el quinto de nueve datos ordenados): 5 meses. El procedimiento pide elegir el menor de los dos: 5. 3 meses no corresponde a ningún dato ni a ninguna de las medidas calculadas."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para remodelar el suelo de la recepción de una oficina con dimensiones 360 cm de ancho y 5 m de largo, se planea utilizar baldosas de 30 cm X 40 cm. Con el propósito de determinar la cantidad exacta de baldosas que se requieren para remodelar el suelo, uno de los diseñadores de interiores propuso el siguiente procedimiento, pero cometió un error:\n\nPaso 1. Calcular el área del suelo de la recepción multiplicando 360 X 5 = 1.800\n\nPaso 2. Calcular el área de una de las baldosas multiplicando 30 X 40 = 1.200\n\nPaso 3. Dividir el área del suelo de la recepción entre el área de una de las baldosas: (1.800)/(1.200)=3/2\n\n¿En cuál paso del procedimiento el diseñador cometió el error?",
+    "imagen": null,
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "En el paso 2, porque se multiplicaron cantidades con igual unidad de medida",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ancho está en centímetros (360 cm) y el largo en metros (5 m). Multiplicar 360×5 mezcla unidades distintas y da un resultado sin sentido. Lo correcto es convertir 5 m=500 cm: área=360×500=180.000 cm²; área de una baldosa=30×40=1.200 cm²; baldosas=180.000÷1.200=150. En el paso 2 las dos medidas (30 cm y 40 cm) tienen la misma unidad, y multiplicar cantidades con la misma unidad es justo lo correcto para hallar un área; el error no está ahí."
+      },
+      {
+        "descripcion": "En el paso 1, porque se debe dividir la medida del ancho del suelo de la recepción entre la medida del ancho de la baldosa",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ancho está en centímetros (360 cm) y el largo en metros (5 m). Multiplicar 360×5 mezcla unidades distintas y da un resultado sin sentido. Lo correcto es convertir 5 m=500 cm: área=360×500=180.000 cm²; área de una baldosa=30×40=1.200 cm²; baldosas=180.000÷1.200=150. Dividir ancho entre ancho de baldosa solo da cuántas baldosas caben en una fila, no el total; y no es la causa del error del paso 1."
+      },
+      {
+        "descripcion": "El paso 1, porque se multiplicaron cantidades expresadas en diferentes unidades de medida",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El ancho está en centímetros (360 cm) y el largo en metros (5 m). Multiplicar 360×5 mezcla unidades distintas y da un resultado sin sentido. Lo correcto es convertir 5 m=500 cm: área=360×500=180.000 cm²; área de una baldosa=30×40=1.200 cm²; baldosas=180.000÷1.200=150. En el paso 1 se multiplicaron 360 cm por 5 m, unidades diferentes; antes de multiplicar, el largo debía expresarse en centímetros (500 cm)."
+      },
+      {
+        "descripcion": "El paso 2, porque se debe dividir la medida del largo del suelo de la recepción entre la medida del largo de la baldosa.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ancho está en centímetros (360 cm) y el largo en metros (5 m). Multiplicar 360×5 mezcla unidades distintas y da un resultado sin sentido. Lo correcto es convertir 5 m=500 cm: área=360×500=180.000 cm²; área de una baldosa=30×40=1.200 cm²; baldosas=180.000÷1.200=150. El paso 2 está bien planteado (30×40=1.200 cm²); dividir largo entre largo de baldosa no es el procedimiento para obtener el área de una baldosa."
+      }
+    ]
+  },
+  {
+    "enunciado": "La industria farmacéutica veterinaria determina que la cantidad de medicamento adecuada que se le puede suministrar a un perro se define por medio de la siguiente función:\n\nDonde f(p) es la cantidad del medicamento en miligramos que debe suministrársele al perro, y p es el peso del perro en kilogramos.\n\nSi en una jornada de vacunación, ningún perro supera los 8 kg de peso, ¿qué información se requiere para determinar la cantidad de medicamento total que se les suministró a los perros en la jornada de vacunación?",
+    "imagen": "s3p17e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La cantidad de perros que pesan exactamente 8 kilogramos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si ningún perro pesa más de 8 kg, todos están en el primer tramo de la función (p≤8) y a todos se les suministra la misma cantidad: 20 mg. Por lo tanto, el total de medicamento es 20 mg × (cantidad de perros). Como todos los perros pesan 8 kg o menos, lo que se necesita saber es cuántos perros hay en esa condición. Saber cuántos perros pesan exactamente 8 kg solo da una parte de los perros; los que pesan menos de 8 kg también reciben 20 mg y quedarían sin contar."
+      },
+      {
+        "descripcion": "La cantidad de perros que pesan menos de 8 kilogramos.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si ningún perro pesa más de 8 kg, todos están en el primer tramo de la función (p≤8) y a todos se les suministra la misma cantidad: 20 mg. Por lo tanto, el total de medicamento es 20 mg × (cantidad de perros). Como todos los perros pesan 8 kg o menos, lo que se necesita saber es cuántos perros hay en esa condición. Contar solo los que pesan menos de 8 kg deja por fuera a los que pesan exactamente 8 kg, que también reciben 20 mg."
+      },
+      {
+        "descripcion": "La cantidad de perros que pesan 8 kilogramos o más.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si ningún perro pesa más de 8 kg, todos están en el primer tramo de la función (p≤8) y a todos se les suministra la misma cantidad: 20 mg. Por lo tanto, el total de medicamento es 20 mg × (cantidad de perros). Como todos los perros pesan 8 kg o menos, lo que se necesita saber es cuántos perros hay en esa condición. \"8 kg o más\" corresponde, en este caso, únicamente a los que pesan exactamente 8 kg (ninguno pasa de 8); dejaría fuera a todos los más livianos."
+      },
+      {
+        "descripcion": "La cantidad de perros que pesan 8 kilogramos o menos.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Si ningún perro pesa más de 8 kg, todos están en el primer tramo de la función (p≤8) y a todos se les suministra la misma cantidad: 20 mg. Por lo tanto, el total de medicamento es 20 mg × (cantidad de perros). Como todos los perros pesan 8 kg o menos, lo que se necesita saber es cuántos perros hay en esa condición. Todos los perros pesan 8 kg o menos y a todos les corresponden 20 mg; conocer cuántos son (los que pesan 8 kg o menos) permite calcular el total."
+      }
+    ]
+  },
+  {
+    "enunciado": "En la figura se muestran seis polígonos, los cuales se distribuyeron en dos grupos. El grupo x se compone de los tres polígonos con mayor número de lados; los otros tres polígonos conforman el grupo Z.\n\nEntre los polígonos del grupo X, ¿Cuál tiene menor número de lados?",
+    "imagen": "s3p18e.png",
+    "componente": "Geometría",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s3p18a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los polígonos del grupo X tienen 5 lados (el que tiene una muesca a la izquierda), 6 lados (el de forma de reloj de arena) y 7 lados (el de la muesca en la parte inferior). El grupo Z contiene el triángulo (3 lados), la punta de flecha (4 lados) y el rombo (4 lados). El que tiene menor número de lados en el grupo X es el de 5 lados. El triángulo tiene 3 lados y pertenece al grupo Z, no al grupo X."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p18b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los polígonos del grupo X tienen 5 lados (el que tiene una muesca a la izquierda), 6 lados (el de forma de reloj de arena) y 7 lados (el de la muesca en la parte inferior). El grupo Z contiene el triángulo (3 lados), la punta de flecha (4 lados) y el rombo (4 lados). El que tiene menor número de lados en el grupo X es el de 5 lados. El rombo tiene 4 lados y pertenece al grupo Z, no al grupo X."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p18c.png",
+        "esCorrecta": true,
+        "retroalimentacion": "Los polígonos del grupo X tienen 5 lados (el que tiene una muesca a la izquierda), 6 lados (el de forma de reloj de arena) y 7 lados (el de la muesca en la parte inferior). El grupo Z contiene el triángulo (3 lados), la punta de flecha (4 lados) y el rombo (4 lados). El que tiene menor número de lados en el grupo X es el de 5 lados. Este polígono, con 5 lados, es el de menor número de lados entre los tres del grupo X."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p18d.png",
+        "esCorrecta": false,
+        "retroalimentacion": "Los polígonos del grupo X tienen 5 lados (el que tiene una muesca a la izquierda), 6 lados (el de forma de reloj de arena) y 7 lados (el de la muesca en la parte inferior). El grupo Z contiene el triángulo (3 lados), la punta de flecha (4 lados) y el rombo (4 lados). El que tiene menor número de lados en el grupo X es el de 5 lados. El polígono en forma de reloj de arena tiene 6 lados, más que el de 5 lados del grupo X."
+      }
+    ]
+  },
+  {
+    "enunciado": "Se realizó un experimento para calcular el efecto de tres tipos de fertilizantes (W, X, Y) en la altura de las plantas de un cultivo de maíz. El experimento duró 90 días y se registraron en la tabla las alturas a los 15, 30, 45, 60 y 90 días.\n\nUna persona hace las siguientes afirmaciones sobre los resultados del experimento:\n\nDe acuerdo con lo anterior, ¿Cuál o cuáles de las afirmaciones de la persona son falsas?",
+    "imagen": "s3p19e.png",
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Solo la 2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Afirmación 1: a los 60 días las alturas son W=261, X=258, Y=269; la menor es la de X (258), no la de W: FALSA. Afirmación 2: a los 90 días las alturas son W=269, X=286, Y=176; la mayor es la de X: VERDADERA. Afirmación 3: a los 15 días las alturas son W=49, X=64, Y=63; la mayor es la de X (64), no la de Y: FALSA. La afirmación 2 es verdadera (X tiene 286 cm a los 90 días, la mayor altura); decir que es la única falsa ignora que la 1 y la 3 también fallan."
+      },
+      {
+        "descripcion": "Solo la 3.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Afirmación 1: a los 60 días las alturas son W=261, X=258, Y=269; la menor es la de X (258), no la de W: FALSA. Afirmación 2: a los 90 días las alturas son W=269, X=286, Y=176; la mayor es la de X: VERDADERA. Afirmación 3: a los 15 días las alturas son W=49, X=64, Y=63; la mayor es la de X (64), no la de Y: FALSA. La afirmación 3 sí es falsa, pero no es la única: la afirmación 1 también lo es."
+      },
+      {
+        "descripcion": "La 1 y la 3.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Afirmación 1: a los 60 días las alturas son W=261, X=258, Y=269; la menor es la de X (258), no la de W: FALSA. Afirmación 2: a los 90 días las alturas son W=269, X=286, Y=176; la mayor es la de X: VERDADERA. Afirmación 3: a los 15 días las alturas son W=49, X=64, Y=63; la mayor es la de X (64), no la de Y: FALSA. Las afirmaciones 1 y 3 son falsas: a los 60 días la menor altura es de X, y a los 15 días la mayor es de X."
+      },
+      {
+        "descripcion": "La 1 y la 2.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Afirmación 1: a los 60 días las alturas son W=261, X=258, Y=269; la menor es la de X (258), no la de W: FALSA. Afirmación 2: a los 90 días las alturas son W=269, X=286, Y=176; la mayor es la de X: VERDADERA. Afirmación 3: a los 15 días las alturas son W=49, X=64, Y=63; la mayor es la de X (64), no la de Y: FALSA. Incluye la afirmación 2, que es verdadera, y deja por fuera la 3, que es falsa."
+      }
+    ]
+  },
+  {
+    "enunciado": "En la tabla, se encuentra la información sobre el porcentaje de acierto en cada una de las 5 pruebas realizadas durante un semestre por Roberto, donde cada prueba tiene el mismo peso en la calificación final.\n\nCon la información de la tabla, ¿cuál de los siguientes valores es posible encontrar?",
+    "imagen": "s3p20e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "La cantidad de aciertos en cada una de las pruebas",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla solo informa porcentajes de acierto de cinco pruebas con el mismo peso: 60%, 58%, 75%, 80% y 92%. Con ellos sí se puede calcular el promedio de porcentaje de acierto: (60+58+75+80+92)/5=365/5=73%. No se conoce el número de preguntas de cada prueba, el peso de cada pregunta ni la escala de calificación. Para saber cuántos aciertos hubo se necesita conocer el número total de preguntas de cada prueba; un 60% puede ser 6 de 10 o 30 de 50."
+      },
+      {
+        "descripcion": "El peso de las preguntas en cada una de las pruebas",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla solo informa porcentajes de acierto de cinco pruebas con el mismo peso: 60%, 58%, 75%, 80% y 92%. Con ellos sí se puede calcular el promedio de porcentaje de acierto: (60+58+75+80+92)/5=365/5=73%. No se conoce el número de preguntas de cada prueba, el peso de cada pregunta ni la escala de calificación. El peso de cada pregunta depende de cuántas preguntas tenga cada prueba y de cómo se califique; la tabla no lo informa."
+      },
+      {
+        "descripcion": "El promedio del porcentaje de acierto en las pruebas",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La tabla solo informa porcentajes de acierto de cinco pruebas con el mismo peso: 60%, 58%, 75%, 80% y 92%. Con ellos sí se puede calcular el promedio de porcentaje de acierto: (60+58+75+80+92)/5=365/5=73%. No se conoce el número de preguntas de cada prueba, el peso de cada pregunta ni la escala de calificación. Como las pruebas tienen el mismo peso, el promedio de los porcentajes de acierto se calcula directamente: 73%."
+      },
+      {
+        "descripcion": "La calificación obtenida al finalizar todas las prueba",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla solo informa porcentajes de acierto de cinco pruebas con el mismo peso: 60%, 58%, 75%, 80% y 92%. Con ellos sí se puede calcular el promedio de porcentaje de acierto: (60+58+75+80+92)/5=365/5=73%. No se conoce el número de preguntas de cada prueba, el peso de cada pregunta ni la escala de calificación. La calificación final depende de la escala (por ejemplo 0 a 5 o 0 a 100) con que se califiquen las pruebas, información que no se da; solo se conoce el porcentaje de acierto."
+      }
+    ]
+  },
+  {
+    "enunciado": "La gráfica muestra la relación entre la altura y el tiempo de un esquiador que se desliza por una montaña de nieve.\n\nDe acuerdo con la gráfica, ¿cuál es la altura del esquiador a los 12 segundos?",
+    "imagen": "s3p21e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "4 metros",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica es una recta que baja de 14 m (en t=0) a 0 m (en t=28 s): pierde 0,5 m por segundo. A los 12 segundos la altura es 14−0,5×12=14−6=8 metros. 4 m es la altura aproximada a los 20 segundos, no a los 12."
+      },
+      {
+        "descripcion": "8 metros",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La gráfica es una recta que baja de 14 m (en t=0) a 0 m (en t=28 s): pierde 0,5 m por segundo. A los 12 segundos la altura es 14−0,5×12=14−6=8 metros. Al ubicar t=12 s en el eje horizontal y subir hasta la recta, se lee una altura de 8 metros (14−0,5·12)."
+      },
+      {
+        "descripcion": "12 metros",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica es una recta que baja de 14 m (en t=0) a 0 m (en t=28 s): pierde 0,5 m por segundo. A los 12 segundos la altura es 14−0,5×12=14−6=8 metros. 12 m es el valor del tiempo, no de la altura: confunde la coordenada del eje horizontal con la del vertical."
+      },
+      {
+        "descripcion": "16 metros",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La gráfica es una recta que baja de 14 m (en t=0) a 0 m (en t=28 s): pierde 0,5 m por segundo. A los 12 segundos la altura es 14−0,5×12=14−6=8 metros. 16 m es el máximo del eje vertical, un valor que la recta nunca alcanza (su punto más alto es 14 m)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Eduardo tiene esta expresión:\n\n(y³)(y¹)(y²) − (y²)(y²) + 7\n\nAl simplificarla, obtiene\n\ny⁶ − y⁴ + 7\n\n¿El resultado del ejercicio realizado por Eduardo es correcto?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Si, puesto que es una multiplicación en la que todos los exponentes deben multiplicarse",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Eduardo tiene (y³)(y¹)(y²) − (y²)(y²) + 7. Por la propiedad de producto de potencias de igual base, los exponentes se suman: y³·y¹·y²=y(3+1+2) =y⁶ y y²·y²=y(2+2)=y⁴. El resultado y⁶−y⁴+7 es correcto. El resultado es correcto, pero la justificación es falsa: en un producto de potencias de igual base los exponentes se suman, no se multiplican. Aquí multiplicar y sumar coinciden por casualidad (3·1·2=6=3+1+2 y 2·2=4=2+2), pero con otros exponentes la regla fallaría: y²·y³=y⁵, no y⁶."
+      },
+      {
+        "descripcion": "No, puesto que es una multiplicación en la que el 1 debe omitirse.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Eduardo tiene (y³)(y¹)(y²) − (y²)(y²) + 7. Por la propiedad de producto de potencias de igual base, los exponentes se suman: y³·y¹·y²=y(3+1+2) =y⁶ y y²·y²=y(2+2)=y⁴. El resultado y⁶−y⁴+7 es correcto. El resultado de Eduardo es correcto, y además el exponente 1 no se omite: y¹ es simplemente y y su exponente se usa al sumar (3+1+2)."
+      },
+      {
+        "descripcion": "Si, puesto que al multiplicar potencias de la misma base de los exponentes se suman.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Eduardo tiene (y³)(y¹)(y²) − (y²)(y²) + 7. Por la propiedad de producto de potencias de igual base, los exponentes se suman: y³·y¹·y²=y(3+1+2) =y⁶ y y²·y²=y(2+2)=y⁴. El resultado y⁶−y⁴+7 es correcto. Al multiplicar potencias de la misma base se suman los exponentes: y³·y¹·y²=y⁶ y y²·y²=y⁴, de modo que y⁶−y⁴+7 es correcto."
+      },
+      {
+        "descripcion": "No, puesto que es una resta y están efectuándose multiplicaciones.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Eduardo tiene (y³)(y¹)(y²) − (y²)(y²) + 7. Por la propiedad de producto de potencias de igual base, los exponentes se suman: y³·y¹·y²=y(3+1+2) =y⁶ y y²·y²=y(2+2)=y⁴. El resultado y⁶−y⁴+7 es correcto. La expresión combina productos y una resta; se resuelven primero los productos (jerarquía de operaciones) y después se resta, así que es válido simplificar las multiplicaciones."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una fábrica de computadores, los ingresos mensuales se calculan mediante la multiplicación del precio de venta por unidad, por el número de unidades vendidas en ese mes. Una persona de la fábrica afirma que, si en un mes se vende la misma cantidad de unidades y se disminuye el precio de venta por unidad, los ingresos de ese mes aumentarán.\n\n¿Es verdadera la afirmación de la persona?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Sí, porque si disminuye el precio de venta por unidad entonces aumentará la cantidad de unidades vendidas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ingreso = precio por unidad × unidades vendidas. Si las unidades vendidas no cambian y el precio por unidad baja, el producto necesariamente disminuye. Ejemplo: 100 unidades a $5.000 dan $500.000; a $4.000 dan $400.000. El enunciado dice que se vende la misma cantidad de unidades; suponer que al bajar el precio aumentan las ventas introduce un supuesto que el problema excluye."
+      },
+      {
+        "descripcion": "No, porque el ingreso mensual disminuirá, debido a que las unidades vendidas se mantienen constantes.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Ingreso = precio por unidad × unidades vendidas. Si las unidades vendidas no cambian y el precio por unidad baja, el producto necesariamente disminuye. Ejemplo: 100 unidades a $5.000 dan $500.000; a $4.000 dan $400.000. Con unidades constantes, un precio menor produce un ingreso menor; la afirmación de la persona es falsa."
+      },
+      {
+        "descripcion": "Sí, porque el ingreso mensual y el precio de venta por unidad aumentarán la misma cantidad.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ingreso = precio por unidad × unidades vendidas. Si las unidades vendidas no cambian y el precio por unidad baja, el producto necesariamente disminuye. Ejemplo: 100 unidades a $5.000 dan $500.000; a $4.000 dan $400.000. El ingreso y el precio no pueden aumentar la misma cantidad cuando el precio disminuye; además, el precio unitario baja, no sube."
+      },
+      {
+        "descripcion": "No, porque el ingreso mensual permanece constante, debido a que solo varía el precio.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Ingreso = precio por unidad × unidades vendidas. Si las unidades vendidas no cambian y el precio por unidad baja, el producto necesariamente disminuye. Ejemplo: 100 unidades a $5.000 dan $500.000; a $4.000 dan $400.000. El ingreso solo permanecería constante si el precio no cambiara; como varía el precio y las unidades son iguales, el ingreso también varía (disminuye)."
+      }
+    ]
+  },
+  {
+    "enunciado": "A 10 personas que asisten a un gimnasio se les realizó una encuesta. La tabla relaciona la edad de cada una de ellas y el número de veces que compran ropa deportiva durante el mes.\n\nDe acuerdo con la información anterior, ¿cuál de los siguientes datos es posible calcular?",
+    "imagen": "s3p24e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La cantidad de ropa deportiva que compraron las personas encuestadas.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da la edad y el número de compras mensuales de solo 10 personas (una muestra). Con ella se puede calcular el promedio de compras de esas personas encuestadas: (3+2+3+2+1+4+2+1+2+3)/10=23/10=2,3 compras al mes. No se puede conocer la cantidad de prendas (una compra puede incluir varias) ni extender edades de la muestra a todos los clientes del gimnasio. La tabla registra el número de veces que se compra, no cuántas prendas se llevan en cada compra, así que no se conoce la cantidad de ropa."
+      },
+      {
+        "descripcion": "La edad promedio de los clientes que asisten al gimnasio.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da la edad y el número de compras mensuales de solo 10 personas (una muestra). Con ella se puede calcular el promedio de compras de esas personas encuestadas: (3+2+3+2+1+4+2+1+2+3)/10=23/10=2,3 compras al mes. No se puede conocer la cantidad de prendas (una compra puede incluir varias) ni extender edades de la muestra a todos los clientes del gimnasio. Se podría calcular la edad promedio de los 10 encuestados, pero no la de todos los clientes del gimnasio; la muestra no permite afirmar el valor de la población."
+      },
+      {
+        "descripcion": "El promedio de compras mensuales de las personas encuestadas.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La tabla da la edad y el número de compras mensuales de solo 10 personas (una muestra). Con ella se puede calcular el promedio de compras de esas personas encuestadas: (3+2+3+2+1+4+2+1+2+3)/10=23/10=2,3 compras al mes. No se puede conocer la cantidad de prendas (una compra puede incluir varias) ni extender edades de la muestra a todos los clientes del gimnasio. Se pide el promedio de compras de las personas encuestadas, un dato que se calcula directamente con la tabla: 2,3 compras mensuales."
+      },
+      {
+        "descripcion": "El rango de edad de las personas que asisten al gimnasio.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da la edad y el número de compras mensuales de solo 10 personas (una muestra). Con ella se puede calcular el promedio de compras de esas personas encuestadas: (3+2+3+2+1+4+2+1+2+3)/10=23/10=2,3 compras al mes. No se puede conocer la cantidad de prendas (una compra puede incluir varias) ni extender edades de la muestra a todos los clientes del gimnasio. El rango de edad de la muestra (de 18 a 36 años) no equivale al de todas las personas que asisten al gimnasio, de las que no se tienen datos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un biólogo que estudia un ecosistema controlado encontró que la población de ranas se duplica mensualmente y que, además, la cantidad de ranas hembra y macho varía mensualmente, como se muestra en la gráfica.\n\nEl biólogo estima que, si se mantiene la tendencia en cuanto al aumento de la población de ranas, en el cuarto mes habrá 280 ranas macho. ¿Cuál es la probabilidad de que en el cuarto mes, al elegir una rana al azar, esta sea una hembra?",
+    "imagen": "s3p25e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "0,35",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De la gráfica: mes 1: 50 machos y 50 hembras (100); mes 2: 90 machos y 110 hembras (200); mes 3: 160 machos y 240 hembras (400). La población se duplica cada mes, así que en el mes 4 habrá 800 ranas. Si 280 son machos, las hembras son 800−280=520. La probabilidad de elegir una hembra es 520/800=0,65. 0,35 es la probabilidad de elegir un macho (280/800), el evento contrario al que se pregunta."
+      },
+      {
+        "descripcion": "0,50",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De la gráfica: mes 1: 50 machos y 50 hembras (100); mes 2: 90 machos y 110 hembras (200); mes 3: 160 machos y 240 hembras (400). La población se duplica cada mes, así que en el mes 4 habrá 800 ranas. Si 280 son machos, las hembras son 800−280=520. La probabilidad de elegir una hembra es 520/800=0,65. 0,50 supondría igual número de machos y hembras, como en el mes 1, pero en el mes 4 hay 280 machos y 520 hembras."
+      },
+      {
+        "descripcion": "0,65",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "De la gráfica: mes 1: 50 machos y 50 hembras (100); mes 2: 90 machos y 110 hembras (200); mes 3: 160 machos y 240 hembras (400). La población se duplica cada mes, así que en el mes 4 habrá 800 ranas. Si 280 son machos, las hembras son 800−280=520. La probabilidad de elegir una hembra es 520/800=0,65. 520/800=0,65."
+      },
+      {
+        "descripcion": "0,80",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De la gráfica: mes 1: 50 machos y 50 hembras (100); mes 2: 90 machos y 110 hembras (200); mes 3: 160 machos y 240 hembras (400). La población se duplica cada mes, así que en el mes 4 habrá 800 ranas. Si 280 son machos, las hembras son 800−280=520. La probabilidad de elegir una hembra es 520/800=0,65. 0,80 no se obtiene de ningún cálculo coherente con los datos: implicaría 640 hembras y solo 160 machos en el mes 4, pero el biólogo estima 280 machos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una persona está esperando en una entidad bancaria y tiene asignado el turno 100. Cuando están atendiendo al turno 52 decide estimar el tiempo de espera, teniendo en cuenta que hay 4 personas encargadas de la atención al público y que el tiempo promedio de atención por cliente es de 6 minutos. Para esto efectúa el siguiente procedimiento:\n\nPaso 1. Cuenta la cantidad de turnos que hay entre el turno que están atendiendo y el suyo.\n\nPaso 2. Divide la cantidad obtenida en el paso anterior entre el número de personas que atienden al público.\n\nPaso 3. Multiplica el resultado del paso 2 por el tiempo promedio de atención por cliente.\n\n¿Cuál es el tiempo estimado de espera de esta persona?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "32 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Paso 1: faltan por atender los turnos del 53 al 100 (el suyo incluido): 100−52=48 turnos. Paso 2: con 4 personas atendiendo a la vez, 48÷4=12 \"rondas\" de atención. Paso 3: 12×6 minutos=72 minutos. 32 minutos resulta de invertir las operaciones: 48÷6×4=32 (dividir entre el tiempo por cliente y multiplicar por el número de personas), cuando lo correcto es dividir entre las 4 personas y multiplicar por 6 minutos."
+      },
+      {
+        "descripcion": "78 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Paso 1: faltan por atender los turnos del 53 al 100 (el suyo incluido): 100−52=48 turnos. Paso 2: con 4 personas atendiendo a la vez, 48÷4=12 \"rondas\" de atención. Paso 3: 12×6 minutos=72 minutos. 78 minutos resulta de usar el número del turno que se está atendiendo (52) en lugar de la cantidad de turnos pendientes: 52÷4×6=78. El paso 1 pide contar los turnos que faltan (48), no tomar el turno actual."
+      },
+      {
+        "descripcion": "72 min.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Paso 1: faltan por atender los turnos del 53 al 100 (el suyo incluido): 100−52=48 turnos. Paso 2: con 4 personas atendiendo a la vez, 48÷4=12 \"rondas\" de atención. Paso 3: 12×6 minutos=72 minutos. (100−52)÷4×6=48÷4×6=12×6=72 minutos."
+      },
+      {
+        "descripcion": "150 min.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Paso 1: faltan por atender los turnos del 53 al 100 (el suyo incluido): 100−52=48 turnos. Paso 2: con 4 personas atendiendo a la vez, 48÷4=12 \"rondas\" de atención. Paso 3: 12×6 minutos=72 minutos. 150 minutos resulta de usar el turno propio (100) en lugar de los turnos pendientes: 100÷4×6=150. Se olvida restar los 52 turnos ya atendidos."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una oficina se usa un sello fechador y cada vez que se utiliza, queda cierta cantidad de tinta; una vez que se acaba la tinta, el sello se recarga nuevamente en la almohadilla. La tabla muestra la cantidad de tinta que queda en el sello cada vez que se utiliza.\n\nUsos | Tinta restante\n3 | 60 microlitros\n4 | 45 microlitros\n5 | 36 microlitros\n6 | 30 microlitros\n\nTeniendo en cuenta la cantidad de tinta restante después de cada uso del sello, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Se consumen entre 15 microlitros y 60 microlitros por cada uso del sello.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los productos usos × tinta restante son constantes: 3×60=180, 4×45=180, 5×36=180, 6×30=180, lo que caracteriza una relación inversamente proporcional. La tinta consumida entre usos sucesivos es 60−45=15, 45−36=9 y 36−30=6 microlitros: cantidades diferentes, no constantes. Los consumos observados son 15, 9 y 6 microlitros; 9 y 6 no están entre 15 y 60."
+      },
+      {
+        "descripcion": "Se utiliza una cantidad diferente de tinta entre cada uso, y hay una relación inversamente proporcional entre el número de usos y la cantidad de tinta restante.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Los productos usos × tinta restante son constantes: 3×60=180, 4×45=180, 5×36=180, 6×30=180, lo que caracteriza una relación inversamente proporcional. La tinta consumida entre usos sucesivos es 60−45=15, 45−36=9 y 36−30=6 microlitros: cantidades diferentes, no constantes. Se consume una cantidad diferente entre cada uso (15, 9 y 6 microlitros) y el producto usos×tinta se mantiene en 180, lo que indica proporcionalidad inversa."
+      },
+      {
+        "descripcion": "Se utiliza una cantidad constante de tinta entre cada uso, y hay una relación directamente proporcional entre el número de usos y la cantidad de tinta restante.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los productos usos × tinta restante son constantes: 3×60=180, 4×45=180, 5×36=180, 6×30=180, lo que caracteriza una relación inversamente proporcional. La tinta consumida entre usos sucesivos es 60−45=15, 45−36=9 y 36−30=6 microlitros: cantidades diferentes, no constantes. La cantidad de tinta consumida no es constante (15, 9 y 6), y la relación no es directamente proporcional: al aumentar los usos, la tinta restante disminuye."
+      },
+      {
+        "descripcion": "Se consumen múltiplos de 30 microlitros por cada uso del sello, por ejemplo, 60 o 90 microlitros.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los productos usos × tinta restante son constantes: 3×60=180, 4×45=180, 5×36=180, 6×30=180, lo que caracteriza una relación inversamente proporcional. La tinta consumida entre usos sucesivos es 60−45=15, 45−36=9 y 36−30=6 microlitros: cantidades diferentes, no constantes. Ninguno de los consumos (15, 9, 6) es múltiplo de 30; confunde el valor de la tinta restante en el uso 6 (30) con la cantidad consumida."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una papelería el costo de los lápices depende de las unidades que compre el cliente:\n\nSi compra un lápiz le cuesta $1.000.\n\nSi compra dos lápices, cada uno le cuesta $950.\n\nSi compra tres lápices, cada uno le cuesta $900.\n\nPor cada lápiz adicional que compre el cliente, cada lápiz cuesta $50 pesos menos.\n\nCada cliente puede comprar mínimo un lápiz y máximo 10 lápices.\n\nEl dueño de la papelería escribió una fórmula para calcular el precio “y” de cada lápiz, a partir de la cantidad “x” de lápices que compre el cliente, donde “x” toma valores entre 1 y 10.\n\ny = $1.050 - $50x\n\nSobre la fórmula propuesta, ¿cuál de las siguientes afirmaciones es verdadera?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La fórmula es correcta, porque si no se compran lápices el precio debe ser $1.000.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula y=1.050−50x da: x=1→1.000; x=2→950; x=3→900; y para x=10→550, coherente con \"$50 menos por cada lápiz adicional\". El dominio es de 1 a 10 lápices, así que x=0 no se considera. La pendiente es −50: el precio de cada lápiz baja $50 por lápiz adicional. La fórmula es correcta, pero la razón es falsa: x=0 no está en el dominio (se compra al menos un lápiz) y, además, la fórmula daría $1.050 para x=0, no $1.000."
+      },
+      {
+        "descripcion": "La fórmula es incorrecta, porque la relación debe ser cuadrática para expresar el precio de todos los lápices.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula y=1.050−50x da: x=1→1.000; x=2→950; x=3→900; y para x=10→550, coherente con \"$50 menos por cada lápiz adicional\". El dominio es de 1 a 10 lápices, así que x=0 no se considera. La pendiente es −50: el precio de cada lápiz baja $50 por lápiz adicional. La relación es lineal (el precio baja una cantidad fija de $50 por lápiz adicional), no cuadrática; una relación cuadrática tendría cambios que varían."
+      },
+      {
+        "descripcion": "La fórmula es correcta, porque la pendiente negativa indica una disminución del precio de cada lápiz.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La fórmula y=1.050−50x da: x=1→1.000; x=2→950; x=3→900; y para x=10→550, coherente con \"$50 menos por cada lápiz adicional\". El dominio es de 1 a 10 lápices, así que x=0 no se considera. La pendiente es −50: el precio de cada lápiz baja $50 por lápiz adicional. La fórmula reproduce los precios dados y su pendiente negativa (−50) expresa que cada lápiz adicional reduce $50 el precio de cada lápiz."
+      },
+      {
+        "descripcion": "La fórmula es incorrecta, porque si no se compran lápices el precio es cero.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La fórmula y=1.050−50x da: x=1→1.000; x=2→950; x=3→900; y para x=10→550, coherente con \"$50 menos por cada lápiz adicional\". El dominio es de 1 a 10 lápices, así que x=0 no se considera. La pendiente es −50: el precio de cada lápiz baja $50 por lápiz adicional. La fórmula es correcta, y la razón es falsa: para x=0 daría $1.050 (no cero), y de todos modos x=0 no pertenece al dominio."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para su clase de Educación Física, Gabriela mide la longitud del pie y la altura de 8 de sus compañeros con el objetivo de establecer si hay alguna relación entre estas dos variables, y registra los datos en una tabla.\n\nNombre | Lucia | Mateo | Emilio | Mia | Salome | Sebas | Samuel | Pedro\nLongitud del pie (cm) | 33,4 | 33,8 | 34 | 34,8 | 35,2 | 35,7 | 36 | 36,2\nAltura (cm) | 151 | 152 | 153 | 154 | 155 | 156 | 157 | 158\n\nDe acuerdo con la información anterior, Gabriela afirma que, a mayor longitud del pie, mayor es la altura. ¿Es correcta la afirmación hecha por Gabriela?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "No, porque el tamaño del pie aumenta poco en relación con el aumento de la altura.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Al ordenar a los compañeros por longitud del pie (33,4; 33,8; 34; 34,8; 35,2; 35,7; 36; 36,2) las alturas también van aumentando (151; 152; …; 158). Ambas variables crecen juntas: a mayor longitud del pie, mayor altura. La afirmación de Gabriela describe correctamente esa tendencia. La rapidez con que aumenta el pie respecto a la altura no invalida la tendencia: la afirmación solo dice que mayor pie corresponde a mayor altura, y eso se cumple en todos los datos."
+      },
+      {
+        "descripcion": "Sí, porque mientras el tamaño del pie aumenta, la altura también aumenta.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Al ordenar a los compañeros por longitud del pie (33,4; 33,8; 34; 34,8; 35,2; 35,7; 36; 36,2) las alturas también van aumentando (151; 152; …; 158). Ambas variables crecen juntas: a mayor longitud del pie, mayor altura. La afirmación de Gabriela describe correctamente esa tendencia. En los 8 compañeros, cada vez que el pie aumenta la altura también aumenta."
+      },
+      {
+        "descripcion": "No, porque, aunque el tamaño del pie aumenta, la altura aumenta de distinta forma.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Al ordenar a los compañeros por longitud del pie (33,4; 33,8; 34; 34,8; 35,2; 35,7; 36; 36,2) las alturas también van aumentando (151; 152; …; 158). Ambas variables crecen juntas: a mayor longitud del pie, mayor altura. La afirmación de Gabriela describe correctamente esa tendencia. Que la altura aumente de distinta forma (por ejemplo, no en proporción constante al pie) no contradice la afirmación; la afirmación es sobre el sentido del cambio, no sobre su regularidad."
+      },
+      {
+        "descripcion": "Sí, porque mientras el tamaño del pie aumenta, la altura se mantiene constante.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Al ordenar a los compañeros por longitud del pie (33,4; 33,8; 34; 34,8; 35,2; 35,7; 36; 36,2) las alturas también van aumentando (151; 152; …; 158). Ambas variables crecen juntas: a mayor longitud del pie, mayor altura. La afirmación de Gabriela describe correctamente esa tendencia. La altura no se mantiene constante: va de 151 a 158 cm. Además, aunque dice \"Sí\", su justificación es falsa."
+      }
+    ]
+  },
+  {
+    "enunciado": "La tabla muestra la información que ofrece una empresa sobre diferentes productos.\n\nProducto | Precio sin impuesto (COP) | Impuesto(COP) | Descuento sobre el precio con impuesto (COP) | Precio final (COP)\nW | 40.000 | 6.000 | 9.000 | 37.000\nX | 55.000 | 8.000 | 12.000 | 51.000\nY | 72.000 | 11.000 | 16.000 | 67.000\nZ | 110.000 | 20.000 | 25.000 | 105.000\n\nDe acuerdo con la tabla, ¿cuál de las siguientes expresiones permite hallar el precio final?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Precio final = Precio sin impuesto - Impuesto - Descuento",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Probando con el producto W: 40.000+6.000−9.000=37.000, que coincide con el precio final. Con X: 55.000+8.000−12.000=51.000; con Y: 72.000+11.000−16.000=67.000; con Z: 110.000+20.000−25.000=105.000. El impuesto se suma y el descuento se resta. Restar el impuesto lo trata como un descuento: 40.000−6.000−9.000=25.000, que no es 37.000."
+      },
+      {
+        "descripcion": "Precio final = Precio sin impuesto - Impuesto + Descuento",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Probando con el producto W: 40.000+6.000−9.000=37.000, que coincide con el precio final. Con X: 55.000+8.000−12.000=51.000; con Y: 72.000+11.000−16.000=67.000; con Z: 110.000+20.000−25.000=105.000. El impuesto se suma y el descuento se resta. Resta el impuesto y suma el descuento, invirtiendo ambos signos: 40.000−6.000+9.000=43.000."
+      },
+      {
+        "descripcion": "Precio final = Precio sin impuesto + Impuesto + Descuento",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Probando con el producto W: 40.000+6.000−9.000=37.000, que coincide con el precio final. Con X: 55.000+8.000−12.000=51.000; con Y: 72.000+11.000−16.000=67.000; con Z: 110.000+20.000−25.000=105.000. El impuesto se suma y el descuento se resta. Suma el descuento en lugar de restarlo: 40.000+6.000+9.000=55.000, mayor que el precio sin impuesto, lo que no tiene sentido para un descuento."
+      },
+      {
+        "descripcion": "Precio final = Precio sin impuesto + Impuesto – Descuento",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Probando con el producto W: 40.000+6.000−9.000=37.000, que coincide con el precio final. Con X: 55.000+8.000−12.000=51.000; con Y: 72.000+11.000−16.000=67.000; con Z: 110.000+20.000−25.000=105.000. El impuesto se suma y el descuento se resta. Precio sin impuesto + Impuesto − Descuento reproduce el precio final en los cuatro productos."
+      }
+    ]
+  },
+  {
+    "enunciado": "Para saber la cantidad de códigos de 4 cifras, donde los dígitos se pueden repetir, que pueden usarse para identificar a los estudiantes de un colegio, se propone el siguiente procedimiento:\n\nPaso 1. Determinar la cantidad de números que hay en el conjunto de dígitos seleccionado.\n\nPaso 2. Elevar a la 4 el resultado del paso 1.\n\nPara un colegio de 600 estudiantes, se elige el conjunto de los dígitos (1, 2, 3, 4, 5). ¿Cuántos códigos se pueden obtener con este conjunto usando el procedimiento anterior?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "5",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 5 dígitos disponibles y 4 cifras con repetición permitida, cada posición se puede llenar de 5 maneras: 5×5×5×5=5⁴=625 códigos. El procedimiento dado lo resume: paso 1, 5 dígitos; paso 2, 5 elevado a la 4. 5 es solo la cantidad de dígitos del conjunto (resultado del paso 1); falta elevar a la 4 (paso 2)."
+      },
+      {
+        "descripcion": "75",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 5 dígitos disponibles y 4 cifras con repetición permitida, cada posición se puede llenar de 5 maneras: 5×5×5×5=5⁴=625 códigos. El procedimiento dado lo resume: paso 1, 5 dígitos; paso 2, 5 elevado a la 4. 75 no corresponde a 5⁴ ni a ninguna potencia de 5; no se obtiene de aplicar el procedimiento (elevar a la 4 el número de dígitos)."
+      },
+      {
+        "descripcion": "625",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Con 5 dígitos disponibles y 4 cifras con repetición permitida, cada posición se puede llenar de 5 maneras: 5×5×5×5=5⁴=625 códigos. El procedimiento dado lo resume: paso 1, 5 dígitos; paso 2, 5 elevado a la 4. 5⁴=5·5·5·5=625 códigos, que además alcanza para los 600 estudiantes."
+      },
+      {
+        "descripcion": "3.125",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Con 5 dígitos disponibles y 4 cifras con repetición permitida, cada posición se puede llenar de 5 maneras: 5×5×5×5=5⁴=625 códigos. El procedimiento dado lo resume: paso 1, 5 dígitos; paso 2, 5 elevado a la 4. 3.125 es 5⁵ (exponente 5), es decir, códigos de 5 cifras; el procedimiento pide elevar a la 4."
+      }
+    ]
+  },
+  {
+    "enunciado": "Armando tiene 25 chocolates en una caja, y cada Chocolate tiene un relleno de 4 posibles: fresa, mora, cereza y piña. De los 25 chocolates de la caja, Armando sabe que 8 tienen relleno de mora y 5 tienen relleno de piña. Si una persona toma al azar un chocolate de la caja, ¿cuál de las siguientes Probabilidades se puede calcular?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La probabilidad de que el chocolate tomado no tenga relleno de fresa.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De 25 chocolates, 8 son de mora y 5 de piña; los 12 restantes son de fresa o de cereza, pero no se sabe cuántos son de cada una. Solo se pueden calcular probabilidades que dependan de los conteos conocidos: no tener relleno de piña implica 25−5=20 chocolates, de modo que P=20/25=0,8. \"No fresa\" requiere saber cuántos chocolates son de fresa, dato que no se conoce (solo se sabe que fresa y cereza suman 12)."
+      },
+      {
+        "descripcion": "La probabilidad de que el chocolate tomado tenga relleno de fresa o relleno de mora.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De 25 chocolates, 8 son de mora y 5 de piña; los 12 restantes son de fresa o de cereza, pero no se sabe cuántos son de cada una. Solo se pueden calcular probabilidades que dependan de los conteos conocidos: no tener relleno de piña implica 25−5=20 chocolates, de modo que P=20/25=0,8. \"Fresa o mora\" requiere el número de chocolates de fresa; solo se conoce el de mora (8)."
+      },
+      {
+        "descripcion": "La probabilidad de que el chocolate tomado no tenga relleno de piña.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "De 25 chocolates, 8 son de mora y 5 de piña; los 12 restantes son de fresa o de cereza, pero no se sabe cuántos son de cada una. Solo se pueden calcular probabilidades que dependan de los conteos conocidos: no tener relleno de piña implica 25−5=20 chocolates, de modo que P=20/25=0,8. Sin relleno de piña hay 25−5=20 chocolates; P=20/25=4/5=0,8."
+      },
+      {
+        "descripcion": "La probabilidad de que el chocolate tomado tenga relleno de cereza o relleno de piña.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "De 25 chocolates, 8 son de mora y 5 de piña; los 12 restantes son de fresa o de cereza, pero no se sabe cuántos son de cada una. Solo se pueden calcular probabilidades que dependan de los conteos conocidos: no tener relleno de piña implica 25−5=20 chocolates, de modo que P=20/25=0,8. \"Cereza o piña\" requiere el número de chocolates de cereza, que no se conoce; solo se conoce el de piña (5)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un atleta registró la cantidad de kilómetros que recorrió cada día, durante 30 días. Ahora bien, si el atleta desea saber la moda de los valores registrados, ¿cuál de los siguientes datos debe conocer?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "El número de kilómetros registrado que más se repitió durante los 30 días.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La moda es el valor con mayor frecuencia. Para determinarla en los 30 registros se necesita saber qué cantidad de kilómetros se repitió más veces. La moda es, por definición, el número de kilómetros que más se repitió."
+      },
+      {
+        "descripcion": "El registro del día en el que el atleta recorrió la mayor distancia, durante los 30 días.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La moda es el valor con mayor frecuencia. Para determinarla en los 30 registros se necesita saber qué cantidad de kilómetros se repitió más veces. El día de mayor distancia da el valor máximo (y el día), no la moda; confunde moda con máximo."
+      },
+      {
+        "descripcion": "El día en el que el atleta recorrió la mayor distancia, durante los 30 días.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La moda es el valor con mayor frecuencia. Para determinarla en los 30 registros se necesita saber qué cantidad de kilómetros se repitió más veces. Igual que la B, identifica el día del valor máximo, no el valor más frecuente."
+      },
+      {
+        "descripcion": "El número de kilómetros registrado que menos se repitió durante los 30 días.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La moda es el valor con mayor frecuencia. Para determinarla en los 30 registros se necesita saber qué cantidad de kilómetros se repitió más veces. El valor que menos se repitió es el de menor frecuencia, el opuesto a la moda."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una empresa de construcción adquirió un terreno con medidas de 7x metros de ancho y 10x metros de largo, con el propósito de crear cuatro zonas de recreación divididas por senderos peatonales, como se observa en el plano de la figura.\n\nEl gerente del proyecto presenta el siguiente procedimiento para calcular el área de los senderos peatonales:\n\n¿Por qué es INCORRECTO el procedimiento presentado por el gerente del proyecto?",
+    "imagen": "s3p34e.png",
+    "componente": "Geometría",
+    "competencia": "Argumentación",
+    "nivel": "Avanzado",
+    "opciones": [
+      {
+        "descripcion": "Porque está sumando la expresión (2x)(6x).",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El terreno mide 10x por 7x: área total=70x². Las zonas son: Zona 1: 3x·4x=12x²; Zona 2: 6x·2x=12x²; Zona 3: 3x·2x=6x²; Zona 4: 6x·4x=24x². El área de los senderos es la del terreno menos la de las cuatro zonas: 70x²−54x²=16x². El gerente solo restó las zonas 1 y 2 [(3x)(4x)+(2x)(6x)], dejando por fuera las zonas 3 y 4. (2x)(6x) es el área de la zona 2, que sí debe restarse; sumarla dentro del corchete con la zona 1 es correcto, porque el corchete suma las áreas de las zonas."
+      },
+      {
+        "descripcion": "Porque falta restar el área de las zonas 3 y 4.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El terreno mide 10x por 7x: área total=70x². Las zonas son: Zona 1: 3x·4x=12x²; Zona 2: 6x·2x=12x²; Zona 3: 3x·2x=6x²; Zona 4: 6x·4x=24x². El área de los senderos es la del terreno menos la de las cuatro zonas: 70x²−54x²=16x². El gerente solo restó las zonas 1 y 2 [(3x)(4x)+(2x)(6x)], dejando por fuera las zonas 3 y 4. El procedimiento solo resta las zonas 1 y 2; falta restar las zonas 3 (6x²) y 4 (24x²)."
+      },
+      {
+        "descripcion": "Porque debe multiplicar por 2 la expresión contenida en paréntesis angulares.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El terreno mide 10x por 7x: área total=70x². Las zonas son: Zona 1: 3x·4x=12x²; Zona 2: 6x·2x=12x²; Zona 3: 3x·2x=6x²; Zona 4: 6x·4x=24x². El área de los senderos es la del terreno menos la de las cuatro zonas: 70x²−54x²=16x². El gerente solo restó las zonas 1 y 2 [(3x)(4x)+(2x)(6x)], dejando por fuera las zonas 3 y 4. Multiplicar por 2 la expresión del corchete daría 48x², que tampoco es el área de las cuatro zonas (54x²); no corrige el error."
+      },
+      {
+        "descripcion": "Porque la letra x representa el ancho del sendero y, por tanto, su área es x².",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El terreno mide 10x por 7x: área total=70x². Las zonas son: Zona 1: 3x·4x=12x²; Zona 2: 6x·2x=12x²; Zona 3: 3x·2x=6x²; Zona 4: 6x·4x=24x². El área de los senderos es la del terreno menos la de las cuatro zonas: 70x²−54x²=16x². El gerente solo restó las zonas 1 y 2 [(3x)(4x)+(2x)(6x)], dejando por fuera las zonas 3 y 4. El ancho x del sendero no interviene en el procedimiento del gerente; el área del sendero no se calcula como x², sino por diferencia entre el terreno y las zonas."
+      }
+    ]
+  },
+  {
+    "enunciado": "Las casas de Juan, María y Andrés se localizan formando un triángulo como el que muestra la figura.\n\nPara hallar la distancia entre la casa de María y Andrés, se plantean 4 opciones:\n\nOpción 1. Utilizar el teorema de Pitágoras.\n\nOpción 2. Aplicar el teorema del coseno.\n\nOpción 3. Aplicar el teorema del seno.\n\nOpción 4. Utilizar la desigualdad triangular.\n\n¿Cuál de las opciones planteadas es válida?",
+    "imagen": "s3p35e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "La opción 1, puesto que los datos proporcionados son los catetos, y estos permiten hallar la hipotenusa del triángulo.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conocen dos lados (12 m y 16 m) y el ángulo comprendido entre ellos (95°, en la casa de Juan): caso lado-ángulo-lado. Con él se aplica el teorema del coseno: d²=12²+16²−2·12·16·cos(95°). Pitágoras solo aplica a triángulos rectángulos, y el ángulo en Juan mide 95°, no 90°; además, 12 y 16 no serían catetos."
+      },
+      {
+        "descripcion": "La opción 2, puesto que conocer las medidas de dos lados y el ángulo generado entre estos permite usar el teorema del coseno.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Se conocen dos lados (12 m y 16 m) y el ángulo comprendido entre ellos (95°, en la casa de Juan): caso lado-ángulo-lado. Con él se aplica el teorema del coseno: d²=12²+16²−2·12·16·cos(95°). Con dos lados y el ángulo entre ellos se usa el teorema del coseno para hallar el tercer lado."
+      },
+      {
+        "descripcion": "La opción 3, puesto que para aplicar el teorema del seno basta tener cualquier ángulo del triángulo y las medidas de dos lados.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conocen dos lados (12 m y 16 m) y el ángulo comprendido entre ellos (95°, en la casa de Juan): caso lado-ángulo-lado. Con él se aplica el teorema del coseno: d²=12²+16²−2·12·16·cos(95°). El teorema del seno requiere un ángulo y el lado opuesto a ese ángulo; aquí el ángulo conocido (95°) está opuesto al lado desconocido, de modo que no se tiene ninguna pareja ángulo-lado opuesto completa."
+      },
+      {
+        "descripcion": "La opción 4, puesto que la desigualdad triangular permite conocer la distancia máxima posible entre la casa de Andrés y la de María.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Se conocen dos lados (12 m y 16 m) y el ángulo comprendido entre ellos (95°, en la casa de Juan): caso lado-ángulo-lado. Con él se aplica el teorema del coseno: d²=12²+16²−2·12·16·cos(95°). La desigualdad triangular solo da cotas (la distancia está entre 4 m y 28 m), no el valor exacto de la distancia."
+      }
+    ]
+  },
+  {
+    "enunciado": "El índice de precios al consumidor (IPC) permite establecer la variación de los precios más relevantes para los hogares. Cada año, se toma enero como mes base, con un IPC de 100, y el IPC de cada mes siguiente se calcula usando la proporción de los precios de ese mes respecto a los del mes base. La tabla muestra el valor del IPC para los primeros tres meses del año 2013.\n\nLa tabla muestra que el IPC aumentó cierto porcentaje de febrero a marzo. ¿Qué procedimiento permite calcular este porcentaje de incremento?",
+    "imagen": "s3p36e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Realizar la operación (100,8-100,4)/(100,4) y luego sumar 100.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El IPC pasó de 100,4 (febrero) a 100,8 (marzo). El porcentaje de incremento es la variación respecto al valor inicial: (100,8−100,4)/100,4 y luego ×100, es decir, aproximadamente 0,4%. Después de dividir por el valor inicial el resultado es una proporción (≈0,004); sumarle 100 da ≈100,004, que no es un porcentaje de cambio. Para pasar de proporción a porcentaje se multiplica por 100."
+      },
+      {
+        "descripcion": "Realizar la operación 100,8-100,4y luego Sumar 100.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El IPC pasó de 100,4 (febrero) a 100,8 (marzo). El porcentaje de incremento es la variación respecto al valor inicial: (100,8−100,4)/100,4 y luego ×100, es decir, aproximadamente 0,4%. Restar y sumar 100 da 100,4, que es solo el nuevo IPC desfasado, no un porcentaje de cambio."
+      },
+      {
+        "descripcion": "Realizar la operación 100,8-100,4 y luego multiplicar por 100.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El IPC pasó de 100,4 (febrero) a 100,8 (marzo). El porcentaje de incremento es la variación respecto al valor inicial: (100,8−100,4)/100,4 y luego ×100, es decir, aproximadamente 0,4%. 0,4×100=40: falta dividir entre el valor de referencia (100,4); sin eso se confunde la diferencia absoluta con el cambio relativo."
+      },
+      {
+        "descripcion": "Realizar la operación (100,8-100,4)/(100,4) y luego multiplicar por 100.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El IPC pasó de 100,4 (febrero) a 100,8 (marzo). El porcentaje de incremento es la variación respecto al valor inicial: (100,8−100,4)/100,4 y luego ×100, es decir, aproximadamente 0,4%. (100,8−100,4)/100,4 es el cambio relativo y multiplicarlo por 100 lo expresa en porcentaje."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una empresa se debe comprar regalos para todos los empleados de las áreas de producción, administración y ventas. La distribución de empleados por área se muestra en la gráfica.\n\nEl jefe de personal decide comprar los regalos de la siguiente manera: la mitad para producción, la cuarta parte para ventas y el resto para administración. ¿Cumple esta decisión con el criterio de dar regalos a todos los empleados de las tres áreas?",
+    "imagen": "s3p37e.png",
+    "componente": "Estadística",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "Si, porque a mayor cantidad de empleados en un área, más regalos hay.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según la gráfica, el 60% de los empleados está en producción, el 30% en administración y el 10% en ventas. El jefe reparte 50% de los regalos a producción, 25% a ventas y el resto (25%) a administración. Los porcentajes no coinciden con los de los empleados: producción tiene 60% de los empleados pero recibe 50% de los regalos, y ventas tiene 10% pero recibe 25%. Así, algunos empleados de producción quedarían sin regalo. Que a más empleados corresponda más regalos no basta: ventas tiene la menor cantidad de empleados pero recibe más regalos que administración, y producción no recibe regalos suficientes para todos sus empleados."
+      },
+      {
+        "descripcion": "Sí, porque hay un aumento proporcional en la cantidad de regalos comprados para cada área.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según la gráfica, el 60% de los empleados está en producción, el 30% en administración y el 10% en ventas. El jefe reparte 50% de los regalos a producción, 25% a ventas y el resto (25%) a administración. Los porcentajes no coinciden con los de los empleados: producción tiene 60% de los empleados pero recibe 50% de los regalos, y ventas tiene 10% pero recibe 25%. Así, algunos empleados de producción quedarían sin regalo. El aumento no es proporcional: los regalos (50%, 25%, 25%) no guardan la misma razón que los empleados (60%, 30%, 10%)."
+      },
+      {
+        "descripcion": "No, porque la cantidad de regalos debería mantener la proporción que tiene la distribución de los empleados.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Según la gráfica, el 60% de los empleados está en producción, el 30% en administración y el 10% en ventas. El jefe reparte 50% de los regalos a producción, 25% a ventas y el resto (25%) a administración. Los porcentajes no coinciden con los de los empleados: producción tiene 60% de los empleados pero recibe 50% de los regalos, y ventas tiene 10% pero recibe 25%. Así, algunos empleados de producción quedarían sin regalo. Para dar un regalo a cada empleado, los regalos deberían repartirse en la misma proporción que los empleados (60%, 30%, 10%)."
+      },
+      {
+        "descripcion": "No, porque se debió comprar proporciones iguales para cada área.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Según la gráfica, el 60% de los empleados está en producción, el 30% en administración y el 10% en ventas. El jefe reparte 50% de los regalos a producción, 25% a ventas y el resto (25%) a administración. Los porcentajes no coinciden con los de los empleados: producción tiene 60% de los empleados pero recibe 50% de los regalos, y ventas tiene 10% pero recibe 25%. Así, algunos empleados de producción quedarían sin regalo. Repartir proporciones iguales (un tercio a cada área) tampoco cumple el criterio: producción tendría menos regalos que empleados e igualmente quedarían empleados sin regalo."
+      }
+    ]
+  },
+  {
+    "enunciado": "En un torneo deportivo participan tres atletas que acumulan puntos durante cuatro intentos. El puntaje definitivo por atleta se obtiene al sumar los puntajes de los cuatro intentos. La información sobre los puntos obtenidos en cada intento aparece en la tabla.\n\nTeniendo en cuenta el resultado definitivo, ¿cuál de las siguientes opciones ordena a las atletas de mayor a menor puntaje?",
+    "imagen": "s3p38e.png",
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "Andrea, Catalina, Mariana.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Andrea: 4+1+1+3=9; Mariana: 3+2+4+2=11; Catalina: 2+3+4+4=13. El orden de mayor a menor puntaje es Catalina (13), Mariana (11) y Andrea (9). Ordena a Andrea (9 puntos) de primera cuando es la de menor puntaje; probablemente se guía por el puntaje del primer intento (4, el más alto)."
+      },
+      {
+        "descripcion": "Catalina, Andrea, Mariana.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Andrea: 4+1+1+3=9; Mariana: 3+2+4+2=11; Catalina: 2+3+4+4=13. El orden de mayor a menor puntaje es Catalina (13), Mariana (11) y Andrea (9). Coloca a Andrea (9) por encima de Mariana (11); intercambia la segunda y la tercera posición."
+      },
+      {
+        "descripcion": "Catalina, Mariana, Andrea.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Andrea: 4+1+1+3=9; Mariana: 3+2+4+2=11; Catalina: 2+3+4+4=13. El orden de mayor a menor puntaje es Catalina (13), Mariana (11) y Andrea (9). Catalina (13) > Mariana (11) > Andrea (9)."
+      },
+      {
+        "descripcion": "Mariana, Andrea, Catalina.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Andrea: 4+1+1+3=9; Mariana: 3+2+4+2=11; Catalina: 2+3+4+4=13. El orden de mayor a menor puntaje es Catalina (13), Mariana (11) y Andrea (9). Coloca a Mariana de primera (11 puntos), pero Catalina suma 13 y debería ir primero."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un profesor aplica un examen de 4 preguntas a un curso de 10 estudiantes. La tabla muestra el porcentaje de estudiantes que respondió correctamente cada pregunta del examen.\n\n¿Cuál de las siguientes graficas muestra exactamente la misma información de la tabla?",
+    "imagen": "s3p39e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": null,
+        "imagen": "s3p39a.png",
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da porcentajes de aciertos de cada pregunta: 70%, 80%, 40% y 70%. Cada porcentaje es independiente (suman 260%), por lo que un diagrama circular (que representa partes de un total del 100%) no es adecuado, y los datos deben aparecer como porcentajes, no como conteos. Es un diagrama circular que muestra cantidades (7, 8, 4, 7) en lugar de porcentajes, y además un círculo no es apropiado para porcentajes que no suman 100%."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p39b.png",
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da porcentajes de aciertos de cada pregunta: 70%, 80%, 40% y 70%. Cada porcentaje es independiente (suman 260%), por lo que un diagrama circular (que representa partes de un total del 100%) no es adecuado, y los datos deben aparecer como porcentajes, no como conteos. Las alturas (7, 8, 4, 7) representan estudiantes, no porcentajes, y el eje está rotulado \"(%)\" mientras llega hasta 9, lo que contradice la tabla."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p39c.png",
+        "esCorrecta": false,
+        "retroalimentacion": "La tabla da porcentajes de aciertos de cada pregunta: 70%, 80%, 40% y 70%. Cada porcentaje es independiente (suman 260%), por lo que un diagrama circular (que representa partes de un total del 100%) no es adecuado, y los datos deben aparecer como porcentajes, no como conteos. Es un diagrama circular y, además, la pregunta 4 aparece con 80% cuando en la tabla es 70%."
+      },
+      {
+        "descripcion": null,
+        "imagen": "s3p39d.png",
+        "esCorrecta": true,
+        "retroalimentacion": "La tabla da porcentajes de aciertos de cada pregunta: 70%, 80%, 40% y 70%. Cada porcentaje es independiente (suman 260%), por lo que un diagrama circular (que representa partes de un total del 100%) no es adecuado, y los datos deben aparecer como porcentajes, no como conteos. Las barras muestran 70%, 80%, 40% y 70% para las preguntas 1 a 4, con eje en porcentajes: coincide exactamente con la tabla."
+      }
+    ]
+  },
+  {
+    "enunciado": "Los siguientes resultados muestran el porcentaje, según la edad, de personas que respondió una encuesta de satisfacción sobre un producto en el mercado:\n\n17%, personas entre 21 y 25 años.\n\n13%, personas entre 26 y 30 años.\n\n23%, personas entre 31 y 35 años.\n\n20%, personas entre 36 y 40 años.\n\n27%, personas entre 41 y 45 años.\n\nSi al 100% de la encuesta se le resta el 17% y el 27%, ¿a qué medida corresponde el porcentaje obtenido?",
+    "imagen": null,
+    "componente": "Estadística",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "A las personas entre 21 y 45 años que contestaron la encuesta.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Restar del 100% los grupos de 21–25 años (17%) y de 41–45 años (27%) deja 100−17−27=56%, que corresponde a los grupos restantes: 26–30 (13%), 31–35 (23%) y 36–40 (20%), que suman 56%; es decir, personas entre 26 y 40 años. Las personas entre 21 y 45 años son todas las que respondieron (el 100%), no el 56%."
+      },
+      {
+        "descripcion": "A las personas mayores de 25 años que contestaron la encuesta.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Restar del 100% los grupos de 21–25 años (17%) y de 41–45 años (27%) deja 100−17−27=56%, que corresponde a los grupos restantes: 26–30 (13%), 31–35 (23%) y 36–40 (20%), que suman 56%; es decir, personas entre 26 y 40 años. Mayores de 25 años incluiría también al grupo de 41–45 (27%), que fue restado; sumarían 83%."
+      },
+      {
+        "descripcion": "A las personas menores de 41 años que contestaron la encuesta.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Restar del 100% los grupos de 21–25 años (17%) y de 41–45 años (27%) deja 100−17−27=56%, que corresponde a los grupos restantes: 26–30 (13%), 31–35 (23%) y 36–40 (20%), que suman 56%; es decir, personas entre 26 y 40 años. Menores de 41 años incluiría el grupo de 21–25 (17%), que fue restado; sumarían 73%."
+      },
+      {
+        "descripcion": "A las personas entre 26 y 40 años que contestaron la encuesta.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Restar del 100% los grupos de 21–25 años (17%) y de 41–45 años (27%) deja 100−17−27=56%, que corresponde a los grupos restantes: 26–30 (13%), 31–35 (23%) y 36–40 (20%), que suman 56%; es decir, personas entre 26 y 40 años. Al quitar los extremos (21–25 y 41–45) quedan los grupos de 26 a 40 años: 13%+23%+20%=56%."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una gimnasta entrena su rutina para el próximo torneo, en donde planea llevar a cabo una serie de saltos acrobáticos y, para esto, debe tener en cuenta las dimensiones del tapiz que se muestra en la figura. Ella sabe que la diagonal del tapiz tiene una medida de 10 m y que uno de los lados del tapiz mide 8 m.\n\n¿Cuál es la medida del otro lado del tapiz?",
+    "imagen": "s3p41e.png",
+    "componente": "Geometría",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "6 m",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "La diagonal de un rectángulo es la hipotenusa del triángulo rectángulo que forma con dos lados: 10²=8²+x², entonces x²=100−64=36 y x=6 m. x=√(10²−8²)=√36=6 m."
+      },
+      {
+        "descripcion": "2 m",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La diagonal de un rectángulo es la hipotenusa del triángulo rectángulo que forma con dos lados: 10²=8²+x², entonces x²=100−64=36 y x=6 m. 2 m resulta de restar directamente 10−8, tratando las longitudes como si fueran una resta de segmentos, sin usar Pitágoras."
+      },
+      {
+        "descripcion": "18 m",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La diagonal de un rectángulo es la hipotenusa del triángulo rectángulo que forma con dos lados: 10²=8²+x², entonces x²=100−64=36 y x=6 m. 18 m resulta de sumar 10+8: se ignora la relación entre diagonal y lados."
+      },
+      {
+        "descripcion": "9 m",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "La diagonal de un rectángulo es la hipotenusa del triángulo rectángulo que forma con dos lados: 10²=8²+x², entonces x²=100−64=36 y x=6 m. 9 m no corresponde a ningún cálculo coherente con los datos; no satisface 8²+9²=145≠100."
+      }
+    ]
+  },
+  {
+    "enunciado": "Un ciclista, para evaluar su rendimiento, sabe que con cada pedaleo su bicicleta avanza 4 metros. Si en su ruta de entrenamiento la primera referencia de la distancia recorrida la tiene a los 52 metros del punto de partida, ¿cuál expresión permite determinar, respecto al punto de partida, la cantidad de metros recorridos al dar n pedaleos después del punto de referencia?",
+    "imagen": null,
+    "componente": "Álgebra y cálculo",
+    "competencia": "Formulación y ejecución",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "4n",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ciclista parte de una referencia ubicada a 52 m del punto de partida y, por cada pedaleo, avanza 4 m más. Tras n pedaleos desde la referencia, la distancia recorrida desde la partida es 52+4n. 4n solo cuenta los metros recorridos desde el punto de referencia; falta sumar los 52 m previos."
+      },
+      {
+        "descripcion": "4n – 52",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ciclista parte de una referencia ubicada a 52 m del punto de partida y, por cada pedaleo, avanza 4 m más. Tras n pedaleos desde la referencia, la distancia recorrida desde la partida es 52+4n. 4n−52 resta los 52 metros en lugar de sumarlos; sería la distancia que falta para llegar a la referencia si se estuviera antes de ella."
+      },
+      {
+        "descripcion": "4 × 52n",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "El ciclista parte de una referencia ubicada a 52 m del punto de partida y, por cada pedaleo, avanza 4 m más. Tras n pedaleos desde la referencia, la distancia recorrida desde la partida es 52+4n. 4×52n multiplica el avance por 52 y por n, una expresión sin significado en la situación."
+      },
+      {
+        "descripcion": "52 + 4n",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "El ciclista parte de una referencia ubicada a 52 m del punto de partida y, por cada pedaleo, avanza 4 m más. Tras n pedaleos desde la referencia, la distancia recorrida desde la partida es 52+4n. 52 m (distancia inicial) + 4n m (avance por n pedaleos)."
+      }
+    ]
+  },
+  {
+    "enunciado": "Una prueba atlética de 10.000 metros planos fue completada por Fernando en un tiempo de 25 minutos; su entrenador le informa que su tiempo mejoró un 15% respecto al año pasado, pero Fernando no recuerda cuál fue su tiempo en esa prueba. Con el fin de encontrarlo, efectúa el siguiente cálculo:\n\nFernando encuentra entonces que su tiempo de carrera el año pasado fue 28,75 minutos. El cálculo de Fernando en incorrecto, debido a que",
+    "imagen": "s3p43e.png",
+    "componente": "Álgebra y cálculo",
+    "competencia": "Argumentación",
+    "nivel": "Intermedio",
+    "opciones": [
+      {
+        "descripcion": "calcula mal el porcentaje de 15% al realizarlo sin divisiones.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si el tiempo mejoró un 15% respecto al año pasado, el 15% se calcula sobre el tiempo del año pasado, que es el que no se conoce. Los 25 minutos de este año son el 85% de ese tiempo: 0,85×T=25, entonces T=25÷0,85≈29,41 minutos. Fernando sacó el 15% de 25, que es el tiempo de este año, y por eso le dio 28,75. Se puede comprobar: con 28,75 minutos el año pasado y una mejora del 15%, este año habría hecho 28,75×0,85≈24,44 minutos, no 25. Multiplicar por 0,15 es una forma válida de sacar el 15%, y 25×0,15 sí da 3,75. El error no está en la operación sino en la cantidad sobre la que se calcula el porcentaje."
+      },
+      {
+        "descripcion": "suma el valor obtenido, pero debe restarlo porque el tiempo de la prueba disminuyó.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si el tiempo mejoró un 15% respecto al año pasado, el 15% se calcula sobre el tiempo del año pasado, que es el que no se conoce. Los 25 minutos de este año son el 85% de ese tiempo: 0,85×T=25, entonces T=25÷0,85≈29,41 minutos. Fernando sacó el 15% de 25, que es el tiempo de este año, y por eso le dio 28,75. Se puede comprobar: con 28,75 minutos el año pasado y una mejora del 15%, este año habría hecho 28,75×0,85≈24,44 minutos, no 25. Sumar estaba bien, porque el año pasado Fernando tardó más. Si restara, le daría 25−3,75=21,25 minutos, un tiempo menor que el de este año, y eso contradice que haya mejorado."
+      },
+      {
+        "descripcion": "el cambio del 15% es respecto al tiempo del año pasado.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Si el tiempo mejoró un 15% respecto al año pasado, el 15% se calcula sobre el tiempo del año pasado, que es el que no se conoce. Los 25 minutos de este año son el 85% de ese tiempo: 0,85×T=25, entonces T=25÷0,85≈29,41 minutos. Fernando sacó el 15% de 25, que es el tiempo de este año, y por eso le dio 28,75. Se puede comprobar: con 28,75 minutos el año pasado y una mejora del 15%, este año habría hecho 28,75×0,85≈24,44 minutos, no 25. El 15% de mejora se mide sobre el tiempo del año pasado, no sobre los 25 minutos de este año. Por eso no basta con sumarle a 25 su 15%. Hay que plantear 0,85×T=25 y despejar T, lo que da cerca de 29,41 minutos."
+      },
+      {
+        "descripcion": "debe encontrar un valor que corresponda al 115% de 25.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Si el tiempo mejoró un 15% respecto al año pasado, el 15% se calcula sobre el tiempo del año pasado, que es el que no se conoce. Los 25 minutos de este año son el 85% de ese tiempo: 0,85×T=25, entonces T=25÷0,85≈29,41 minutos. Fernando sacó el 15% de 25, que es el tiempo de este año, y por eso le dio 28,75. Se puede comprobar: con 28,75 minutos el año pasado y una mejora del 15%, este año habría hecho 28,75×0,85≈24,44 minutos, no 25. 28,75 ya es el 115% de 25, que es justo lo que calculó Fernando. Buscar ese valor es repetir el mismo error, porque el porcentaje debe tomarse sobre el tiempo del año pasado."
+      }
+    ]
+  },
+  {
+    "enunciado": "En una tienda de venta de computadores, los precios dependen de la cantidad solicitada. La tabla muestra los precios por computador para diferentes pedidos.\n\nRespecto a la relación entre la cantidad y el precio, es correcto afirmar que",
+    "imagen": "s3p44e.png",
+    "componente": "Estadística",
+    "competencia": "Interpretación y representación",
+    "nivel": "Básico",
+    "opciones": [
+      {
+        "descripcion": "a mayor cantidad en el pedido, menor precio por computador.",
+        "imagen": null,
+        "esCorrecta": true,
+        "retroalimentacion": "Los precios por computador son: $1.900.000 (5 a 9 unidades), $1.700.000 (10 a 15), $1.600.000 (16 a 25) y $1.550.000 (26 o más). Al aumentar la cantidad del pedido el precio unitario siempre disminuye, pero las disminuciones son distintas: $200.000, $100.000 y $50.000. En las cuatro categorías, a mayor cantidad en el pedido corresponde un menor precio por computador."
+      },
+      {
+        "descripcion": "el precio por computador disminuye $200.000 por cada categoría.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los precios por computador son: $1.900.000 (5 a 9 unidades), $1.700.000 (10 a 15), $1.600.000 (16 a 25) y $1.550.000 (26 o más). Al aumentar la cantidad del pedido el precio unitario siempre disminuye, pero las disminuciones son distintas: $200.000, $100.000 y $50.000. El precio no disminuye $200.000 en cada categoría: baja $200.000, luego $100.000 y luego $50.000."
+      },
+      {
+        "descripcion": "el precio por computador se mantiene sin importar la cantidad del pedido.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los precios por computador son: $1.900.000 (5 a 9 unidades), $1.700.000 (10 a 15), $1.600.000 (16 a 25) y $1.550.000 (26 o más). Al aumentar la cantidad del pedido el precio unitario siempre disminuye, pero las disminuciones son distintas: $200.000, $100.000 y $50.000. El precio por computador sí cambia con la cantidad: es distinto en cada categoría."
+      },
+      {
+        "descripcion": "a mayor cantidad en el pedido, mayor precio unitario por cada computador.",
+        "imagen": null,
+        "esCorrecta": false,
+        "retroalimentacion": "Los precios por computador son: $1.900.000 (5 a 9 unidades), $1.700.000 (10 a 15), $1.600.000 (16 a 25) y $1.550.000 (26 o más). Al aumentar la cantidad del pedido el precio unitario siempre disminuye, pero las disminuciones son distintas: $200.000, $100.000 y $50.000. Afirma lo contrario de lo que muestra la tabla: el precio unitario disminuye, no aumenta, con pedidos mayores."
+      }
+    ]
+  }
+]

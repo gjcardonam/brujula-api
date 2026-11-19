@@ -42,7 +42,7 @@ public class DatosDeEjemplo implements ApplicationRunner {
     private static final String CORREO_DE_PRUEBA = "estudiante@brujula.local";
     private static final String CLAVE_DE_PRUEBA = "Estudiante.2026";
     static final List<String> ARCHIVOS = List.of("datos-ejemplo/ejercicios.json",
-            "datos-ejemplo/simulacro-2.json");
+            "datos-ejemplo/simulacro-2.json", "datos-ejemplo/simulacro-3.json");
     private static final String CARPETA_IMAGENES = "datos-ejemplo/imagenes/";
 
     public record EjercicioJson(String enunciado, String imagen, String componente, String competencia,
